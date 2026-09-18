@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maxnova-luci-global.vercel.app/sitemap.xml
