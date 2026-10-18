@@ -1,0 +1,22 @@
+# Maxnova & Luci Global
+
+> MAXNOVA & LUCI GLOBAL LLC is a Florida limited liability company that builds and operates software products, and offers consulting based on that experience. It also operates from Chile.
+
+## Operating companies
+- [DypOS](https://www.dypos.app): software for restaurants (point of sale, kitchen, inventory, monthly P&L). Live, Latin America.
+- [MOY IQ](https://moyiq.app): personal finance app with an IQ Score from 0 to 100; no bank login required. Live, United States and Latin America.
+- [Esmalia](https://esmalia.com): software for dental clinics (WhatsApp appointment confirmations, patient chart, odontogram). Live in Chile, Peru, Mexico, Colombia and Argentina.
+- Amazon FBA: Seller Central Professional account selling in the United States. Active.
+- A healthcare practice product is in development and not yet public.
+
+## Consulting services
+Quoted per project after a diagnostic call; no public prices.
+- AI software and SaaS development
+- US market entry: Florida LLC, US banking, Stripe and platform accounts
+- Amazon FBA and e-commerce
+- Telecom and sourcing from China
+
+## Contact
+- Email: maxnovaluciglobal@gmail.com
+- Contact form: https://maxnova-luci-global.vercel.app/#contact
+- Spanish version: https://maxnova-luci-global.vercel.app/es/

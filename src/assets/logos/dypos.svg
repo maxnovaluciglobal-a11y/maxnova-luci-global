@@ -1,0 +1,10 @@
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="DypOS">
+  <!-- 11-sep-2026: gradiente verde-negro (#1B2124->#0C1310) -> marrón sólido
+       #0F0B08, el mismo pigmento único que ya unifica sidebar/login/employee
+       (ver dypos_color_wash_translucido_unificacion). El glifo "D" se
+       mantiene en verde de marca a propósito (confirmado con Walter). -->
+  <rect width="512" height="512" rx="120" fill="#0F0B08"/>
+  <g transform="translate(-4,0)">
+    <path fill="#6FC0AC" fill-rule="evenodd" d="M150,116 H268 C332,116 380,180 380,256 C380,332 332,396 268,396 H150 Z M214,180 H262 C300,180 316,214 316,256 C316,298 300,332 262,332 H214 Z"/>
+  </g>
+</svg>

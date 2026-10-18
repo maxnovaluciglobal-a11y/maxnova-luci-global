@@ -1,11 +1,15 @@
-// Vercel serverless function — receives the contact form and sends it via
-// Resend. Needs RESEND_API_KEY set in the Vercel project's env vars (same
-// provider already used by financeospro.com/moyiq.app). Without that key
-// configured, this returns 500 and the form's own JS falls back to mailto,
-// so the form never dead-ends either way.
+// Vercel serverless function — receives the contact form and sends it via Resend.
+// Env vars (set in the Vercel dashboard, never in the repo):
+//   RESEND_API_KEY       required
+//   CONTACT_TO_EMAIL     optional, defaults to the company Gmail
+//   CONTACT_FROM_EMAIL   optional; until a domain is verified in Resend, onboarding@resend.dev
+//                        only delivers to the email that owns the Resend account.
+// JS clients post JSON and get JSON back. Without JS the browser posts a regular form and
+// is redirected to /sent/ (or /es/sent/) on success, or back to the form on failure.
 
 const TO_EMAIL = process.env.CONTACT_TO_EMAIL || 'maxnovaluciglobal@gmail.com';
-const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL || 'MAXNOVA & Luci Global <onboarding@resend.dev>';
+const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL || 'Maxnova & Luci Global <onboarding@resend.dev>';
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function escapeHtml(str) {
   return String(str)
@@ -15,65 +19,71 @@ function escapeHtml(str) {
     .replace(/"/g, '&quot;');
 }
 
-module.exports = async function handler(req, res) {
+function field(body, key, max) {
+  return (body?.[key] ?? '').toString().trim().slice(0, max);
+}
+
+export default async function handler(req, res) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  const wantsJson = (req.headers['content-type'] || '').includes('application/json');
+  const body = req.body || {};
+  const lang = field(body, 'lang', 2) === 'es' ? 'es' : 'en';
+  const reply = (ok, status, error) => {
+    if (wantsJson) return res.status(status).json(ok ? { ok: true } : { error });
+    const base = lang === 'es' ? '/es/' : '/';
+    res.setHeader('Location', ok ? `${base}sent/` : `${base}#contact`);
+    return res.status(303).end();
+  };
+
+  if (field(body, '_gotcha', 200)) return reply(true, 200); // honeypot filled: pretend success
+
+  const name = field(body, 'name', 120);
+  const company = field(body, 'company', 160);
+  const email = field(body, 'email', 200);
+  const service = field(body, 'service', 120);
+  const message = field(body, 'message', 5000);
+
+  if (!name || !EMAIL_RE.test(email) || !message) return reply(false, 400, 'Missing required fields.');
+
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    return res.status(500).json({ error: 'Contact form is not configured yet.' });
-  }
-
-  if ((req.body?._gotcha || '').toString().trim()) {
-    // Honeypot field filled in — silently pretend success, don't email it.
-    return res.status(200).json({ ok: true });
-  }
-
-  const name = (req.body?.name || '').toString().trim();
-  const company = (req.body?.company || '').toString().trim();
-  const email = (req.body?.email || '').toString().trim();
-  const service = (req.body?.service || '').toString().trim();
-  const message = (req.body?.message || '').toString().trim();
-
-  if (!name || !email || !message) {
-    return res.status(400).json({ error: 'Missing required fields.' });
+    console.error('Contact form: RESEND_API_KEY is not set');
+    return reply(false, 500, 'Contact form is not configured yet.');
   }
 
   const html = `
     <p><strong>Name:</strong> ${escapeHtml(name)}</p>
     <p><strong>Company:</strong> ${escapeHtml(company || '—')}</p>
     <p><strong>Email:</strong> ${escapeHtml(email)}</p>
-    <p><strong>Area of interest:</strong> ${escapeHtml(service || '—')}</p>
+    <p><strong>Topic:</strong> ${escapeHtml(service || '—')}</p>
+    <p><strong>Page language:</strong> ${lang}</p>
     <p><strong>Message:</strong><br>${escapeHtml(message).replace(/\n/g, '<br>')}</p>
   `;
 
   try {
     const resendRes = await fetch('https://api.resend.com/emails', {
       method: 'POST',
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        'Content-Type': 'application/json'
-      },
+      headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({
         from: FROM_EMAIL,
         to: [TO_EMAIL],
         reply_to: email,
-        subject: `New inquiry — MAXNOVA & Luci Global (${name})`,
-        html
-      })
+        subject: `New inquiry — Maxnova & Luci Global (${name})`,
+        html,
+      }),
     });
 
     if (!resendRes.ok) {
-      const detail = await resendRes.text();
-      console.error('Resend error:', resendRes.status, detail);
-      return res.status(502).json({ error: 'Could not send message.' });
+      console.error('Resend error:', resendRes.status, await resendRes.text());
+      return reply(false, 502, 'Could not send message.');
     }
-
-    return res.status(200).json({ ok: true });
+    return reply(true, 200);
   } catch (err) {
     console.error('Contact form error:', err);
-    return res.status(500).json({ error: 'Unexpected error.' });
+    return reply(false, 500, 'Unexpected error.');
   }
-};
+}

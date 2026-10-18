@@ -1,0 +1,8 @@
+---
+import Base from '../../layouts/Base.astro';
+import Home from '../../components/Home.astro';
+import { schema } from '../../components/schema';
+import { copy } from '../../i18n/content';
+const t = copy.es;
+---
+<Base t={t} jsonLd={schema(t)}><Home t={t} /></Base>

@@ -1,0 +1,299 @@
+---
+import { Picture } from 'astro:assets';
+import Arrow from './Arrow.astro';
+import { holdings, CONTACT_EMAIL, LEGAL_NAME, type Copy } from '../i18n/content';
+
+import dyposLogo from '../assets/logos/dypos.svg';
+import moyiqLogo from '../assets/logos/moyiq.svg';
+import esmaliaLogo from '../assets/logos/esmalia.svg';
+import dyposShot from '../assets/shots/dypos.png';
+import moyiqEn from '../assets/shots/moyiq-en.png';
+import moyiqEs from '../assets/shots/moyiq-es.png';
+import esmaliaShot from '../assets/shots/esmalia.png';
+
+interface Props { t: Copy }
+const { t } = Astro.props;
+const year = new Date().getFullYear();
+
+const logos = { dypos: dyposLogo, moyiq: moyiqLogo, esmalia: esmaliaLogo };
+const shots = { dypos: dyposShot, moyiq: t.lang === 'es' ? moyiqEs : moyiqEn, esmalia: esmaliaShot };
+const formAction = '/api/contact';
+---
+
+<a class="skip" href="#main">{t.skip}</a>
+
+<header class="cover" id="top">
+  <div class="wrap cover__bar">
+    <a class="brand" href={t.path} aria-label={`Maxnova & Luci Global — ${t.nav.label}`}>
+      <img src="/logo-mark.svg" alt="" width="34" height="29" class="brand__mark" />
+      <span class="brand__name">Maxnova &amp; Luci Global</span>
+    </a>
+    <nav class="topnav" aria-label={t.nav.label}>
+      <a href="#portfolio">{t.nav.portfolio}</a>
+      <a href="#services">{t.nav.services}</a>
+      <a href="#company">{t.nav.company}</a>
+      <a href={t.altPath} hreflang={t.lang === 'en' ? 'es' : 'en'} lang={t.lang === 'en' ? 'es' : 'en'}>
+        <span aria-hidden="true">{t.altShort}</span><span class="sr">{t.altLabel}</span>
+      </a>
+      <a class="btn btn--paper btn--sm" href="#contact">{t.nav.cta}</a>
+    </nav>
+  </div>
+
+  <div class="wrap cover__body" id="main" tabindex="-1">
+    <div class="cover__claim">
+      <h1>{t.cover.h1}</h1>
+      <p class="cover__lead">{t.cover.lead}</p>
+      <div class="cover__actions">
+        <a class="btn btn--paper" href="#contact">{t.cover.primary}<Arrow /></a>
+        <a class="textlink textlink--paper" href="#portfolio">{t.cover.secondary}<Arrow down /></a>
+      </div>
+    </div>
+
+    <section class="schedule" aria-labelledby="schedule-title">
+      <h2 id="schedule-title" class="schedule__title">{t.cover.scheduleTitle}</h2>
+      <table>
+        <thead>
+          <tr><th scope="col">{t.cover.cols.company}</th><th scope="col">{t.cover.cols.sector}</th><th scope="col">{t.cover.cols.status}</th></tr>
+        </thead>
+        <tbody>
+          {holdings.map((h) => (
+            <tr>
+              <th scope="row"><a href={`#${h.id}`}>{h.name}</a></th>
+              <td>{h.sector[t.lang]}</td>
+              <td><span class={`mark mark--${h.status}`} aria-hidden="true"></span>{t.status[h.status]}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
+  </div>
+</header>
+
+<main>
+  <section class="section portfolio" id="portfolio" aria-labelledby="portfolio-title">
+    <div class="wrap">
+      <div class="section__head">
+        <h2 id="portfolio-title">{t.portfolio.h2}</h2>
+        <p class="section__intro">{t.portfolio.intro}</p>
+      </div>
+
+      <div class="portfolio__grid">
+        <nav class="ledger" aria-label={t.portfolio.indexLabel}>
+          <ol>
+            {holdings.map((h) => (
+              <li><a href={`#${h.id}`} data-ledger={h.id}>
+                <span class={`mark mark--${h.status} mark--ink`} aria-hidden="true"></span>
+                <span class="ledger__name">{h.name}</span>
+                <span class="ledger__sector">{h.sector[t.lang]}</span>
+              </a></li>
+            ))}
+          </ol>
+        </nav>
+
+        <div class="holdings">
+          {holdings.map((h) => (
+            <article class={`holding holding--${h.status}`} id={h.id} aria-labelledby={`${h.id}-name`}>
+              <header class="holding__head">
+                {h.logo && <img class="holding__logo" src={logos[h.logo].src} alt="" width="40" height="40" loading="lazy" />}
+                <h3 id={`${h.id}-name`}>{h.name}</h3>
+                <p class="holding__status"><span class={`mark mark--${h.status} mark--ink`} aria-hidden="true"></span>{t.status[h.status]}</p>
+              </header>
+              <dl class="holding__facts">
+                <div><dt>{t.cover.cols.sector}</dt><dd>{h.sector[t.lang]}</dd></div>
+                <div><dt>{t.portfolio.market}</dt><dd>{h.market[t.lang]}</dd></div>
+                {h.url && (
+                  <div class="holding__link"><dt class="sr">URL</dt><dd>
+                    <a class="textlink" href={h.url} target="_blank" rel="noopener" data-outbound={h.id}>
+                      {t.portfolio.open} {h.urlLabel}<Arrow out />
+                    </a>
+                  </dd></div>
+                )}
+              </dl>
+              <p class="holding__summary">{h.summary[t.lang]}</p>
+              {h.shot && (
+                <figure class="frame">
+                  <div class="frame__bar" aria-hidden="true"><span></span><span></span><span></span><em>{h.urlLabel}</em></div>
+                  <div class="frame__view">
+                    <Picture
+                      src={shots[h.shot]}
+                      formats={["avif", "webp"]}
+                      fallbackFormat="jpg"
+                      widths={[720, 1080, 1440]}
+                      sizes="(min-width: 1100px) 760px, 92vw"
+                      alt={t.portfolio.shotAlt(h.name)}
+                      loading="lazy"
+                      decoding="async"
+                      class="frame__img"
+                    />
+                  </div>
+                </figure>
+              )}
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services" id="services" aria-labelledby="services-title">
+    <div class="wrap">
+      <div class="section__head">
+        <h2 id="services-title">{t.services.h2}</h2>
+        <p class="section__intro">{t.services.intro}</p>
+      </div>
+      <dl class="services__list">
+        {t.services.items.map((s) => (
+          <div class="service">
+            <dt>{s.title}</dt>
+            <dd><p class="service__who">{s.who}</p><p>{s.what}</p></dd>
+          </div>
+        ))}
+      </dl>
+      <p class="services__cta"><a class="btn btn--ink" href="#contact">{t.services.cta}<Arrow /></a></p>
+
+      <div class="process">
+        <h3 class="process__title">{t.process.h2}</h3>
+        <ol class="process__steps">
+          {t.process.steps.map((s, i) => (
+            <li><span class="process__n" aria-hidden="true">{i + 1}</span><strong>{s.title}</strong><p>{s.text}</p></li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section letter" aria-labelledby="letter-title">
+    <div class="wrap letter__wrap">
+      <h2 id="letter-title" class="letter__title">{t.letter.h2}</h2>
+      <div class="letter__body">
+        {t.letter.body.map((p) => <p>{p}</p>)}
+        <p class="letter__sign"><span class="letter__name">{t.letter.name}</span><span>{t.letter.role}, {LEGAL_NAME}</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section company" id="company" aria-labelledby="company-title">
+    <div class="wrap company__wrap">
+      <h2 id="company-title">{t.company.h2}</h2>
+      <dl class="company__rows">
+        {t.company.rows.map((r) => (
+          <div><dt>{r.k}</dt><dd>{r.href ? <a href={r.href}>{r.v}</a> : r.v}</dd></div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <section class="section faq" aria-labelledby="faq-title">
+    <div class="wrap faq__wrap">
+      <h2 id="faq-title">{t.faq.h2}</h2>
+      <div class="faq__list">
+        {t.faq.items.map((f) => (
+          <details>
+            <summary><h3>{f.q}</h3><span class="faq__plus" aria-hidden="true"></span></summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact" aria-labelledby="contact-title">
+    <div class="wrap contact__wrap">
+      <div class="contact__head">
+        <h2 id="contact-title">{t.contact.h2}</h2>
+        <p>{t.contact.intro}</p>
+        <p class="contact__mail"><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
+      </div>
+      <form class="form" method="post" action={formAction} data-contact
+        data-sending={t.contact.sending} data-sent={t.contact.sent} data-invalid={t.contact.invalid}
+        data-error={`${t.contact.error} ${CONTACT_EMAIL}.`}>
+        <input type="hidden" name="lang" value={t.lang} />
+        <div class="form__trap" aria-hidden="true">
+          <label>Leave empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label>
+        </div>
+        <div class="form__row">
+          <label class="field"><span>{t.contact.fields.name}</span>
+            <input type="text" name="name" required autocomplete="name" maxlength="120" /></label>
+          <label class="field"><span>{t.contact.fields.email}</span>
+            <input type="email" name="email" required autocomplete="email" maxlength="200" /></label>
+        </div>
+        <div class="form__row">
+          <label class="field"><span>{t.contact.fields.company} <i>({t.contact.fields.optional})</i></span>
+            <input type="text" name="company" autocomplete="organization" maxlength="160" /></label>
+          <label class="field"><span>{t.contact.fields.topic}</span>
+            <select name="service">
+              {t.contact.topics.map((o) => <option>{o}</option>)}
+            </select></label>
+        </div>
+        <label class="field"><span>{t.contact.fields.message}</span>
+          <textarea name="message" required rows="6" maxlength="5000"></textarea></label>
+        <div class="form__foot">
+          <button class="btn btn--ink" type="submit">{t.contact.submit}<Arrow /></button>
+          <p class="form__status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__wrap">
+    <p class="footer__brand"><img src="/logo-mark.svg" alt="" width="26" height="22" /> {LEGAL_NAME}</p>
+    <p>{t.footer.talent} <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
+    <p class="footer__meta">© {year} {LEGAL_NAME}. {t.footer.rights} · <a href={t.altPath} hreflang={t.lang === 'en' ? 'es' : 'en'}>{t.altLabel}</a></p>
+  </div>
+</footer>
+
+<script>
+  // Signature: the ledger marks the holding in view. Enhancement only; links work without it.
+  const links = new Map<string, HTMLElement>();
+  document.querySelectorAll<HTMLElement>('[data-ledger]').forEach((a) => links.set(a.dataset.ledger!, a));
+  if (links.size && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        links.forEach((a) => a.removeAttribute('aria-current'));
+        links.get(e.target.id)?.setAttribute('aria-current', 'true');
+      }
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    document.querySelectorAll('.holding').forEach((el) => io.observe(el));
+  }
+
+  // Contact form: send as JSON, show success only after the API answers 200.
+  const form = document.querySelector<HTMLFormElement>('[data-contact]');
+  if (form) {
+    const status = form.querySelector<HTMLElement>('.form__status')!;
+    const button = form.querySelector<HTMLButtonElement>('button[type=submit]')!;
+    const label = button.innerHTML;
+    form.addEventListener('submit', async (ev) => {
+      ev.preventDefault();
+      if (!form.checkValidity()) {
+        status.textContent = form.dataset.invalid!;
+        status.dataset.state = 'error';
+        form.reportValidity();
+        return;
+      }
+      button.disabled = true;
+      button.textContent = form.dataset.sending!;
+      status.textContent = '';
+      delete status.dataset.state;
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(Object.fromEntries(new FormData(form))),
+        });
+        if (!res.ok) throw new Error(String(res.status));
+        form.reset();
+        status.textContent = form.dataset.sent!;
+        status.dataset.state = 'ok';
+      } catch {
+        status.textContent = form.dataset.error!;
+        status.dataset.state = 'error';
+      } finally {
+        button.disabled = false;
+        button.innerHTML = label;
+      }
+    });
+  }
+</script>
