@@ -130,11 +130,13 @@ a:hover { color: var(--glyph); }
 .departures th, .departures td { padding: 0; text-align: left; font-weight: 400; }
 .module {
   position: relative; display: flex; align-items: center; min-height: 2.6rem; padding: 0.5rem 0.85rem;
-  background: linear-gradient(var(--module-hi) 0 calc(50% - 0.5px), var(--seam) calc(50% - 0.5px) calc(50% + 0.5px), var(--module) calc(50% + 0.5px) 100%);
+  background: linear-gradient(var(--module-hi) 0 50%, var(--module) 50% 100%);
+  isolation: isolate;
   font: 500 var(--step-0) / 1.1 var(--font-board); text-transform: uppercase; letter-spacing: 0.04em; color: var(--text);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   transition: background 200ms var(--ease);
 }
+.module::after, .route dt::after { content: ''; position: absolute; z-index: -1; left: 0; right: 0; top: 50%; height: 1px; transform: translateY(-50%); background: var(--seam); }
 .module--name { font-weight: 600; color: var(--glyph); font-size: var(--step-1); }
 /* flap names inside a module: tiles sit flush, the module is the board slot */
 .flap--inline .flap__tiles { column-gap: 0.3em; row-gap: 0; flex-wrap: nowrap; }
@@ -145,7 +147,7 @@ a:hover { color: var(--glyph); }
 .is-lit .module--status { color: var(--glyph); }
 .departures tbody th a { text-decoration: none; display: block; }
 .departures tbody th a::before { content: ''; position: absolute; inset: 0; z-index: 1; }
-.departures tbody tr:hover .module { background: linear-gradient(var(--module-hover) 0 calc(50% - 0.5px), var(--seam) calc(50% - 0.5px) calc(50% + 0.5px), var(--module-hi) calc(50% + 0.5px) 100%); }
+.departures tbody tr:hover .module { background: linear-gradient(var(--module-hover) 0 50%, var(--module-hi) 50% 100%); }
 .departures tbody tr:has(a:focus-visible) { outline: 2px solid var(--amber); outline-offset: 2px; }
 .departures tbody th a:focus-visible { outline: none; }
 
@@ -183,7 +185,7 @@ a:hover { color: var(--glyph); }
 .routes { display: grid; gap: 4px; }
 .route { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 4px; }
 .route dt, .route dd { padding: 1.2rem 1.3rem; }
-.route dt { font: 600 var(--step-2) / 1.1 var(--font-board); text-transform: uppercase; letter-spacing: 0.02em; color: var(--glyph); background: linear-gradient(var(--module-hi) 0 calc(50% - 0.5px), var(--seam) calc(50% - 0.5px) calc(50% + 0.5px), var(--module) calc(50% + 0.5px) 100%); display: flex; align-items: center; }
+.route dt { font: 600 var(--step-2) / 1.1 var(--font-board); text-transform: uppercase; letter-spacing: 0.02em; color: var(--glyph); background: linear-gradient(var(--module-hi) 0 50%, var(--module) 50% 100%); display: flex; align-items: center; position: relative; isolation: isolate; }
 .route dd { background: var(--board-2); }
 .route dd { display: grid; gap: 0.5rem; align-content: center; }
 .route dd p { max-width: 62ch; }
@@ -243,7 +245,7 @@ a:hover { color: var(--glyph); }
   background: var(--module); border: 1px solid transparent; border-bottom-color: #3a3d43; border-radius: 0;
   padding: 0.8rem 0.9rem; transition: border-color 160ms var(--ease), background 160ms var(--ease);
 }
-.field select { appearance: none; background: var(--module) linear-gradient(45deg, transparent 50%, var(--muted) 50%) right 1.1rem center / 6px 6px no-repeat; padding-right: 2.2rem; }
+.field select { appearance: none; background: var(--module) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 6l5 5 5-5' fill='none' stroke='%23ece8df' stroke-width='1.8'/%3E%3C/svg%3E") right 0.9rem center / 14px 14px no-repeat; padding-right: 2.6rem; }
 .field select:invalid { color: var(--muted); }
 .field select option { color: var(--paper-ink); background: var(--paper); }
 .field textarea { resize: vertical; min-height: 9rem; }
