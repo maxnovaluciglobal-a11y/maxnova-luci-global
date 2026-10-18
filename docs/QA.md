@@ -20,7 +20,7 @@ Best practices < 100 only because `/_vercel/insights/script.js` 404s locally (it
 - [x] One H1 per page; title, description, canonical, hreflang en/es/x-default, OG 1200×630 per language.
 - [x] JSON-LD Organization, WebSite and FAQPage built from the same content as the visible page.
 - [x] Impeccable detector: no findings.
-- [ ] Contact form end to end: pending `RESEND_API_KEY` in Vercel (Walter). Test on the preview after it is set. **Merge gate.**
+- [x] Contact form end to end on the preview (2026-10-18): API 200, email received in maxnovaluciglobal@gmail.com (Gmail "Updates" tab). Uses the DypOS send-only Resend key for now.
 - [ ] Keyboard pass and zoom 200 % on the deployed preview.
 - [ ] 768 px tablet capture.
 
