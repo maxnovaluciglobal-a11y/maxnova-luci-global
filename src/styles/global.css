@@ -4,7 +4,7 @@
 :root {
   --cobalt: #1c31ad;
   --cobalt-deep: #14247f;
-  --cobalt-ink: #c9d1fb;      /* secondary text on cobalt, 7:1 */
+  --cobalt-ink: #c9d1fb;      /* secondary text on cobalt, 6.7:1 */
   --paper: #f3f4f2;
   --paper-2: #e8eae6;
   --ink: #101318;
@@ -12,8 +12,6 @@
   --rule: rgb(16 19 24 / 0.16);
   --rule-strong: rgb(16 19 24 / 0.55);
   --rule-cover: rgb(243 244 242 / 0.28);
-  --ok: #1f7a4a;
-  --err: #b3261e;
 
   --font: 'Archivo Variable', 'Archivo', system-ui, sans-serif;
   --wide: 118%;

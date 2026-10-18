@@ -1,0 +1,359 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-18T19:43:05+00:00",
+  "title": "Design System: Maxnova & Luci Global",
+  "extensions": {
+    "colorMeta": {
+      "cobalt": {
+        "role": "primary",
+        "displayName": "Report Cobalt",
+        "canonical": "oklch(39.5% 0.196 268)",
+        "tonalRamp": [
+          "#020038",
+          "#0a0079",
+          "#1829a3",
+          "#314fc4",
+          "#5074e3",
+          "#7398ff",
+          "#a2c1ff",
+          "#dceeff"
+        ]
+      },
+      "cobalt-deep": {
+        "role": "primary",
+        "displayName": "Deep Cobalt",
+        "canonical": "oklch(32.1% 0.153 268)",
+        "tonalRamp": [
+          "#030039",
+          "#0a1169",
+          "#1f348c",
+          "#3c56ab",
+          "#5c78c9",
+          "#7f9be8",
+          "#a6c2ff",
+          "#dceeff"
+        ]
+      },
+      "cobalt-ink": {
+        "role": "primary",
+        "displayName": "Cover Ink",
+        "canonical": "oklch(86.8% 0.059 277)",
+        "tonalRamp": [
+          "#080919",
+          "#1f2236",
+          "#3a3e56",
+          "#575c77",
+          "#757b9b",
+          "#959cc0",
+          "#bac2ea",
+          "#e4ecff"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Cool Paper",
+        "canonical": "oklch(96.6% 0.003 128)",
+        "tonalRamp": [
+          "#0b0b0a",
+          "#242423",
+          "#3f403e",
+          "#5d5e5c",
+          "#7d7d7c",
+          "#9e9f9d",
+          "#c3c4c2",
+          "#eeefed"
+        ]
+      },
+      "paper-2": {
+        "role": "neutral",
+        "displayName": "Second Sheet",
+        "canonical": "oklch(93.4% 0.006 129)",
+        "tonalRamp": [
+          "#0a0c09",
+          "#232522",
+          "#3f403d",
+          "#5d5e5b",
+          "#7c7e7a",
+          "#9d9f9b",
+          "#c3c5c1",
+          "#edefeb"
+        ]
+      },
+      "sheet": {
+        "role": "neutral",
+        "displayName": "Sheet White",
+        "canonical": "oklch(100% 0 0)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#7d7d7d",
+          "#9e9e9e",
+          "#c4c4c4",
+          "#eeeeee"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(18.6% 0.011 261)",
+        "tonalRamp": [
+          "#080b10",
+          "#21242a",
+          "#3c4046",
+          "#5a5e64",
+          "#797d84",
+          "#9a9fa6",
+          "#c0c4cc",
+          "#eaeff6"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Ink Secondary",
+        "canonical": "oklch(42.3% 0.023 263)",
+        "tonalRamp": [
+          "#070b14",
+          "#1f242e",
+          "#39404c",
+          "#575e6b",
+          "#777e8a",
+          "#989fab",
+          "#bec4d0",
+          "#e9effa"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "rgb(16 19 24 / 0.16)"
+      },
+      "rule-strong": {
+        "role": "neutral",
+        "displayName": "Plate Rule",
+        "canonical": "rgb(16 19 24 / 0.55)"
+      },
+      "rule-cover": {
+        "role": "neutral",
+        "displayName": "Cover Hairline",
+        "canonical": "rgb(243 244 242 / 0.28)"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Cover H1 only; Archivo at width 118%, held to ~13ch."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section H2s, contact heading, sent-page message."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Holding names, service names, process title."
+      },
+      "numeral": {
+        "displayName": "Numeral",
+        "purpose": "Process step numbers in cobalt; the only light weight."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Cover lead, section intros, holding summaries, letter body, FAQ questions (600)."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text, 58-62ch, tabular figures."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Nav, schedule cells, field labels, captions, status lines, footer. Sentence case."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-house",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Single easing for every state change and entrance."
+      },
+      {
+        "name": "state-fast",
+        "value": "180ms",
+        "purpose": "Button colour and press."
+      },
+      {
+        "name": "state-row",
+        "value": "260ms",
+        "purpose": "Ledger row fill and hover."
+      },
+      {
+        "name": "rise",
+        "value": "translateY(16px) to 0, 700-900ms, staggered 90ms (claim) / 60ms (schedule rows)",
+        "purpose": "Cover entrance under html.js and no-preference only."
+      },
+      {
+        "name": "unveil",
+        "value": "clip-path inset(0 0 22% 0) to 0, opacity 0.4 to 1, view() entry 0-70%",
+        "purpose": "Figure plates entering view; scroll-driven, static when unsupported."
+      },
+      {
+        "name": "drift",
+        "value": "translateY(0) to -7%, view() cover",
+        "purpose": "Screenshot drifting inside its plate; static under reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "stack",
+        "value": "1000px"
+      },
+      {
+        "name": "compact",
+        "value": "720px"
+      },
+      {
+        "name": "narrow",
+        "value": "480px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Paper Button",
+      "kind": "button",
+      "refersTo": "button-paper",
+      "description": "Primary action on cobalt surfaces (cover, back cover, 404, sent).",
+      "html": "<div class=\"ds-cobalt\"><a class=\"ds-btn ds-btn-paper\" href=\"#\">Talk to us<svg class=\"ds-arrow\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"M2 8h11M9 3.5 13.5 8 9 12.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"square\"/></svg></a></div>",
+      "css": ".ds-btn { font-family: 'Archivo Variable', 'Archivo', system-ui, sans-serif; display: inline-flex; align-items: center; gap: 0.6rem; font-size: 1rem; font-weight: 650; font-stretch: 108%; padding: 0.95rem 1.4rem; border: 1px solid transparent; border-radius: 0; text-decoration: none; cursor: pointer; transition: background-color 180ms cubic-bezier(0.16, 1, 0.3, 1), color 180ms cubic-bezier(0.16, 1, 0.3, 1), transform 180ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn .ds-arrow { transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn:hover .ds-arrow { transform: translateX(3px); } .ds-btn:active { transform: translateY(1px); } .ds-cobalt { background: var(--cobalt, #1c31ad); padding: 2rem; } .ds-btn-paper { background: var(--paper, #f3f4f2); color: var(--cobalt-deep, #14247f); } .ds-btn-paper:hover { background: #fff; } .ds-btn-paper:focus-visible { outline: 2px solid var(--paper, #f3f4f2); outline-offset: 3px; }"
+    },
+    {
+      "name": "Ink Button",
+      "kind": "button",
+      "refersTo": "button-ink",
+      "description": "Primary action on paper; turns cobalt on hover.",
+      "html": "<a class=\"ds-btn ds-btn-ink\" href=\"#\">Request a diagnostic call<svg class=\"ds-arrow\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"M2 8h11M9 3.5 13.5 8 9 12.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"square\"/></svg></a>",
+      "css": ".ds-btn { font-family: 'Archivo Variable', 'Archivo', system-ui, sans-serif; display: inline-flex; align-items: center; gap: 0.6rem; font-size: 1rem; font-weight: 650; font-stretch: 108%; padding: 0.95rem 1.4rem; border: 1px solid transparent; border-radius: 0; text-decoration: none; cursor: pointer; transition: background-color 180ms cubic-bezier(0.16, 1, 0.3, 1), color 180ms cubic-bezier(0.16, 1, 0.3, 1), transform 180ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn .ds-arrow { transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn:hover .ds-arrow { transform: translateX(3px); } .ds-btn:active { transform: translateY(1px); } .ds-btn-ink { background: var(--ink, #101318); color: var(--paper, #f3f4f2); } .ds-btn-ink:hover { background: var(--cobalt, #1c31ad); } .ds-btn-ink:focus-visible { outline: 2px solid var(--cobalt, #1c31ad); outline-offset: 3px; }"
+    },
+    {
+      "name": "Text Link",
+      "kind": "custom",
+      "refersTo": "text-link",
+      "description": "Secondary action with the authored arrow; up-right when leaving the site.",
+      "html": "<a class=\"ds-textlink\" href=\"#\">Open dypos.app<svg class=\"ds-arrow\" style=\"transform: rotate(-45deg)\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"M2 8h11M9 3.5 13.5 8 9 12.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"square\"/></svg></a>",
+      "css": ".ds-textlink { font-family: 'Archivo Variable', 'Archivo', system-ui, sans-serif; display: inline-flex; align-items: center; gap: 0.45rem; font-weight: 600; color: var(--cobalt, #1c31ad); text-underline-offset: 0.22em; text-decoration-thickness: 1px; } .ds-textlink:hover { text-decoration-thickness: 2px; } .ds-textlink:focus-visible { outline: 2px solid var(--cobalt, #1c31ad); outline-offset: 3px; }"
+    },
+    {
+      "name": "Navigation Bar",
+      "kind": "nav",
+      "refersTo": "button-sm",
+      "description": "Cover top bar: monogram and wordmark left, label links and small paper button right.",
+      "html": "<div class=\"ds-bar\"><span class=\"ds-brand\">Maxnova &amp; Luci Global</span><nav class=\"ds-nav\"><a href=\"#\">Portfolio</a><a href=\"#\">Services</a><a href=\"#\">Company</a><a href=\"#\">ES</a><a class=\"ds-nav-btn\" href=\"#\">Talk to us</a></nav></div>",
+      "css": ".ds-bar { font-family: 'Archivo Variable', 'Archivo', system-ui, sans-serif; display: flex; align-items: center; justify-content: space-between; gap: 1rem; background: var(--cobalt, #1c31ad); color: var(--paper, #f3f4f2); padding: 1.1rem 1.5rem; border-bottom: 1px solid rgb(243 244 242 / 0.28); } .ds-brand { font-weight: 700; font-stretch: 118%; letter-spacing: -0.01em; } .ds-nav { display: flex; align-items: center; gap: 1.5rem; font-size: 0.875rem; font-weight: 550; } .ds-nav a { color: var(--cobalt-ink, #c9d1fb); text-decoration: none; } .ds-nav a:hover { color: var(--paper, #f3f4f2); text-decoration: underline; text-underline-offset: 0.22em; } .ds-nav a:focus-visible { outline: 2px solid var(--paper, #f3f4f2); outline-offset: 3px; } .ds-nav .ds-nav-btn { background: var(--paper, #f3f4f2); color: var(--cobalt-deep, #14247f); padding: 0.55rem 0.9rem; font-weight: 650; font-stretch: 108%; } .ds-nav .ds-nav-btn:hover { background: #fff; color: var(--cobalt-deep, #14247f); text-decoration: none; }"
+    },
+    {
+      "name": "Status Mark",
+      "kind": "chip",
+      "description": "Square status marks: solid live, half active, outline in development.",
+      "html": "<p class=\"ds-status\"><span><i class=\"ds-mark ds-mark-live\"></i>Live</span><span><i class=\"ds-mark ds-mark-active\"></i>Active</span><span><i class=\"ds-mark\"></i>In development</span></p>",
+      "css": ".ds-status { font-family: 'Archivo Variable', 'Archivo', system-ui, sans-serif; display: flex; gap: 1.5rem; font-size: 0.875rem; font-weight: 600; color: var(--ink, #101318); } .ds-mark { display: inline-block; width: 0.62em; height: 0.62em; margin-right: 0.55em; vertical-align: 0.02em; border: 1.5px solid var(--cobalt, #1c31ad); } .ds-mark-live { background: var(--cobalt, #1c31ad); } .ds-mark-active { background: linear-gradient(90deg, var(--cobalt, #1c31ad) 50%, transparent 50%); }"
+    },
+    {
+      "name": "Cover Schedule",
+      "kind": "custom",
+      "description": "Signature: the schedule of operating companies on the cobalt cover; whole row is the link.",
+      "html": "<div class=\"ds-schedule\"><p class=\"ds-schedule-title\">Operating companies</p><table><thead><tr><th>Company</th><th>Sector</th><th>Status</th></tr></thead><tbody><tr><th><a href=\"#\">DypOS</a></th><td>Restaurants</td><td><i class=\"ds-sq ds-sq-live\"></i>Live</td></tr><tr><th><a href=\"#\">Amazon FBA</a></th><td>E-commerce</td><td><i class=\"ds-sq ds-sq-half\"></i>Active</td></tr><tr><th><a href=\"#\">Healthcare SaaS</a></th><td>Medical practices</td><td><i class=\"ds-sq\"></i>In development</td></tr></tbody></table></div>",
+      "css": ".ds-schedule { font-family: 'Archivo Variable', 'Archivo', system-ui, sans-serif; background: var(--cobalt, #1c31ad); color: var(--paper, #f3f4f2); padding: 2rem; font-size: 0.875rem; font-variant-numeric: tabular-nums; } .ds-schedule-title { margin: 0; font-weight: 650; padding-bottom: 0.7rem; border-bottom: 2px solid var(--paper, #f3f4f2); } .ds-schedule table { width: 100%; border-collapse: collapse; } .ds-schedule th, .ds-schedule td { text-align: left; padding: 0.72rem 0.5rem 0.72rem 0; border-bottom: 1px solid rgb(243 244 242 / 0.28); font-weight: 400; } .ds-schedule thead th { color: var(--cobalt-ink, #c9d1fb); font-weight: 500; } .ds-schedule tbody th { font-weight: 650; font-size: 1rem; } .ds-schedule tbody th a { color: inherit; text-decoration: none; } .ds-schedule tbody th a:hover { text-decoration: underline; } .ds-schedule tbody tr:hover { background: rgb(243 244 242 / 0.06); } .ds-schedule td { color: var(--cobalt-ink, #c9d1fb); } .ds-schedule td:last-child { color: var(--paper, #f3f4f2); } .ds-sq { display: inline-block; width: 0.62em; height: 0.62em; margin-right: 0.55em; border: 1.5px solid currentColor; } .ds-sq-live { background: currentColor; } .ds-sq-half { background: linear-gradient(90deg, currentColor 50%, transparent 50%); }"
+    },
+    {
+      "name": "Portfolio Ledger",
+      "kind": "nav",
+      "refersTo": "ledger-row-current",
+      "description": "Signature: sticky index beside the holdings; the holding in view fills its row with cobalt.",
+      "html": "<ol class=\"ds-ledger\"><li><a href=\"#\" aria-current=\"true\"><i></i><b>DypOS</b><span>Restaurants</span></a></li><li><a href=\"#\"><i></i><b>MOY IQ</b><span>Personal finance</span></a></li><li><a href=\"#\"><i></i><b>Esmalia</b><span>Dental clinics</span></a></li></ol>",
+      "css": ".ds-ledger { font-family: 'Archivo Variable', 'Archivo', system-ui, sans-serif; list-style: none; margin: 0; padding: 0; max-width: 16rem; border-top: 2px solid var(--ink, #101318); color: var(--ink, #101318); } .ds-ledger a { display: grid; grid-template-columns: auto 1fr; padding: 0.8rem 0.6rem 0.8rem 0.5rem; border-bottom: 1px solid rgb(16 19 24 / 0.16); color: inherit; text-decoration: none; transition: background-color 260ms cubic-bezier(0.16, 1, 0.3, 1), color 260ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-ledger i { grid-row: span 2; width: 0.62em; height: 0.62em; margin: 0.42em 0.55em 0 0; background: currentColor; border: 1.5px solid currentColor; color: var(--cobalt, #1c31ad); } .ds-ledger b { font-weight: 650; } .ds-ledger span { grid-column: 2; font-size: 0.875rem; color: var(--ink-2, #474e5b); } .ds-ledger a:hover { background: var(--paper-2, #e8eae6); } .ds-ledger a:focus-visible { outline: 2px solid var(--cobalt, #1c31ad); outline-offset: 3px; } .ds-ledger a[aria-current='true'] { background: var(--cobalt, #1c31ad); color: var(--paper, #f3f4f2); } .ds-ledger a[aria-current='true'] i { color: var(--paper, #f3f4f2); } .ds-ledger a[aria-current='true'] span { color: var(--cobalt-ink, #c9d1fb); }"
+    },
+    {
+      "name": "Field on Cobalt",
+      "kind": "input",
+      "refersTo": "field-on-cobalt",
+      "description": "Underlined form field on the cobalt back cover.",
+      "html": "<div class=\"ds-formbg\"><label class=\"ds-field\"><span>Email</span><input type=\"email\" placeholder=\"\"></label></div>",
+      "css": ".ds-formbg { background: var(--cobalt, #1c31ad); padding: 2rem; } .ds-field { font-family: 'Archivo Variable', 'Archivo', system-ui, sans-serif; display: grid; gap: 0.45rem; font-size: 0.875rem; font-weight: 600; color: var(--paper, #f3f4f2); } .ds-field input { font: inherit; font-size: 1rem; font-weight: 400; color: var(--paper, #f3f4f2); background: transparent; border: 0; border-bottom: 1px solid var(--cobalt-ink, #c9d1fb); border-radius: 0; padding: 0.6rem 0; transition: border-color 160ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-field input:focus { outline: none; border-color: var(--paper, #f3f4f2); box-shadow: 0 1px 0 0 var(--paper, #f3f4f2); }"
+    },
+    {
+      "name": "Figure Plate",
+      "kind": "card",
+      "description": "Real product screenshot in a 2:1 bordered plate with a numbered report caption.",
+      "html": "<figure class=\"ds-frame\"><div class=\"ds-frame-view\"></div><figcaption>Fig. 1 — dypos.app, home page, captured 18 October 2026</figcaption></figure>",
+      "css": ".ds-frame { font-family: 'Archivo Variable', 'Archivo', system-ui, sans-serif; margin: 0; max-width: 32rem; } .ds-frame-view { aspect-ratio: 2 / 1; border: 1px solid rgb(16 19 24 / 0.55); background: #fff; } .ds-frame figcaption { margin-top: 0.6rem; padding-top: 0.6rem; border-top: 1px solid rgb(16 19 24 / 0.16); font-size: 0.875rem; color: var(--ink-2, #474e5b); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Operator's Annual Report",
+    "overview": "The site reads like the printed annual report of a holding company: a full-bleed cobalt cover, interior pages on cool paper that file each operating company as a schedule entry with its facts and a real screen, a founder's letter on a slightly darker sheet, a company-information back page, and a back cover in the cover's cobalt. Proof lives in tables and figures, never in promotional devices.\n\nDensity is that of a well-set report: generous section air (up to 9rem between sections), tight rows inside schedules, hairline rules doing the work that boxes and shadows do elsewhere. One family, Archivo variable, carries everything: expanded and heavy for headings, normal width for reading. Figures are tabular everywhere.\n\nCobalt is the house colour and the only chroma the system owns. Each product brings its own colour only inside its own entry, through its logo and its screenshot.",
+    "keyCharacteristics": [
+      "Cobalt cover and back cover, cool paper interior; no other brand hue.",
+      "Archivo at two widths: 118% for headings, 100% for text.",
+      "Schedules, ledgers and definition rows instead of cards.",
+      "A 2px ink rule opens every list; 1px hairlines separate its rows.",
+      "Square status marks: solid = live, half = active, outline = in development.",
+      "Square corners throughout; the only radius belongs to product logo tiles.",
+      "Real product screenshots in bordered figure plates with numbered report captions."
+    ],
+    "rules": [
+      {
+        "name": "The One Hue Rule",
+        "body": "Cobalt is the only colour the house owns. Product colours appear only inside that product's entry (logo, screenshot). Status, success and error are expressed with marks, weight and rules, not with green or red.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Grounds Rule",
+        "body": "A surface is either cobalt (cover, back cover, 404, sent page) or paper. On cobalt, text is paper or cover ink; on paper, text is ink or ink secondary. Nothing mid-tone in between.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Widths Rule",
+        "body": "Width carries hierarchy. Headings at 118%, reading text at 100%; buttons sit between at 108%. No second family, no italics as display.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Rule",
+        "body": "`font-variant-numeric: tabular-nums` is set on the body and inherited everywhere; figures line up in every schedule.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sentence Case Rule",
+        "body": "Nothing in the system is set in uppercase or letter-spaced caps. Table heads, labels and captions are sentence case at label size.",
+        "section": "typography"
+      },
+      {
+        "name": "The Schedule Rule",
+        "body": "Collections are rows, never tiles. A list opens with a 2px ink rule (2px paper rule on cobalt) and its rows are divided by hairlines.",
+        "section": "layout"
+      },
+      {
+        "name": "The Printed Page Rule",
+        "body": "Nothing floats. If something needs separation, it gets a rule or a different sheet, never a shadow or blur.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** set every collection as a schedule: a 2px ink rule (paper on cobalt) over hairline-divided rows.",
+      "**Do** keep headings at width 118% and weight 700, and reading text at width 100%.",
+      "**Do** mark status with the square: solid live, half active, outline in development.",
+      "**Do** put every product screenshot in a figure plate with a numbered caption.",
+      "**Do** keep product colour inside the product's own entry (logo tile, screenshot).",
+      "**Do** use the house ease `cubic-bezier(0.16, 1, 0.3, 1)` for state changes, and leave all content visible without JavaScript or with reduced motion."
+    ],
+    "donts": [
+      "**Don't** introduce a second brand hue, including green or red for form states.",
+      "**Don't** wrap content in filled, rounded or shadowed cards; separate with rules and sheets.",
+      "**Don't** round corners on house elements; only the product logo tile is rounded.",
+      "**Don't** set uppercase, letter-spaced labels or eyebrows above headings.",
+      "**Don't** add a second type family or a serif display face without Walter confirming the brief over this build.",
+      "**Don't** cast shadows or blur surfaces for depth."
+    ],
+    "status": "Pending Walter's confirmation: the cobalt / Archivo world departs from docs/prompt-maestro.md sections 4-5 (serif display, warm light ground, device-stack hero); the Company map was not built."
+  }
+}
