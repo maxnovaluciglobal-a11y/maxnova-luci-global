@@ -1,271 +1,333 @@
 ---
 name: Maxnova & Luci Global
-description: The operator's annual report. A cobalt cover, a cool paper interior, one family at two widths.
+description: The holding as a split-flap departures board. Matte black enamel, flap modules split by a seam, paper-white glyphs, amber lamps as the only accent.
 colors:
-  cobalt: "#1c31ad"
-  cobalt-deep: "#14247f"
-  cobalt-ink: "#c9d1fb"
-  paper: "#f3f4f2"
-  paper-2: "#e8eae6"
-  sheet: "#ffffff"
-  ink: "#101318"
-  ink-2: "#474e5b"
-  rule: "rgb(16 19 24 / 0.16)"
-  rule-strong: "rgb(16 19 24 / 0.55)"
-  rule-cover: "rgb(243 244 242 / 0.28)"
+  amber: "#f2b33d"
+  amber-hover: "#ffc552"
+  amber-ink: "#1a1206"
+  lamp-off: "#3a3226"
+  board: "#0b0c0e"
+  board-2: "#111215"
+  module: "#17191c"
+  module-hi: "#1d1f23"
+  module-hover: "#22252a"
+  seam: "#050506"
+  rule: "#24272c"
+  rule-strong: "#3a3d43"
+  glyph: "#ece8df"
+  text: "#c9c6be"
+  muted: "#8f9399"
+  paper: "#ece8df"
+  paper-ink: "#16171a"
+  paper-ink-2: "#4a4b4f"
 typography:
   display:
-    fontFamily: "'Archivo Variable', 'Archivo', system-ui, sans-serif"
-    fontSize: "clamp(2.6rem, 1.6rem + 4.6vw, 5.6rem)"
-    fontWeight: 700
-    lineHeight: 1.04
-    letterSpacing: "-0.03em"
-    fontVariation: "'wdth' 118"
-  headline:
-    fontFamily: "'Archivo Variable', 'Archivo', system-ui, sans-serif"
-    fontSize: "clamp(2rem, 1.6rem + 1.8vw, 3.125rem)"
-    fontWeight: 700
-    lineHeight: 1.04
-    letterSpacing: "-0.02em"
-    fontVariation: "'wdth' 118"
-  title:
-    fontFamily: "'Archivo Variable', 'Archivo', system-ui, sans-serif"
-    fontSize: "clamp(1.5rem, 1.3rem + 0.9vw, 2rem)"
-    fontWeight: 700
-    lineHeight: 1.04
-    letterSpacing: "-0.02em"
-    fontVariation: "'wdth' 118"
-  numeral:
-    fontFamily: "'Archivo Variable', 'Archivo', system-ui, sans-serif"
-    fontSize: "clamp(2rem, 1.6rem + 1.8vw, 3.125rem)"
-    fontWeight: 300
+    fontFamily: "'Barlow Semi Condensed', 'Arial Narrow', sans-serif"
+    fontSize: "clamp(2rem, 0.9rem + 4.3vw, 4.6rem)"
+    fontWeight: 600
     lineHeight: 1
-    fontVariation: "'wdth' 118"
-    fontFeature: "'tnum'"
+  headline:
+    fontFamily: "'Barlow Semi Condensed', 'Arial Narrow', sans-serif"
+    fontSize: "clamp(1.875rem, 1.5rem + 1.7vw, 3rem)"
+    fontWeight: 600
+    lineHeight: 1.05
+    letterSpacing: "0.01em"
+  headline-flap:
+    fontFamily: "'Barlow Semi Condensed', 'Arial Narrow', sans-serif"
+    fontSize: "clamp(1.5rem, 1.15rem + 1.5vw, 2.6rem)"
+    fontWeight: 600
+    lineHeight: 1
+  title:
+    fontFamily: "'Barlow Semi Condensed', 'Arial Narrow', sans-serif"
+    fontSize: "clamp(1.375rem, 1.2rem + 0.8vw, 1.875rem)"
+    fontWeight: 600
+    lineHeight: 1.1
+    letterSpacing: "0.02em"
+  board-data:
+    fontFamily: "'Barlow Semi Condensed', 'Arial Narrow', sans-serif"
+    fontSize: "clamp(1rem, 0.97rem + 0.15vw, 1.0625rem)"
+    fontWeight: 500
+    lineHeight: 1.1
+    letterSpacing: "0.04em"
   lead:
-    fontFamily: "'Archivo Variable', 'Archivo', system-ui, sans-serif"
-    fontSize: "clamp(1.1875rem, 1.1rem + 0.4vw, 1.375rem)"
+    fontFamily: "'Barlow', system-ui, sans-serif"
+    fontSize: "clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem)"
     fontWeight: 400
-    lineHeight: 1.45
+    lineHeight: 1.5
   body:
-    fontFamily: "'Archivo Variable', 'Archivo', system-ui, sans-serif"
+    fontFamily: "'Barlow', system-ui, sans-serif"
     fontSize: "clamp(1rem, 0.97rem + 0.15vw, 1.0625rem)"
     fontWeight: 400
-    lineHeight: 1.55
-    fontFeature: "'tnum'"
+    lineHeight: 1.6
+    fontFeature: "'tnum' 1"
   label:
-    fontFamily: "'Archivo Variable', 'Archivo', system-ui, sans-serif"
+    fontFamily: "'Barlow Semi Condensed', 'Arial Narrow', sans-serif"
     fontSize: "clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem)"
-    fontWeight: 600
-    lineHeight: 1.4
-    fontFeature: "'tnum'"
+    fontWeight: 500
+    lineHeight: 1.2
+    letterSpacing: "0.08em"
+  label-micro:
+    fontFamily: "'Barlow Semi Condensed', 'Arial Narrow', sans-serif"
+    fontSize: "0.75rem"
+    fontWeight: 500
+    lineHeight: 1.2
+    letterSpacing: "0.1em"
 rounded:
-  none: "0"
-  product-tile: "9px"
+  none: "0px"
 spacing:
+  slot: "4px"
   gutter: "clamp(1rem, 0.5rem + 2.5vw, 2.5rem)"
-  s: "0.75rem"
   m: "1.5rem"
-  l: "clamp(2.5rem, 2rem + 2.5vw, 4rem)"
-  xl: "clamp(4.5rem, 3rem + 6vw, 9rem)"
+  l: "clamp(2.25rem, 1.8rem + 2.2vw, 3.75rem)"
+  xl: "clamp(4rem, 2.8rem + 5.5vw, 8rem)"
 components:
-  button-paper:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.cobalt-deep}"
+  key:
+    backgroundColor: "{colors.amber}"
+    textColor: "{colors.amber-ink}"
+    typography: "{typography.board-data}"
     rounded: "{rounded.none}"
-    padding: "0.95rem 1.4rem"
-  button-paper-hover:
-    backgroundColor: "{colors.sheet}"
-    textColor: "{colors.cobalt-deep}"
-  button-ink:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.paper}"
-    rounded: "{rounded.none}"
-    padding: "0.95rem 1.4rem"
-  button-ink-hover:
-    backgroundColor: "{colors.cobalt}"
-    textColor: "{colors.paper}"
-  button-sm:
+    padding: "1rem 1.35rem"
+  key-hover:
+    backgroundColor: "{colors.amber-hover}"
+    textColor: "{colors.amber-ink}"
+  key-sm:
+    backgroundColor: "{colors.amber}"
+    textColor: "{colors.amber-ink}"
     typography: "{typography.label}"
     rounded: "{rounded.none}"
-    padding: "0.55rem 0.9rem"
-  text-link:
-    textColor: "{colors.cobalt}"
-    typography: "{typography.body}"
-  text-link-on-cobalt:
-    textColor: "{colors.paper}"
-  field-on-cobalt:
-    backgroundColor: "transparent"
-    textColor: "{colors.paper}"
+    padding: "0.6rem 0.9rem"
+  textlink:
+    textColor: "{colors.glyph}"
+    typography: "{typography.label}"
+  module:
+    backgroundColor: "{colors.module}"
+    textColor: "{colors.text}"
+    typography: "{typography.board-data}"
     rounded: "{rounded.none}"
-    padding: "0.6rem 0"
+    padding: "0.5rem 0.85rem"
+    height: "2.6rem"
+  module-name:
+    backgroundColor: "{colors.module}"
+    textColor: "{colors.glyph}"
+    rounded: "{rounded.none}"
+    padding: "0.5rem 0.85rem"
+  module-hover:
+    backgroundColor: "{colors.module-hover}"
+  lamp-lit:
+    backgroundColor: "{colors.amber}"
+    size: "0.6em"
+  lamp-off:
+    backgroundColor: "{colors.lamp-off}"
+    size: "0.6em"
+  flap-tile:
+    backgroundColor: "{colors.module-hi}"
+    textColor: "{colors.glyph}"
+    rounded: "{rounded.none}"
+    width: "0.74em"
+    height: "1.16em"
+  route-name:
+    backgroundColor: "{colors.module}"
+    textColor: "{colors.glyph}"
+    typography: "{typography.title}"
+    padding: "1.2rem 1.3rem"
+  route-detail:
+    backgroundColor: "{colors.board-2}"
+    textColor: "{colors.text}"
+    typography: "{typography.body}"
+    padding: "1.2rem 1.3rem"
   ledger-row:
-    backgroundColor: "transparent"
-    textColor: "{colors.ink}"
-    padding: "0.8rem 0.6rem 0.8rem 0.5rem"
-  ledger-row-hover:
-    backgroundColor: "{colors.paper-2}"
-  ledger-row-current:
-    backgroundColor: "{colors.cobalt}"
-    textColor: "{colors.paper}"
-  footer:
-    backgroundColor: "{colors.cobalt-deep}"
-    textColor: "{colors.cobalt-ink}"
+    backgroundColor: "{colors.module}"
+    textColor: "{colors.glyph}"
+    padding: "0.85rem 1rem"
+  notice:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.paper-ink}"
+    rounded: "{rounded.none}"
+    padding: "clamp(1.75rem, 1rem + 3vw, 3.5rem)"
+  field-input:
+    backgroundColor: "{colors.module}"
+    textColor: "{colors.glyph}"
+    typography: "{typography.body}"
+    rounded: "{rounded.none}"
+    padding: "0.8rem 0.9rem"
+  field-input-focus:
+    backgroundColor: "{colors.module-hi}"
+  nav-link:
+    textColor: "{colors.muted}"
     typography: "{typography.label}"
 ---
 
-# Design System: Maxnova & Luci Global
+<!-- World chosen by Walter on 2026-10-18 (direction contract .impeccable/surfaces/src-pages-index-astro.md, seed key a5e59273). It supersedes the earlier cobalt/Archivo "annual report" world and the visual direction in docs/prompt-maestro.md §4–§5. Where those sources disagree with this file, this file and the shipped code win. -->
 
-> **Approved by Walter on 2026-10-18** ("Apruebo el look cobalto/Archivo tal como está"). This world supersedes `docs/prompt-maestro.md` §4–§5 on display type (Archivo expanded, not a serif), ground (cool paper, not warm light) and hero (schedule table, not a device-screen stack). The Company map is dropped.
+# Design System: Maxnova & Luci Global
 
 ## Overview
 
-**Creative North Star: "The Operator's Annual Report"**
+**Creative North Star: "The Departures Board"**
 
-The site reads like the printed annual report of a holding company: a full-bleed cobalt cover, interior pages on cool paper that file each operating company as a schedule entry with its facts and a real screen, a founder's letter on a slightly darker sheet, a company-information back page, and a back cover in the cover's cobalt. Proof lives in tables and figures, never in promotional devices.
+The site is a Solari split-flap board in a terminal hall. The whole page sits on matte black enamel. Every company is a line in service, set in flap modules: a lighter upper leaf and a darker lower leaf, split by a black seam. Paper-white glyphs carry names and data in condensed uppercase signage. Amber lamps are the only colour the board itself produces. They mark live status and the one action that matters, so a lit lamp always means "in service" or "press here".
 
-Density is that of a well-set report: generous section air (up to 9rem between sections), tight rows inside schedules, hairline rules doing the work that boxes and shadows do elsewhere. One family, Archivo variable, carries everything: expanded and heavy for headings, normal width for reading. Figures are tabular everywhere.
+Density is that of a real board: tight slots separated by 4px of black, data in fixed columns, nothing decorative between rows. Reading text (leads, summaries, the FAQ) drops out of signage into a plain humanist sans so it reads as prose rather than board data. One object is not part of the board: the founder's note, a sheet of printed paper pinned to it. That is the only light surface and the only lifted object. The board flips its tiles once on load, lights its lamps in sequence, and then stays still.
 
-Cobalt is the house colour and the only chroma the system owns. Each product brings its own colour only inside its own entry, through its logo and its screenshot.
+Product logos and product screenshots keep their own colours inside their gates. The board frames them; it does not restyle them.
 
 **Key Characteristics:**
-- Cobalt cover and back cover, cool paper interior; no other brand hue.
-- Archivo at two widths: 118% for headings, 100% for text.
-- Schedules, ledgers and definition rows instead of cards.
-- A 2px ink rule opens every list; 1px hairlines separate its rows.
-- Square status marks: solid = live, half = active, outline = in development.
-- Square corners throughout; the only radius belongs to product logo tiles.
-- Real product screenshots in bordered figure plates with numbered report captions.
+- Matte black ground (board) for the full page; depth by tone steps, never by glow or gradient fields.
+- Split-flap modules: two-tone leaves with a 1px black seam at the midline.
+- Paper-white condensed uppercase for signage, warm off-white humanist sans for reading.
+- Amber is the only accent: live-status lamps, primary keys, focus, selection.
+- Square corners everywhere; 4px black slot gaps instead of borders or shadows.
+- One flap cascade on load, never looping, fully static under reduced motion and without JS.
 
 ## Colors
 
-One committed brand hue on a cool, nearly neutral paper, with near-black ink.
+A near-neutral black-and-paper board with one warm signal colour.
 
 ### Primary
-- **Report Cobalt** (`cobalt`): the cover field, the contact back cover, the current row of the portfolio ledger, status marks on paper, text links on paper, the ink button's hover, focus outlines on paper, selection and caret.
-- **Deep Cobalt** (`cobalt-deep`): the footer band, the blind-embossed monogram on the cover (at 0.55 opacity), text on paper buttons, the 404 numeral.
-- **Cover Ink** (`cobalt-ink`): secondary text on cobalt: leads, nav links, schedule sector and header cells, form underlines, footer text. Measures 6.7:1 on cobalt and 8.8:1 on deep cobalt.
+- **Platform Amber** (amber): the lamp colour. Lit status lamps, the primary key ("Talk to us", "Send message"), focus outlines, text selection, caret and form accent colour. Its rarity is what makes a lit row readable at a glance.
+- **Amber Struck** (amber-hover): the key under the pointer, slightly hotter. Hover only.
+- **Lamp Ink** (amber-ink): text and arrows on amber. Never used on the board itself.
+- **Dead Lamp** (lamp-off): an unlit lamp: dark brown, so an off lamp still reads as a lamp. Used for SCHEDULED status and the idle form-status indicator.
 
 ### Neutral
-- **Cool Paper** (`paper`): the interior ground and the type colour on cobalt.
-- **Second Sheet** (`paper-2`): the founder's letter band and ledger row hover; tonal layering, not elevation.
-- **Sheet White** (`sheet`): behind screenshots inside figure plates and as the hover state of paper buttons. Never a page ground.
-- **Ink** (`ink`): body text, headings and the 2px rule that opens a schedule.
-- **Ink Secondary** (`ink-2`): intros, sector lines, definition terms, captions. 7.6:1 on paper.
-- **Hairline** (`rule`, ink at 16%): row dividers and section separators on paper.
-- **Plate Rule** (`rule-strong`, ink at 55%): the 1px border of a screenshot plate.
-- **Cover Hairline** (`rule-cover`, paper at 28%): row dividers and the top bar rule on cobalt.
+- **Enamel Black** (board): the ground of every page, header, section and footer; also `theme-color`.
+- **Back Panel** (board-2): one step up for recessed zones: the notice section, the contact desk, route detail cells, screenshot frames.
+- **Lower Leaf** (module): the bottom half of every flap module, and the flat fill of ledger rows, process steps and form fields.
+- **Upper Leaf** (module-hi): the top half of a flap module; also focused-field fill.
+- **Struck Leaf** (module-hover): top leaf on row hover, when the whole line shifts up one tone.
+- **Seam** (seam): the 1px midline that splits every flap. It is drawn as a line and never used as a fill.
+- **Rule** (rule): 1px hairlines between page-level zones (header bar, section to section, FAQ items, footer, screenshot frames).
+- **Hard Rule** (rule-strong): the stronger stroke: field bottom borders, the ring around product logos, the scrollbar thumb.
+- **Flap White** (glyph): headings, flap glyphs, company names, data values, lit status text. Roughly 16:1 on board.
+- **Reading Grey** (text): body and lead text. Roughly 11:1.
+- **Board Grey** (muted): column heads, labels, nav at rest, unlit status, captions. Roughly 6:1. Do not go lower than this.
+- **Notice Paper** (paper): the founder's note sheet and the native select option list. The same stock as the glyphs, on purpose: it is the board's white, printed large.
+- **Print Ink** / **Print Ink Soft** (paper-ink, paper-ink-2): text on paper; the soft ink is for the signature line only.
 
 ### Named Rules
-**The One Hue Rule.** Cobalt is the only colour the house owns. Product colours appear only inside that product's entry (logo, screenshot). Status, success and error are expressed with marks, weight and rules, not with green or red.
+**The One Lamp Rule.** Amber is the only accent the board produces. It marks verified live status, the primary key, focus and selection. It is never used for decoration, headings or a second kind of meaning.
 
-**The Two Grounds Rule.** A surface is either cobalt (cover, back cover, 404, sent page) or paper. On cobalt, text is paper or cover ink; on paper, text is ink or ink secondary. Nothing mid-tone in between.
+**The Verified Lamp Rule.** A lamp lights only for a status that has been verified. Anything unconfirmed shows SCHEDULED with the lamp off.
+
+**The Guest Colour Rule.** Product logos and product screenshots keep their own colours inside their gate. That colour belongs to the product, not to the board palette, and never spreads outside the gate.
 
 ## Typography
 
-**Display Font:** Archivo Variable at `wdth` 118 (with Archivo, system-ui, sans-serif)
-**Body Font:** Archivo Variable at `wdth` 100
-**Label/Mono Font:** none; labels are Archivo at the small step, tabular figures on.
+**Display Font:** Barlow Semi Condensed (with Arial Narrow, sans-serif)
+**Body Font:** Barlow (with system-ui, sans-serif)
 
-**Character:** One grotesque stretched for authority and relaxed for reading, so the voice of the cover and the voice of the schedule are the same voice at different widths.
+**Character:** One family at two widths. The semi-condensed cut is the board's signage: uppercase, tracked, set in tiles and modules. The regular width is the voice of a person explaining, set in sentence case. Numerals are tabular site-wide so board data aligns.
 
 ### Hierarchy
-- **Display** (700, fluid 2.6rem to 5.6rem, 1.04, -0.03em, width 118%): the cover H1 only, held to about 13ch.
-- **Headline** (700, fluid 2rem to 3.125rem, 1.04, -0.02em, width 118%): section H2s, the contact heading, the sent-page message.
-- **Title** (700, fluid 1.5rem to 2rem, 1.04 to 1.1, -0.02em, width 118%): holding names, service names, the process title, 404 column heads.
-- **Numeral** (300, headline size, width 118%, cobalt): process step numbers; the only light weight in the system.
-- **Lead** (400, fluid 1.19rem to 1.375rem, 1.45 to 1.55): cover lead, section intros, holding summaries, the letter body. 46 to 62ch.
-- **Body** (400, fluid 1rem to 1.0625rem, 1.55): running text, 58 to 62ch max.
-- **Label** (500 to 650, fluid 0.8125rem to 0.875rem): nav, schedule cells, field labels, captions, footer, status lines. Sentence case.
-
-Question rows in the FAQ use Lead size at normal width and 600 weight: they are entries, not headings in the report's display voice.
+- **Display** (600, clamp 2–4.6rem, line-height 1): the board H1 only, set as flap tiles across up to three lines, occupying about two-thirds of the width on wide screens.
+- **Headline** (600, clamp 1.875–3rem, 1.05, uppercase, 0.01em): plain section H2s and the /sent/ confirmation.
+- **Headline Flap** (600, clamp 1.5–2.6rem, 1): section H2s set as flap tiles (Portfolio, Services, Company, FAQ, Contact). It is smaller than plain headlines because each tile adds width.
+- **Title** (600, clamp 1.375–1.875rem, 1.1, uppercase, 0.02em): gate names, service route names, the process heading, the notice heading.
+- **Board Data** (500, body size, 1.1, uppercase, 0.04em): cell text inside modules; company names step up to 600 at lead size in Flap White. Key labels use the same face at 600 with 0.05em.
+- **Lead** (Barlow 400, clamp 1.125–1.3125rem, 1.5): the one reading line under the H1 (max 40ch), section intros (max 52ch), the notice body.
+- **Body** (Barlow 400, clamp 1–1.0625rem, 1.6): summaries, route text, FAQ answers; 46–62ch measure.
+- **Label** (Semi Condensed 500, clamp 0.8125–0.875rem, 0.08em, uppercase): nav, field labels, ledger keys, text links (600, 0.06em).
+- **Label Micro** (Semi Condensed 500, 0.75rem, 0.1em, uppercase): table column heads and gate fact keys. This is the floor; nothing smaller.
 
 ### Named Rules
-**The Two Widths Rule.** Width carries hierarchy. Headings at 118%, reading text at 100%; buttons sit between at 108%. No second family, no italics as display.
+**The Whole Word Rule.** A flap word never breaks across tiles or lines. Words wrap as units, and inline flap names in modules do not wrap at all; long cells truncate with an ellipsis rather than spilling a tile.
 
-**The Tabular Rule.** `font-variant-numeric: tabular-nums` is set on the body and inherited everywhere; figures line up in every schedule.
+**The Two Voices Rule.** Signage (names, labels, data, keys) is condensed uppercase. Anything read as a sentence is Barlow in sentence case. FAQ questions are sentences, so they are set in Barlow.
 
-**The Sentence Case Rule.** Nothing in the system is set in uppercase or letter-spaced caps. Table heads, labels and captions are sentence case at label size.
+**The Real Text Rule.** Flap tiles are decoration over real text. The full string is always present for assistive tech, and the tiles are `aria-hidden`.
 
 ## Layout
 
-A centred column of `min(100% - 2 × gutter, 84rem)` with a fluid gutter (1rem to 2.5rem). Composition is on a 12-part grid expressed as fractions: the cover splits 7 / 5 with the schedule bottom-aligned on the right; section heads, the letter, company information, FAQ and contact split 5 / 7 (title left, content right); the portfolio splits 3 / 9 (sticky ledger, holdings).
+A centred column, `min(100% − 2 × gutter, 84rem)`, with a fluid gutter (spacing.gutter). Vertical rhythm comes from three steps: m for inner gaps, l between a section head and its content, xl between sections and between gates. Sections are separated by a 1px rule, never by a background band, except the two recessed zones (notice, desk) on Back Panel.
 
-Rhythm comes from four steps: `s` 0.75rem, `m` 1.5rem, `l` 2.5rem to 4rem, `xl` 4.5rem to 9rem. Sections pad by `xl`; heads sit `l` above their content; holdings stack `xl` apart.
+The first viewport is the board: a header bar (monogram + name, nav, small amber key) over a body grid. The H1 spans the full row. Below it, a 4:8 split puts the lead and actions on the left and the departures table on the right. The board fills at most `min(100svh, 60rem)`. Deeper sections use 5:7 splits (head to intro, title to ledger, title to FAQ, contact intro to form). Gates use 4:8 (facts and summary to screenshot).
 
-The cover is at least `min(100svh, 58rem)` on desktop and content-height on mobile.
+**The Slot Rule.** Board cells sit in a 4px black slot grid: `border-spacing: 4px` in the departures table, a 4px gap in routes, ledger, process steps and gate heads. Adjacent modules are always separated by the slot gap, never by a border.
 
-Responsive behaviour: at 1000px and below every split collapses to one column, the sticky ledger is removed (the cover schedule already indexes the holdings), and the four process steps become two by two. At 720px and below the nav keeps only Company, the language switch and the button; the schedule drops its sector column; process steps stack. At 480px the wordmark hides and the monogram remains.
-
-### Named Rules
-**The Schedule Rule.** Collections are rows, never tiles. A list opens with a 2px ink rule (2px paper rule on cobalt) and its rows are divided by hairlines.
+Responsive behaviour drops columns rather than squeezing glyphs. Below 1360px the Market column leaves the board. Below 1000px every split stacks to one column, the H1 takes full width, and process steps go 2-up. Below 720px the Sector column leaves too, so the board shows company and status only. The nav keeps Company, the language switch and the key; form rows, steps and ledger rows go single-column. Below 480px the wordmark hides and only the monogram remains.
 
 ## Elevation & Depth
 
-Flat. No surface casts a shadow. Depth is conveyed by ground change (cobalt to paper, paper to second sheet), by rule weight (2px opener, 1px hairline, 55% plate border) and by one blind emboss: the monogram set very large in deep cobalt on the cover field.
+The board is flat. Depth comes from tone: Enamel Black ground, Back Panel recesses, and the two leaves of a module, split by the seam. Hover raises a module one tone, never with a shadow. Lines between zones are 1px rules.
 
-The only `box-shadow` in the build is a 1px solid line under focused form fields, used as a thicker underline, not as elevation.
+Three physical exceptions belong to the world's own materials and are the only shadows in the system:
+
+### Shadow Vocabulary
+- **Lamp glow** (`box-shadow: 0 0 0.6em rgb(242 179 61 / 0.45)`): only on a lit amber lamp (status lamps, the sent-form indicator). A lit bulb glows; nothing else does.
+- **Key lip** (`box-shadow: inset 0 -2px 0 rgb(0 0 0 / 0.25)`): the inner bottom edge of an amber key, so it reads as a physical push key. On press it drops 1px.
+- **Pinned paper** (`box-shadow: 0 2px 2px rgb(0 0 0 / 0.3), 0 24px 48px -24px rgb(0 0 0 / 0.7)`): the founder's notice only, a sheet of paper resting on the board.
 
 ### Named Rules
-**The Printed Page Rule.** Nothing floats. If something needs separation, it gets a rule or a different sheet, never a shadow or blur.
+**The Seam, Not Shadow Rule.** Board elements separate by seams, slots and tone steps. A shadow appears only where the physical object would cast or emit one: a lit lamp, a push key, a pinned sheet.
 
 ## Shapes
 
-Square everywhere: buttons, fields, textarea, figure plates, ledger rows and status marks all have 0 radius. The arrow is drawn with square line caps. The single exception is the 40px product logo tile (9px radius), because the logo belongs to the product, not to the house.
+Every corner is square (rounded.none): keys, modules, tiles, lamps, fields, the notice, screenshot frames, logo rings. The lamp is a small square (0.6em), not a dot. The recurring silhouette is the flap leaf: a rectangle split horizontally at its midline. It appears on H1 and section tiles, departure modules, gate heads, service route names and process step numbers.
 
-Status marks are 0.62em squares with a 1.5px border in the current colour: filled for live, half-filled left for active, empty for in development.
+Product screenshots sit in a 2:1 gate frame with a 1px rule border, cropped from the top.
 
 ## Components
 
-### Buttons
-Blunt, square and solid; the arrow moves, the button does not lift.
-- **Shape:** square (0).
-- **Paper (on cobalt):** paper ground, deep-cobalt text, 0.95rem × 1.4rem, weight 650 at width 108%. Hover goes to sheet white.
-- **Ink (on paper):** ink ground, paper text; hover turns cobalt. On the cobalt back cover the submit button renders as the paper button.
-- **Small:** 0.55rem × 0.9rem at label size; used for the header "Talk to us".
-- **Hover / Focus:** 180ms colour change on the house ease `cubic-bezier(0.16, 1, 0.3, 1)`; the trailing arrow slides 3px; active presses down 1px. Focus is a 2px outline, offset 3px, cobalt on paper and paper on cobalt.
-- **Text link:** weight 600 with a trailing arrow; cobalt on paper, paper on cobalt; underline 1px, 2px on hover, offset 0.22em.
+### Keys (buttons)
+Push keys on a control desk: blunt, amber, uppercase.
+- **Shape:** square (0px).
+- **Primary key:** Platform Amber fill, Lamp Ink label in Semi Condensed 600 uppercase at 0.05em, padding 1rem × 1.35rem, followed by the site arrow.
+- **Small key:** the header CTA, label size, padding 0.6rem × 0.9rem.
+- **Hover / Active:** fill moves to Amber Struck and the arrow slides 3px forward. On press the key drops 1px. Disabled keys go to 60% opacity with a progress cursor.
+- **Focus:** a 2px amber outline, offset 3px (site-wide).
 
-### Arrow
-One authored 16px stroke arrow for the whole site: right for actions, down for in-page jumps, up-right (rotated −45°) for links that leave the site.
+### Text links
+Secondary actions: Semi Condensed 600 uppercase label in Flap White, underlined (1px, offset 0.24em), with the arrow. The underline thickens to 2px on hover. Links that leave the site point the arrow up-right; the in-page portfolio link points it down.
 
-### Cover schedule (signature)
-A real table on the cobalt cover: a label-size title over a 2px paper rule, header cells in cover ink, company names at body size weight 650, sector in cover ink, status in paper with a square mark. The whole row is the link target; hover tints the row with paper at 6%.
+### The Arrow
+One authored 16px stroke arrow (1.6 stroke, square caps) for the whole site, rotated for direction. No icon set, no other glyph icons.
 
-### Portfolio ledger (signature)
-The cover schedule repeated as a sticky index beside the holdings. Rows carry mark, name and sector under a 2px ink opener. Hover uses the second sheet; the holding in view fills its row with cobalt (`aria-current`), sector switching to cover ink. Removed below 1000px.
+### Departures board (signature)
+The first-viewport table of companies. Columns: Company, Sector, Market, Status, with Label Micro column heads in Board Grey and the table titled in label caps above. Each cell is a flap module (Upper Leaf over Lower Leaf, seam behind the text). Company names are inline flap tiles in Flap White; the status cell carries a lamp plus IN SERVICE (lit, Flap White) or SCHEDULED (dark lamp, Board Grey). The whole row is one link to its gate. On hover every module steps up one tone, and on focus the full row gets the amber outline.
 
-### Holding entry
-A report filing, not a card: head row with optional product logo tile, title-size name and status line, closed by a 2px ink rule; a facts strip of definition pairs (sector, market, outbound link) closed by a hairline; a lead-size summary; then a figure plate.
+### Flap tiles
+The board's signature type treatment, used for the H1, section H2s and the 404 code. Each character gets its own tile (0.74em × 1.16em) with a seam at the midline. Words are kept whole, with 0.32em between words and 0.05em between tiles. On load each tile flips in once from rotateX(−75deg) and 55% brightness over 520ms, staggered 24ms per tile. Inside a module the tiles drop their own backgrounds and sit flush, because the module is the slot.
 
-### Figure plate
-Screenshot in a 2:1 window on sheet white with a 1px plate rule; caption beneath at label size in ink secondary after a hairline, numbered as a report figure. With scroll-driven animation support and motion allowed, the plate unveils from a 22% bottom clip and the screenshot drifts 7% inside its window.
+### Status lamp
+The single shared status glyph: a 0.6em square before the status text. Lit amber with glow when in service, Dead Lamp when scheduled. On the board, lit lamps switch on in sequence after the flap cascade (140ms per row, starting at 900ms). The contact form reuses the same lamp for its status line.
 
-### Definition rows
-Services, company information and FAQ share one pattern: 2px ink opener, hairline-divided rows, term in ink secondary or display title on the left, value at weight 550 or body copy on the right. FAQ rows are native `details` with a drawn plus that rotates to a minus in 240ms.
+### Gates (portfolio entries)
+One per company. The head is a pair of modules: name (title size, with the product's own 32px logo in a Hard Rule ring) and status (lamp + label). Below, facts (Label Micro keys, Flap White values), a summary and an "Open" text link sit beside the product screenshot in its gate frame with a numbered caption. Companies without a public screen use a single-column line layout. When scroll-driven animation is supported, screenshots rise into their frame as they enter the viewport.
+
+### Routes and steps
+Services are routes: a flap module with the service name in title caps, next to a Back Panel cell holding who it is for (Board Grey) and what it covers. Process steps are flat Lower Leaf cells, each with a small flap-tile numeral, a title and muted text.
+
+### Ledger and FAQ
+Company data is a ledger of Lower Leaf rows: label-caps key in Board Grey, value in Flap White that wraps anywhere (emails, legal names). The FAQ is a ruled list of disclosures. Questions are set in Barlow 500 at lead size, and a hand-drawn plus turns into a minus when open.
+
+### The notice
+The founder's note: a Notice Paper sheet (max 50rem) on a Back Panel section, set in Print Ink. It has a title-caps heading, lead-size body and a signature in Semi Condensed caps over a Print Ink Soft role line. Selection and focus invert to ink on paper. It is the only light surface in the system.
 
 ### Inputs / Fields
-- **Style:** on cobalt only: transparent ground, paper text, 1px cover-ink underline, square. The textarea is a full 1px cover-ink box. Selects use a drawn chevron.
-- **Focus:** underline turns paper and thickens to 2px via a 1px line beneath; the textarea gets an inset 1px paper line.
-- **Status:** the result message appears in paper, weight 600, behind a 2px left rule, for both success and error.
+- **Style:** Lower Leaf fill, no visible side borders, a Hard Rule bottom border, square corners, Barlow body text in Flap White. Labels sit above in label caps, Board Grey; the "(optional)" note is sentence case.
+- **Focus:** the border turns amber and the fill steps up to Upper Leaf, with no glow.
+- **Select:** a custom chevron in Flap White; the native option list is printed on paper.
 
 ### Navigation
-Label-size links in cover ink on the cobalt bar, paper and underlined on hover, with the paper small button last. The bar is closed by a cover hairline. The footer is a deep-cobalt band at label size.
+A header bar ruled underneath: monogram (inverted to near-white) plus the name in Semi Condensed 600 caps, then nav links in label caps (Board Grey, turning Flap White on hover, no underline), a two-letter language switch, and the small amber key. Utility pages (404, /sent/) reuse the bar with the brand only.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** set every collection as a schedule: a 2px ink rule (paper on cobalt) over hairline-divided rows.
-- **Do** keep headings at width 118% and weight 700, and reading text at width 100%.
-- **Do** mark status with the square: solid live, half active, outline in development.
-- **Do** put every product screenshot in a figure plate with a numbered caption.
-- **Do** keep product colour inside the product's own entry (logo tile, screenshot).
-- **Do** use the house ease `cubic-bezier(0.16, 1, 0.3, 1)` for state changes, and leave all content visible without JavaScript or with reduced motion.
+- **Do** keep Enamel Black (board) as the ground of every page, including 404 and /sent/.
+- **Do** build any new data display from flap modules in the 4px slot grid (spacing.slot), with Board Grey label-micro heads.
+- **Do** reserve amber for verified live status, the primary key, focus and selection.
+- **Do** keep the flap cascade a single pass on load, staggered per tile, and render everything static and fully visible under `prefers-reduced-motion` and without JS.
+- **Do** drop columns on narrow screens before shrinking board glyphs; on mobile the board shows company and status only.
+- **Do** keep product logos and screenshots in their own colours, framed inside their gate.
+- **Do** use the single site arrow for every directional affordance.
 
 ### Don't:
-- **Don't** introduce a second brand hue, including green or red for form states.
-- **Don't** wrap content in filled, rounded or shadowed cards; separate with rules and sheets.
-- **Don't** round corners on house elements; only the product logo tile is rounded.
-- **Don't** set uppercase, letter-spaced labels or eyebrows above headings.
-- **Don't** add a second type family or a serif display face without Walter confirming the brief over this build.
-- **Don't** cast shadows or blur surfaces for depth.
+- **Don't** round any corner; the lamp is square too.
+- **Don't** add shadows to board elements; separate them with seams, slots and tone steps. The only shadows are the lamp glow, the key lip and the pinned notice.
+- **Don't** introduce a second accent colour, gradient fields or a centred SaaS hero over a gradient with a card row.
+- **Don't** light a lamp for a status, date or figure that has not been verified; show SCHEDULED or omit the field.
+- **Don't** loop the flap or lamp animation or replay it on scroll.
+- **Don't** break a word across flap tiles, or let a module cell wrap.
+- **Don't** set reading prose in condensed caps, or signage in sentence-case Barlow.
+- **Don't** set text below 0.75rem or use a grey dimmer than Board Grey on the board.

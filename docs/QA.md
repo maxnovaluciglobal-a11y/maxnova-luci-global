@@ -35,4 +35,4 @@ Every PNG that ships carries its origin inside the file (`impeccable embed-promp
 ## Finish review (impeccable)
 
 Two rounds. Resolved: honest cover/FAQ copy, mobile header links, empty required topic, whole-row links in the schedule (verified with `elementFromPoint` on the status cell → `a#dypos`), report figure captions, cobalt back cover, raster provenance. Mobile capture gap was a capture artifact (`scrollHeight` 9081 = footer bottom at 390 px).
-Closed 2026-10-18: Walter approved the cobalt/Archivo world as built, superseding the brief on type, ground, hero and the Company map.
+Superseded 2026-10-18: Walter rejected the cobalt world after launch and chose the split-flap departures board (seed a5e59273). Two review rounds; all material fixes resolved, regressions (seam, select chevron) fixed and verified on captures.

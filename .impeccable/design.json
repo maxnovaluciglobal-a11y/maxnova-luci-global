@@ -1,359 +1,543 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-18T19:43:05+00:00",
+  "generatedAt": "2026-10-18T00:00:00Z",
   "title": "Design System: Maxnova & Luci Global",
   "extensions": {
+    "provenance": "World chosen by Walter on 2026-10-18 (seed key a5e59273, .impeccable/surfaces/src-pages-index-astro.md). Supersedes the cobalt/Archivo annual-report world and docs/prompt-maestro.md §4–§5.",
     "colorMeta": {
-      "cobalt": {
+      "amber": {
         "role": "primary",
-        "displayName": "Report Cobalt",
-        "canonical": "oklch(39.5% 0.196 268)",
+        "displayName": "Platform Amber",
+        "canonical": "oklch(80.6% 0.147 79)",
         "tonalRamp": [
-          "#020038",
-          "#0a0079",
-          "#1829a3",
-          "#314fc4",
-          "#5074e3",
-          "#7398ff",
-          "#a2c1ff",
-          "#dceeff"
+          "#2a1b02",
+          "#4a3208",
+          "#6d4b0e",
+          "#926615",
+          "#b9821f",
+          "#dc9c2c",
+          "#f2b33d",
+          "#ffe3a3"
         ]
       },
-      "cobalt-deep": {
+      "amber-hover": {
         "role": "primary",
-        "displayName": "Deep Cobalt",
-        "canonical": "oklch(32.1% 0.153 268)",
+        "displayName": "Amber Struck",
+        "canonical": "oklch(85.5% 0.145 82)",
         "tonalRamp": [
-          "#030039",
-          "#0a1169",
-          "#1f348c",
-          "#3c56ab",
-          "#5c78c9",
-          "#7f9be8",
-          "#a6c2ff",
-          "#dceeff"
-        ]
+          "#250000",
+          "#441200",
+          "#643100",
+          "#855100",
+          "#a87200",
+          "#cb9300",
+          "#f3ba45",
+          "#ffe474"
+        ],
+        "note": "Hard-coded #ffc552 in global.css (no custom property yet)."
       },
-      "cobalt-ink": {
+      "amber-ink": {
         "role": "primary",
-        "displayName": "Cover Ink",
-        "canonical": "oklch(86.8% 0.059 277)",
+        "displayName": "Lamp Ink",
+        "canonical": "oklch(18.9% 0.026 77)",
         "tonalRamp": [
-          "#080919",
-          "#1f2236",
-          "#3a3e56",
-          "#575c77",
-          "#757b9b",
-          "#959cc0",
-          "#bac2ea",
-          "#e4ecff"
+          "#110a01",
+          "#2b2216",
+          "#483e30",
+          "#665c4d",
+          "#867c6c",
+          "#a89d8d",
+          "#cec2b2",
+          "#f8eddc"
         ]
       },
-      "paper": {
-        "role": "neutral",
-        "displayName": "Cool Paper",
-        "canonical": "oklch(96.6% 0.003 128)",
+      "lamp-off": {
+        "role": "primary",
+        "displayName": "Dead Lamp",
+        "canonical": "oklch(32.2% 0.023 78)",
         "tonalRamp": [
-          "#0b0b0a",
-          "#242423",
-          "#3f403e",
-          "#5d5e5c",
-          "#7d7d7c",
-          "#9e9f9d",
-          "#c3c4c2",
-          "#eeefed"
+          "#110a02",
+          "#2a2317",
+          "#473e32",
+          "#655c4f",
+          "#857c6e",
+          "#a79d8f",
+          "#cdc3b4",
+          "#f7edde"
         ]
       },
-      "paper-2": {
+      "board": {
         "role": "neutral",
-        "displayName": "Second Sheet",
-        "canonical": "oklch(93.4% 0.006 129)",
+        "displayName": "Enamel Black",
+        "canonical": "oklch(15.4% 0.005 264)",
         "tonalRamp": [
-          "#0a0c09",
-          "#232522",
-          "#3f403d",
-          "#5d5e5b",
-          "#7c7e7a",
-          "#9d9f9b",
-          "#c3c5c1",
-          "#edefeb"
+          "#0a0b0d",
+          "#232426",
+          "#3e4042",
+          "#5c5e60",
+          "#7c7d80",
+          "#9d9ea1",
+          "#c2c4c7",
+          "#edeef2"
         ]
       },
-      "sheet": {
+      "board-2": {
         "role": "neutral",
-        "displayName": "Sheet White",
-        "canonical": "oklch(100% 0 0)",
+        "displayName": "Back Panel",
+        "canonical": "oklch(18.2% 0.006 271)",
         "tonalRamp": [
-          "#0b0b0b",
-          "#242424",
-          "#404040",
-          "#5d5d5d",
-          "#7d7d7d",
-          "#9e9e9e",
-          "#c4c4c4",
-          "#eeeeee"
+          "#0a0b0e",
+          "#232427",
+          "#3e4043",
+          "#5c5d61",
+          "#7c7d81",
+          "#9d9ea2",
+          "#c2c4c8",
+          "#edeef3"
         ]
       },
-      "ink": {
+      "module": {
         "role": "neutral",
-        "displayName": "Ink",
-        "canonical": "oklch(18.6% 0.011 261)",
+        "displayName": "Lower Leaf",
+        "canonical": "oklch(21.3% 0.007 258)",
         "tonalRamp": [
-          "#080b10",
-          "#21242a",
-          "#3c4046",
+          "#090b0e",
+          "#222427",
+          "#3e4043",
+          "#5b5e61",
+          "#7b7d81",
+          "#9c9fa3",
+          "#c1c4c8",
+          "#eceff3"
+        ]
+      },
+      "module-hi": {
+        "role": "neutral",
+        "displayName": "Upper Leaf",
+        "canonical": "oklch(23.9% 0.008 264)",
+        "tonalRamp": [
+          "#090b0f",
+          "#222428",
+          "#3d4044",
+          "#5b5e62",
+          "#7b7d82",
+          "#9c9ea4",
+          "#c1c4ca",
+          "#eceef4"
+        ]
+      },
+      "module-hover": {
+        "role": "neutral",
+        "displayName": "Struck Leaf",
+        "canonical": "oklch(26.4% 0.010 261)",
+        "tonalRamp": [
+          "#090b10",
+          "#212429",
+          "#3d4045",
           "#5a5e64",
-          "#797d84",
-          "#9a9fa6",
-          "#c0c4cc",
-          "#eaeff6"
+          "#7a7d84",
+          "#9b9fa5",
+          "#c0c4cb",
+          "#ebeff6"
         ]
       },
-      "ink-2": {
+      "seam": {
         "role": "neutral",
-        "displayName": "Ink Secondary",
-        "canonical": "oklch(42.3% 0.023 263)",
+        "displayName": "Seam",
+        "canonical": "oklch(11.6% 0.003 286)",
         "tonalRamp": [
-          "#070b14",
-          "#1f242e",
-          "#39404c",
-          "#575e6b",
-          "#777e8a",
-          "#989fab",
-          "#bec4d0",
-          "#e9effa"
+          "#0b0b0c",
+          "#242426",
+          "#3f3f41",
+          "#5d5d5f",
+          "#7d7d7f",
+          "#9e9ea0",
+          "#c4c4c6",
+          "#eeeef0"
         ]
       },
       "rule": {
         "role": "neutral",
-        "displayName": "Hairline",
-        "canonical": "rgb(16 19 24 / 0.16)"
+        "displayName": "Rule",
+        "canonical": "oklch(27.2% 0.010 261)",
+        "tonalRamp": [
+          "#090b10",
+          "#212429",
+          "#3d4045",
+          "#5a5e64",
+          "#7a7d84",
+          "#9b9fa5",
+          "#c0c4cb",
+          "#ebeff6"
+        ]
       },
       "rule-strong": {
         "role": "neutral",
-        "displayName": "Plate Rule",
-        "canonical": "rgb(16 19 24 / 0.55)"
+        "displayName": "Hard Rule",
+        "canonical": "oklch(35.9% 0.011 264)",
+        "tonalRamp": [
+          "#090b10",
+          "#21242a",
+          "#3d4046",
+          "#5a5e64",
+          "#7a7d84",
+          "#9b9ea6",
+          "#c0c4cc",
+          "#ebeff6"
+        ],
+        "note": "Hard-coded #3a3d43 in global.css (no custom property yet)."
       },
-      "rule-cover": {
+      "glyph": {
         "role": "neutral",
-        "displayName": "Cover Hairline",
-        "canonical": "rgb(243 244 242 / 0.28)"
+        "displayName": "Flap White",
+        "canonical": "oklch(93.2% 0.013 87)",
+        "tonalRamp": [
+          "#0d0b06",
+          "#27241d",
+          "#433f38",
+          "#615d56",
+          "#807d75",
+          "#a29e96",
+          "#c8c4bb",
+          "#f2eee5"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Reading Grey",
+        "canonical": "oklch(82.7% 0.012 90)",
+        "tonalRamp": [
+          "#0d0b06",
+          "#26241e",
+          "#424039",
+          "#605d56",
+          "#807d76",
+          "#a19e96",
+          "#c7c4bc",
+          "#f1eee6"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Board Grey",
+        "canonical": "oklch(66.2% 0.010 258)",
+        "tonalRamp": [
+          "#090b0f",
+          "#212429",
+          "#3d4045",
+          "#5a5e63",
+          "#7a7d83",
+          "#9b9fa5",
+          "#c0c4cb",
+          "#eaeff5"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Notice Paper",
+        "canonical": "oklch(93.2% 0.013 87)",
+        "tonalRamp": [
+          "#0d0b06",
+          "#27241d",
+          "#433f38",
+          "#615d56",
+          "#807d75",
+          "#a29e96",
+          "#c8c4bb",
+          "#f2eee5"
+        ]
+      },
+      "paper-ink": {
+        "role": "neutral",
+        "displayName": "Print Ink",
+        "canonical": "oklch(20.5% 0.006 271)",
+        "tonalRamp": [
+          "#0a0b0e",
+          "#232427",
+          "#3e4043",
+          "#5c5d61",
+          "#7c7d81",
+          "#9d9ea2",
+          "#c2c4c8",
+          "#edeef3"
+        ]
+      },
+      "paper-ink-2": {
+        "role": "neutral",
+        "displayName": "Print Ink Soft",
+        "canonical": "oklch(41.3% 0.007 275)",
+        "tonalRamp": [
+          "#0a0b0e",
+          "#232427",
+          "#3f3f43",
+          "#5c5d61",
+          "#7c7d81",
+          "#9d9ea3",
+          "#c3c4c9",
+          "#edeef3"
+        ]
       }
     },
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Cover H1 only; Archivo at width 118%, held to ~13ch."
+        "purpose": "Board H1 only, as flap tiles."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Section H2s, contact heading, sent-page message."
+        "purpose": "Plain section H2s and the /sent/ confirmation."
+      },
+      "headline-flap": {
+        "displayName": "Headline Flap",
+        "purpose": "Section H2s set as flap tiles."
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Holding names, service names, process title."
+        "purpose": "Gate names, route names, process heading, notice heading."
       },
-      "numeral": {
-        "displayName": "Numeral",
-        "purpose": "Process step numbers in cobalt; the only light weight."
+      "board-data": {
+        "displayName": "Board Data",
+        "purpose": "Text inside flap modules; key labels at 600."
       },
       "lead": {
         "displayName": "Lead",
-        "purpose": "Cover lead, section intros, holding summaries, letter body, FAQ questions (600)."
+        "purpose": "The reading line under the H1, section intros, notice body."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Running text, 58-62ch, tabular figures."
+        "purpose": "Summaries, route text, FAQ answers; 46-62ch."
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Nav, schedule cells, field labels, captions, status lines, footer. Sentence case."
+        "purpose": "Nav, field labels, ledger keys, text links."
+      },
+      "label-micro": {
+        "displayName": "Label Micro",
+        "purpose": "Table column heads and gate fact keys; the size floor."
       }
     },
-    "shadows": [],
+    "shadows": [
+      {
+        "name": "lamp-glow",
+        "value": "0 0 0.6em rgb(242 179 61 / 0.45)",
+        "purpose": "Lit amber lamp only."
+      },
+      {
+        "name": "key-lip",
+        "value": "inset 0 -2px 0 rgb(0 0 0 / 0.25)",
+        "purpose": "Inner bottom edge of amber push keys."
+      },
+      {
+        "name": "pinned-paper",
+        "value": "0 2px 2px rgb(0 0 0 / 0.3), 0 24px 48px -24px rgb(0 0 0 / 0.7)",
+        "purpose": "The founder's notice sheet only."
+      }
+    ],
     "motion": [
       {
-        "name": "ease-house",
+        "name": "ease",
         "value": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Single easing for every state change and entrance."
+        "purpose": "All transitions and the flap cascade."
       },
       {
         "name": "state-fast",
-        "value": "180ms",
-        "purpose": "Button colour and press."
+        "value": "160ms",
+        "purpose": "Key fill, field border and fill."
       },
       {
-        "name": "state-row",
-        "value": "260ms",
-        "purpose": "Ledger row fill and hover."
+        "name": "module-hover",
+        "value": "200ms",
+        "purpose": "Module tone step on row hover."
       },
       {
-        "name": "rise",
-        "value": "translateY(16px) to 0, 700-900ms, staggered 90ms (claim) / 60ms (schedule rows)",
-        "purpose": "Cover entrance under html.js and no-preference only."
+        "name": "arrow-nudge",
+        "value": "220ms, translateX(3px)",
+        "purpose": "Arrow inside a hovered key."
       },
       {
-        "name": "unveil",
-        "value": "clip-path inset(0 0 22% 0) to 0, opacity 0.4 to 1, view() entry 0-70%",
-        "purpose": "Figure plates entering view; scroll-driven, static when unsupported."
+        "name": "flap-cascade",
+        "value": "520ms per tile, 24ms stagger, from perspective(400px) rotateX(-75deg) brightness(0.55)",
+        "purpose": "H1, flap H2s and board names, once on load, only with JS and no-preference motion."
       },
       {
-        "name": "drift",
-        "value": "translateY(0) to -7%, view() cover",
-        "purpose": "Screenshot drifting inside its plate; static under reduced motion."
+        "name": "lamp-sequence",
+        "value": "600ms steps(2, jump-none), 900ms + 140ms per row",
+        "purpose": "Board lamps switch on in sequence after the cascade."
+      },
+      {
+        "name": "screen-rise",
+        "value": "view() timeline, entry 0%-80%, from translateY(6%) scale(1.02)",
+        "purpose": "Product screenshots rise into their gate frame, where supported."
       }
     ],
     "breakpoints": [
       {
-        "name": "stack",
-        "value": "1000px"
+        "name": "board-full",
+        "value": "1360px",
+        "purpose": "Below: Market column leaves the board."
       },
       {
-        "name": "compact",
-        "value": "720px"
+        "name": "stack",
+        "value": "1000px",
+        "purpose": "Below: all splits stack, steps 2-up."
       },
       {
         "name": "narrow",
-        "value": "480px"
+        "value": "720px",
+        "purpose": "Below: Sector column leaves, nav trims, single-column forms and ledger."
+      },
+      {
+        "name": "tiny",
+        "value": "480px",
+        "purpose": "Below: wordmark hides, monogram only."
       }
     ]
   },
   "components": [
     {
-      "name": "Paper Button",
+      "name": "Primary Key",
       "kind": "button",
-      "refersTo": "button-paper",
-      "description": "Primary action on cobalt surfaces (cover, back cover, 404, sent).",
-      "html": "<div class=\"ds-cobalt\"><a class=\"ds-btn ds-btn-paper\" href=\"#\">Talk to us<svg class=\"ds-arrow\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"M2 8h11M9 3.5 13.5 8 9 12.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"square\"/></svg></a></div>",
-      "css": ".ds-btn { font-family: 'Archivo Variable', 'Archivo', system-ui, sans-serif; display: inline-flex; align-items: center; gap: 0.6rem; font-size: 1rem; font-weight: 650; font-stretch: 108%; padding: 0.95rem 1.4rem; border: 1px solid transparent; border-radius: 0; text-decoration: none; cursor: pointer; transition: background-color 180ms cubic-bezier(0.16, 1, 0.3, 1), color 180ms cubic-bezier(0.16, 1, 0.3, 1), transform 180ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn .ds-arrow { transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn:hover .ds-arrow { transform: translateX(3px); } .ds-btn:active { transform: translateY(1px); } .ds-cobalt { background: var(--cobalt, #1c31ad); padding: 2rem; } .ds-btn-paper { background: var(--paper, #f3f4f2); color: var(--cobalt-deep, #14247f); } .ds-btn-paper:hover { background: #fff; } .ds-btn-paper:focus-visible { outline: 2px solid var(--paper, #f3f4f2); outline-offset: 3px; }"
+      "refersTo": "key",
+      "description": "Amber push key for the one primary action per zone.",
+      "html": "<a class=\"ds-key\" href=\"#\">Talk to us<svg class=\"ds-arrow\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"M2 8h11M9 3.5 13.5 8 9 12.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"square\"/></svg></a>",
+      "css": ":host{--board:#0b0c0e;--board-2:#111215;--module:#17191c;--module-hi:#1d1f23;--module-hover:#22252a;--seam:#050506;--rule:#24272c;--glyph:#ece8df;--text:#c9c6be;--muted:#8f9399;--amber:#f2b33d;--amber-ink:#1a1206;--lamp-off:#3a3226;--paper:#ece8df;--paper-ink:#16171a;--paper-ink-2:#4a4b4f;--font-board:'Barlow Semi Condensed','Arial Narrow',sans-serif;--font-text:'Barlow',system-ui,sans-serif;--ease:cubic-bezier(0.16,1,0.3,1);display:block;background:var(--board);color:var(--text);padding:24px;font-family:var(--font-text)} .ds-key{display:inline-flex;align-items:center;gap:.6rem;font:600 1rem/1 var(--font-board);text-transform:uppercase;letter-spacing:.05em;padding:1rem 1.35rem;border:0;border-radius:0;text-decoration:none;background:var(--amber);color:var(--amber-ink);box-shadow:inset 0 -2px 0 rgb(0 0 0/.25);transition:background-color 160ms var(--ease),transform 160ms var(--ease)} .ds-key:hover{background:#ffc552} .ds-key:active{transform:translateY(1px)} .ds-key .ds-arrow{transition:transform 220ms var(--ease)} .ds-key:hover .ds-arrow{transform:translateX(3px)} .ds-key:focus-visible{outline:2px solid var(--amber);outline-offset:3px}"
     },
     {
-      "name": "Ink Button",
+      "name": "Small Key",
       "kind": "button",
-      "refersTo": "button-ink",
-      "description": "Primary action on paper; turns cobalt on hover.",
-      "html": "<a class=\"ds-btn ds-btn-ink\" href=\"#\">Request a diagnostic call<svg class=\"ds-arrow\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"M2 8h11M9 3.5 13.5 8 9 12.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"square\"/></svg></a>",
-      "css": ".ds-btn { font-family: 'Archivo Variable', 'Archivo', system-ui, sans-serif; display: inline-flex; align-items: center; gap: 0.6rem; font-size: 1rem; font-weight: 650; font-stretch: 108%; padding: 0.95rem 1.4rem; border: 1px solid transparent; border-radius: 0; text-decoration: none; cursor: pointer; transition: background-color 180ms cubic-bezier(0.16, 1, 0.3, 1), color 180ms cubic-bezier(0.16, 1, 0.3, 1), transform 180ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn .ds-arrow { transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn:hover .ds-arrow { transform: translateX(3px); } .ds-btn:active { transform: translateY(1px); } .ds-btn-ink { background: var(--ink, #101318); color: var(--paper, #f3f4f2); } .ds-btn-ink:hover { background: var(--cobalt, #1c31ad); } .ds-btn-ink:focus-visible { outline: 2px solid var(--cobalt, #1c31ad); outline-offset: 3px; }"
+      "refersTo": "key-sm",
+      "description": "Header CTA.",
+      "html": "<a class=\"ds-key-sm\" href=\"#\">Talk to us</a>",
+      "css": ":host{--board:#0b0c0e;--board-2:#111215;--module:#17191c;--module-hi:#1d1f23;--module-hover:#22252a;--seam:#050506;--rule:#24272c;--glyph:#ece8df;--text:#c9c6be;--muted:#8f9399;--amber:#f2b33d;--amber-ink:#1a1206;--lamp-off:#3a3226;--paper:#ece8df;--paper-ink:#16171a;--paper-ink-2:#4a4b4f;--font-board:'Barlow Semi Condensed','Arial Narrow',sans-serif;--font-text:'Barlow',system-ui,sans-serif;--ease:cubic-bezier(0.16,1,0.3,1);display:block;background:var(--board);color:var(--text);padding:24px;font-family:var(--font-text)} .ds-key-sm{display:inline-flex;font:600 .875rem/1 var(--font-board);text-transform:uppercase;letter-spacing:.05em;padding:.6rem .9rem;border-radius:0;text-decoration:none;background:var(--amber);color:var(--amber-ink);box-shadow:inset 0 -2px 0 rgb(0 0 0/.25)} .ds-key-sm:hover{background:#ffc552}"
     },
     {
       "name": "Text Link",
+      "kind": "button",
+      "refersTo": "textlink",
+      "description": "Secondary action: underlined caps with the site arrow.",
+      "html": "<a class=\"ds-textlink\" href=\"#\">Open dypos.app<svg class=\"ds-arrow\" style=\"transform:rotate(-45deg)\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"M2 8h11M9 3.5 13.5 8 9 12.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"square\"/></svg></a>",
+      "css": ":host{--board:#0b0c0e;--board-2:#111215;--module:#17191c;--module-hi:#1d1f23;--module-hover:#22252a;--seam:#050506;--rule:#24272c;--glyph:#ece8df;--text:#c9c6be;--muted:#8f9399;--amber:#f2b33d;--amber-ink:#1a1206;--lamp-off:#3a3226;--paper:#ece8df;--paper-ink:#16171a;--paper-ink-2:#4a4b4f;--font-board:'Barlow Semi Condensed','Arial Narrow',sans-serif;--font-text:'Barlow',system-ui,sans-serif;--ease:cubic-bezier(0.16,1,0.3,1);display:block;background:var(--board);color:var(--text);padding:24px;font-family:var(--font-text)} .ds-textlink{display:inline-flex;align-items:center;gap:.45rem;font:600 .875rem/1.2 var(--font-board);text-transform:uppercase;letter-spacing:.06em;color:var(--glyph);text-underline-offset:.24em;text-decoration-thickness:1px} .ds-textlink:hover{text-decoration-thickness:2px}"
+    },
+    {
+      "name": "Departures Board",
       "kind": "custom",
-      "refersTo": "text-link",
-      "description": "Secondary action with the authored arrow; up-right when leaving the site.",
-      "html": "<a class=\"ds-textlink\" href=\"#\">Open dypos.app<svg class=\"ds-arrow\" style=\"transform: rotate(-45deg)\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"M2 8h11M9 3.5 13.5 8 9 12.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"square\"/></svg></a>",
-      "css": ".ds-textlink { font-family: 'Archivo Variable', 'Archivo', system-ui, sans-serif; display: inline-flex; align-items: center; gap: 0.45rem; font-weight: 600; color: var(--cobalt, #1c31ad); text-underline-offset: 0.22em; text-decoration-thickness: 1px; } .ds-textlink:hover { text-decoration-thickness: 2px; } .ds-textlink:focus-visible { outline: 2px solid var(--cobalt, #1c31ad); outline-offset: 3px; }"
+      "refersTo": "module",
+      "description": "Signature: company lines as flap modules in a 4px slot grid, with status lamps.",
+      "html": "<table class=\"ds-board\"><thead><tr><th>Company</th><th>Sector</th><th>Status</th></tr></thead><tbody><tr class=\"ds-lit\"><td><span class=\"ds-mod ds-name\">DypOS</span></td><td><span class=\"ds-mod\">Restaurants</span></td><td><span class=\"ds-mod ds-status\"><span class=\"ds-lamp\"></span>In service</span></td></tr><tr><td><span class=\"ds-mod ds-name\">Healthcare SaaS</span></td><td><span class=\"ds-mod\">Medical practices</span></td><td><span class=\"ds-mod ds-status\"><span class=\"ds-lamp\"></span>Scheduled</span></td></tr></tbody></table>",
+      "css": ":host{--board:#0b0c0e;--board-2:#111215;--module:#17191c;--module-hi:#1d1f23;--module-hover:#22252a;--seam:#050506;--rule:#24272c;--glyph:#ece8df;--text:#c9c6be;--muted:#8f9399;--amber:#f2b33d;--amber-ink:#1a1206;--lamp-off:#3a3226;--paper:#ece8df;--paper-ink:#16171a;--paper-ink-2:#4a4b4f;--font-board:'Barlow Semi Condensed','Arial Narrow',sans-serif;--font-text:'Barlow',system-ui,sans-serif;--ease:cubic-bezier(0.16,1,0.3,1);display:block;background:var(--board);color:var(--text);padding:24px;font-family:var(--font-text)} .ds-board{width:100%;border-collapse:separate;border-spacing:4px} .ds-board th{font:500 .75rem/1 var(--font-board);text-transform:uppercase;letter-spacing:.1em;color:var(--muted);text-align:left;padding:0 .15rem .35rem} .ds-board td{padding:0} .ds-mod{position:relative;display:flex;align-items:center;min-height:2.6rem;padding:.5rem .85rem;background:linear-gradient(var(--module-hi) 0 50%, var(--module) 50% 100%);isolation:isolate;font:500 1rem/1.1 var(--font-board);text-transform:uppercase;letter-spacing:.04em;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:background 200ms var(--ease)} .ds-mod::after{content:'';position:absolute;z-index:-1;left:0;right:0;top:50%;height:1px;transform:translateY(-50%);background:var(--seam)} .ds-name{font-weight:600;color:var(--glyph);font-size:1.2rem} .ds-status{color:var(--muted)} .ds-lit .ds-status{color:var(--glyph)} .ds-lamp{display:inline-block;width:.6em;height:.6em;margin-right:.6em;background:var(--lamp-off)} .ds-lit .ds-lamp{background:var(--amber);box-shadow:0 0 .6em rgb(242 179 61/.45)} .ds-board tbody tr:hover .ds-mod{background:linear-gradient(var(--module-hover) 0 50%, var(--module-hi) 50% 100%)}"
     },
     {
-      "name": "Navigation Bar",
-      "kind": "nav",
-      "refersTo": "button-sm",
-      "description": "Cover top bar: monogram and wordmark left, label links and small paper button right.",
-      "html": "<div class=\"ds-bar\"><span class=\"ds-brand\">Maxnova &amp; Luci Global</span><nav class=\"ds-nav\"><a href=\"#\">Portfolio</a><a href=\"#\">Services</a><a href=\"#\">Company</a><a href=\"#\">ES</a><a class=\"ds-nav-btn\" href=\"#\">Talk to us</a></nav></div>",
-      "css": ".ds-bar { font-family: 'Archivo Variable', 'Archivo', system-ui, sans-serif; display: flex; align-items: center; justify-content: space-between; gap: 1rem; background: var(--cobalt, #1c31ad); color: var(--paper, #f3f4f2); padding: 1.1rem 1.5rem; border-bottom: 1px solid rgb(243 244 242 / 0.28); } .ds-brand { font-weight: 700; font-stretch: 118%; letter-spacing: -0.01em; } .ds-nav { display: flex; align-items: center; gap: 1.5rem; font-size: 0.875rem; font-weight: 550; } .ds-nav a { color: var(--cobalt-ink, #c9d1fb); text-decoration: none; } .ds-nav a:hover { color: var(--paper, #f3f4f2); text-decoration: underline; text-underline-offset: 0.22em; } .ds-nav a:focus-visible { outline: 2px solid var(--paper, #f3f4f2); outline-offset: 3px; } .ds-nav .ds-nav-btn { background: var(--paper, #f3f4f2); color: var(--cobalt-deep, #14247f); padding: 0.55rem 0.9rem; font-weight: 650; font-stretch: 108%; } .ds-nav .ds-nav-btn:hover { background: #fff; color: var(--cobalt-deep, #14247f); text-decoration: none; }"
-    },
-    {
-      "name": "Status Mark",
-      "kind": "chip",
-      "description": "Square status marks: solid live, half active, outline in development.",
-      "html": "<p class=\"ds-status\"><span><i class=\"ds-mark ds-mark-live\"></i>Live</span><span><i class=\"ds-mark ds-mark-active\"></i>Active</span><span><i class=\"ds-mark\"></i>In development</span></p>",
-      "css": ".ds-status { font-family: 'Archivo Variable', 'Archivo', system-ui, sans-serif; display: flex; gap: 1.5rem; font-size: 0.875rem; font-weight: 600; color: var(--ink, #101318); } .ds-mark { display: inline-block; width: 0.62em; height: 0.62em; margin-right: 0.55em; vertical-align: 0.02em; border: 1.5px solid var(--cobalt, #1c31ad); } .ds-mark-live { background: var(--cobalt, #1c31ad); } .ds-mark-active { background: linear-gradient(90deg, var(--cobalt, #1c31ad) 50%, transparent 50%); }"
-    },
-    {
-      "name": "Cover Schedule",
+      "name": "Flap Tiles",
       "kind": "custom",
-      "description": "Signature: the schedule of operating companies on the cobalt cover; whole row is the link.",
-      "html": "<div class=\"ds-schedule\"><p class=\"ds-schedule-title\">Operating companies</p><table><thead><tr><th>Company</th><th>Sector</th><th>Status</th></tr></thead><tbody><tr><th><a href=\"#\">DypOS</a></th><td>Restaurants</td><td><i class=\"ds-sq ds-sq-live\"></i>Live</td></tr><tr><th><a href=\"#\">Amazon FBA</a></th><td>E-commerce</td><td><i class=\"ds-sq ds-sq-half\"></i>Active</td></tr><tr><th><a href=\"#\">Healthcare SaaS</a></th><td>Medical practices</td><td><i class=\"ds-sq\"></i>In development</td></tr></tbody></table></div>",
-      "css": ".ds-schedule { font-family: 'Archivo Variable', 'Archivo', system-ui, sans-serif; background: var(--cobalt, #1c31ad); color: var(--paper, #f3f4f2); padding: 2rem; font-size: 0.875rem; font-variant-numeric: tabular-nums; } .ds-schedule-title { margin: 0; font-weight: 650; padding-bottom: 0.7rem; border-bottom: 2px solid var(--paper, #f3f4f2); } .ds-schedule table { width: 100%; border-collapse: collapse; } .ds-schedule th, .ds-schedule td { text-align: left; padding: 0.72rem 0.5rem 0.72rem 0; border-bottom: 1px solid rgb(243 244 242 / 0.28); font-weight: 400; } .ds-schedule thead th { color: var(--cobalt-ink, #c9d1fb); font-weight: 500; } .ds-schedule tbody th { font-weight: 650; font-size: 1rem; } .ds-schedule tbody th a { color: inherit; text-decoration: none; } .ds-schedule tbody th a:hover { text-decoration: underline; } .ds-schedule tbody tr:hover { background: rgb(243 244 242 / 0.06); } .ds-schedule td { color: var(--cobalt-ink, #c9d1fb); } .ds-schedule td:last-child { color: var(--paper, #f3f4f2); } .ds-sq { display: inline-block; width: 0.62em; height: 0.62em; margin-right: 0.55em; border: 1.5px solid currentColor; } .ds-sq-live { background: currentColor; } .ds-sq-half { background: linear-gradient(90deg, currentColor 50%, transparent 50%); }"
+      "refersTo": "flap-tile",
+      "description": "Signature heading treatment: one seamed tile per character, words kept whole.",
+      "html": "<h1 class=\"ds-flap\" aria-label=\"We build\"><span class=\"ds-word\"><span class=\"ds-tile\">W</span><span class=\"ds-tile\">E</span></span><span class=\"ds-word\"><span class=\"ds-tile\">B</span><span class=\"ds-tile\">U</span><span class=\"ds-tile\">I</span><span class=\"ds-tile\">L</span><span class=\"ds-tile\">D</span></span></h1>",
+      "css": ":host{--board:#0b0c0e;--board-2:#111215;--module:#17191c;--module-hi:#1d1f23;--module-hover:#22252a;--seam:#050506;--rule:#24272c;--glyph:#ece8df;--text:#c9c6be;--muted:#8f9399;--amber:#f2b33d;--amber-ink:#1a1206;--lamp-off:#3a3226;--paper:#ece8df;--paper-ink:#16171a;--paper-ink-2:#4a4b4f;--font-board:'Barlow Semi Condensed','Arial Narrow',sans-serif;--font-text:'Barlow',system-ui,sans-serif;--ease:cubic-bezier(0.16,1,0.3,1);display:block;background:var(--board);color:var(--text);padding:24px;font-family:var(--font-text)} .ds-flap{margin:0;display:flex;flex-wrap:wrap;column-gap:.32em;row-gap:.1em;font:600 3.2rem/1 var(--font-board);color:var(--glyph)} .ds-word{display:inline-flex;gap:.05em} .ds-tile{display:inline-grid;place-items:center;width:.74em;height:1.16em;background:linear-gradient(var(--module-hi) 0 calc(50% - .5px),var(--seam) calc(50% - .5px) calc(50% + .5px),var(--module) calc(50% + .5px) 100%);text-transform:uppercase}"
     },
     {
-      "name": "Portfolio Ledger",
-      "kind": "nav",
-      "refersTo": "ledger-row-current",
-      "description": "Signature: sticky index beside the holdings; the holding in view fills its row with cobalt.",
-      "html": "<ol class=\"ds-ledger\"><li><a href=\"#\" aria-current=\"true\"><i></i><b>DypOS</b><span>Restaurants</span></a></li><li><a href=\"#\"><i></i><b>MOY IQ</b><span>Personal finance</span></a></li><li><a href=\"#\"><i></i><b>Esmalia</b><span>Dental clinics</span></a></li></ol>",
-      "css": ".ds-ledger { font-family: 'Archivo Variable', 'Archivo', system-ui, sans-serif; list-style: none; margin: 0; padding: 0; max-width: 16rem; border-top: 2px solid var(--ink, #101318); color: var(--ink, #101318); } .ds-ledger a { display: grid; grid-template-columns: auto 1fr; padding: 0.8rem 0.6rem 0.8rem 0.5rem; border-bottom: 1px solid rgb(16 19 24 / 0.16); color: inherit; text-decoration: none; transition: background-color 260ms cubic-bezier(0.16, 1, 0.3, 1), color 260ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-ledger i { grid-row: span 2; width: 0.62em; height: 0.62em; margin: 0.42em 0.55em 0 0; background: currentColor; border: 1.5px solid currentColor; color: var(--cobalt, #1c31ad); } .ds-ledger b { font-weight: 650; } .ds-ledger span { grid-column: 2; font-size: 0.875rem; color: var(--ink-2, #474e5b); } .ds-ledger a:hover { background: var(--paper-2, #e8eae6); } .ds-ledger a:focus-visible { outline: 2px solid var(--cobalt, #1c31ad); outline-offset: 3px; } .ds-ledger a[aria-current='true'] { background: var(--cobalt, #1c31ad); color: var(--paper, #f3f4f2); } .ds-ledger a[aria-current='true'] i { color: var(--paper, #f3f4f2); } .ds-ledger a[aria-current='true'] span { color: var(--cobalt-ink, #c9d1fb); }"
-    },
-    {
-      "name": "Field on Cobalt",
-      "kind": "input",
-      "refersTo": "field-on-cobalt",
-      "description": "Underlined form field on the cobalt back cover.",
-      "html": "<div class=\"ds-formbg\"><label class=\"ds-field\"><span>Email</span><input type=\"email\" placeholder=\"\"></label></div>",
-      "css": ".ds-formbg { background: var(--cobalt, #1c31ad); padding: 2rem; } .ds-field { font-family: 'Archivo Variable', 'Archivo', system-ui, sans-serif; display: grid; gap: 0.45rem; font-size: 0.875rem; font-weight: 600; color: var(--paper, #f3f4f2); } .ds-field input { font: inherit; font-size: 1rem; font-weight: 400; color: var(--paper, #f3f4f2); background: transparent; border: 0; border-bottom: 1px solid var(--cobalt-ink, #c9d1fb); border-radius: 0; padding: 0.6rem 0; transition: border-color 160ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-field input:focus { outline: none; border-color: var(--paper, #f3f4f2); box-shadow: 0 1px 0 0 var(--paper, #f3f4f2); }"
-    },
-    {
-      "name": "Figure Plate",
+      "name": "Service Route",
       "kind": "card",
-      "description": "Real product screenshot in a 2:1 bordered plate with a numbered report caption.",
-      "html": "<figure class=\"ds-frame\"><div class=\"ds-frame-view\"></div><figcaption>Fig. 1 — dypos.app, home page, captured 18 October 2026</figcaption></figure>",
-      "css": ".ds-frame { font-family: 'Archivo Variable', 'Archivo', system-ui, sans-serif; margin: 0; max-width: 32rem; } .ds-frame-view { aspect-ratio: 2 / 1; border: 1px solid rgb(16 19 24 / 0.55); background: #fff; } .ds-frame figcaption { margin-top: 0.6rem; padding-top: 0.6rem; border-top: 1px solid rgb(16 19 24 / 0.16); font-size: 0.875rem; color: var(--ink-2, #474e5b); }"
+      "refersTo": "route-name",
+      "description": "Service as a route: flap-module name beside a Back Panel detail cell.",
+      "html": "<dl class=\"ds-route\"><dt>AI software and SaaS</dt><dd><p class=\"ds-who\">For companies that need a product.</p><p>We scope it, build it and put it in production.</p></dd></dl>",
+      "css": ":host{--board:#0b0c0e;--board-2:#111215;--module:#17191c;--module-hi:#1d1f23;--module-hover:#22252a;--seam:#050506;--rule:#24272c;--glyph:#ece8df;--text:#c9c6be;--muted:#8f9399;--amber:#f2b33d;--amber-ink:#1a1206;--lamp-off:#3a3226;--paper:#ece8df;--paper-ink:#16171a;--paper-ink-2:#4a4b4f;--font-board:'Barlow Semi Condensed','Arial Narrow',sans-serif;--font-text:'Barlow',system-ui,sans-serif;--ease:cubic-bezier(0.16,1,0.3,1);display:block;background:var(--board);color:var(--text);padding:24px;font-family:var(--font-text)} .ds-route{display:grid;grid-template-columns:5fr 7fr;gap:4px;margin:0} .ds-route dt,.ds-route dd{margin:0;padding:1.2rem 1.3rem} .ds-route dt{position:relative;isolation:isolate;display:flex;align-items:center;font:600 1.6rem/1.1 var(--font-board);text-transform:uppercase;letter-spacing:.02em;color:var(--glyph);background:linear-gradient(var(--module-hi) 0 50%, var(--module) 50% 100%)} .ds-route dt::after{content:'';position:absolute;z-index:-1;left:0;right:0;top:50%;height:1px;background:var(--seam)} .ds-route dd{background:var(--board-2);display:grid;gap:.5rem} .ds-route p{margin:0} .ds-who{color:var(--muted)}"
+    },
+    {
+      "name": "Pinned Notice",
+      "kind": "card",
+      "refersTo": "notice",
+      "description": "The founder's note: the only paper surface and the only lifted object.",
+      "html": "<article class=\"ds-notice\"><h2>A note from the founder</h2><p>I am a telecommunications engineer.</p><p class=\"ds-sign\"><strong>Walter La Madriz</strong><span>Founder, MAXNOVA &amp; LUCI GLOBAL LLC</span></p></article>",
+      "css": ":host{--board:#0b0c0e;--board-2:#111215;--module:#17191c;--module-hi:#1d1f23;--module-hover:#22252a;--seam:#050506;--rule:#24272c;--glyph:#ece8df;--text:#c9c6be;--muted:#8f9399;--amber:#f2b33d;--amber-ink:#1a1206;--lamp-off:#3a3226;--paper:#ece8df;--paper-ink:#16171a;--paper-ink-2:#4a4b4f;--font-board:'Barlow Semi Condensed','Arial Narrow',sans-serif;--font-text:'Barlow',system-ui,sans-serif;--ease:cubic-bezier(0.16,1,0.3,1);display:block;background:var(--board);color:var(--text);padding:24px;font-family:var(--font-text)} .ds-notice{max-width:50rem;background:var(--paper);color:var(--paper-ink);padding:clamp(1.75rem,1rem + 3vw,3.5rem);box-shadow:0 2px 2px rgb(0 0 0/.3),0 24px 48px -24px rgb(0 0 0/.7);display:grid;gap:1.5rem} .ds-notice h2{margin:0;font:600 1.6rem/1.05 var(--font-board);text-transform:uppercase} .ds-notice p{margin:0;font-size:1.2rem;line-height:1.6} .ds-sign{display:grid;gap:.1rem;font-size:1rem!important;color:var(--paper-ink-2)} .ds-sign strong{color:var(--paper-ink);font:600 1.2rem/1.2 var(--font-board);text-transform:uppercase;letter-spacing:.04em}"
+    },
+    {
+      "name": "Field",
+      "kind": "input",
+      "refersTo": "field-input",
+      "description": "Desk form field: caps label, Lower Leaf fill, amber bottom border on focus.",
+      "html": "<label class=\"ds-field\"><span>Email</span><input type=\"email\" placeholder=\"\"></label>",
+      "css": ":host{--board:#0b0c0e;--board-2:#111215;--module:#17191c;--module-hi:#1d1f23;--module-hover:#22252a;--seam:#050506;--rule:#24272c;--glyph:#ece8df;--text:#c9c6be;--muted:#8f9399;--amber:#f2b33d;--amber-ink:#1a1206;--lamp-off:#3a3226;--paper:#ece8df;--paper-ink:#16171a;--paper-ink-2:#4a4b4f;--font-board:'Barlow Semi Condensed','Arial Narrow',sans-serif;--font-text:'Barlow',system-ui,sans-serif;--ease:cubic-bezier(0.16,1,0.3,1);display:block;background:var(--board);color:var(--text);padding:24px;font-family:var(--font-text)} .ds-field{display:grid;gap:.45rem;font:500 .875rem/1.2 var(--font-board);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)} .ds-field input{font:400 1rem/1.4 var(--font-text);color:var(--glyph);background:var(--module);border:1px solid transparent;border-bottom-color:#3a3d43;border-radius:0;padding:.8rem .9rem;transition:border-color 160ms var(--ease),background 160ms var(--ease)} .ds-field input:focus{outline:none;border-color:var(--amber);background-color:var(--module-hi)}"
+    },
+    {
+      "name": "Header Bar",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Monogram + name, caps nav in Board Grey, language switch, small key.",
+      "html": "<header class=\"ds-bar\"><span class=\"ds-brand\">Maxnova &amp; Luci Global</span><nav class=\"ds-nav\"><a href=\"#\">Portfolio</a><a href=\"#\">Services</a><a href=\"#\">Company</a><a href=\"#\">ES</a><a class=\"ds-cta\" href=\"#\">Talk to us</a></nav></header>",
+      "css": ":host{--board:#0b0c0e;--board-2:#111215;--module:#17191c;--module-hi:#1d1f23;--module-hover:#22252a;--seam:#050506;--rule:#24272c;--glyph:#ece8df;--text:#c9c6be;--muted:#8f9399;--amber:#f2b33d;--amber-ink:#1a1206;--lamp-off:#3a3226;--paper:#ece8df;--paper-ink:#16171a;--paper-ink-2:#4a4b4f;--font-board:'Barlow Semi Condensed','Arial Narrow',sans-serif;--font-text:'Barlow',system-ui,sans-serif;--ease:cubic-bezier(0.16,1,0.3,1);display:block;background:var(--board);color:var(--text);padding:24px;font-family:var(--font-text)} .ds-bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:1rem;border-bottom:1px solid var(--rule)} .ds-brand{font:600 1rem/1 var(--font-board);text-transform:uppercase;letter-spacing:.06em;color:var(--glyph)} .ds-nav{display:flex;align-items:center;gap:1.5rem;font:500 .875rem/1 var(--font-board);text-transform:uppercase;letter-spacing:.08em} .ds-nav a{text-decoration:none;color:var(--muted)} .ds-nav a:hover{color:var(--glyph)} .ds-nav .ds-cta{background:var(--amber);color:var(--amber-ink);padding:.6rem .9rem;font-weight:600;letter-spacing:.05em}"
     }
   ],
   "narrative": {
-    "northStar": "The Operator's Annual Report",
-    "overview": "The site reads like the printed annual report of a holding company: a full-bleed cobalt cover, interior pages on cool paper that file each operating company as a schedule entry with its facts and a real screen, a founder's letter on a slightly darker sheet, a company-information back page, and a back cover in the cover's cobalt. Proof lives in tables and figures, never in promotional devices.\n\nDensity is that of a well-set report: generous section air (up to 9rem between sections), tight rows inside schedules, hairline rules doing the work that boxes and shadows do elsewhere. One family, Archivo variable, carries everything: expanded and heavy for headings, normal width for reading. Figures are tabular everywhere.\n\nCobalt is the house colour and the only chroma the system owns. Each product brings its own colour only inside its own entry, through its logo and its screenshot.",
+    "northStar": "The Departures Board",
+    "overview": "The site is a Solari split-flap board in a terminal hall. The whole page sits on matte black enamel. Every company is a line in service, set in flap modules: a lighter upper leaf and a darker lower leaf, split by a black seam. Paper-white glyphs carry names and data in condensed uppercase signage. Amber lamps are the only colour the board itself produces. They mark live status and the one action that matters, so a lit lamp always means \"in service\" or \"press here\".\n\nDensity is that of a real board: tight slots separated by 4px of black, data in fixed columns, nothing decorative between rows. Reading text (leads, summaries, the FAQ) drops out of signage into a plain humanist sans so it reads as prose rather than board data. One object is not part of the board: the founder's note, a sheet of printed paper pinned to it. That is the only light surface and the only lifted object. The board flips its tiles once on load, lights its lamps in sequence, and then stays still.\n\nProduct logos and product screenshots keep their own colours inside their gates. The board frames them; it does not restyle them.",
     "keyCharacteristics": [
-      "Cobalt cover and back cover, cool paper interior; no other brand hue.",
-      "Archivo at two widths: 118% for headings, 100% for text.",
-      "Schedules, ledgers and definition rows instead of cards.",
-      "A 2px ink rule opens every list; 1px hairlines separate its rows.",
-      "Square status marks: solid = live, half = active, outline = in development.",
-      "Square corners throughout; the only radius belongs to product logo tiles.",
-      "Real product screenshots in bordered figure plates with numbered report captions."
+      "Matte black ground (board) for the full page; depth by tone steps, never by glow or gradient fields.",
+      "Split-flap modules: two-tone leaves with a 1px black seam at the midline.",
+      "Paper-white condensed uppercase for signage, warm off-white humanist sans for reading.",
+      "Amber is the only accent: live-status lamps, primary keys, focus, selection.",
+      "Square corners everywhere; 4px black slot gaps instead of borders or shadows.",
+      "One flap cascade on load, never looping, fully static under reduced motion and without JS."
     ],
     "rules": [
       {
-        "name": "The One Hue Rule",
-        "body": "Cobalt is the only colour the house owns. Product colours appear only inside that product's entry (logo, screenshot). Status, success and error are expressed with marks, weight and rules, not with green or red.",
+        "name": "The One Lamp Rule",
+        "body": "Amber is the only accent the board produces. It marks verified live status, the primary key, focus and selection. It is never used for decoration, headings or a second kind of meaning.",
         "section": "colors"
       },
       {
-        "name": "The Two Grounds Rule",
-        "body": "A surface is either cobalt (cover, back cover, 404, sent page) or paper. On cobalt, text is paper or cover ink; on paper, text is ink or ink secondary. Nothing mid-tone in between.",
+        "name": "The Verified Lamp Rule",
+        "body": "A lamp lights only for a status that has been verified. Anything unconfirmed shows SCHEDULED with the lamp off.",
         "section": "colors"
       },
       {
-        "name": "The Two Widths Rule",
-        "body": "Width carries hierarchy. Headings at 118%, reading text at 100%; buttons sit between at 108%. No second family, no italics as display.",
+        "name": "The Guest Colour Rule",
+        "body": "Product logos and product screenshots keep their own colours inside their gate. That colour belongs to the product, not to the board palette, and never spreads outside the gate.",
+        "section": "colors"
+      },
+      {
+        "name": "The Whole Word Rule",
+        "body": "A flap word never breaks across tiles or lines. Words wrap as units, and inline flap names in modules do not wrap at all; long cells truncate with an ellipsis rather than spilling a tile.",
         "section": "typography"
       },
       {
-        "name": "The Tabular Rule",
-        "body": "`font-variant-numeric: tabular-nums` is set on the body and inherited everywhere; figures line up in every schedule.",
+        "name": "The Two Voices Rule",
+        "body": "Signage (names, labels, data, keys) is condensed uppercase. Anything read as a sentence is Barlow in sentence case. FAQ questions are sentences, so they are set in Barlow.",
         "section": "typography"
       },
       {
-        "name": "The Sentence Case Rule",
-        "body": "Nothing in the system is set in uppercase or letter-spaced caps. Table heads, labels and captions are sentence case at label size.",
+        "name": "The Real Text Rule",
+        "body": "Flap tiles are decoration over real text. The full string is always present for assistive tech, and the tiles are `aria-hidden`.",
         "section": "typography"
       },
       {
-        "name": "The Schedule Rule",
-        "body": "Collections are rows, never tiles. A list opens with a 2px ink rule (2px paper rule on cobalt) and its rows are divided by hairlines.",
+        "name": "The Slot Rule",
+        "body": "Board cells sit in a 4px black slot grid: `border-spacing: 4px` in the departures table, a 4px gap in routes, ledger, process steps and gate heads. Adjacent modules are always separated by the slot gap, never by a border.",
         "section": "layout"
       },
       {
-        "name": "The Printed Page Rule",
-        "body": "Nothing floats. If something needs separation, it gets a rule or a different sheet, never a shadow or blur.",
+        "name": "The Seam, Not Shadow Rule",
+        "body": "Board elements separate by seams, slots and tone steps. A shadow appears only where the physical object would cast or emit one: a lit lamp, a push key, a pinned sheet.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "**Do** set every collection as a schedule: a 2px ink rule (paper on cobalt) over hairline-divided rows.",
-      "**Do** keep headings at width 118% and weight 700, and reading text at width 100%.",
-      "**Do** mark status with the square: solid live, half active, outline in development.",
-      "**Do** put every product screenshot in a figure plate with a numbered caption.",
-      "**Do** keep product colour inside the product's own entry (logo tile, screenshot).",
-      "**Do** use the house ease `cubic-bezier(0.16, 1, 0.3, 1)` for state changes, and leave all content visible without JavaScript or with reduced motion."
+      "**Do** keep Enamel Black (board) as the ground of every page, including 404 and /sent/.",
+      "**Do** build any new data display from flap modules in the 4px slot grid (spacing.slot), with Board Grey label-micro heads.",
+      "**Do** reserve amber for verified live status, the primary key, focus and selection.",
+      "**Do** keep the flap cascade a single pass on load, staggered per tile, and render everything static and fully visible under `prefers-reduced-motion` and without JS.",
+      "**Do** drop columns on narrow screens before shrinking board glyphs; on mobile the board shows company and status only.",
+      "**Do** keep product logos and screenshots in their own colours, framed inside their gate.",
+      "**Do** use the single site arrow for every directional affordance."
     ],
     "donts": [
-      "**Don't** introduce a second brand hue, including green or red for form states.",
-      "**Don't** wrap content in filled, rounded or shadowed cards; separate with rules and sheets.",
-      "**Don't** round corners on house elements; only the product logo tile is rounded.",
-      "**Don't** set uppercase, letter-spaced labels or eyebrows above headings.",
-      "**Don't** add a second type family or a serif display face without Walter confirming the brief over this build.",
-      "**Don't** cast shadows or blur surfaces for depth."
-    ],
-    "status": "Approved by Walter on 2026-10-18: the cobalt / Archivo world supersedes docs/prompt-maestro.md sections 4-5; the Company map is dropped."
+      "**Don't** round any corner; the lamp is square too.",
+      "**Don't** add shadows to board elements; separate them with seams, slots and tone steps. The only shadows are the lamp glow, the key lip and the pinned notice.",
+      "**Don't** introduce a second accent colour, gradient fields or a centred SaaS hero over a gradient with a card row.",
+      "**Don't** light a lamp for a status, date or figure that has not been verified; show SCHEDULED or omit the field.",
+      "**Don't** loop the flap or lamp animation or replay it on scroll.",
+      "**Don't** break a word across flap tiles, or let a module cell wrap.",
+      "**Don't** set reading prose in condensed caps, or signage in sentence-case Barlow.",
+      "**Don't** set text below 0.75rem or use a grey dimmer than Board Grey on the board."
+    ]
   }
 }
