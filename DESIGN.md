@@ -1,333 +1,297 @@
 ---
 name: Maxnova & Luci Global
-description: The holding as a split-flap departures board. Matte black enamel, flap modules split by a seam, paper-white glyphs, amber lamps as the only accent.
+description: A holding presented as a tech-premium product page. Dark zinc ground, Inter, glass surfaces, real product screens in soft frames, one warm glow. Adapted from Launch UI (MIT).
 colors:
-  amber: "#f2b33d"
-  amber-hover: "#ffc552"
-  amber-ink: "#1a1206"
-  lamp-off: "#3a3226"
-  board: "#0b0c0e"
-  board-2: "#111215"
-  module: "#17191c"
-  module-hi: "#1d1f23"
-  module-hover: "#22252a"
-  seam: "#050506"
-  rule: "#24272c"
-  rule-strong: "#3a3d43"
-  glyph: "#ece8df"
-  text: "#c9c6be"
-  muted: "#8f9399"
-  paper: "#ece8df"
-  paper-ink: "#16171a"
-  paper-ink-2: "#4a4b4f"
+  background: "#09090b"
+  foreground: "#fafafa"
+  muted: "#27272a"
+  muted-foreground: "#a1a1aa"
+  prose-ink: "#d4d4d8"
+  input: "#27272a"
+  ring: "#a1a1aa"
+  border: "rgb(216 216 221 / 0.1)"
+  border-top: "rgb(216 216 221 / 0.2)"
+  border-bottom: "rgb(216 216 221 / 0.05)"
+  brand: "#fdba72"
+  brand-foreground: "#fb923c"
+  primary-ink: "#18181b"
+  primary-hover: "#e4e4e7"
+  status-idle: "#52525b"
+  status-live: "#4ade80"
+  status-error: "#f87171"
 typography:
   display:
-    fontFamily: "'Barlow Semi Condensed', 'Arial Narrow', sans-serif"
-    fontSize: "clamp(2rem, 0.9rem + 4.3vw, 4.6rem)"
-    fontWeight: 600
-    lineHeight: 1
-  headline:
-    fontFamily: "'Barlow Semi Condensed', 'Arial Narrow', sans-serif"
-    fontSize: "clamp(1.875rem, 1.5rem + 1.7vw, 3rem)"
+    fontFamily: "'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif"
+    fontSize: "clamp(2.5rem, 1rem + 6.2vw, 5.5rem)"
     fontWeight: 600
     lineHeight: 1.05
-    letterSpacing: "0.01em"
-  headline-flap:
-    fontFamily: "'Barlow Semi Condensed', 'Arial Narrow', sans-serif"
-    fontSize: "clamp(1.5rem, 1.15rem + 1.5vw, 2.6rem)"
+    letterSpacing: "-0.035em"
+  headline:
+    fontFamily: "'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif"
+    fontSize: "clamp(2rem, 1.3rem + 2.6vw, 3.25rem)"
     fontWeight: 600
-    lineHeight: 1
+    lineHeight: 1.1
+    letterSpacing: "-0.025em"
+  title-lg:
+    fontFamily: "'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif"
+    fontSize: "clamp(1.75rem, 1.3rem + 1.6vw, 2.5rem)"
+    fontWeight: 600
+    lineHeight: 1.15
+    letterSpacing: "-0.025em"
   title:
-    fontFamily: "'Barlow Semi Condensed', 'Arial Narrow', sans-serif"
-    fontSize: "clamp(1.375rem, 1.2rem + 0.8vw, 1.875rem)"
+    fontFamily: "'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif"
+    fontSize: "1.25rem"
     fontWeight: 600
-    lineHeight: 1.1
-    letterSpacing: "0.02em"
-  board-data:
-    fontFamily: "'Barlow Semi Condensed', 'Arial Narrow', sans-serif"
-    fontSize: "clamp(1rem, 0.97rem + 0.15vw, 1.0625rem)"
-    fontWeight: 500
-    lineHeight: 1.1
-    letterSpacing: "0.04em"
+    lineHeight: 1.15
+    letterSpacing: "-0.02em"
   lead:
-    fontFamily: "'Barlow', system-ui, sans-serif"
-    fontSize: "clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem)"
-    fontWeight: 400
-    lineHeight: 1.5
+    fontFamily: "'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif"
+    fontSize: "clamp(1.0625rem, 1rem + 0.4vw, 1.25rem)"
+    fontWeight: 500
+    lineHeight: 1.6
   body:
-    fontFamily: "'Barlow', system-ui, sans-serif"
-    fontSize: "clamp(1rem, 0.97rem + 0.15vw, 1.0625rem)"
+    fontFamily: "'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif"
+    fontSize: "1rem"
     fontWeight: 400
     lineHeight: 1.6
-    fontFeature: "'tnum' 1"
+    fontFeature: "'cv11', 'ss01'"
   label:
-    fontFamily: "'Barlow Semi Condensed', 'Arial Narrow', sans-serif"
-    fontSize: "clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem)"
+    fontFamily: "'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif"
+    fontSize: "0.875rem"
     fontWeight: 500
-    lineHeight: 1.2
-    letterSpacing: "0.08em"
-  label-micro:
-    fontFamily: "'Barlow Semi Condensed', 'Arial Narrow', sans-serif"
+    lineHeight: 1
+  caption:
+    fontFamily: "'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif"
     fontSize: "0.75rem"
     fontWeight: 500
-    lineHeight: 1.2
-    letterSpacing: "0.1em"
+    lineHeight: 1.4
 rounded:
-  none: "0px"
+  sm: "8px"
+  md: "10px"
+  lg: "14px"
+  xl: "16px"
+  full: "999px"
 spacing:
-  slot: "4px"
-  gutter: "clamp(1rem, 0.5rem + 2.5vw, 2.5rem)"
-  m: "1.5rem"
-  l: "clamp(2.25rem, 1.8rem + 2.2vw, 3.75rem)"
-  xl: "clamp(4rem, 2.8rem + 5.5vw, 8rem)"
+  gutter: "clamp(1rem, 0.5rem + 2.5vw, 2rem)"
+  section: "clamp(4rem, 2.5rem + 6vw, 8rem)"
+  block: "clamp(4rem, 3rem + 4vw, 7rem)"
+  card: "clamp(1.4rem, 1rem + 1.5vw, 2rem)"
+  stack: "1rem"
 components:
-  key:
-    backgroundColor: "{colors.amber}"
-    textColor: "{colors.amber-ink}"
-    typography: "{typography.board-data}"
-    rounded: "{rounded.none}"
-    padding: "1rem 1.35rem"
-  key-hover:
-    backgroundColor: "{colors.amber-hover}"
-    textColor: "{colors.amber-ink}"
-  key-sm:
-    backgroundColor: "{colors.amber}"
-    textColor: "{colors.amber-ink}"
+  button-primary:
+    backgroundColor: "{colors.foreground}"
+    textColor: "{colors.primary-ink}"
     typography: "{typography.label}"
-    rounded: "{rounded.none}"
-    padding: "0.6rem 0.9rem"
-  textlink:
-    textColor: "{colors.glyph}"
+    rounded: "{rounded.sm}"
+    padding: "0 1rem"
+    height: "2.25rem"
+  button-primary-hover:
+    backgroundColor: "{colors.primary-hover}"
+  button-primary-lg:
+    backgroundColor: "{colors.foreground}"
+    textColor: "{colors.primary-ink}"
+    rounded: "{rounded.sm}"
+    padding: "0 1.4rem"
+    height: "2.75rem"
+  button-glow:
+    textColor: "{colors.foreground}"
     typography: "{typography.label}"
-  module:
-    backgroundColor: "{colors.module}"
-    textColor: "{colors.text}"
-    typography: "{typography.board-data}"
-    rounded: "{rounded.none}"
-    padding: "0.5rem 0.85rem"
-    height: "2.6rem"
-  module-name:
-    backgroundColor: "{colors.module}"
-    textColor: "{colors.glyph}"
-    rounded: "{rounded.none}"
-    padding: "0.5rem 0.85rem"
-  module-hover:
-    backgroundColor: "{colors.module-hover}"
-  lamp-lit:
-    backgroundColor: "{colors.amber}"
-    size: "0.6em"
-  lamp-off:
-    backgroundColor: "{colors.lamp-off}"
-    size: "0.6em"
-  flap-tile:
-    backgroundColor: "{colors.module-hi}"
-    textColor: "{colors.glyph}"
-    rounded: "{rounded.none}"
-    width: "0.74em"
-    height: "1.16em"
-  route-name:
-    backgroundColor: "{colors.module}"
-    textColor: "{colors.glyph}"
-    typography: "{typography.title}"
-    padding: "1.2rem 1.3rem"
-  route-detail:
-    backgroundColor: "{colors.board-2}"
-    textColor: "{colors.text}"
-    typography: "{typography.body}"
-    padding: "1.2rem 1.3rem"
-  ledger-row:
-    backgroundColor: "{colors.module}"
-    textColor: "{colors.glyph}"
-    padding: "0.85rem 1rem"
-  notice:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.paper-ink}"
-    rounded: "{rounded.none}"
-    padding: "clamp(1.75rem, 1rem + 3vw, 3.5rem)"
-  field-input:
-    backgroundColor: "{colors.module}"
-    textColor: "{colors.glyph}"
-    typography: "{typography.body}"
-    rounded: "{rounded.none}"
-    padding: "0.8rem 0.9rem"
-  field-input-focus:
-    backgroundColor: "{colors.module-hi}"
-  nav-link:
-    textColor: "{colors.muted}"
+    rounded: "{rounded.sm}"
+    padding: "0 1rem"
+    height: "2.25rem"
+  pill:
+    textColor: "{colors.muted-foreground}"
+    typography: "{typography.caption}"
+    rounded: "{rounded.full}"
+    padding: "0.2rem 0.6rem"
+  pill-live:
+    textColor: "{colors.foreground}"
+  card-glass:
+    textColor: "{colors.foreground}"
+    rounded: "{rounded.lg}"
+    padding: "{spacing.card}"
+  input:
+    backgroundColor: "{colors.input}"
+    textColor: "{colors.foreground}"
+    rounded: "{rounded.sm}"
+    padding: "0.6rem 0.75rem"
+  nav:
+    textColor: "{colors.muted-foreground}"
     typography: "{typography.label}"
+    height: "4rem"
+  mockup-frame:
+    rounded: "{rounded.xl}"
+    padding: "0.5rem"
 ---
-
-<!-- World chosen by Walter on 2026-10-18 (direction contract .impeccable/surfaces/src-pages-index-astro.md, seed key a5e59273). It supersedes the earlier cobalt/Archivo "annual report" world and the visual direction in docs/prompt-maestro.md §4–§5. Where those sources disagree with this file, this file and the shipped code win. -->
 
 # Design System: Maxnova & Luci Global
 
+<!-- Provenance: visual language adapted from Launch UI open-source edition (MIT, (c) 2024 Mikolaj Dobrucki, github.com/launch-ui/launch-ui @ b0d4d5b), chosen by Walter on 2026-10-18 from 21st.dev with the constraint "must be free". Ported to Astro + plain CSS; license in THIRD_PARTY_NOTICES.md. This system supersedes the departures-board world (seed a5e59273), the cobalt/Archivo world, and the art-direction and motion guidance in docs/prompt-maestro.md §4 and §5. Tokens are normative in src/styles/global.css :root. -->
+
 ## Overview
 
-**Creative North Star: "The Departures Board"**
+**Creative North Star: "The Holding as a Product Launch"**
 
-The site is a Solari split-flap board in a terminal hall. The whole page sits on matte black enamel. Every company is a line in service, set in flap modules: a lighter upper leaf and a darker lower leaf, split by a black seam. Paper-white glyphs carry names and data in condensed uppercase signage. Amber lamps are the only colour the board itself produces. They mark live status and the one action that matters, so a lit lamp always means "in service" or "press here".
+The site presents the company the way a well-funded product presents itself: a dark zinc stage, one clear sentence in large Inter, a white call to action, and the product itself rising out of a warm glow. The twist is that the product is the holding. The hero mockup is a mosaic of the three live companies' real screens, each tile labelled with a live status dot and linking to its entry. Everything after the hero is calm and evidential: alternating feature rows with framed screenshots, divided rows for services, a glass letter from the founder, a glass table of company data, an accordion of questions, and a glass contact form sitting in the second glow.
 
-Density is that of a real board: tight slots separated by 4px of black, data in fixed columns, nothing decorative between rows. Reading text (leads, summaries, the FAQ) drops out of signage into a plain humanist sans so it reads as prose rather than board data. One object is not part of the board: the founder's note, a sheet of printed paper pinned to it. That is the only light surface and the only lifted object. The board flips its tiles once on load, lights its lamps in sequence, and then stays still.
+Density is generous and quiet. Hierarchy comes from size, weight and tracking in a single family, and from a two-step neutral system (foreground white for what matters, muted zinc for everything that supports it). Depth comes from light, not from shadow: glass surfaces have a brighter top edge than bottom, and the only heavy shadow sits under product screens. Color is almost absent; the warm orange exists as light, and green exists only as a truthful status signal.
 
-Product logos and product screenshots keep their own colours inside their gates. The board frames them; it does not restyle them.
+The language is Launch UI's, adapted. It is a register (Stripe/Linear-class product page), not a template to fill with invented dashboards: every screen shown is a real capture of a live product.
 
 **Key Characteristics:**
-- Matte black ground (board) for the full page; depth by tone steps, never by glow or gradient fields.
-- Split-flap modules: two-tone leaves with a 1px black seam at the midline.
-- Paper-white condensed uppercase for signage, warm off-white humanist sans for reading.
-- Amber is the only accent: live-status lamps, primary keys, focus, selection.
-- Square corners everywhere; 4px black slot gaps instead of borders or shadows.
-- One flap cascade on load, never looping, fully static under reduced motion and without JS.
+- Dark zinc ground (`background`), white primary actions, muted zinc supporting copy.
+- Inter only, 600 for headings with negative tracking, 500 for leads and labels.
+- Glass surfaces with a lit top edge and a 5% white top-down gradient.
+- Real product screenshots in soft, nested frames with a deep ambient shadow.
+- One warm radial glow, behind the hero mockup and the contact block only.
+- Green status dots for live companies; muted dots for anything not live.
+- "Appear" entrance on load (short rise plus small blur) and scroll-rise on screens; static without JS and under reduced motion.
 
 ## Colors
 
-A near-neutral black-and-paper board with one warm signal colour.
+A near-monochrome zinc system with one warm light source and one functional green.
 
 ### Primary
-- **Platform Amber** (amber): the lamp colour. Lit status lamps, the primary key ("Talk to us", "Send message"), focus outlines, text selection, caret and form accent colour. Its rarity is what makes a lit row readable at a glance.
-- **Amber Struck** (amber-hover): the key under the pointer, slightly hotter. Hover only.
-- **Lamp Ink** (amber-ink): text and arrows on amber. Never used on the board itself.
-- **Dead Lamp** (lamp-off): an unlit lamp: dark brown, so an off lamp still reads as a lamp. Used for SCHEDULED status and the idle form-status indicator.
+- **Paper White** (`foreground`): headings, primary button fill, the active state of links and pills. White, not orange, is the action color.
+- **Ink on White** (`primary-ink`): text on the white primary button. **White Pressed** (`primary-hover`) is its hover fill.
+
+### Secondary
+- **Ember Glow** (`brand-foreground`): the inner hue of the radial glow and the browser `accent-color`. Lives as light, never as a fill.
+- **Apricot Light** (`brand`): the outer hue of the glow, step numerals in the process list, text selection tint and caret.
+
+### Tertiary
+- **Live Green** (`status-live`): status dots and pills for companies verifiably live, and the success state of the contact form. Carries a soft 8px green halo.
+- **Error Coral** (`status-error`): error dot of the contact form status only.
 
 ### Neutral
-- **Enamel Black** (board): the ground of every page, header, section and footer; also `theme-color`.
-- **Back Panel** (board-2): one step up for recessed zones: the notice section, the contact desk, route detail cells, screenshot frames.
-- **Lower Leaf** (module): the bottom half of every flap module, and the flat fill of ledger rows, process steps and form fields.
-- **Upper Leaf** (module-hi): the top half of a flap module; also focused-field fill.
-- **Struck Leaf** (module-hover): top leaf on row hover, when the whole line shifts up one tone.
-- **Seam** (seam): the 1px midline that splits every flap. It is drawn as a line and never used as a fill.
-- **Rule** (rule): 1px hairlines between page-level zones (header bar, section to section, FAQ items, footer, screenshot frames).
-- **Hard Rule** (rule-strong): the stronger stroke: field bottom borders, the ring around product logos, the scrollbar thumb.
-- **Flap White** (glyph): headings, flap glyphs, company names, data values, lit status text. Roughly 16:1 on board.
-- **Reading Grey** (text): body and lead text. Roughly 11:1.
-- **Board Grey** (muted): column heads, labels, nav at rest, unlit status, captions. Roughly 6:1. Do not go lower than this.
-- **Notice Paper** (paper): the founder's note sheet and the native select option list. The same stock as the glyphs, on purpose: it is the board's white, printed large.
-- **Print Ink** / **Print Ink Soft** (paper-ink, paper-ink-2): text on paper; the soft ink is for the signature line only.
+- **Zinc Night** (`background`): page ground, `theme-color`, nav and form backdrops at reduced opacity.
+- **Zinc Muted** (`muted`, `input`): field borders, and the oversized 404 numeral.
+- **Zinc Mist** (`muted-foreground`, `ring`): leads, descriptions, nav links at rest, captions, dt labels, focus ring (7.7:1 on background).
+- **Prose Ink** (`prose-ink`): long-form reading text in the founder's letter, one step brighter than muted for comfortable paragraphs.
+- **Hairline** (`border`, with `border-top` and `border-bottom`): every divider and container edge; the top/bottom pair builds the lit-edge glass.
+- **Idle Dot** (`status-idle`): status dot for anything not live.
 
 ### Named Rules
-**The One Lamp Rule.** Amber is the only accent the board produces. It marks verified live status, the primary key, focus and selection. It is never used for decoration, headings or a second kind of meaning.
+**The Warm Light Rule.** Orange exists as light: the two-ellipse radial glow behind the hero mockup and the contact block, plus tiny marks (step numerals, selection, caret). It is never a button fill, a text block, a border, or a background panel.
 
-**The Verified Lamp Rule.** A lamp lights only for a status that has been verified. Anything unconfirmed shows SCHEDULED with the lamp off.
+**The White Action Rule.** The primary action is a white button with near-black text. There is exactly one primary per view region; the secondary is the glow button.
 
-**The Guest Colour Rule.** Product logos and product screenshots keep their own colours inside their gate. That colour belongs to the product, not to the board palette, and never spreads outside the gate.
+**The Truthful Green Rule.** Green appears only when something is verifiably live or a form has actually been accepted by the server. It is never decorative.
 
 ## Typography
 
-**Display Font:** Barlow Semi Condensed (with Arial Narrow, sans-serif)
-**Body Font:** Barlow (with system-ui, sans-serif)
+**Display Font:** Inter Variable (self-hosted via @fontsource-variable/inter, optical-size axis), with Inter, system-ui, -apple-system, sans-serif
+**Body Font:** the same family
+**Label/Mono Font:** none; numerals use `tabular-nums` where they count
 
-**Character:** One family at two widths. The semi-condensed cut is the board's signage: uppercase, tracked, set in tiles and modules. The regular width is the voice of a person explaining, set in sentence case. Numerals are tabular site-wide so board data aligns.
+**Character:** One neutral, precise grotesque carries everything. Large sizes are pulled tight (negative tracking) so headlines read as a single shape; body text uses Inter's alternate `cv11` and `ss01` forms for a slightly more open, product-grade texture.
 
 ### Hierarchy
-- **Display** (600, clamp 2–4.6rem, line-height 1): the board H1 only, set as flap tiles across up to three lines, occupying about two-thirds of the width on wide screens.
-- **Headline** (600, clamp 1.875–3rem, 1.05, uppercase, 0.01em): plain section H2s and the /sent/ confirmation.
-- **Headline Flap** (600, clamp 1.5–2.6rem, 1): section H2s set as flap tiles (Portfolio, Services, Company, FAQ, Contact). It is smaller than plain headlines because each tile adds width.
-- **Title** (600, clamp 1.375–1.875rem, 1.1, uppercase, 0.02em): gate names, service route names, the process heading, the notice heading.
-- **Board Data** (500, body size, 1.1, uppercase, 0.04em): cell text inside modules; company names step up to 600 at lead size in Flap White. Key labels use the same face at 600 with 0.05em.
-- **Lead** (Barlow 400, clamp 1.125–1.3125rem, 1.5): the one reading line under the H1 (max 40ch), section intros (max 52ch), the notice body.
-- **Body** (Barlow 400, clamp 1–1.0625rem, 1.6): summaries, route text, FAQ answers; 46–62ch measure.
-- **Label** (Semi Condensed 500, clamp 0.8125–0.875rem, 0.08em, uppercase): nav, field labels, ledger keys, text links (600, 0.06em).
-- **Label Micro** (Semi Condensed 500, 0.75rem, 0.1em, uppercase): table column heads and gate fact keys. This is the floor; nothing smaller.
+- **Display** (600, `display` clamp up to 5.5rem, 1.05): the hero H1 only, max 15ch, centered, with a faint 25px drop-shadow for lift off the glow.
+- **Headline** (600, `headline` clamp up to 3.25rem, 1.1): section H2s, centered in a 48rem heading block, or left-aligned in split layouts.
+- **Title Large** (600, `title-lg` clamp up to 2.5rem): product names in feature rows.
+- **Title** (600, 1.25rem): card titles and service names.
+- **Lead** (500, `lead` clamp up to 1.25rem, 1.6): hero lead and section intros, always in muted-foreground, max 46rem.
+- **Body** (400, 1rem, 1.6): paragraphs; descriptions capped at 42–62ch.
+- **Label** (500, 0.875rem): buttons, nav links, field labels, small headings above logo rows.
+- **Caption** (500, 0.75rem): pills, figure captions, dt labels in fact lists.
 
 ### Named Rules
-**The Whole Word Rule.** A flap word never breaks across tiles or lines. Words wrap as units, and inline flap names in modules do not wrap at all; long cells truncate with an ellipsis rather than spilling a tile.
+**The One Family Rule.** Inter is the only typeface. Hierarchy is made with size, weight (400/500/600) and tracking, never with a second family, italics as display, or uppercase tracking.
 
-**The Two Voices Rule.** Signage (names, labels, data, keys) is condensed uppercase. Anything read as a sentence is Barlow in sentence case. FAQ questions are sentences, so they are set in Barlow.
-
-**The Real Text Rule.** Flap tiles are decoration over real text. The full string is always present for assistive tech, and the tiles are `aria-hidden`.
+**The Muted Support Rule.** Anything that explains a heading (lead, intro, description, caption) is set in muted-foreground; only headings, names, values and actions are full white.
 
 ## Layout
 
-A centred column, `min(100% − 2 × gutter, 84rem)`, with a fluid gutter (spacing.gutter). Vertical rhythm comes from three steps: m for inner gaps, l between a section head and its content, xl between sections and between gates. Sections are separated by a 1px rule, never by a background band, except the two recessed zones (notice, desk) on Back Panel.
+A single centered column capped at a 1280px container with fluid gutters (`spacing.gutter`). Sections are separated by fluid vertical padding (`spacing.section`, 4–8rem); major groups inside a section by `spacing.block`.
 
-The first viewport is the board: a header bar (monogram + name, nav, small amber key) over a body grid. The H1 spans the full row. Below it, a 4:8 split puts the lead and actions on the left and the departures table on the right. The board fills at most `min(100svh, 60rem)`. Deeper sections use 5:7 splits (head to intro, title to ledger, title to FAQ, contact intro to form). Gates use 4:8 (facts and summary to screenshot).
-
-**The Slot Rule.** Board cells sit in a 4px black slot grid: `border-spacing: 4px` in the departures table, a 4px gap in routes, ledger, process steps and gate heads. Adjacent modules are always separated by the slot gap, never by a border.
-
-Responsive behaviour drops columns rather than squeezing glyphs. Below 1360px the Market column leaves the board. Below 1000px every split stacks to one column, the H1 takes full width, and process steps go 2-up. Below 720px the Sector column leaves too, so the board shows company and status only. The nav keeps Company, the language switch and the key; form rows, steps and ledger rows go single-column. Below 480px the wordmark hides and only the monogram remains.
+- **Hero:** centered stack (gap 1.6rem): H1, lead, two buttons, then the framed mosaic. The section is masked to fade to transparent at the bottom 18%.
+- **Mosaic:** 2fr / 1fr grid, two rows, 3:1 aspect; the first company spans both rows. At 720px and below it becomes one column of 2:1 tiles.
+- **Feature rows:** 5fr text / 7fr media, alternating sides; collapse to one column at 1000px.
+- **Split sections** (company data, FAQ): 4fr heading / 8fr content; one column at 1000px.
+- **Services:** divided rows, 4fr term / 8fr description; one column at 720px.
+- **Process steps:** four columns divided by vertical hairlines; two columns at 1000px, one at 720px, with hairlines turning horizontal.
+- **Cards:** two-column grid with 1rem gap; one column at 720px.
+- Breakpoints observed: 1000px, 720px, 480px (brand name hides, mark stays).
 
 ## Elevation & Depth
 
-The board is flat. Depth comes from tone: Enamel Black ground, Back Panel recesses, and the two leaves of a module, split by the seam. Hover raises a module one tone, never with a shadow. Lines between zones are 1px rules.
-
-Three physical exceptions belong to the world's own materials and are the only shadows in the system:
+Depth is made with light and translucency, not stacked shadows. Glass surfaces are flat panels with a lit top edge, a dimmer bottom edge and a 5%-to-0 white gradient. The sticky nav and the contact form use a 12px backdrop blur over the zinc ground at 60–70% opacity. The only strong shadow sits under product screens, where it reads as a real object resting on the page.
 
 ### Shadow Vocabulary
-- **Lamp glow** (`box-shadow: 0 0 0.6em rgb(242 179 61 / 0.45)`): only on a lit amber lamp (status lamps, the sent-form indicator). A lit bulb glows; nothing else does.
-- **Key lip** (`box-shadow: inset 0 -2px 0 rgb(0 0 0 / 0.25)`): the inner bottom edge of an amber key, so it reads as a physical push key. On press it drops 1px.
-- **Pinned paper** (`box-shadow: 0 2px 2px rgb(0 0 0 / 0.3), 0 24px 48px -24px rgb(0 0 0 / 0.7)`): the founder's notice only, a sheet of paper resting on the board.
+- **Screen** (`box-shadow: -12px 16px 48px rgb(0 0 0 / 0.53)`): product screenshots inside frames and mosaic tiles.
+- **Primary lift** (`box-shadow: 0 1px 2px rgb(0 0 0 / 0.3)`): white primary button.
+- **Glow button** (`box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.13), 0 2px 4px -2px rgb(0 0 0 / 0.13)`): the secondary glass button.
+- **Live halo** (`box-shadow: 0 0 8px rgb(74 222 128 / 0.6)`): live status dots only.
+- **Field focus** (`box-shadow: 0 0 0 3px rgb(161 161 170 / 0.25)`): inputs on focus.
 
 ### Named Rules
-**The Seam, Not Shadow Rule.** Board elements separate by seams, slots and tone steps. A shadow appears only where the physical object would cast or emit one: a lit lamp, a push key, a pinned sheet.
+**The Lit Edge Rule.** A raised surface shows its depth through a brighter top border than bottom border, never through a drop shadow. Heavy shadow is reserved for product screens.
 
 ## Shapes
 
-Every corner is square (rounded.none): keys, modules, tiles, lamps, fields, the notice, screenshot frames, logo rings. The lamp is a small square (0.6em), not a dot. The recurring silhouette is the flap leaf: a rectangle split horizontally at its midline. It appears on H1 and section tiles, departure modules, gate heads, service route names and process step numbers.
+Soft, nested rounded rectangles in a 10px family. Controls (buttons, inputs) sit at 8px (`rounded.sm`); glass cards, letter and form at 14px (`rounded.lg`); the hero frame at 16px (`rounded.xl`) with the smaller feature frame at 14px; screenshots inside frames at 8px. Pills, status dots and the mosaic label are fully round. Logos sit in 6–9px rounded squares. Focus outlines are 2px with a 4px radius and 2px offset.
 
-Product screenshots sit in a 2:1 gate frame with a 1px rule border, cropped from the top.
+**The Nested Radius Rule.** A frame's radius equals its inner screen's radius plus its padding (16px frame, 8px padding, 8px screen). Never put a sharper corner outside a softer one.
 
 ## Components
 
-### Keys (buttons)
-Push keys on a control desk: blunt, amber, uppercase.
-- **Shape:** square (0px).
-- **Primary key:** Platform Amber fill, Lamp Ink label in Semi Condensed 600 uppercase at 0.05em, padding 1rem × 1.35rem, followed by the site arrow.
-- **Small key:** the header CTA, label size, padding 0.6rem × 0.9rem.
-- **Hover / Active:** fill moves to Amber Struck and the arrow slides 3px forward. On press the key drops 1px. Disabled keys go to 60% opacity with a progress cursor.
-- **Focus:** a 2px amber outline, offset 3px (site-wide).
+### Buttons
+Product-grade, compact and quiet; the arrow is the only flourish.
+- **Shape:** gently rounded (8px), heights 2rem (small), 2.25rem (default), 2.75rem (large).
+- **Primary:** white fill, near-black label, 500 weight, subtle 1px lift shadow.
+- **Glow (secondary):** translucent white top-down gradient (10% to 5%), hairline border with a brighter top edge and no bottom border, white label.
+- **Hover / Focus:** primary fill steps to `primary-hover`; glow gradient brightens to 15%. The authored arrow nudges 2px right over 220ms. Press moves the button down 1px. Focus shows the global 2px zinc ring.
+- **Arrow:** a single authored 16px stroke SVG (1.6 stroke, square caps), rotated -45deg for links that leave the site.
 
-### Text links
-Secondary actions: Semi Condensed 600 uppercase label in Flap White, underlined (1px, offset 0.24em), with the arrow. The underline thickens to 2px on hover. Links that leave the site point the arrow up-right; the in-page portfolio link points it down.
+### Chips (Status pills)
+- **Style:** fully round, hairline border, 0.75rem/500, with a 6px leading dot. Default text and dot are muted.
+- **State:** live turns the text white and the dot green with its halo. Used beside every company name, never as a heading label.
 
-### The Arrow
-One authored 16px stroke arrow (1.6 stroke, square caps) for the whole site, rotated for direction. No icon set, no other glyph icons.
-
-### Departures board (signature)
-The first-viewport table of companies. Columns: Company, Sector, Market, Status, with Label Micro column heads in Board Grey and the table titled in label caps above. Each cell is a flap module (Upper Leaf over Lower Leaf, seam behind the text). Company names are inline flap tiles in Flap White; the status cell carries a lamp plus IN SERVICE (lit, Flap White) or SCHEDULED (dark lamp, Board Grey). The whole row is one link to its gate. On hover every module steps up one tone, and on focus the full row gets the amber outline.
-
-### Flap tiles
-The board's signature type treatment, used for the H1, section H2s and the 404 code. Each character gets its own tile (0.74em × 1.16em) with a seam at the midline. Words are kept whole, with 0.32em between words and 0.05em between tiles. On load each tile flips in once from rotateX(−75deg) and 55% brightness over 520ms, staggered 24ms per tile. Inside a module the tiles drop their own backgrounds and sit flush, because the module is the slot.
-
-### Status lamp
-The single shared status glyph: a 0.6em square before the status text. Lit amber with glow when in service, Dead Lamp when scheduled. On the board, lit lamps switch on in sequence after the flap cascade (140ms per row, starting at 900ms). The contact form reuses the same lamp for its status line.
-
-### Gates (portfolio entries)
-One per company. The head is a pair of modules: name (title size, with the product's own 32px logo in a Hard Rule ring) and status (lamp + label). Below, facts (Label Micro keys, Flap White values), a summary and an "Open" text link sit beside the product screenshot in its gate frame with a numbered caption. Companies without a public screen use a single-column line layout. When scroll-driven animation is supported, screenshots rise into their frame as they enter the viewport.
-
-### Routes and steps
-Services are routes: a flap module with the service name in title caps, next to a Back Panel cell holding who it is for (Board Grey) and what it covers. Process steps are flat Lower Leaf cells, each with a small flap-tile numeral, a title and muted text.
-
-### Ledger and FAQ
-Company data is a ledger of Lower Leaf rows: label-caps key in Board Grey, value in Flap White that wraps anywhere (emails, legal names). The FAQ is a ruled list of disclosures. Questions are set in Barlow 500 at lead size, and a hand-drawn plus turns into a minus when open.
-
-### The notice
-The founder's note: a Notice Paper sheet (max 50rem) on a Back Panel section, set in Print Ink. It has a title-caps heading, lead-size body and a signature in Semi Condensed caps over a Print Ink Soft role line. Selection and focus invert to ink on paper. It is the only light surface in the system.
+### Cards / Containers
+- **Corner Style:** 14px.
+- **Background:** glass gradient over the zinc ground (letter, company rows, form, secondary company cards).
+- **Shadow Strategy:** none; see the Lit Edge Rule.
+- **Border:** hairline with lit top and dim bottom.
+- **Internal Padding:** `spacing.card`; letter and form slightly larger (up to 3rem / 2.25rem).
 
 ### Inputs / Fields
-- **Style:** Lower Leaf fill, no visible side borders, a Hard Rule bottom border, square corners, Barlow body text in Flap White. Labels sit above in label caps, Board Grey; the "(optional)" note is sentence case.
-- **Focus:** the border turns amber and the fill steps up to Upper Leaf, with no glow.
-- **Select:** a custom chevron in Flap White; the native option list is printed on paper.
+- **Style:** 50% zinc-muted fill, 1px `input` border, 8px radius, 0.9375rem text; label above in 500, optional marker in muted 400.
+- **Focus:** border shifts to `ring` with a 3px soft zinc halo; no outline.
+- **Error / Disabled:** status line with a coral dot (error) or green dot with halo (sent, only after the API returns 200); disabled submit drops to 60% opacity.
+- **Select:** native, custom 14px chevron in muted zinc.
 
 ### Navigation
-A header bar ruled underneath: monogram (inverted to near-white) plus the name in Semi Condensed 600 caps, then nav links in label caps (Board Grey, turning Flap White on hover, no underline), a two-letter language switch, and the small amber key. Utility pages (404, /sent/) reuse the bar with the brand only.
+- **Style:** sticky, 4rem tall, zinc at 70% with 12px blur and a bottom hairline. Monogram (inverted to white) plus brand name at left; links at 0.875rem in muted, turning white on hover; language toggle; small white primary button.
+- **Mobile:** at 720px secondary links hide (Portfolio, Company, language and CTA stay); at 480px the brand name hides and the monogram remains.
+
+### Mockup Frame and Mosaic (signature)
+Real product screens held in a translucent 10% zinc frame (16px radius, 8px padding). Inside, each screen has an 8px radius, a lit top hairline, and the Screen shadow. In the hero, three screens form the mosaic; each tile carries a blurred dark pill label with a status dot and links to the company's entry. Screens sit above the warm glow.
+
+### Glow (signature)
+Two stacked radial ellipses, centered: an outer Ember ellipse (50% at 10% falling to 0 by 60%, opacity 0.35, scaled 2.5x) and an inner Apricot ellipse (opacity 0.6, scaled 2x). Placed once behind the hero mockup and once centered behind the contact block. Purely decorative, `aria-hidden`, no pointer events.
+
+### Motion
+One curve for everything (`cubic-bezier(0.16, 1, 0.3, 1)`). On load, hero elements "appear" over 700ms (rise 1rem and clear a 6px blur), staggered at 100, 220 and 420ms. Feature screens and cards rise 2rem as they enter the viewport where scroll-driven timelines are supported. Animations only run under `html.js` and `prefers-reduced-motion: no-preference`, and never start from opacity 0, so content is always visible.
+
+### Accordion (FAQ)
+Native `details` rows split by hairlines; question at 1.0625rem/500, underlined on hover; a CSS-drawn chevron rotates from down to up over 220ms.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** keep Enamel Black (board) as the ground of every page, including 404 and /sent/.
-- **Do** build any new data display from flap modules in the 4px slot grid (spacing.slot), with Board Grey label-micro heads.
-- **Do** reserve amber for verified live status, the primary key, focus and selection.
-- **Do** keep the flap cascade a single pass on load, staggered per tile, and render everything static and fully visible under `prefers-reduced-motion` and without JS.
-- **Do** drop columns on narrow screens before shrinking board glyphs; on mobile the board shows company and status only.
-- **Do** keep product logos and screenshots in their own colours, framed inside their gate.
-- **Do** use the single site arrow for every directional affordance.
+- **Do** use the white primary button for the one main action in a region, and the glow button for the secondary.
+- **Do** show only real screenshots of live products inside mockup frames, with the Screen shadow and nested radii (16px frame, 8px padding, 8px screen).
+- **Do** keep supporting copy in `muted-foreground` and reserve full white for headings, names, values and actions.
+- **Do** build raised surfaces as glass: hairline border, brighter top edge, 5% white top-down gradient.
+- **Do** keep every animation on the single ease curve, gated behind `html.js` and reduced-motion, starting from transform or blur rather than invisibility.
+- **Do** credit Launch UI (MIT) in THIRD_PARTY_NOTICES.md whenever more of its patterns are ported.
 
 ### Don't:
-- **Don't** round any corner; the lamp is square too.
-- **Don't** add shadows to board elements; separate them with seams, slots and tone steps. The only shadows are the lamp glow, the key lip and the pinned notice.
-- **Don't** introduce a second accent colour, gradient fields or a centred SaaS hero over a gradient with a card row.
-- **Don't** light a lamp for a status, date or figure that has not been verified; show SCHEDULED or omit the field.
-- **Don't** loop the flap or lamp animation or replay it on scroll.
-- **Don't** break a word across flap tiles, or let a module cell wrap.
-- **Don't** set reading prose in condensed caps, or signage in sentence-case Barlow.
-- **Don't** set text below 0.75rem or use a grey dimmer than Board Grey on the board.
+- **Don't** fill buttons, panels or text blocks with orange; the brand hues exist as glow light and tiny marks only.
+- **Don't** show a green status dot for anything not verifiably live.
+- **Don't** add invented dashboards, fake metrics, testimonials or customer counts to mockups or cards.
+- **Don't** introduce a second typeface or uppercase letter-spaced labels; Inter at 400/500/600 carries the whole hierarchy.
+- **Don't** place kicker or eyebrow labels above headings.
+- **Don't** add drop shadows to cards or glass containers, or hard offset shadows anywhere.
+- **Don't** scatter glows; at most one per view region, behind the main object (on the home: hero mockup and contact block).

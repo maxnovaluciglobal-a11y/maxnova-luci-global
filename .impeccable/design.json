@@ -1,543 +1,520 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-18T00:00:00Z",
+  "generatedAt": "2026-10-18T21:22:44Z",
   "title": "Design System: Maxnova & Luci Global",
+  "provenance": {
+    "source": "Launch UI open-source edition, MIT, (c) 2024 Mikolaj Dobrucki, github.com/launch-ui/launch-ui @ b0d4d5b",
+    "adaptation": "Ported to Astro + plain CSS; colour tokens, glass surfaces, mockup frames, glow, button and badge styles, appear animation. License in THIRD_PARTY_NOTICES.md.",
+    "chosen": "Walter, 2026-10-18, from 21st.dev with the constraint 'must be free'",
+    "supersedes": [
+      "departures-board world (seed a5e59273)",
+      "cobalt/Archivo world",
+      "docs/prompt-maestro.md §4 (Dirección de arte) and §5 (3D y movimiento)"
+    ],
+    "tokenSource": "src/styles/global.css :root"
+  },
   "extensions": {
-    "provenance": "World chosen by Walter on 2026-10-18 (seed key a5e59273, .impeccable/surfaces/src-pages-index-astro.md). Supersedes the cobalt/Archivo annual-report world and docs/prompt-maestro.md §4–§5.",
     "colorMeta": {
-      "amber": {
+      "background": {
+        "role": "neutral",
+        "displayName": "Zinc Night",
+        "canonical": "#09090b",
+        "tonalRamp": [
+          "#09090b",
+          "#18181b",
+          "#27272a",
+          "#3f3f46",
+          "#52525b",
+          "#71717a",
+          "#a1a1aa",
+          "#d4d4d8"
+        ]
+      },
+      "foreground": {
         "role": "primary",
-        "displayName": "Platform Amber",
-        "canonical": "oklch(80.6% 0.147 79)",
+        "displayName": "Paper White",
+        "canonical": "#fafafa",
         "tonalRamp": [
-          "#2a1b02",
-          "#4a3208",
-          "#6d4b0e",
-          "#926615",
-          "#b9821f",
-          "#dc9c2c",
-          "#f2b33d",
-          "#ffe3a3"
-        ]
-      },
-      "amber-hover": {
-        "role": "primary",
-        "displayName": "Amber Struck",
-        "canonical": "oklch(85.5% 0.145 82)",
-        "tonalRamp": [
-          "#250000",
-          "#441200",
-          "#643100",
-          "#855100",
-          "#a87200",
-          "#cb9300",
-          "#f3ba45",
-          "#ffe474"
-        ],
-        "note": "Hard-coded #ffc552 in global.css (no custom property yet)."
-      },
-      "amber-ink": {
-        "role": "primary",
-        "displayName": "Lamp Ink",
-        "canonical": "oklch(18.9% 0.026 77)",
-        "tonalRamp": [
-          "#110a01",
-          "#2b2216",
-          "#483e30",
-          "#665c4d",
-          "#867c6c",
-          "#a89d8d",
-          "#cec2b2",
-          "#f8eddc"
-        ]
-      },
-      "lamp-off": {
-        "role": "primary",
-        "displayName": "Dead Lamp",
-        "canonical": "oklch(32.2% 0.023 78)",
-        "tonalRamp": [
-          "#110a02",
-          "#2a2317",
-          "#473e32",
-          "#655c4f",
-          "#857c6e",
-          "#a79d8f",
-          "#cdc3b4",
-          "#f7edde"
-        ]
-      },
-      "board": {
-        "role": "neutral",
-        "displayName": "Enamel Black",
-        "canonical": "oklch(15.4% 0.005 264)",
-        "tonalRamp": [
-          "#0a0b0d",
-          "#232426",
-          "#3e4042",
-          "#5c5e60",
-          "#7c7d80",
-          "#9d9ea1",
-          "#c2c4c7",
-          "#edeef2"
-        ]
-      },
-      "board-2": {
-        "role": "neutral",
-        "displayName": "Back Panel",
-        "canonical": "oklch(18.2% 0.006 271)",
-        "tonalRamp": [
-          "#0a0b0e",
-          "#232427",
-          "#3e4043",
-          "#5c5d61",
-          "#7c7d81",
-          "#9d9ea2",
-          "#c2c4c8",
-          "#edeef3"
-        ]
-      },
-      "module": {
-        "role": "neutral",
-        "displayName": "Lower Leaf",
-        "canonical": "oklch(21.3% 0.007 258)",
-        "tonalRamp": [
-          "#090b0e",
-          "#222427",
-          "#3e4043",
-          "#5b5e61",
-          "#7b7d81",
-          "#9c9fa3",
-          "#c1c4c8",
-          "#eceff3"
-        ]
-      },
-      "module-hi": {
-        "role": "neutral",
-        "displayName": "Upper Leaf",
-        "canonical": "oklch(23.9% 0.008 264)",
-        "tonalRamp": [
-          "#090b0f",
-          "#222428",
-          "#3d4044",
-          "#5b5e62",
-          "#7b7d82",
-          "#9c9ea4",
-          "#c1c4ca",
-          "#eceef4"
-        ]
-      },
-      "module-hover": {
-        "role": "neutral",
-        "displayName": "Struck Leaf",
-        "canonical": "oklch(26.4% 0.010 261)",
-        "tonalRamp": [
-          "#090b10",
-          "#212429",
-          "#3d4045",
-          "#5a5e64",
-          "#7a7d84",
-          "#9b9fa5",
-          "#c0c4cb",
-          "#ebeff6"
-        ]
-      },
-      "seam": {
-        "role": "neutral",
-        "displayName": "Seam",
-        "canonical": "oklch(11.6% 0.003 286)",
-        "tonalRamp": [
-          "#0b0b0c",
-          "#242426",
-          "#3f3f41",
-          "#5d5d5f",
-          "#7d7d7f",
-          "#9e9ea0",
-          "#c4c4c6",
-          "#eeeef0"
-        ]
-      },
-      "rule": {
-        "role": "neutral",
-        "displayName": "Rule",
-        "canonical": "oklch(27.2% 0.010 261)",
-        "tonalRamp": [
-          "#090b10",
-          "#212429",
-          "#3d4045",
-          "#5a5e64",
-          "#7a7d84",
-          "#9b9fa5",
-          "#c0c4cb",
-          "#ebeff6"
-        ]
-      },
-      "rule-strong": {
-        "role": "neutral",
-        "displayName": "Hard Rule",
-        "canonical": "oklch(35.9% 0.011 264)",
-        "tonalRamp": [
-          "#090b10",
-          "#21242a",
-          "#3d4046",
-          "#5a5e64",
-          "#7a7d84",
-          "#9b9ea6",
-          "#c0c4cc",
-          "#ebeff6"
-        ],
-        "note": "Hard-coded #3a3d43 in global.css (no custom property yet)."
-      },
-      "glyph": {
-        "role": "neutral",
-        "displayName": "Flap White",
-        "canonical": "oklch(93.2% 0.013 87)",
-        "tonalRamp": [
-          "#0d0b06",
-          "#27241d",
-          "#433f38",
-          "#615d56",
-          "#807d75",
-          "#a29e96",
-          "#c8c4bb",
-          "#f2eee5"
-        ]
-      },
-      "text": {
-        "role": "neutral",
-        "displayName": "Reading Grey",
-        "canonical": "oklch(82.7% 0.012 90)",
-        "tonalRamp": [
-          "#0d0b06",
-          "#26241e",
-          "#424039",
-          "#605d56",
-          "#807d76",
-          "#a19e96",
-          "#c7c4bc",
-          "#f1eee6"
+          "#27272a",
+          "#3f3f46",
+          "#52525b",
+          "#71717a",
+          "#a1a1aa",
+          "#d4d4d8",
+          "#e4e4e7",
+          "#fafafa"
         ]
       },
       "muted": {
         "role": "neutral",
-        "displayName": "Board Grey",
-        "canonical": "oklch(66.2% 0.010 258)",
+        "displayName": "Zinc Muted",
+        "canonical": "#27272a",
         "tonalRamp": [
-          "#090b0f",
-          "#212429",
-          "#3d4045",
-          "#5a5e63",
-          "#7a7d83",
-          "#9b9fa5",
-          "#c0c4cb",
-          "#eaeff5"
+          "#09090b",
+          "#18181b",
+          "#27272a",
+          "#3f3f46",
+          "#52525b",
+          "#71717a",
+          "#a1a1aa",
+          "#d4d4d8"
         ]
       },
-      "paper": {
+      "muted-foreground": {
         "role": "neutral",
-        "displayName": "Notice Paper",
-        "canonical": "oklch(93.2% 0.013 87)",
+        "displayName": "Zinc Mist",
+        "canonical": "#a1a1aa",
         "tonalRamp": [
-          "#0d0b06",
-          "#27241d",
-          "#433f38",
-          "#615d56",
-          "#807d75",
-          "#a29e96",
-          "#c8c4bb",
-          "#f2eee5"
+          "#27272a",
+          "#3f3f46",
+          "#52525b",
+          "#71717a",
+          "#a1a1aa",
+          "#d4d4d8",
+          "#e4e4e7",
+          "#fafafa"
         ]
       },
-      "paper-ink": {
+      "prose-ink": {
         "role": "neutral",
-        "displayName": "Print Ink",
-        "canonical": "oklch(20.5% 0.006 271)",
+        "displayName": "Prose Ink",
+        "canonical": "#d4d4d8",
         "tonalRamp": [
-          "#0a0b0e",
-          "#232427",
-          "#3e4043",
-          "#5c5d61",
-          "#7c7d81",
-          "#9d9ea2",
-          "#c2c4c8",
-          "#edeef3"
+          "#27272a",
+          "#3f3f46",
+          "#52525b",
+          "#71717a",
+          "#a1a1aa",
+          "#d4d4d8",
+          "#e4e4e7",
+          "#fafafa"
         ]
       },
-      "paper-ink-2": {
+      "input": {
         "role": "neutral",
-        "displayName": "Print Ink Soft",
-        "canonical": "oklch(41.3% 0.007 275)",
+        "displayName": "Field Edge",
+        "canonical": "#27272a",
         "tonalRamp": [
-          "#0a0b0e",
-          "#232427",
-          "#3f3f43",
-          "#5c5d61",
-          "#7c7d81",
-          "#9d9ea3",
-          "#c3c4c9",
-          "#edeef3"
+          "#09090b",
+          "#18181b",
+          "#27272a",
+          "#3f3f46",
+          "#52525b",
+          "#71717a",
+          "#a1a1aa",
+          "#d4d4d8"
+        ]
+      },
+      "ring": {
+        "role": "neutral",
+        "displayName": "Focus Ring",
+        "canonical": "#a1a1aa",
+        "tonalRamp": [
+          "#27272a",
+          "#3f3f46",
+          "#52525b",
+          "#71717a",
+          "#a1a1aa",
+          "#d4d4d8",
+          "#e4e4e7",
+          "#fafafa"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "rgb(216 216 221 / 0.1)",
+        "tonalRamp": [
+          "rgb(216 216 221 / 0.05)",
+          "rgb(216 216 221 / 0.1)",
+          "rgb(216 216 221 / 0.15)",
+          "rgb(216 216 221 / 0.2)",
+          "rgb(216 216 221 / 0.3)",
+          "rgb(216 216 221 / 0.35)",
+          "rgb(216 216 221 / 0.5)",
+          "rgb(216 216 221 / 0.7)"
+        ]
+      },
+      "border-top": {
+        "role": "neutral",
+        "displayName": "Lit Edge",
+        "canonical": "rgb(216 216 221 / 0.2)",
+        "tonalRamp": [
+          "rgb(216 216 221 / 0.05)",
+          "rgb(216 216 221 / 0.1)",
+          "rgb(216 216 221 / 0.15)",
+          "rgb(216 216 221 / 0.2)",
+          "rgb(216 216 221 / 0.3)",
+          "rgb(216 216 221 / 0.35)",
+          "rgb(216 216 221 / 0.5)",
+          "rgb(216 216 221 / 0.7)"
+        ]
+      },
+      "border-bottom": {
+        "role": "neutral",
+        "displayName": "Shade Edge",
+        "canonical": "rgb(216 216 221 / 0.05)",
+        "tonalRamp": [
+          "rgb(216 216 221 / 0.05)",
+          "rgb(216 216 221 / 0.1)",
+          "rgb(216 216 221 / 0.15)",
+          "rgb(216 216 221 / 0.2)",
+          "rgb(216 216 221 / 0.3)",
+          "rgb(216 216 221 / 0.35)",
+          "rgb(216 216 221 / 0.5)",
+          "rgb(216 216 221 / 0.7)"
+        ]
+      },
+      "brand": {
+        "role": "secondary",
+        "displayName": "Apricot Light",
+        "canonical": "#fdba72",
+        "tonalRamp": [
+          "#431407",
+          "#7c2d12",
+          "#9a3412",
+          "#c2410c",
+          "#ea580c",
+          "#fb923c",
+          "#fdba74",
+          "#fed7aa"
+        ]
+      },
+      "brand-foreground": {
+        "role": "secondary",
+        "displayName": "Ember Glow",
+        "canonical": "#fb923c",
+        "tonalRamp": [
+          "#431407",
+          "#7c2d12",
+          "#9a3412",
+          "#c2410c",
+          "#ea580c",
+          "#fb923c",
+          "#fdba74",
+          "#fed7aa"
+        ]
+      },
+      "primary-ink": {
+        "role": "primary",
+        "displayName": "Ink on White",
+        "canonical": "#18181b",
+        "tonalRamp": [
+          "#09090b",
+          "#18181b",
+          "#27272a",
+          "#3f3f46",
+          "#52525b",
+          "#71717a",
+          "#a1a1aa",
+          "#d4d4d8"
+        ]
+      },
+      "primary-hover": {
+        "role": "primary",
+        "displayName": "White Pressed",
+        "canonical": "#e4e4e7",
+        "tonalRamp": [
+          "#27272a",
+          "#3f3f46",
+          "#52525b",
+          "#71717a",
+          "#a1a1aa",
+          "#d4d4d8",
+          "#e4e4e7",
+          "#fafafa"
+        ]
+      },
+      "status-idle": {
+        "role": "neutral",
+        "displayName": "Idle Dot",
+        "canonical": "#52525b",
+        "tonalRamp": [
+          "#09090b",
+          "#18181b",
+          "#27272a",
+          "#3f3f46",
+          "#52525b",
+          "#71717a",
+          "#a1a1aa",
+          "#d4d4d8"
+        ]
+      },
+      "status-live": {
+        "role": "tertiary",
+        "displayName": "Live Green",
+        "canonical": "#4ade80",
+        "tonalRamp": [
+          "#14532d",
+          "#166534",
+          "#15803d",
+          "#16a34a",
+          "#22c55e",
+          "#4ade80",
+          "#86efac",
+          "#bbf7d0"
+        ]
+      },
+      "status-error": {
+        "role": "tertiary",
+        "displayName": "Error Coral",
+        "canonical": "#f87171",
+        "tonalRamp": [
+          "#7f1d1d",
+          "#991b1b",
+          "#b91c1c",
+          "#dc2626",
+          "#ef4444",
+          "#f87171",
+          "#fca5a5",
+          "#fecaca"
         ]
       }
     },
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Board H1 only, as flap tiles."
+        "purpose": "Hero H1 only, max 15ch, centered."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Plain section H2s and the /sent/ confirmation."
+        "purpose": "Section H2s."
       },
-      "headline-flap": {
-        "displayName": "Headline Flap",
-        "purpose": "Section H2s set as flap tiles."
+      "title-lg": {
+        "displayName": "Title Large",
+        "purpose": "Product names in feature rows."
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Gate names, route names, process heading, notice heading."
-      },
-      "board-data": {
-        "displayName": "Board Data",
-        "purpose": "Text inside flap modules; key labels at 600."
+        "purpose": "Card titles and service names."
       },
       "lead": {
         "displayName": "Lead",
-        "purpose": "The reading line under the H1, section intros, notice body."
+        "purpose": "Hero lead and section intros, always muted."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Summaries, route text, FAQ answers; 46-62ch."
+        "purpose": "Paragraphs, 42-62ch."
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Nav, field labels, ledger keys, text links."
+        "purpose": "Buttons, nav links, field labels."
       },
-      "label-micro": {
-        "displayName": "Label Micro",
-        "purpose": "Table column heads and gate fact keys; the size floor."
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Pills, figure captions, fact labels."
       }
     },
     "shadows": [
       {
-        "name": "lamp-glow",
-        "value": "0 0 0.6em rgb(242 179 61 / 0.45)",
-        "purpose": "Lit amber lamp only."
+        "name": "screen",
+        "value": "-12px 16px 48px rgb(0 0 0 / 0.53)",
+        "purpose": "Product screenshots inside frames and mosaic tiles."
       },
       {
-        "name": "key-lip",
-        "value": "inset 0 -2px 0 rgb(0 0 0 / 0.25)",
-        "purpose": "Inner bottom edge of amber push keys."
+        "name": "primary-lift",
+        "value": "0 1px 2px rgb(0 0 0 / 0.3)",
+        "purpose": "White primary button."
       },
       {
-        "name": "pinned-paper",
-        "value": "0 2px 2px rgb(0 0 0 / 0.3), 0 24px 48px -24px rgb(0 0 0 / 0.7)",
-        "purpose": "The founder's notice sheet only."
+        "name": "glow-button",
+        "value": "0 4px 6px -1px rgb(0 0 0 / 0.13), 0 2px 4px -2px rgb(0 0 0 / 0.13)",
+        "purpose": "Secondary glass button."
+      },
+      {
+        "name": "live-halo",
+        "value": "0 0 8px rgb(74 222 128 / 0.6)",
+        "purpose": "Live status dots only."
+      },
+      {
+        "name": "field-focus",
+        "value": "0 0 0 3px rgb(161 161 170 / 0.25)",
+        "purpose": "Inputs on focus."
+      },
+      {
+        "name": "display-lift",
+        "value": "drop-shadow(0 25px 25px rgb(0 0 0 / 0.15))",
+        "purpose": "Filter on the hero H1 over the glow."
       }
     ],
     "motion": [
       {
         "name": "ease",
         "value": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "All transitions and the flap cascade."
+        "purpose": "The single curve for every transition and animation."
       },
       {
         "name": "state-fast",
-        "value": "160ms",
-        "purpose": "Key fill, field border and fill."
-      },
-      {
-        "name": "module-hover",
-        "value": "200ms",
-        "purpose": "Module tone step on row hover."
+        "value": "160-180ms",
+        "purpose": "Color, border, background, press transitions."
       },
       {
         "name": "arrow-nudge",
-        "value": "220ms, translateX(3px)",
-        "purpose": "Arrow inside a hovered key."
+        "value": "220ms, translateX(2px)",
+        "purpose": "Button arrow on hover; FAQ chevron rotation."
       },
       {
-        "name": "flap-cascade",
-        "value": "520ms per tile, 24ms stagger, from perspective(400px) rotateX(-75deg) brightness(0.55)",
-        "purpose": "H1, flap H2s and board names, once on load, only with JS and no-preference motion."
+        "name": "appear",
+        "value": "700ms, from translateY(1rem) blur(6px); delays 100/220/420ms",
+        "purpose": "Hero entrance on load; html.js and no-preference only; never from opacity 0."
       },
       {
-        "name": "lamp-sequence",
-        "value": "600ms steps(2, jump-none), 900ms + 140ms per row",
-        "purpose": "Board lamps switch on in sequence after the cascade."
-      },
-      {
-        "name": "screen-rise",
-        "value": "view() timeline, entry 0%-80%, from translateY(6%) scale(1.02)",
-        "purpose": "Product screenshots rise into their gate frame, where supported."
+        "name": "rise",
+        "value": "from translateY(2rem), animation-timeline view(), entry 0%-60%",
+        "purpose": "Feature screens and cards entering viewport where supported."
       }
     ],
     "breakpoints": [
       {
-        "name": "board-full",
-        "value": "1360px",
-        "purpose": "Below: Market column leaves the board."
+        "name": "lg",
+        "value": "1000px"
       },
       {
-        "name": "stack",
-        "value": "1000px",
-        "purpose": "Below: all splits stack, steps 2-up."
+        "name": "md",
+        "value": "720px"
       },
       {
-        "name": "narrow",
-        "value": "720px",
-        "purpose": "Below: Sector column leaves, nav trims, single-column forms and ledger."
-      },
-      {
-        "name": "tiny",
-        "value": "480px",
-        "purpose": "Below: wordmark hides, monogram only."
+        "name": "sm",
+        "value": "480px"
       }
-    ]
+    ],
+    "layout": {
+      "container": "1280px",
+      "heroMask": "linear-gradient(to top, transparent 0%, black 18%)",
+      "glass": "border var(--border), top var(--border-top), bottom var(--border-bottom); background linear-gradient(to bottom, rgb(255 255 255 / 0.05), rgb(255 255 255 / 0))",
+      "backdrop": "blur(12px) over rgb(9 9 11 / 0.6-0.7)"
+    }
   },
   "components": [
     {
-      "name": "Primary Key",
+      "name": "Primary Button",
       "kind": "button",
-      "refersTo": "key",
-      "description": "Amber push key for the one primary action per zone.",
-      "html": "<a class=\"ds-key\" href=\"#\">Talk to us<svg class=\"ds-arrow\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"M2 8h11M9 3.5 13.5 8 9 12.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"square\"/></svg></a>",
-      "css": ":host{--board:#0b0c0e;--board-2:#111215;--module:#17191c;--module-hi:#1d1f23;--module-hover:#22252a;--seam:#050506;--rule:#24272c;--glyph:#ece8df;--text:#c9c6be;--muted:#8f9399;--amber:#f2b33d;--amber-ink:#1a1206;--lamp-off:#3a3226;--paper:#ece8df;--paper-ink:#16171a;--paper-ink-2:#4a4b4f;--font-board:'Barlow Semi Condensed','Arial Narrow',sans-serif;--font-text:'Barlow',system-ui,sans-serif;--ease:cubic-bezier(0.16,1,0.3,1);display:block;background:var(--board);color:var(--text);padding:24px;font-family:var(--font-text)} .ds-key{display:inline-flex;align-items:center;gap:.6rem;font:600 1rem/1 var(--font-board);text-transform:uppercase;letter-spacing:.05em;padding:1rem 1.35rem;border:0;border-radius:0;text-decoration:none;background:var(--amber);color:var(--amber-ink);box-shadow:inset 0 -2px 0 rgb(0 0 0/.25);transition:background-color 160ms var(--ease),transform 160ms var(--ease)} .ds-key:hover{background:#ffc552} .ds-key:active{transform:translateY(1px)} .ds-key .ds-arrow{transition:transform 220ms var(--ease)} .ds-key:hover .ds-arrow{transform:translateX(3px)} .ds-key:focus-visible{outline:2px solid var(--amber);outline-offset:3px}"
+      "refersTo": "button-primary",
+      "description": "White action button with authored arrow; one per view region.",
+      "html": "<a class=\"ds-btn ds-btn-primary\" href=\"#\">Talk to us<svg class=\"ds-arrow\" viewBox=\"0 0 16 16\" width=\"14\" height=\"14\" aria-hidden=\"true\"><path d=\"M2 8h11M9 3.5 13.5 8 9 12.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"square\"/></svg></a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;height:2.75rem;padding:0 1.4rem;border-radius:calc(var(--radius) - 2px);font:500 .9375rem/1 var(--font);text-decoration:none;white-space:nowrap;cursor:pointer;border:1px solid transparent;transition:background-color 180ms var(--ease),transform 180ms var(--ease)}.ds-btn .ds-arrow{transition:transform 220ms var(--ease)}.ds-btn:hover .ds-arrow{transform:translateX(2px)}.ds-btn:active{transform:translateY(1px)}.ds-btn:focus-visible{outline:2px solid var(--ring);outline-offset:2px}.ds-btn-primary{background:var(--foreground);color:#18181b;box-shadow:0 1px 2px rgb(0 0 0 / .3)}.ds-btn-primary:hover{background:#e4e4e7}"
     },
     {
-      "name": "Small Key",
+      "name": "Glow Button",
       "kind": "button",
-      "refersTo": "key-sm",
-      "description": "Header CTA.",
-      "html": "<a class=\"ds-key-sm\" href=\"#\">Talk to us</a>",
-      "css": ":host{--board:#0b0c0e;--board-2:#111215;--module:#17191c;--module-hi:#1d1f23;--module-hover:#22252a;--seam:#050506;--rule:#24272c;--glyph:#ece8df;--text:#c9c6be;--muted:#8f9399;--amber:#f2b33d;--amber-ink:#1a1206;--lamp-off:#3a3226;--paper:#ece8df;--paper-ink:#16171a;--paper-ink-2:#4a4b4f;--font-board:'Barlow Semi Condensed','Arial Narrow',sans-serif;--font-text:'Barlow',system-ui,sans-serif;--ease:cubic-bezier(0.16,1,0.3,1);display:block;background:var(--board);color:var(--text);padding:24px;font-family:var(--font-text)} .ds-key-sm{display:inline-flex;font:600 .875rem/1 var(--font-board);text-transform:uppercase;letter-spacing:.05em;padding:.6rem .9rem;border-radius:0;text-decoration:none;background:var(--amber);color:var(--amber-ink);box-shadow:inset 0 -2px 0 rgb(0 0 0/.25)} .ds-key-sm:hover{background:#ffc552}"
+      "refersTo": "button-glow",
+      "description": "Secondary glass button with lit top edge.",
+      "html": "<a class=\"ds-btn-glow\" href=\"#\">See the portfolio</a>",
+      "css": ".ds-btn-glow{display:inline-flex;align-items:center;height:2.75rem;padding:0 1.4rem;border-radius:calc(var(--radius) - 2px);font:500 .9375rem/1 var(--font);color:var(--foreground);text-decoration:none;border:1px solid var(--border);border-top-color:rgb(216 216 221 / .3);border-bottom-width:0;background:linear-gradient(to bottom,rgb(255 255 255 / .1),rgb(255 255 255 / .05));box-shadow:0 4px 6px -1px rgb(0 0 0 / .13),0 2px 4px -2px rgb(0 0 0 / .13);transition:background 180ms var(--ease),transform 180ms var(--ease)}.ds-btn-glow:hover{background:linear-gradient(to bottom,rgb(255 255 255 / .15),rgb(255 255 255 / .05))}.ds-btn-glow:active{transform:translateY(1px)}.ds-btn-glow:focus-visible{outline:2px solid var(--ring);outline-offset:2px}"
     },
     {
-      "name": "Text Link",
-      "kind": "button",
-      "refersTo": "textlink",
-      "description": "Secondary action: underlined caps with the site arrow.",
-      "html": "<a class=\"ds-textlink\" href=\"#\">Open dypos.app<svg class=\"ds-arrow\" style=\"transform:rotate(-45deg)\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"M2 8h11M9 3.5 13.5 8 9 12.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"square\"/></svg></a>",
-      "css": ":host{--board:#0b0c0e;--board-2:#111215;--module:#17191c;--module-hi:#1d1f23;--module-hover:#22252a;--seam:#050506;--rule:#24272c;--glyph:#ece8df;--text:#c9c6be;--muted:#8f9399;--amber:#f2b33d;--amber-ink:#1a1206;--lamp-off:#3a3226;--paper:#ece8df;--paper-ink:#16171a;--paper-ink-2:#4a4b4f;--font-board:'Barlow Semi Condensed','Arial Narrow',sans-serif;--font-text:'Barlow',system-ui,sans-serif;--ease:cubic-bezier(0.16,1,0.3,1);display:block;background:var(--board);color:var(--text);padding:24px;font-family:var(--font-text)} .ds-textlink{display:inline-flex;align-items:center;gap:.45rem;font:600 .875rem/1.2 var(--font-board);text-transform:uppercase;letter-spacing:.06em;color:var(--glyph);text-underline-offset:.24em;text-decoration-thickness:1px} .ds-textlink:hover{text-decoration-thickness:2px}"
+      "name": "Status Pill",
+      "kind": "chip",
+      "refersTo": "pill-live",
+      "description": "Round status pill; green dot only when verifiably live.",
+      "html": "<span class=\"ds-pill ds-pill-live\">Live</span> <span class=\"ds-pill\">In development</span>",
+      "css": ".ds-pill{display:inline-flex;align-items:center;gap:.4rem;padding:.2rem .6rem;border-radius:999px;border:1px solid var(--border);font:500 .75rem/1.4 var(--font);color:var(--muted-foreground);white-space:nowrap}.ds-pill::before{content:'';width:6px;height:6px;border-radius:50%;background:#52525b}.ds-pill-live{color:var(--foreground)}.ds-pill-live::before{background:#4ade80;box-shadow:0 0 8px rgb(74 222 128 / .6)}"
     },
     {
-      "name": "Departures Board",
-      "kind": "custom",
-      "refersTo": "module",
-      "description": "Signature: company lines as flap modules in a 4px slot grid, with status lamps.",
-      "html": "<table class=\"ds-board\"><thead><tr><th>Company</th><th>Sector</th><th>Status</th></tr></thead><tbody><tr class=\"ds-lit\"><td><span class=\"ds-mod ds-name\">DypOS</span></td><td><span class=\"ds-mod\">Restaurants</span></td><td><span class=\"ds-mod ds-status\"><span class=\"ds-lamp\"></span>In service</span></td></tr><tr><td><span class=\"ds-mod ds-name\">Healthcare SaaS</span></td><td><span class=\"ds-mod\">Medical practices</span></td><td><span class=\"ds-mod ds-status\"><span class=\"ds-lamp\"></span>Scheduled</span></td></tr></tbody></table>",
-      "css": ":host{--board:#0b0c0e;--board-2:#111215;--module:#17191c;--module-hi:#1d1f23;--module-hover:#22252a;--seam:#050506;--rule:#24272c;--glyph:#ece8df;--text:#c9c6be;--muted:#8f9399;--amber:#f2b33d;--amber-ink:#1a1206;--lamp-off:#3a3226;--paper:#ece8df;--paper-ink:#16171a;--paper-ink-2:#4a4b4f;--font-board:'Barlow Semi Condensed','Arial Narrow',sans-serif;--font-text:'Barlow',system-ui,sans-serif;--ease:cubic-bezier(0.16,1,0.3,1);display:block;background:var(--board);color:var(--text);padding:24px;font-family:var(--font-text)} .ds-board{width:100%;border-collapse:separate;border-spacing:4px} .ds-board th{font:500 .75rem/1 var(--font-board);text-transform:uppercase;letter-spacing:.1em;color:var(--muted);text-align:left;padding:0 .15rem .35rem} .ds-board td{padding:0} .ds-mod{position:relative;display:flex;align-items:center;min-height:2.6rem;padding:.5rem .85rem;background:linear-gradient(var(--module-hi) 0 50%, var(--module) 50% 100%);isolation:isolate;font:500 1rem/1.1 var(--font-board);text-transform:uppercase;letter-spacing:.04em;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:background 200ms var(--ease)} .ds-mod::after{content:'';position:absolute;z-index:-1;left:0;right:0;top:50%;height:1px;transform:translateY(-50%);background:var(--seam)} .ds-name{font-weight:600;color:var(--glyph);font-size:1.2rem} .ds-status{color:var(--muted)} .ds-lit .ds-status{color:var(--glyph)} .ds-lamp{display:inline-block;width:.6em;height:.6em;margin-right:.6em;background:var(--lamp-off)} .ds-lit .ds-lamp{background:var(--amber);box-shadow:0 0 .6em rgb(242 179 61/.45)} .ds-board tbody tr:hover .ds-mod{background:linear-gradient(var(--module-hover) 0 50%, var(--module-hi) 50% 100%)}"
-    },
-    {
-      "name": "Flap Tiles",
-      "kind": "custom",
-      "refersTo": "flap-tile",
-      "description": "Signature heading treatment: one seamed tile per character, words kept whole.",
-      "html": "<h1 class=\"ds-flap\" aria-label=\"We build\"><span class=\"ds-word\"><span class=\"ds-tile\">W</span><span class=\"ds-tile\">E</span></span><span class=\"ds-word\"><span class=\"ds-tile\">B</span><span class=\"ds-tile\">U</span><span class=\"ds-tile\">I</span><span class=\"ds-tile\">L</span><span class=\"ds-tile\">D</span></span></h1>",
-      "css": ":host{--board:#0b0c0e;--board-2:#111215;--module:#17191c;--module-hi:#1d1f23;--module-hover:#22252a;--seam:#050506;--rule:#24272c;--glyph:#ece8df;--text:#c9c6be;--muted:#8f9399;--amber:#f2b33d;--amber-ink:#1a1206;--lamp-off:#3a3226;--paper:#ece8df;--paper-ink:#16171a;--paper-ink-2:#4a4b4f;--font-board:'Barlow Semi Condensed','Arial Narrow',sans-serif;--font-text:'Barlow',system-ui,sans-serif;--ease:cubic-bezier(0.16,1,0.3,1);display:block;background:var(--board);color:var(--text);padding:24px;font-family:var(--font-text)} .ds-flap{margin:0;display:flex;flex-wrap:wrap;column-gap:.32em;row-gap:.1em;font:600 3.2rem/1 var(--font-board);color:var(--glyph)} .ds-word{display:inline-flex;gap:.05em} .ds-tile{display:inline-grid;place-items:center;width:.74em;height:1.16em;background:linear-gradient(var(--module-hi) 0 calc(50% - .5px),var(--seam) calc(50% - .5px) calc(50% + .5px),var(--module) calc(50% + .5px) 100%);text-transform:uppercase}"
-    },
-    {
-      "name": "Service Route",
+      "name": "Glass Card",
       "kind": "card",
-      "refersTo": "route-name",
-      "description": "Service as a route: flap-module name beside a Back Panel detail cell.",
-      "html": "<dl class=\"ds-route\"><dt>AI software and SaaS</dt><dd><p class=\"ds-who\">For companies that need a product.</p><p>We scope it, build it and put it in production.</p></dd></dl>",
-      "css": ":host{--board:#0b0c0e;--board-2:#111215;--module:#17191c;--module-hi:#1d1f23;--module-hover:#22252a;--seam:#050506;--rule:#24272c;--glyph:#ece8df;--text:#c9c6be;--muted:#8f9399;--amber:#f2b33d;--amber-ink:#1a1206;--lamp-off:#3a3226;--paper:#ece8df;--paper-ink:#16171a;--paper-ink-2:#4a4b4f;--font-board:'Barlow Semi Condensed','Arial Narrow',sans-serif;--font-text:'Barlow',system-ui,sans-serif;--ease:cubic-bezier(0.16,1,0.3,1);display:block;background:var(--board);color:var(--text);padding:24px;font-family:var(--font-text)} .ds-route{display:grid;grid-template-columns:5fr 7fr;gap:4px;margin:0} .ds-route dt,.ds-route dd{margin:0;padding:1.2rem 1.3rem} .ds-route dt{position:relative;isolation:isolate;display:flex;align-items:center;font:600 1.6rem/1.1 var(--font-board);text-transform:uppercase;letter-spacing:.02em;color:var(--glyph);background:linear-gradient(var(--module-hi) 0 50%, var(--module) 50% 100%)} .ds-route dt::after{content:'';position:absolute;z-index:-1;left:0;right:0;top:50%;height:1px;background:var(--seam)} .ds-route dd{background:var(--board-2);display:grid;gap:.5rem} .ds-route p{margin:0} .ds-who{color:var(--muted)}"
+      "refersTo": "card-glass",
+      "description": "Flat glass container with lit top edge; no drop shadow.",
+      "html": "<article class=\"ds-card\"><div class=\"ds-card-top\"><h3>Amazon FBA</h3><span class=\"ds-pill ds-pill-live\">Active</span></div><p>A Seller Central Professional account held by the company, active in the United States.</p></article>",
+      "css": ".ds-card{display:grid;gap:.75rem;padding:clamp(1.4rem,1rem + 1.5vw,2rem);border:1px solid var(--border);border-top-color:var(--border-top);border-bottom-color:var(--border-bottom);background:linear-gradient(to bottom,rgb(255 255 255 / .05),rgb(255 255 255 / 0));border-radius:calc(var(--radius) + 4px);color:var(--foreground);font-family:var(--font)}.ds-card-top{display:flex;justify-content:space-between;align-items:center;gap:1rem}.ds-card h3{margin:0;font-size:1.25rem;font-weight:600;letter-spacing:-.025em}.ds-card p{margin:0;color:var(--muted-foreground)}.ds-pill{display:inline-flex;align-items:center;gap:.4rem;padding:.2rem .6rem;border-radius:999px;border:1px solid var(--border);font:500 .75rem/1.4 var(--font);color:var(--foreground)}.ds-pill::before{content:'';width:6px;height:6px;border-radius:50%;background:#4ade80;box-shadow:0 0 8px rgb(74 222 128 / .6)}"
     },
     {
-      "name": "Pinned Notice",
-      "kind": "card",
-      "refersTo": "notice",
-      "description": "The founder's note: the only paper surface and the only lifted object.",
-      "html": "<article class=\"ds-notice\"><h2>A note from the founder</h2><p>I am a telecommunications engineer.</p><p class=\"ds-sign\"><strong>Walter La Madriz</strong><span>Founder, MAXNOVA &amp; LUCI GLOBAL LLC</span></p></article>",
-      "css": ":host{--board:#0b0c0e;--board-2:#111215;--module:#17191c;--module-hi:#1d1f23;--module-hover:#22252a;--seam:#050506;--rule:#24272c;--glyph:#ece8df;--text:#c9c6be;--muted:#8f9399;--amber:#f2b33d;--amber-ink:#1a1206;--lamp-off:#3a3226;--paper:#ece8df;--paper-ink:#16171a;--paper-ink-2:#4a4b4f;--font-board:'Barlow Semi Condensed','Arial Narrow',sans-serif;--font-text:'Barlow',system-ui,sans-serif;--ease:cubic-bezier(0.16,1,0.3,1);display:block;background:var(--board);color:var(--text);padding:24px;font-family:var(--font-text)} .ds-notice{max-width:50rem;background:var(--paper);color:var(--paper-ink);padding:clamp(1.75rem,1rem + 3vw,3.5rem);box-shadow:0 2px 2px rgb(0 0 0/.3),0 24px 48px -24px rgb(0 0 0/.7);display:grid;gap:1.5rem} .ds-notice h2{margin:0;font:600 1.6rem/1.05 var(--font-board);text-transform:uppercase} .ds-notice p{margin:0;font-size:1.2rem;line-height:1.6} .ds-sign{display:grid;gap:.1rem;font-size:1rem!important;color:var(--paper-ink-2)} .ds-sign strong{color:var(--paper-ink);font:600 1.2rem/1.2 var(--font-board);text-transform:uppercase;letter-spacing:.04em}"
-    },
-    {
-      "name": "Field",
+      "name": "Text Field",
       "kind": "input",
-      "refersTo": "field-input",
-      "description": "Desk form field: caps label, Lower Leaf fill, amber bottom border on focus.",
-      "html": "<label class=\"ds-field\"><span>Email</span><input type=\"email\" placeholder=\"\"></label>",
-      "css": ":host{--board:#0b0c0e;--board-2:#111215;--module:#17191c;--module-hi:#1d1f23;--module-hover:#22252a;--seam:#050506;--rule:#24272c;--glyph:#ece8df;--text:#c9c6be;--muted:#8f9399;--amber:#f2b33d;--amber-ink:#1a1206;--lamp-off:#3a3226;--paper:#ece8df;--paper-ink:#16171a;--paper-ink-2:#4a4b4f;--font-board:'Barlow Semi Condensed','Arial Narrow',sans-serif;--font-text:'Barlow',system-ui,sans-serif;--ease:cubic-bezier(0.16,1,0.3,1);display:block;background:var(--board);color:var(--text);padding:24px;font-family:var(--font-text)} .ds-field{display:grid;gap:.45rem;font:500 .875rem/1.2 var(--font-board);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)} .ds-field input{font:400 1rem/1.4 var(--font-text);color:var(--glyph);background:var(--module);border:1px solid transparent;border-bottom-color:#3a3d43;border-radius:0;padding:.8rem .9rem;transition:border-color 160ms var(--ease),background 160ms var(--ease)} .ds-field input:focus{outline:none;border-color:var(--amber);background-color:var(--module-hi)}"
+      "refersTo": "input",
+      "description": "Translucent zinc field with soft zinc focus halo.",
+      "html": "<label class=\"ds-field\"><span>Email</span><input type=\"email\" placeholder=\"you@company.com\"></label>",
+      "css": ".ds-field{display:grid;gap:.45rem;font:500 .875rem/1.4 var(--font);color:var(--foreground)}.ds-field input{font:400 .9375rem/1.4 var(--font);color:var(--foreground);background:rgb(39 39 42 / .5);border:1px solid var(--input);border-radius:calc(var(--radius) - 2px);padding:.6rem .75rem;transition:border-color 160ms var(--ease),box-shadow 160ms var(--ease)}.ds-field input:focus{outline:none;border-color:var(--ring);box-shadow:0 0 0 3px rgb(161 161 170 / .25)}"
     },
     {
-      "name": "Header Bar",
+      "name": "Navbar",
       "kind": "nav",
-      "refersTo": "nav-link",
-      "description": "Monogram + name, caps nav in Board Grey, language switch, small key.",
-      "html": "<header class=\"ds-bar\"><span class=\"ds-brand\">Maxnova &amp; Luci Global</span><nav class=\"ds-nav\"><a href=\"#\">Portfolio</a><a href=\"#\">Services</a><a href=\"#\">Company</a><a href=\"#\">ES</a><a class=\"ds-cta\" href=\"#\">Talk to us</a></nav></header>",
-      "css": ":host{--board:#0b0c0e;--board-2:#111215;--module:#17191c;--module-hi:#1d1f23;--module-hover:#22252a;--seam:#050506;--rule:#24272c;--glyph:#ece8df;--text:#c9c6be;--muted:#8f9399;--amber:#f2b33d;--amber-ink:#1a1206;--lamp-off:#3a3226;--paper:#ece8df;--paper-ink:#16171a;--paper-ink-2:#4a4b4f;--font-board:'Barlow Semi Condensed','Arial Narrow',sans-serif;--font-text:'Barlow',system-ui,sans-serif;--ease:cubic-bezier(0.16,1,0.3,1);display:block;background:var(--board);color:var(--text);padding:24px;font-family:var(--font-text)} .ds-bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:1rem;border-bottom:1px solid var(--rule)} .ds-brand{font:600 1rem/1 var(--font-board);text-transform:uppercase;letter-spacing:.06em;color:var(--glyph)} .ds-nav{display:flex;align-items:center;gap:1.5rem;font:500 .875rem/1 var(--font-board);text-transform:uppercase;letter-spacing:.08em} .ds-nav a{text-decoration:none;color:var(--muted)} .ds-nav a:hover{color:var(--glyph)} .ds-nav .ds-cta{background:var(--amber);color:var(--amber-ink);padding:.6rem .9rem;font-weight:600;letter-spacing:.05em}"
+      "refersTo": "nav",
+      "description": "Sticky blurred bar: monogram + name, muted links, small white CTA.",
+      "html": "<header class=\"ds-nav\"><a class=\"ds-brand\" href=\"#\">Maxnova &amp; Luci Global</a><nav class=\"ds-links\"><a href=\"#\">Portfolio</a><a href=\"#\">Services</a><a href=\"#\">Company</a><a href=\"#\">ES</a><a class=\"ds-cta\" href=\"#\">Talk to us</a></nav></header>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:4rem;padding:0 1.5rem;background:rgb(9 9 11 / .7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);font-family:var(--font)}.ds-brand{color:var(--foreground);font-weight:600;font-size:.9375rem;letter-spacing:-.01em;text-decoration:none}.ds-links{display:flex;align-items:center;gap:1.75rem;font-size:.875rem}.ds-links a{color:var(--muted-foreground);text-decoration:none;transition:color 160ms}.ds-links a:hover{color:var(--foreground)}.ds-links a:focus-visible{outline:2px solid var(--ring);outline-offset:2px;border-radius:4px}.ds-links .ds-cta{display:inline-flex;align-items:center;height:2rem;padding:0 .85rem;border-radius:calc(var(--radius) - 2px);background:var(--foreground);color:#18181b;font-weight:500;font-size:.8125rem}.ds-links .ds-cta:hover{background:#e4e4e7;color:#18181b}"
+    },
+    {
+      "name": "Mockup Frame",
+      "kind": "custom",
+      "refersTo": "mockup-frame",
+      "description": "Real product screen in a soft nested frame with screen shadow and live label.",
+      "html": "<div class=\"ds-frame\"><div class=\"ds-screen\"><span class=\"ds-label\"><i></i>DypOS</span></div></div>",
+      "css": ".ds-frame{padding:.5rem;border-radius:1rem;background:rgb(216 216 221 / .1);max-width:480px}.ds-screen{position:relative;aspect-ratio:2/1;overflow:hidden;border-radius:.5rem;border:1px solid rgb(216 216 221 / .05);border-top-color:rgb(216 216 221 / .15);background:linear-gradient(135deg,#27272a,#09090b);box-shadow:-12px 16px 48px var(--shadow-strong)}.ds-label{position:absolute;left:.75rem;top:.75rem;display:inline-flex;align-items:center;gap:.45rem;padding:.3rem .7rem;border-radius:999px;font:600 .75rem/1 var(--font);color:var(--foreground);background:rgb(9 9 11 / .75);border:1px solid var(--border);backdrop-filter:blur(8px)}.ds-label i{width:6px;height:6px;border-radius:50%;background:#4ade80;box-shadow:0 0 8px rgb(74 222 128 / .6)}.ds-frame:hover .ds-label{border-color:rgb(216 216 221 / .35)}"
+    },
+    {
+      "name": "Warm Glow",
+      "kind": "custom",
+      "description": "Two radial ellipses of brand light behind the main object of a region.",
+      "html": "<div class=\"ds-glow-stage\"><div class=\"ds-glow\"></div><p>Product rises into the glow</p></div>",
+      "css": ".ds-glow-stage{position:relative;overflow:hidden;height:320px;background:var(--background);display:grid;place-items:center;color:var(--foreground);font-family:var(--font)}.ds-glow-stage p{position:relative;z-index:2}.ds-glow{position:absolute;inset:50% 0 auto;height:0;pointer-events:none}.ds-glow::before,.ds-glow::after{content:'';position:absolute;left:50%;border-radius:50%;translate:-50% 0}.ds-glow::before{top:-256px;width:60%;height:512px;scale:2.5 2.5;background:radial-gradient(closest-side,rgb(251 146 60 / .5) 10%,rgb(251 146 60 / 0) 60%);opacity:.35}.ds-glow::after{top:-128px;width:40%;height:256px;scale:2;background:radial-gradient(closest-side,rgb(253 186 114 / .3) 10%,rgb(251 146 60 / 0) 60%);opacity:.6}"
     }
   ],
   "narrative": {
-    "northStar": "The Departures Board",
-    "overview": "The site is a Solari split-flap board in a terminal hall. The whole page sits on matte black enamel. Every company is a line in service, set in flap modules: a lighter upper leaf and a darker lower leaf, split by a black seam. Paper-white glyphs carry names and data in condensed uppercase signage. Amber lamps are the only colour the board itself produces. They mark live status and the one action that matters, so a lit lamp always means \"in service\" or \"press here\".\n\nDensity is that of a real board: tight slots separated by 4px of black, data in fixed columns, nothing decorative between rows. Reading text (leads, summaries, the FAQ) drops out of signage into a plain humanist sans so it reads as prose rather than board data. One object is not part of the board: the founder's note, a sheet of printed paper pinned to it. That is the only light surface and the only lifted object. The board flips its tiles once on load, lights its lamps in sequence, and then stays still.\n\nProduct logos and product screenshots keep their own colours inside their gates. The board frames them; it does not restyle them.",
+    "northStar": "The Holding as a Product Launch",
+    "overview": "The site presents the company the way a well-funded product presents itself: a dark zinc stage, one clear sentence in large Inter, a white call to action, and the product itself rising out of a warm glow. The twist is that the product is the holding. The hero mockup is a mosaic of the three live companies' real screens, each tile labelled with a live status dot and linking to its entry. Everything after the hero is calm and evidential: alternating feature rows with framed screenshots, divided rows for services, a glass letter from the founder, a glass table of company data, an accordion of questions, and a glass contact form sitting in the second glow.\n\nDensity is generous and quiet. Hierarchy comes from size, weight and tracking in a single family, and from a two-step neutral system (foreground white for what matters, muted zinc for everything that supports it). Depth comes from light, not from shadow: glass surfaces have a brighter top edge than bottom, and the only heavy shadow sits under product screens. Color is almost absent; the warm orange exists as light, and green exists only as a truthful status signal.\n\nThe language is Launch UI's, adapted. It is a register (Stripe/Linear-class product page), not a template to fill with invented dashboards: every screen shown is a real capture of a live product.",
     "keyCharacteristics": [
-      "Matte black ground (board) for the full page; depth by tone steps, never by glow or gradient fields.",
-      "Split-flap modules: two-tone leaves with a 1px black seam at the midline.",
-      "Paper-white condensed uppercase for signage, warm off-white humanist sans for reading.",
-      "Amber is the only accent: live-status lamps, primary keys, focus, selection.",
-      "Square corners everywhere; 4px black slot gaps instead of borders or shadows.",
-      "One flap cascade on load, never looping, fully static under reduced motion and without JS."
+      "Dark zinc ground (`background`), white primary actions, muted zinc supporting copy.",
+      "Inter only, 600 for headings with negative tracking, 500 for leads and labels.",
+      "Glass surfaces with a lit top edge and a 5% white top-down gradient.",
+      "Real product screenshots in soft, nested frames with a deep ambient shadow.",
+      "One warm radial glow, behind the hero mockup and the contact block only.",
+      "Green status dots for live companies; muted dots for anything not live.",
+      "\"Appear\" entrance on load (short rise plus small blur) and scroll-rise on screens; static without JS and under reduced motion."
     ],
     "rules": [
       {
-        "name": "The One Lamp Rule",
-        "body": "Amber is the only accent the board produces. It marks verified live status, the primary key, focus and selection. It is never used for decoration, headings or a second kind of meaning.",
+        "name": "The Warm Light Rule",
+        "body": "Orange exists as light: the two-ellipse radial glow behind the hero mockup and the contact block, plus tiny marks (step numerals, selection, caret). It is never a button fill, a text block, a border, or a background panel.",
         "section": "colors"
       },
       {
-        "name": "The Verified Lamp Rule",
-        "body": "A lamp lights only for a status that has been verified. Anything unconfirmed shows SCHEDULED with the lamp off.",
+        "name": "The White Action Rule",
+        "body": "The primary action is a white button with near-black text. There is exactly one primary per view region; the secondary is the glow button.",
         "section": "colors"
       },
       {
-        "name": "The Guest Colour Rule",
-        "body": "Product logos and product screenshots keep their own colours inside their gate. That colour belongs to the product, not to the board palette, and never spreads outside the gate.",
+        "name": "The Truthful Green Rule",
+        "body": "Green appears only when something is verifiably live or a form has actually been accepted by the server. It is never decorative.",
         "section": "colors"
       },
       {
-        "name": "The Whole Word Rule",
-        "body": "A flap word never breaks across tiles or lines. Words wrap as units, and inline flap names in modules do not wrap at all; long cells truncate with an ellipsis rather than spilling a tile.",
+        "name": "The One Family Rule",
+        "body": "Inter is the only typeface. Hierarchy is made with size, weight (400/500/600) and tracking, never with a second family, italics as display, or uppercase tracking.",
         "section": "typography"
       },
       {
-        "name": "The Two Voices Rule",
-        "body": "Signage (names, labels, data, keys) is condensed uppercase. Anything read as a sentence is Barlow in sentence case. FAQ questions are sentences, so they are set in Barlow.",
+        "name": "The Muted Support Rule",
+        "body": "Anything that explains a heading (lead, intro, description, caption) is set in muted-foreground; only headings, names, values and actions are full white.",
         "section": "typography"
       },
       {
-        "name": "The Real Text Rule",
-        "body": "Flap tiles are decoration over real text. The full string is always present for assistive tech, and the tiles are `aria-hidden`.",
-        "section": "typography"
-      },
-      {
-        "name": "The Slot Rule",
-        "body": "Board cells sit in a 4px black slot grid: `border-spacing: 4px` in the departures table, a 4px gap in routes, ledger, process steps and gate heads. Adjacent modules are always separated by the slot gap, never by a border.",
-        "section": "layout"
-      },
-      {
-        "name": "The Seam, Not Shadow Rule",
-        "body": "Board elements separate by seams, slots and tone steps. A shadow appears only where the physical object would cast or emit one: a lit lamp, a push key, a pinned sheet.",
+        "name": "The Lit Edge Rule",
+        "body": "A raised surface shows its depth through a brighter top border than bottom border, never through a drop shadow. Heavy shadow is reserved for product screens.",
         "section": "elevation"
+      },
+      {
+        "name": "The Nested Radius Rule",
+        "body": "A frame's radius equals its inner screen's radius plus its padding (16px frame, 8px padding, 8px screen). Never put a sharper corner outside a softer one.",
+        "section": "shapes"
       }
     ],
     "dos": [
-      "**Do** keep Enamel Black (board) as the ground of every page, including 404 and /sent/.",
-      "**Do** build any new data display from flap modules in the 4px slot grid (spacing.slot), with Board Grey label-micro heads.",
-      "**Do** reserve amber for verified live status, the primary key, focus and selection.",
-      "**Do** keep the flap cascade a single pass on load, staggered per tile, and render everything static and fully visible under `prefers-reduced-motion` and without JS.",
-      "**Do** drop columns on narrow screens before shrinking board glyphs; on mobile the board shows company and status only.",
-      "**Do** keep product logos and screenshots in their own colours, framed inside their gate.",
-      "**Do** use the single site arrow for every directional affordance."
+      "**Do** use the white primary button for the one main action in a region, and the glow button for the secondary.",
+      "**Do** show only real screenshots of live products inside mockup frames, with the Screen shadow and nested radii (16px frame, 8px padding, 8px screen).",
+      "**Do** keep supporting copy in `muted-foreground` and reserve full white for headings, names, values and actions.",
+      "**Do** build raised surfaces as glass: hairline border, brighter top edge, 5% white top-down gradient.",
+      "**Do** keep every animation on the single ease curve, gated behind `html.js` and reduced-motion, starting from transform or blur rather than invisibility.",
+      "**Do** credit Launch UI (MIT) in THIRD_PARTY_NOTICES.md whenever more of its patterns are ported."
     ],
     "donts": [
-      "**Don't** round any corner; the lamp is square too.",
-      "**Don't** add shadows to board elements; separate them with seams, slots and tone steps. The only shadows are the lamp glow, the key lip and the pinned notice.",
-      "**Don't** introduce a second accent colour, gradient fields or a centred SaaS hero over a gradient with a card row.",
-      "**Don't** light a lamp for a status, date or figure that has not been verified; show SCHEDULED or omit the field.",
-      "**Don't** loop the flap or lamp animation or replay it on scroll.",
-      "**Don't** break a word across flap tiles, or let a module cell wrap.",
-      "**Don't** set reading prose in condensed caps, or signage in sentence-case Barlow.",
-      "**Don't** set text below 0.75rem or use a grey dimmer than Board Grey on the board."
+      "**Don't** fill buttons, panels or text blocks with orange; the brand hues exist as glow light and tiny marks only.",
+      "**Don't** show a green status dot for anything not verifiably live.",
+      "**Don't** add invented dashboards, fake metrics, testimonials or customer counts to mockups or cards.",
+      "**Don't** introduce a second typeface or uppercase letter-spaced labels; Inter at 400/500/600 carries the whole hierarchy.",
+      "**Don't** place kicker or eyebrow labels above headings.",
+      "**Don't** add drop shadows to cards or glass containers, or hard offset shadows anywhere.",
+      "**Don't** scatter glows; at most one per view region, behind the main object (on the home: hero mockup and contact block)."
     ]
   }
 }

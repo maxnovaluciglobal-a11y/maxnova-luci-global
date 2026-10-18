@@ -28,11 +28,11 @@ const { en, es } = copy;
 </Base>
 <style>
   .notfound { min-height: 100svh; }
-  .notfound__body { padding-block: var(--space-l) var(--space-xl); align-self: center; }
+  .notfound__body { padding-block: 2.5rem var(--section); align-self: center; }
   .notfound__code { font-size: clamp(5rem, 3rem + 10vw, 11rem); font-weight: 600; letter-spacing: -0.05em; line-height: 1; color: var(--muted); }
-  .notfound__cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-l); margin-top: var(--space-l); }
+  .notfound__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 2.5rem; }
   .notfound__cols section { display: grid; gap: 1rem; justify-items: start; max-width: 40ch; }
-  .notfound__cols h1, .notfound__cols h2 { font-size: var(--step-2); }
+  .notfound__cols h1, .notfound__cols h2 { font-size: 1.5rem; }
   .notfound__cols p { color: var(--muted-foreground); }
   @media (max-width: 720px) { .notfound__cols { grid-template-columns: 1fr; } }
 </style>

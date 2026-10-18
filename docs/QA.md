@@ -35,4 +35,4 @@ Every PNG that ships carries its origin inside the file (`impeccable embed-promp
 ## Finish review (impeccable)
 
 Two rounds. Resolved: honest cover/FAQ copy, mobile header links, empty required topic, whole-row links in the schedule (verified with `elementFromPoint` on the status cell → `a#dypos`), report figure captions, cobalt back cover, raster provenance. Mobile capture gap was a capture artifact (`scrollHeight` 9081 = footer bottom at 390 px).
-Superseded 2026-10-18: Walter rejected the cobalt world after launch and chose the split-flap departures board (seed a5e59273). Two review rounds; all material fixes resolved, regressions (seam, select chevron) fixed and verified on captures.
+Visual world history (2026-10-18): cobalt report (launched, then rejected) → departures board (PR #2, not adopted) → Launch UI language (MIT, free), reviewed in two finish rounds; remaining regressions fixed and verified on captures.
