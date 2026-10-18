@@ -82,8 +82,8 @@ export const holdings: Holding[] = [
     sector: { en: 'E-commerce', es: 'E-commerce' },
     market: { en: 'United States', es: 'Estados Unidos' },
     summary: {
-      en: 'A Seller Central Professional account held by the company, selling through Fulfillment by Amazon in the United States.',
-      es: 'Una cuenta Seller Central Professional a nombre de la empresa, que vende con Fulfillment by Amazon en Estados Unidos.',
+      en: 'A Seller Central Professional account held by the company, active in the United States and set up for Fulfillment by Amazon.',
+      es: 'Una cuenta Seller Central Professional a nombre de la empresa, activa en Estados Unidos y preparada para Fulfillment by Amazon.',
     },
   },
   {

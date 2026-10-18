@@ -61,7 +61,7 @@ const isLive = (s: string) => s !== 'building';
                 <Picture src={shots[h.shot!]} formats={['avif', 'webp']} fallbackFormat="jpg"
                   widths={i === 0 ? [720, 1080, 1440] : [480, 720, 960]}
                   sizes={i === 0 ? '(min-width: 1100px) 760px, 92vw' : '(min-width: 1100px) 440px, 46vw'}
-                  alt={t.portfolio.shotAlt(h.name)} loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
+                  alt={t.portfolio.shotAlt(h.name)} loading="eager" fetchpriority={i === 0 ? 'high' : 'auto'} decoding="async" />
                 <span class="mosaic__label"><span class={`dot ${isLive(h.status) ? 'is-live' : ''}`} aria-hidden="true"></span>{h.name}</span>
               </a>
             ))}

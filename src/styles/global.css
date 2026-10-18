@@ -119,7 +119,7 @@ a { color: inherit; text-underline-offset: 0.2em; }
 .mosaic__tile { position: relative; display: block; text-decoration: none; }
 .mosaic__tile--0 { grid-row: span 2; }
 .mosaic__label {
-  position: absolute; right: 0.75rem; top: 0.75rem; display: inline-flex; align-items: center; gap: 0.45rem;
+  position: absolute; left: 0.75rem; top: 0.75rem; display: inline-flex; align-items: center; gap: 0.45rem;
   padding: 0.3rem 0.7rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600;
   background: rgb(9 9 11 / 0.75); border: 1px solid var(--border); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
 }
