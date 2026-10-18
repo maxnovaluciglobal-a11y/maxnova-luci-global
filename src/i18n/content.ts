@@ -116,6 +116,8 @@ const en = {
   nav: { portfolio: 'Portfolio', services: 'Services', company: 'Company', cta: 'Talk to us', label: 'Main' },
   status: { live: 'In service', active: 'In service', building: 'Scheduled' } as Record<Status, string>,
   cover: {
+    badge: 'Florida holding · 3 products live',
+    badgeLink: 'See them',
     h1: 'We build and run software companies.',
     lead:
       'DypOS, MOY IQ and Esmalia are live products you can open today. We bring the same way of working to your company: AI software, US market entry and e-commerce.',
@@ -272,6 +274,8 @@ const es: Copy = {
   nav: { portfolio: 'Portfolio', services: 'Servicios', company: 'Empresa', cta: 'Hablemos', label: 'Principal' },
   status: { live: 'En servicio', active: 'En servicio', building: 'Programado' },
   cover: {
+    badge: 'Holding en Florida · 3 productos activos',
+    badgeLink: 'Verlos',
     h1: 'Construimos y operamos empresas de software.',
     lead:
       'DypOS, MOY IQ y Esmalia son productos en producción que puedes abrir hoy. Llevamos esa misma forma de trabajar a tu empresa: software con IA, entrada a EE. UU. y e-commerce.',

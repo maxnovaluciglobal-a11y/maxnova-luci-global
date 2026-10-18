@@ -1,7 +1,7 @@
 ---
+// Visual language ported from Launch UI (MIT, © 2024 Mikolaj Dobrucki — see THIRD_PARTY_NOTICES.md).
 import { Picture } from 'astro:assets';
 import Arrow from './Arrow.astro';
-import Flap from './Flap.astro';
 import { holdings, CONTACT_EMAIL, LEGAL_NAME, type Copy } from '../i18n/content';
 
 import dyposLogo from '../assets/logos/dypos.svg';
@@ -18,166 +18,178 @@ const year = new Date().getFullYear();
 
 const logos = { dypos: dyposLogo, moyiq: moyiqLogo, esmalia: esmaliaLogo };
 const shots = { dypos: dyposShot, moyiq: t.lang === 'es' ? moyiqEs : moyiqEn, esmalia: esmaliaShot };
-const lit = (s: string) => s !== 'building';
+const live = holdings.filter((h) => h.shot);
+const others = holdings.filter((h) => !h.shot);
+const isLive = (s: string) => s !== 'building';
 ---
 
 <a class="skip" href="#main">{t.skip}</a>
 
-<header class="board" id="top">
-  <div class="wrap board__bar">
+<header class="nav">
+  <div class="container nav__inner">
     <a class="brand" href={t.path} aria-label={`Maxnova & Luci Global — ${t.nav.label}`}>
-      <img src="/logo-mark.svg" alt="" width="30" height="26" class="brand__mark" />
+      <img src="/logo-mark.svg" alt="" width="26" height="22" class="brand__mark" />
       <span class="brand__name">Maxnova &amp; Luci Global</span>
     </a>
-    <nav class="topnav" aria-label={t.nav.label}>
+    <nav class="nav__links" aria-label={t.nav.label}>
       <a href="#portfolio">{t.nav.portfolio}</a>
       <a href="#services">{t.nav.services}</a>
-      <a href="#company" class="topnav__keep">{t.nav.company}</a>
+      <a href="#company" class="nav__keep">{t.nav.company}</a>
       <a href={t.altPath} hreflang={t.lang === 'en' ? 'es' : 'en'} lang={t.lang === 'en' ? 'es' : 'en'}>
         <span aria-hidden="true">{t.altShort}</span><span class="sr">{t.altLabel}</span>
       </a>
-      <a class="key key--sm" href="#contact">{t.nav.cta}</a>
+      <a class="btn btn--primary btn--sm" href="#contact">{t.nav.cta}</a>
     </nav>
-  </div>
-
-  <div class="wrap board__body" id="main" tabindex="-1">
-    <h1 class="board__h1"><Flap text={t.cover.h1} /></h1>
-    <div class="board__intro">
-      <p class="board__lead">{t.cover.lead}</p>
-      <div class="board__actions">
-        <a class="key" href="#contact">{t.cover.primary}<Arrow /></a>
-        <a class="textlink" href="#portfolio">{t.cover.secondary}<Arrow down /></a>
-      </div>
-    </div>
-
-    <section class="departures" aria-labelledby="departures-title">
-      <h2 id="departures-title" class="departures__title">{t.cover.scheduleTitle}</h2>
-      <table>
-        <colgroup><col class="c-company" /><col class="c-sector" /><col class="c-market" /><col class="c-status" /></colgroup>
-        <thead>
-          <tr>
-            <th scope="col">{t.cover.cols.company}</th>
-            <th scope="col" class="col-sector">{t.cover.cols.sector}</th>
-            <th scope="col" class="col-market">{t.cover.cols.market}</th>
-            <th scope="col">{t.cover.cols.status}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {holdings.map((h, r) => (
-            <tr class={lit(h.status) ? 'is-lit' : ''} style={`--r:${r}`}>
-              <th scope="row"><a href={`#${h.id}`}><span class="module module--name"><Flap text={h.name} start={36 + r * 4} class="flap--inline" /></span></a></th>
-              <td class="col-sector"><span class="module">{h.sector[t.lang]}</span></td>
-              <td class="col-market"><span class="module" title={h.market[t.lang]}>{h.code}</span></td>
-              <td><span class="module module--status"><span class="lamp" aria-hidden="true"></span>{t.status[h.status]}</span></td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </section>
   </div>
 </header>
 
-<main>
-  <section class="section" id="portfolio" aria-labelledby="portfolio-title">
-    <div class="wrap">
-      <div class="section__head">
-        <h2 id="portfolio-title" class="h2-flap"><Flap text={t.portfolio.h2} /></h2>
-        <p class="section__intro">{t.portfolio.intro}</p>
+<main id="main" tabindex="-1">
+  <section class="hero">
+    <div class="container hero__inner">
+      <a class="badge appear" href="#portfolio">
+        <span class="badge__muted">{t.cover.badge}</span>
+        <span class="badge__link">{t.cover.badgeLink}<Arrow /></span>
+      </a>
+      <h1 class="hero__title appear">{t.cover.h1}</h1>
+      <p class="hero__lead appear appear--1">{t.cover.lead}</p>
+      <div class="hero__actions appear appear--2">
+        <a class="btn btn--primary btn--lg" href="#contact">{t.cover.primary}<Arrow /></a>
+        <a class="btn btn--glow btn--lg" href="#portfolio">{t.cover.secondary}</a>
       </div>
 
-      <div class="gates">
-        {holdings.map((h) => {
-          const n = holdings.filter((x) => x.shot).indexOf(h) + 1;
-          return (
-            <article class={`gate ${h.shot ? 'gate--shot' : 'gate--line'}`} id={h.id} aria-labelledby={`${h.id}-name`}>
-              <header class={`gate__head ${lit(h.status) ? 'is-lit' : ''}`}>
-                <h3 id={`${h.id}-name`} class="module module--name gate__name">
-                  {h.logo && <img class="gate__logo" src={logos[h.logo].src} alt="" width="32" height="32" loading="lazy" />}
-                  {h.name}
-                </h3>
-                <p class="module module--status gate__status"><span class="lamp" aria-hidden="true"></span>{t.status[h.status]}</p>
-              </header>
-              <div class="gate__body">
-                <div class="gate__text">
-                  <dl class="gate__facts">
-                    <div><dt>{t.cover.cols.sector}</dt><dd>{h.sector[t.lang]}</dd></div>
-                    <div><dt>{t.portfolio.market}</dt><dd>{h.market[t.lang]}</dd></div>
-                  </dl>
-                  <p class="gate__summary">{h.summary[t.lang]}</p>
-                  {h.url && (
-                    <a class="textlink" href={h.url} target="_blank" rel="noopener">
-                      {t.portfolio.open} {h.urlLabel}<Arrow out />
-                    </a>
-                  )}
-                </div>
-                {h.shot && (
-                  <figure class="screen">
-                    <div class="screen__view">
-                      <Picture
-                        src={shots[h.shot]}
-                        formats={['avif', 'webp']}
-                        fallbackFormat="jpg"
-                        widths={[720, 1080, 1440]}
-                        sizes="(min-width: 1100px) 820px, 92vw"
-                        alt={t.portfolio.shotAlt(h.name)}
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </div>
-                    <figcaption>{t.portfolio.fig(n, h.urlLabel!)}</figcaption>
-                  </figure>
-                )}
+      <div class="hero__mockup appear appear--3">
+        <div class="frame">
+          <div class="mosaic">
+            {live.map((h, i) => (
+              <a class={`mosaic__tile mosaic__tile--${i}`} href={`#${h.id}`} aria-label={`${h.name} — ${t.portfolio.open}`}>
+                <Picture src={shots[h.shot!]} formats={['avif', 'webp']} fallbackFormat="jpg"
+                  widths={i === 0 ? [720, 1080, 1440] : [480, 720, 960]}
+                  sizes={i === 0 ? '(min-width: 1100px) 760px, 92vw' : '(min-width: 1100px) 440px, 46vw'}
+                  alt={t.portfolio.shotAlt(h.name)} loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
+                <span class="mosaic__label"><span class={`dot ${isLive(h.status) ? 'is-live' : ''}`} aria-hidden="true"></span>{h.name}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+        <div class="glow" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="logos" aria-labelledby="schedule-title">
+    <div class="container">
+      <h2 id="schedule-title" class="logos__title">{t.cover.scheduleTitle}</h2>
+      <ul class="logos__list">
+        {holdings.map((h) => (
+          <li>
+            <a href={`#${h.id}`} class="logos__item">
+              {h.logo ? <img src={logos[h.logo].src} alt="" width="24" height="24" /> : <span class="logos__blank" aria-hidden="true"></span>}
+              <span class="logos__name">{h.name}</span>
+              <span class={`pill ${isLive(h.status) ? 'pill--live' : ''}`}>{t.status[h.status]}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="portfolio" aria-labelledby="portfolio-title">
+    <div class="container">
+      <div class="heading">
+        <h2 id="portfolio-title">{t.portfolio.h2}</h2>
+        <p>{t.portfolio.intro}</p>
+      </div>
+
+      <div class="features">
+        {live.map((h, i) => (
+          <article class={`feature ${i % 2 ? 'feature--flip' : ''}`} id={h.id} aria-labelledby={`${h.id}-name`}>
+            <div class="feature__text">
+              <div class="feature__brand">
+                {h.logo && <img src={logos[h.logo].src} alt="" width="36" height="36" loading="lazy" />}
+                <span class={`pill ${isLive(h.status) ? 'pill--live' : ''}`}>{t.status[h.status]}</span>
               </div>
-            </article>
-          );
-        })}
+              <h3 id={`${h.id}-name`}>{h.name}</h3>
+              <p class="feature__summary">{h.summary[t.lang]}</p>
+              <dl class="facts">
+                <div><dt>{t.cover.cols.sector}</dt><dd>{h.sector[t.lang]}</dd></div>
+                <div><dt>{t.portfolio.market}</dt><dd>{h.market[t.lang]}</dd></div>
+              </dl>
+              <a class="btn btn--glow" href={h.url} target="_blank" rel="noopener">{t.portfolio.open} {h.urlLabel}<Arrow out /></a>
+            </div>
+            <figure class="feature__media">
+              <div class="frame frame--sm">
+                <div class="mockup">
+                  <Picture src={shots[h.shot!]} formats={['avif', 'webp']} fallbackFormat="jpg"
+                    widths={[720, 1080, 1440]} sizes="(min-width: 1100px) 720px, 92vw"
+                    alt={t.portfolio.shotAlt(h.name)} loading="lazy" decoding="async" />
+                </div>
+              </div>
+              <figcaption>{t.portfolio.fig(i + 1, h.urlLabel!)}</figcaption>
+            </figure>
+          </article>
+        ))}
+      </div>
+
+      <div class="cards cards--2">
+        {others.map((h) => (
+          <article class="card glass" id={h.id} aria-labelledby={`${h.id}-name`}>
+            <div class="card__top">
+              <h3 id={`${h.id}-name`}>{h.name}</h3>
+              <span class={`pill ${isLive(h.status) ? 'pill--live' : ''}`}>{t.status[h.status]}</span>
+            </div>
+            <p>{h.summary[t.lang]}</p>
+            <dl class="facts facts--row">
+              <div><dt>{t.cover.cols.sector}</dt><dd>{h.sector[t.lang]}</dd></div>
+              <div><dt>{t.portfolio.market}</dt><dd>{h.market[t.lang]}</dd></div>
+            </dl>
+          </article>
+        ))}
       </div>
     </div>
   </section>
 
   <section class="section" id="services" aria-labelledby="services-title">
-    <div class="wrap">
-      <div class="section__head">
-        <h2 id="services-title" class="h2-flap"><Flap text={t.services.h2} /></h2>
-        <p class="section__intro">{t.services.intro}</p>
+    <div class="container">
+      <div class="heading">
+        <h2 id="services-title">{t.services.h2}</h2>
+        <p>{t.services.intro}</p>
       </div>
-      <dl class="routes">
+      <div class="cards cards--2">
         {t.services.items.map((s) => (
-          <div class="route">
-            <dt>{s.title}</dt>
-            <dd><p class="route__who">{s.who}</p><p>{s.what}</p></dd>
-          </div>
+          <article class="card glass">
+            <h3>{s.title}</h3>
+            <p class="card__who">{s.who}</p>
+            <p>{s.what}</p>
+          </article>
         ))}
-      </dl>
-      <p class="section__cta"><a class="key" href="#contact">{t.services.cta}<Arrow /></a></p>
-
-      <div class="steps">
-        <h3 class="steps__title">{t.process.h2}</h3>
-        <ol>
-          {t.process.steps.map((s, i) => (
-            <li><span class="steps__n" aria-hidden="true">{i + 1}</span><strong>{s.title}</strong><p>{s.text}</p></li>
-          ))}
-        </ol>
       </div>
+
+      <h3 class="steps__title">{t.process.h2}</h3>
+      <ol class="steps">
+        {t.process.steps.map((s, i) => (
+          <li><span class="steps__n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span><strong>{s.title}</strong><p>{s.text}</p></li>
+        ))}
+      </ol>
+      <p class="center"><a class="btn btn--primary btn--lg" href="#contact">{t.services.cta}<Arrow /></a></p>
     </div>
   </section>
 
-  <section class="section section--notice" aria-labelledby="letter-title">
-    <div class="wrap">
-      <article class="notice">
+  <section class="section" aria-labelledby="letter-title">
+    <div class="container">
+      <article class="letter glass">
         <h2 id="letter-title">{t.letter.h2}</h2>
-        <div class="notice__body">
-          {t.letter.body.map((p) => <p>{p}</p>)}
-          <p class="notice__sign"><strong>{t.letter.name}</strong><span>{t.letter.role}, {LEGAL_NAME}</span></p>
-        </div>
+        {t.letter.body.map((p) => <p>{p}</p>)}
+        <p class="letter__sign"><strong>{t.letter.name}</strong><span>{t.letter.role}, {LEGAL_NAME}</span></p>
       </article>
     </div>
   </section>
 
   <section class="section" id="company" aria-labelledby="company-title">
-    <div class="wrap split">
-      <h2 id="company-title" class="h2-flap"><Flap text={t.company.h2} /></h2>
-      <dl class="ledger">
+    <div class="container split">
+      <div class="heading heading--left">
+        <h2 id="company-title">{t.company.h2}</h2>
+      </div>
+      <dl class="rows glass">
         {t.company.rows.map((r) => (
           <div><dt>{r.k}</dt><dd>{r.href ? <a href={r.href}>{r.v}</a> : r.v}</dd></div>
         ))}
@@ -186,12 +198,14 @@ const lit = (s: string) => s !== 'building';
   </section>
 
   <section class="section" aria-labelledby="faq-title">
-    <div class="wrap split">
-      <h2 id="faq-title" class="h2-flap"><Flap text={t.faq.h2} /></h2>
+    <div class="container split">
+      <div class="heading heading--left">
+        <h2 id="faq-title">{t.faq.h2}</h2>
+      </div>
       <div class="faq">
         {t.faq.items.map((f) => (
           <details>
-            <summary><h3>{f.q}</h3><span class="faq__plus" aria-hidden="true"></span></summary>
+            <summary><h3>{f.q}</h3><span class="faq__chev" aria-hidden="true"></span></summary>
             <p>{f.a}</p>
           </details>
         ))}
@@ -199,14 +213,14 @@ const lit = (s: string) => s !== 'building';
     </div>
   </section>
 
-  <section class="section desk" id="contact" aria-labelledby="contact-title">
-    <div class="wrap split">
-      <div class="desk__head">
-        <h2 id="contact-title" class="h2-flap"><Flap text={t.contact.h2} /></h2>
-        <p>{t.contact.intro}</p>
-        <p><a class="desk__mail" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
+  <section class="section cta" id="contact" aria-labelledby="contact-title">
+    <div class="glow glow--center" aria-hidden="true"></div>
+    <div class="container cta__inner">
+      <div class="heading">
+        <h2 id="contact-title">{t.contact.h2}</h2>
+        <p>{t.contact.intro} <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
       </div>
-      <form class="form" method="post" action="/api/contact" data-contact
+      <form class="form glass" method="post" action="/api/contact" data-contact
         data-sending={t.contact.sending} data-sent={t.contact.sent} data-invalid={t.contact.invalid}
         data-error={`${t.contact.error} ${CONTACT_EMAIL}.`}>
         <input type="hidden" name="lang" value={t.lang} />
@@ -229,9 +243,9 @@ const lit = (s: string) => s !== 'building';
             </select></label>
         </div>
         <label class="field"><span>{t.contact.fields.message}</span>
-          <textarea name="message" required rows="6" maxlength="5000"></textarea></label>
+          <textarea name="message" required rows="5" maxlength="5000"></textarea></label>
         <div class="form__foot">
-          <button class="key" type="submit">{t.contact.submit}<Arrow /></button>
+          <button class="btn btn--primary btn--lg" type="submit">{t.contact.submit}<Arrow /></button>
           <p class="form__status" role="status" aria-live="polite"></p>
         </div>
       </form>
@@ -240,8 +254,8 @@ const lit = (s: string) => s !== 'building';
 </main>
 
 <footer class="footer">
-  <div class="wrap footer__wrap">
-    <p class="footer__brand"><img src="/logo-mark.svg" alt="" width="24" height="21" /> {LEGAL_NAME}</p>
+  <div class="container footer__inner">
+    <p class="footer__brand"><img src="/logo-mark.svg" alt="" width="22" height="19" /> {LEGAL_NAME}</p>
     <p>{t.footer.talent} <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
     <p>© {year} {LEGAL_NAME}. {t.footer.rights} · <a href={t.altPath} hreflang={t.lang === 'en' ? 'es' : 'en'}>{t.altLabel}</a></p>
   </div>

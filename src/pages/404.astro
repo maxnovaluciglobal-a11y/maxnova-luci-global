@@ -1,27 +1,26 @@
 ---
 import Base from '../layouts/Base.astro';
 import Arrow from '../components/Arrow.astro';
-import Flap from '../components/Flap.astro';
 import { copy } from '../i18n/content';
 const { en, es } = copy;
 ---
 <Base t={en} title={`${en.notFound.title} · Maxnova & Luci Global`} noindex>
-  <main class="board notfound" id="main">
-    <div class="wrap board__bar">
+  <main class="hero notfound" id="main">
+    <div class="container nav__inner">
       <a class="brand" href="/"><img src="/logo-mark.svg" alt="" width="30" height="26" class="brand__mark" /><span class="brand__name">Maxnova &amp; Luci Global</span></a>
     </div>
-    <div class="wrap notfound__body">
-      <p class="notfound__code"><Flap text="404 · Cancelled" /></p>
+    <div class="container notfound__body">
+      <p class="notfound__code">404</p>
       <div class="notfound__cols">
         <section>
           <h1>{en.notFound.title}</h1>
           <p>{en.notFound.text}</p>
-          <a class="key" href="/">{en.notFound.back}<Arrow /></a>
+          <a class="btn btn--primary btn--lg" href="/">{en.notFound.back}<Arrow /></a>
         </section>
         <section lang="es">
           <h2>{es.notFound.title}</h2>
           <p>{es.notFound.text}</p>
-          <a class="key" href="/es/">{es.notFound.back}<Arrow /></a>
+          <a class="btn btn--primary btn--lg" href="/es/">{es.notFound.back}<Arrow /></a>
         </section>
       </div>
     </div>
@@ -30,10 +29,10 @@ const { en, es } = copy;
 <style>
   .notfound { min-height: 100svh; }
   .notfound__body { padding-block: var(--space-l) var(--space-xl); align-self: center; }
-  .notfound__code { font: 600 clamp(2.2rem, 1rem + 5vw, 5rem) / 1 var(--font-board); color: var(--glyph); }
+  .notfound__code { font-size: clamp(5rem, 3rem + 10vw, 11rem); font-weight: 600; letter-spacing: -0.05em; line-height: 1; color: var(--muted); }
   .notfound__cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-l); margin-top: var(--space-l); }
   .notfound__cols section { display: grid; gap: 1rem; justify-items: start; max-width: 40ch; }
   .notfound__cols h1, .notfound__cols h2 { font-size: var(--step-2); }
-  .notfound__cols p { color: var(--text); }
+  .notfound__cols p { color: var(--muted-foreground); }
   @media (max-width: 720px) { .notfound__cols { grid-template-columns: 1fr; } }
 </style>
