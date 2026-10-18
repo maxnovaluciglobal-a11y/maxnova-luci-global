@@ -1,6 +1,7 @@
 ---
 import { Picture } from 'astro:assets';
 import Arrow from './Arrow.astro';
+import Flap from './Flap.astro';
 import { holdings, CONTACT_EMAIL, LEGAL_NAME, type Copy } from '../i18n/content';
 
 import dyposLogo from '../assets/logos/dypos.svg';
@@ -17,15 +18,15 @@ const year = new Date().getFullYear();
 
 const logos = { dypos: dyposLogo, moyiq: moyiqLogo, esmalia: esmaliaLogo };
 const shots = { dypos: dyposShot, moyiq: t.lang === 'es' ? moyiqEs : moyiqEn, esmalia: esmaliaShot };
-const formAction = '/api/contact';
+const lit = (s: string) => s !== 'building';
 ---
 
 <a class="skip" href="#main">{t.skip}</a>
 
-<header class="cover" id="top">
-  <div class="wrap cover__bar">
+<header class="board" id="top">
+  <div class="wrap board__bar">
     <a class="brand" href={t.path} aria-label={`Maxnova & Luci Global — ${t.nav.label}`}>
-      <img src="/logo-mark.svg" alt="" width="34" height="29" class="brand__mark" />
+      <img src="/logo-mark.svg" alt="" width="30" height="26" class="brand__mark" />
       <span class="brand__name">Maxnova &amp; Luci Global</span>
     </a>
     <nav class="topnav" aria-label={t.nav.label}>
@@ -35,32 +36,39 @@ const formAction = '/api/contact';
       <a href={t.altPath} hreflang={t.lang === 'en' ? 'es' : 'en'} lang={t.lang === 'en' ? 'es' : 'en'}>
         <span aria-hidden="true">{t.altShort}</span><span class="sr">{t.altLabel}</span>
       </a>
-      <a class="btn btn--paper btn--sm" href="#contact">{t.nav.cta}</a>
+      <a class="key key--sm" href="#contact">{t.nav.cta}</a>
     </nav>
   </div>
 
-  <div class="wrap cover__body" id="main" tabindex="-1">
-    <div class="cover__claim">
-      <h1>{t.cover.h1}</h1>
-      <p class="cover__lead">{t.cover.lead}</p>
-      <div class="cover__actions">
-        <a class="btn btn--paper" href="#contact">{t.cover.primary}<Arrow /></a>
-        <a class="textlink textlink--paper" href="#portfolio">{t.cover.secondary}<Arrow down /></a>
+  <div class="wrap board__body" id="main" tabindex="-1">
+    <h1 class="board__h1"><Flap text={t.cover.h1} /></h1>
+    <div class="board__intro">
+      <p class="board__lead">{t.cover.lead}</p>
+      <div class="board__actions">
+        <a class="key" href="#contact">{t.cover.primary}<Arrow /></a>
+        <a class="textlink" href="#portfolio">{t.cover.secondary}<Arrow down /></a>
       </div>
     </div>
 
-    <section class="schedule" aria-labelledby="schedule-title">
-      <h2 id="schedule-title" class="schedule__title">{t.cover.scheduleTitle}</h2>
+    <section class="departures" aria-labelledby="departures-title">
+      <h2 id="departures-title" class="departures__title">{t.cover.scheduleTitle}</h2>
       <table>
+        <colgroup><col class="c-company" /><col class="c-sector" /><col class="c-market" /><col class="c-status" /></colgroup>
         <thead>
-          <tr><th scope="col">{t.cover.cols.company}</th><th scope="col">{t.cover.cols.sector}</th><th scope="col">{t.cover.cols.status}</th></tr>
+          <tr>
+            <th scope="col">{t.cover.cols.company}</th>
+            <th scope="col" class="col-sector">{t.cover.cols.sector}</th>
+            <th scope="col" class="col-market">{t.cover.cols.market}</th>
+            <th scope="col">{t.cover.cols.status}</th>
+          </tr>
         </thead>
         <tbody>
-          {holdings.map((h) => (
-            <tr>
-              <th scope="row"><a href={`#${h.id}`}>{h.name}</a></th>
-              <td>{h.sector[t.lang]}</td>
-              <td><span class={`mark mark--${h.status}`} aria-hidden="true"></span>{t.status[h.status]}</td>
+          {holdings.map((h, r) => (
+            <tr class={lit(h.status) ? 'is-lit' : ''} style={`--r:${r}`}>
+              <th scope="row"><a href={`#${h.id}`}><span class="module module--name">{h.name}</span></a></th>
+              <td class="col-sector"><span class="module">{h.sector[t.lang]}</span></td>
+              <td class="col-market"><span class="module" title={h.market[t.lang]}>{h.code}</span></td>
+              <td><span class="module module--status"><span class="lamp" aria-hidden="true"></span>{t.status[h.status]}</span></td>
             </tr>
           ))}
         </tbody>
@@ -70,115 +78,104 @@ const formAction = '/api/contact';
 </header>
 
 <main>
-  <section class="section portfolio" id="portfolio" aria-labelledby="portfolio-title">
+  <section class="section" id="portfolio" aria-labelledby="portfolio-title">
     <div class="wrap">
       <div class="section__head">
         <h2 id="portfolio-title">{t.portfolio.h2}</h2>
         <p class="section__intro">{t.portfolio.intro}</p>
       </div>
 
-      <div class="portfolio__grid">
-        <nav class="ledger" aria-label={t.portfolio.indexLabel}>
-          <ol>
-            {holdings.map((h) => (
-              <li><a href={`#${h.id}`} data-ledger={h.id}>
-                <span class={`mark mark--${h.status} mark--ink`} aria-hidden="true"></span>
-                <span class="ledger__name">{h.name}</span>
-                <span class="ledger__sector">{h.sector[t.lang]}</span>
-              </a></li>
-            ))}
-          </ol>
-        </nav>
-
-        <div class="holdings">
-          {holdings.map((h) => {
-            const n = holdings.filter((x) => x.shot).indexOf(h) + 1;
-            return (
-            <article class={`holding holding--${h.status}`} id={h.id} aria-labelledby={`${h.id}-name`}>
-              <header class="holding__head">
-                {h.logo && <img class="holding__logo" src={logos[h.logo].src} alt="" width="40" height="40" loading="lazy" />}
+      <div class="gates">
+        {holdings.map((h) => {
+          const n = holdings.filter((x) => x.shot).indexOf(h) + 1;
+          return (
+            <article class={`gate ${h.shot ? 'gate--shot' : 'gate--line'}`} id={h.id} aria-labelledby={`${h.id}-name`}>
+              <header class="gate__head">
+                {h.logo && <img class="gate__logo" src={logos[h.logo].src} alt="" width="36" height="36" loading="lazy" />}
                 <h3 id={`${h.id}-name`}>{h.name}</h3>
-                <p class="holding__status"><span class={`mark mark--${h.status} mark--ink`} aria-hidden="true"></span>{t.status[h.status]}</p>
+                <p class={`gate__status ${lit(h.status) ? 'is-lit' : ''}`}><span class="lamp" aria-hidden="true"></span>{t.status[h.status]}</p>
               </header>
-              <dl class="holding__facts">
-                <div><dt>{t.cover.cols.sector}</dt><dd>{h.sector[t.lang]}</dd></div>
-                <div><dt>{t.portfolio.market}</dt><dd>{h.market[t.lang]}</dd></div>
-                {h.url && (
-                  <div class="holding__link"><dt class="sr">URL</dt><dd>
-                    <a class="textlink" href={h.url} target="_blank" rel="noopener" data-outbound={h.id}>
+              <div class="gate__body">
+                <div class="gate__text">
+                  <dl class="gate__facts">
+                    <div><dt>{t.cover.cols.sector}</dt><dd>{h.sector[t.lang]}</dd></div>
+                    <div><dt>{t.portfolio.market}</dt><dd>{h.market[t.lang]}</dd></div>
+                  </dl>
+                  <p class="gate__summary">{h.summary[t.lang]}</p>
+                  {h.url && (
+                    <a class="textlink" href={h.url} target="_blank" rel="noopener">
                       {t.portfolio.open} {h.urlLabel}<Arrow out />
                     </a>
-                  </dd></div>
+                  )}
+                </div>
+                {h.shot && (
+                  <figure class="screen">
+                    <div class="screen__view">
+                      <Picture
+                        src={shots[h.shot]}
+                        formats={['avif', 'webp']}
+                        fallbackFormat="jpg"
+                        widths={[720, 1080, 1440]}
+                        sizes="(min-width: 1100px) 820px, 92vw"
+                        alt={t.portfolio.shotAlt(h.name)}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                    <figcaption>{t.portfolio.fig(n, h.urlLabel!)}</figcaption>
+                  </figure>
                 )}
-              </dl>
-              <p class="holding__summary">{h.summary[t.lang]}</p>
-              {h.shot && (
-                <figure class="frame">
-                  <div class="frame__view">
-                    <Picture
-                      src={shots[h.shot]}
-                      formats={["avif", "webp"]}
-                      fallbackFormat="jpg"
-                      widths={[720, 1080, 1440]}
-                      sizes="(min-width: 1100px) 760px, 92vw"
-                      alt={t.portfolio.shotAlt(h.name)}
-                      loading="lazy"
-                      decoding="async"
-                      class="frame__img"
-                    />
-                  </div>
-                  <figcaption>{t.portfolio.fig(n, h.urlLabel!)}</figcaption>
-                </figure>
-              )}
+              </div>
             </article>
-            );
-          })}
-        </div>
+          );
+        })}
       </div>
     </div>
   </section>
 
-  <section class="section services" id="services" aria-labelledby="services-title">
+  <section class="section" id="services" aria-labelledby="services-title">
     <div class="wrap">
       <div class="section__head">
         <h2 id="services-title">{t.services.h2}</h2>
         <p class="section__intro">{t.services.intro}</p>
       </div>
-      <dl class="services__list">
+      <dl class="routes">
         {t.services.items.map((s) => (
-          <div class="service">
+          <div class="route">
             <dt>{s.title}</dt>
-            <dd><p class="service__who">{s.who}</p><p>{s.what}</p></dd>
+            <dd><p class="route__who">{s.who}</p><p>{s.what}</p></dd>
           </div>
         ))}
       </dl>
-      <p class="services__cta"><a class="btn btn--ink" href="#contact">{t.services.cta}<Arrow /></a></p>
+      <p class="section__cta"><a class="key" href="#contact">{t.services.cta}<Arrow /></a></p>
 
-      <div class="process">
-        <h3 class="process__title">{t.process.h2}</h3>
-        <ol class="process__steps">
+      <div class="steps">
+        <h3 class="steps__title">{t.process.h2}</h3>
+        <ol>
           {t.process.steps.map((s, i) => (
-            <li><span class="process__n" aria-hidden="true">{i + 1}</span><strong>{s.title}</strong><p>{s.text}</p></li>
+            <li><span class="steps__n" aria-hidden="true">{i + 1}</span><strong>{s.title}</strong><p>{s.text}</p></li>
           ))}
         </ol>
       </div>
     </div>
   </section>
 
-  <section class="section letter" aria-labelledby="letter-title">
-    <div class="wrap letter__wrap">
-      <h2 id="letter-title" class="letter__title">{t.letter.h2}</h2>
-      <div class="letter__body">
-        {t.letter.body.map((p) => <p>{p}</p>)}
-        <p class="letter__sign"><span class="letter__name">{t.letter.name}</span><span>{t.letter.role}, {LEGAL_NAME}</span></p>
-      </div>
+  <section class="section section--notice" aria-labelledby="letter-title">
+    <div class="wrap">
+      <article class="notice">
+        <h2 id="letter-title">{t.letter.h2}</h2>
+        <div class="notice__body">
+          {t.letter.body.map((p) => <p>{p}</p>)}
+          <p class="notice__sign"><strong>{t.letter.name}</strong><span>{t.letter.role}, {LEGAL_NAME}</span></p>
+        </div>
+      </article>
     </div>
   </section>
 
-  <section class="section company" id="company" aria-labelledby="company-title">
-    <div class="wrap company__wrap">
+  <section class="section" id="company" aria-labelledby="company-title">
+    <div class="wrap split">
       <h2 id="company-title">{t.company.h2}</h2>
-      <dl class="company__rows">
+      <dl class="ledger">
         {t.company.rows.map((r) => (
           <div><dt>{r.k}</dt><dd>{r.href ? <a href={r.href}>{r.v}</a> : r.v}</dd></div>
         ))}
@@ -186,10 +183,10 @@ const formAction = '/api/contact';
     </div>
   </section>
 
-  <section class="section faq" aria-labelledby="faq-title">
-    <div class="wrap faq__wrap">
+  <section class="section" aria-labelledby="faq-title">
+    <div class="wrap split">
       <h2 id="faq-title">{t.faq.h2}</h2>
-      <div class="faq__list">
+      <div class="faq">
         {t.faq.items.map((f) => (
           <details>
             <summary><h3>{f.q}</h3><span class="faq__plus" aria-hidden="true"></span></summary>
@@ -200,14 +197,14 @@ const formAction = '/api/contact';
     </div>
   </section>
 
-  <section class="section contact" id="contact" aria-labelledby="contact-title">
-    <div class="wrap contact__wrap">
-      <div class="contact__head">
+  <section class="section desk" id="contact" aria-labelledby="contact-title">
+    <div class="wrap split">
+      <div class="desk__head">
         <h2 id="contact-title">{t.contact.h2}</h2>
         <p>{t.contact.intro}</p>
-        <p class="contact__mail"><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
+        <p><a class="desk__mail" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
       </div>
-      <form class="form" method="post" action={formAction} data-contact
+      <form class="form" method="post" action="/api/contact" data-contact
         data-sending={t.contact.sending} data-sent={t.contact.sent} data-invalid={t.contact.invalid}
         data-error={`${t.contact.error} ${CONTACT_EMAIL}.`}>
         <input type="hidden" name="lang" value={t.lang} />
@@ -232,7 +229,7 @@ const formAction = '/api/contact';
         <label class="field"><span>{t.contact.fields.message}</span>
           <textarea name="message" required rows="6" maxlength="5000"></textarea></label>
         <div class="form__foot">
-          <button class="btn btn--ink" type="submit">{t.contact.submit}<Arrow /></button>
+          <button class="key" type="submit">{t.contact.submit}<Arrow /></button>
           <p class="form__status" role="status" aria-live="polite"></p>
         </div>
       </form>
@@ -242,27 +239,13 @@ const formAction = '/api/contact';
 
 <footer class="footer">
   <div class="wrap footer__wrap">
-    <p class="footer__brand"><img src="/logo-mark.svg" alt="" width="26" height="22" /> {LEGAL_NAME}</p>
+    <p class="footer__brand"><img src="/logo-mark.svg" alt="" width="24" height="21" /> {LEGAL_NAME}</p>
     <p>{t.footer.talent} <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
-    <p class="footer__meta">© {year} {LEGAL_NAME}. {t.footer.rights} · <a href={t.altPath} hreflang={t.lang === 'en' ? 'es' : 'en'}>{t.altLabel}</a></p>
+    <p>© {year} {LEGAL_NAME}. {t.footer.rights} · <a href={t.altPath} hreflang={t.lang === 'en' ? 'es' : 'en'}>{t.altLabel}</a></p>
   </div>
 </footer>
 
 <script>
-  // Signature: the ledger marks the holding in view. Enhancement only; links work without it.
-  const links = new Map<string, HTMLElement>();
-  document.querySelectorAll<HTMLElement>('[data-ledger]').forEach((a) => links.set(a.dataset.ledger!, a));
-  if (links.size && 'IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries) => {
-      for (const e of entries) {
-        if (!e.isIntersecting) continue;
-        links.forEach((a) => a.removeAttribute('aria-current'));
-        links.get(e.target.id)?.setAttribute('aria-current', 'true');
-      }
-    }, { rootMargin: '-45% 0px -50% 0px' });
-    document.querySelectorAll('.holding').forEach((el) => io.observe(el));
-  }
-
   // Contact form: send as JSON, show success only after the API answers 200.
   const form = document.querySelector<HTMLFormElement>('[data-contact]');
   if (form) {

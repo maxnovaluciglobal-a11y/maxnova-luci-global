@@ -18,6 +18,8 @@ export interface Holding {
   url?: string;
   urlLabel?: string;
   status: Status;
+  /** Short market code for the departures board (full market shows on the company's gate). */
+  code: string;
   sector: Record<Lang, string>;
   market: Record<Lang, string>;
   summary: Record<Lang, string>;
@@ -32,6 +34,7 @@ export const holdings: Holding[] = [
     url: 'https://www.dypos.app',
     urlLabel: 'dypos.app',
     status: 'live',
+    code: 'LATAM',
     sector: { en: 'Restaurants', es: 'Restaurantes' },
     market: { en: 'Latin America', es: 'Latinoamérica' },
     summary: {
@@ -47,6 +50,7 @@ export const holdings: Holding[] = [
     url: 'https://moyiq.app',
     urlLabel: 'moyiq.app',
     status: 'live',
+    code: 'US · LATAM',
     sector: { en: 'Personal finance', es: 'Finanzas personales' },
     market: { en: 'United States and Latin America', es: 'Estados Unidos y Latinoamérica' },
     summary: {
@@ -62,6 +66,7 @@ export const holdings: Holding[] = [
     url: 'https://esmalia.com',
     urlLabel: 'esmalia.com',
     status: 'live',
+    code: 'CL · PE · MX · CO · AR',
     sector: { en: 'Dental clinics', es: 'Clínicas dentales' },
     market: { en: 'Chile, Peru, Mexico, Colombia, Argentina', es: 'Chile, Perú, México, Colombia, Argentina' },
     summary: {
@@ -73,6 +78,7 @@ export const holdings: Holding[] = [
     id: 'amazon',
     name: 'Amazon FBA',
     status: 'active',
+    code: 'US',
     sector: { en: 'E-commerce', es: 'E-commerce' },
     market: { en: 'United States', es: 'Estados Unidos' },
     summary: {
@@ -84,6 +90,7 @@ export const holdings: Holding[] = [
     id: 'health',
     name: 'Healthcare SaaS',
     status: 'building',
+    code: 'LATAM',
     sector: { en: 'Medical practices', es: 'Consultorios médicos' },
     market: { en: 'Latin America', es: 'Latinoamérica' },
     summary: {
@@ -107,7 +114,7 @@ const en = {
   },
   skip: 'Skip to content',
   nav: { portfolio: 'Portfolio', services: 'Services', company: 'Company', cta: 'Talk to us', label: 'Main' },
-  status: { live: 'Live', active: 'Active', building: 'In development' } as Record<Status, string>,
+  status: { live: 'In service', active: 'In service', building: 'Scheduled' } as Record<Status, string>,
   cover: {
     h1: 'We build and run software companies.',
     lead:
@@ -115,7 +122,7 @@ const en = {
     primary: 'Talk to us',
     secondary: 'See the portfolio',
     scheduleTitle: 'Operating companies',
-    cols: { company: 'Company', sector: 'Sector', status: 'Status' },
+    cols: { company: 'Company', sector: 'Sector', market: 'Market', status: 'Status' },
   },
   portfolio: {
     h2: 'Portfolio',
@@ -263,7 +270,7 @@ const es: Copy = {
   },
   skip: 'Saltar al contenido',
   nav: { portfolio: 'Portfolio', services: 'Servicios', company: 'Empresa', cta: 'Hablemos', label: 'Principal' },
-  status: { live: 'En producción', active: 'Activo', building: 'En desarrollo' },
+  status: { live: 'En servicio', active: 'En servicio', building: 'Programado' },
   cover: {
     h1: 'Construimos y operamos empresas de software.',
     lead:
@@ -271,7 +278,7 @@ const es: Copy = {
     primary: 'Hablemos',
     secondary: 'Ver el portfolio',
     scheduleTitle: 'Empresas en operación',
-    cols: { company: 'Empresa', sector: 'Sector', status: 'Estado' },
+    cols: { company: 'Empresa', sector: 'Sector', market: 'Mercado', status: 'Estado' },
   },
   portfolio: {
     h2: 'Portfolio',
