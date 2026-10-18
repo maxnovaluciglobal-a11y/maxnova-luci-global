@@ -111,7 +111,7 @@ const en = {
   cover: {
     h1: 'We build and run software companies.',
     lead:
-      'DypOS, MOY IQ and Esmalia are live products serving real customers. We bring the same way of working to your company: AI software, US market entry and e-commerce.',
+      'DypOS, MOY IQ and Esmalia are live products you can open today. We bring the same way of working to your company: AI software, US market entry and e-commerce.',
     primary: 'Talk to us',
     secondary: 'See the portfolio',
     scheduleTitle: 'Operating companies',
@@ -123,6 +123,7 @@ const en = {
     market: 'Market',
     open: 'Open',
     shotAlt: (name: string) => `Home page of ${name}, captured October 2026`,
+    fig: (n: number, url: string) => `Fig. ${n} — ${url}, home page, captured 18 October 2026.`,
     indexLabel: 'Portfolio index',
   },
   services: {
@@ -193,7 +194,7 @@ const en = {
       },
       {
         q: 'Where is the company based and where does it work?',
-        a: 'The company is registered in Florida, United States, and also operates from Chile. Its products serve customers across Latin America and the United States.',
+        a: 'The company is registered in Florida, United States, and also operates from Chile. Its products are offered in Latin America and the United States.',
       },
       {
         q: 'What consulting services do you offer?',
@@ -218,6 +219,7 @@ const en = {
       company: 'Company',
       optional: 'optional',
       topic: 'Topic',
+      choose: 'Choose a topic',
       message: 'Message',
     },
     topics: [
@@ -265,7 +267,7 @@ const es: Copy = {
   cover: {
     h1: 'Construimos y operamos empresas de software.',
     lead:
-      'DypOS, MOY IQ y Esmalia son productos en producción con clientes reales. Llevamos esa misma forma de trabajar a tu empresa: software con IA, entrada a EE. UU. y e-commerce.',
+      'DypOS, MOY IQ y Esmalia son productos en producción que puedes abrir hoy. Llevamos esa misma forma de trabajar a tu empresa: software con IA, entrada a EE. UU. y e-commerce.',
     primary: 'Hablemos',
     secondary: 'Ver el portfolio',
     scheduleTitle: 'Empresas en operación',
@@ -277,6 +279,7 @@ const es: Copy = {
     market: 'Mercado',
     open: 'Abrir',
     shotAlt: (name: string) => `Página de inicio de ${name}, capturada en octubre de 2026`,
+    fig: (n: number, url: string) => `Fig. ${n} — ${url}, página de inicio, capturada el 18 de octubre de 2026.`,
     indexLabel: 'Índice del portfolio',
   },
   services: {
@@ -347,7 +350,7 @@ const es: Copy = {
       },
       {
         q: '¿Dónde está la empresa y dónde trabaja?',
-        a: 'La empresa está registrada en Florida, Estados Unidos, y también opera desde Chile. Sus productos atienden clientes en Latinoamérica y Estados Unidos.',
+        a: 'La empresa está registrada en Florida, Estados Unidos, y también opera desde Chile. Sus productos se ofrecen en Latinoamérica y Estados Unidos.',
       },
       {
         q: '¿Qué servicios de consultoría ofrecen?',
@@ -372,6 +375,7 @@ const es: Copy = {
       company: 'Empresa',
       optional: 'opcional',
       topic: 'Tema',
+      choose: 'Elige un tema',
       message: 'Mensaje',
     },
     topics: [

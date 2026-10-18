@@ -31,7 +31,7 @@ const formAction = '/api/contact';
     <nav class="topnav" aria-label={t.nav.label}>
       <a href="#portfolio">{t.nav.portfolio}</a>
       <a href="#services">{t.nav.services}</a>
-      <a href="#company">{t.nav.company}</a>
+      <a href="#company" class="topnav__keep">{t.nav.company}</a>
       <a href={t.altPath} hreflang={t.lang === 'en' ? 'es' : 'en'} lang={t.lang === 'en' ? 'es' : 'en'}>
         <span aria-hidden="true">{t.altShort}</span><span class="sr">{t.altLabel}</span>
       </a>
@@ -91,7 +91,9 @@ const formAction = '/api/contact';
         </nav>
 
         <div class="holdings">
-          {holdings.map((h) => (
+          {holdings.map((h) => {
+            const n = holdings.filter((x) => x.shot).indexOf(h) + 1;
+            return (
             <article class={`holding holding--${h.status}`} id={h.id} aria-labelledby={`${h.id}-name`}>
               <header class="holding__head">
                 {h.logo && <img class="holding__logo" src={logos[h.logo].src} alt="" width="40" height="40" loading="lazy" />}
@@ -112,7 +114,6 @@ const formAction = '/api/contact';
               <p class="holding__summary">{h.summary[t.lang]}</p>
               {h.shot && (
                 <figure class="frame">
-                  <div class="frame__bar" aria-hidden="true"><span></span><span></span><span></span><em>{h.urlLabel}</em></div>
                   <div class="frame__view">
                     <Picture
                       src={shots[h.shot]}
@@ -126,10 +127,12 @@ const formAction = '/api/contact';
                       class="frame__img"
                     />
                   </div>
+                  <figcaption>{t.portfolio.fig(n, h.urlLabel!)}</figcaption>
                 </figure>
               )}
             </article>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
@@ -221,7 +224,8 @@ const formAction = '/api/contact';
           <label class="field"><span>{t.contact.fields.company} <i>({t.contact.fields.optional})</i></span>
             <input type="text" name="company" autocomplete="organization" maxlength="160" /></label>
           <label class="field"><span>{t.contact.fields.topic}</span>
-            <select name="service">
+            <select name="service" required>
+              <option value="" selected disabled>{t.contact.fields.choose}</option>
               {t.contact.topics.map((o) => <option>{o}</option>)}
             </select></label>
         </div>
