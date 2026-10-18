@@ -354,6 +354,6 @@
       "**Don't** add a second type family or a serif display face without Walter confirming the brief over this build.",
       "**Don't** cast shadows or blur surfaces for depth."
     ],
-    "status": "Pending Walter's confirmation: the cobalt / Archivo world departs from docs/prompt-maestro.md sections 4-5 (serif display, warm light ground, device-stack hero); the Company map was not built."
+    "status": "Approved by Walter on 2026-10-18: the cobalt / Archivo world supersedes docs/prompt-maestro.md sections 4-5; the Company map is dropped."
   }
 }

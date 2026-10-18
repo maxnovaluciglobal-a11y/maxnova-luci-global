@@ -20,7 +20,7 @@ Best practices < 100 only because `/_vercel/insights/script.js` 404s locally (it
 - [x] One H1 per page; title, description, canonical, hreflang en/es/x-default, OG 1200×630 per language.
 - [x] JSON-LD Organization, WebSite and FAQPage built from the same content as the visible page.
 - [x] Impeccable detector: no findings.
-- [ ] Contact form end to end: pending `RESEND_API_KEY` in Vercel (Walter). Test on the preview after it is set.
+- [ ] Contact form end to end: pending `RESEND_API_KEY` in Vercel (Walter). Test on the preview after it is set. **Merge gate.**
 - [ ] Keyboard pass and zoom 200 % on the deployed preview.
 - [ ] 768 px tablet capture.
 
@@ -35,4 +35,4 @@ Every PNG that ships carries its origin inside the file (`impeccable embed-promp
 ## Finish review (impeccable)
 
 Two rounds. Resolved: honest cover/FAQ copy, mobile header links, empty required topic, whole-row links in the schedule (verified with `elementFromPoint` on the status cell → `a#dypos`), report figure captions, cobalt back cover, raster provenance. Mobile capture gap was a capture artifact (`scrollHeight` 9081 = footer bottom at 390 px).
-Open: the build departs from the approved brief on display type (no serif), ground (cool paper instead of warm light) and hero (schedule table instead of a stack of device screens), and the Company map is not built. Needs Walter's decision.
+Closed 2026-10-18: Walter approved the cobalt/Archivo world as built, superseding the brief on type, ground, hero and the Company map.

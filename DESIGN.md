@@ -116,7 +116,7 @@ components:
 
 # Design System: Maxnova & Luci Global
 
-> **Pending Walter's confirmation.** This file records the world that shipped, not the world the brief asked for. The cobalt / Archivo world departs from `docs/prompt-maestro.md` §4–§5 on three counts: display type is Archivo at expanded width instead of an editorial serif; the interior ground is cool paper (#f3f4f2) instead of a warm light ground; the hero is a schedule table of operating companies instead of a stack of three device-framed screenshots with CSS 3D parallax. The discreet USA–LatAm–Chile map inside "Company" (§4) was not built. If Walter keeps the brief instead, this file must be rewritten, not patched.
+> **Approved by Walter on 2026-10-18** ("Apruebo el look cobalto/Archivo tal como está"). This world supersedes `docs/prompt-maestro.md` §4–§5 on display type (Archivo expanded, not a serif), ground (cool paper, not warm light) and hero (schedule table, not a device-screen stack). The Company map is dropped.
 
 ## Overview
 

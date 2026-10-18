@@ -84,6 +84,8 @@ Dos páginas espejo: `/` (EN) y `/es/` (ES). Una sección = una pregunta del vis
 6. How do I get in touch?
 
 ## 4. Dirección de arte
+> **Actualización 18-oct-2026, aprobada por Walter:** lo que se construyó reemplaza los puntos de tipografía, fondo y hero de esta sección y de la §5. Quedan Archivo variable expandida para titulares, portada en cobalto con interior en papel frío y, como hero, la tabla de empresas en operación. El mapa de Company no se hace. Su respuesta textual: "Apruebo el look cobalto/Archivo tal como está". Sistema vigente: `DESIGN.md`.
+
 **Concepto: "carta anual de un operador".** Claridad editorial de memoria anual con la evidencia en primer plano: las capturas reales de los productos son la imagen principal, no las partículas.
 - Composición: retícula de 12 columnas, mucho aire, titulares grandes y una columna de datos al costado (estado, país, enlace), como un informe.
 - Tipografía: una serif editorial para titulares y una sans legible para texto e interfaz, con escala fluida (`clamp`). Elegir y verificar la licencia (Google Fonts).
