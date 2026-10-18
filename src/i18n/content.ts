@@ -94,8 +94,8 @@ export const holdings: Holding[] = [
     sector: { en: 'Medical practices', es: 'Consultorios médicos' },
     market: { en: 'Latin America', es: 'Latinoamérica' },
     summary: {
-      en: 'Practice software for general medicine, built on the same foundation as Esmalia. Not yet public.',
-      es: 'Software para consultorios de medicina general, construido sobre la misma base que Esmalia. Todavía no es público.',
+      en: 'Practice software for general medicine. Not yet public.',
+      es: 'Software para consultorios de medicina general. Todavía no es público.',
     },
   },
 ];
@@ -114,10 +114,8 @@ const en = {
   },
   skip: 'Skip to content',
   nav: { portfolio: 'Portfolio', services: 'Services', company: 'Company', cta: 'Talk to us', label: 'Main' },
-  status: { live: 'In service', active: 'In service', building: 'Scheduled' } as Record<Status, string>,
+  status: { live: 'Live', active: 'Active', building: 'In development' } as Record<Status, string>,
   cover: {
-    badge: 'Florida holding · 3 products live',
-    badgeLink: 'See them',
     h1: 'We build and run software companies.',
     lead:
       'DypOS, MOY IQ and Esmalia are live products you can open today. We bring the same way of working to your company: AI software, US market entry and e-commerce.',
@@ -272,10 +270,8 @@ const es: Copy = {
   },
   skip: 'Saltar al contenido',
   nav: { portfolio: 'Portfolio', services: 'Servicios', company: 'Empresa', cta: 'Hablemos', label: 'Principal' },
-  status: { live: 'En servicio', active: 'En servicio', building: 'Programado' },
+  status: { live: 'En producción', active: 'Activo', building: 'En desarrollo' },
   cover: {
-    badge: 'Holding en Florida · 3 productos activos',
-    badgeLink: 'Verlos',
     h1: 'Construimos y operamos empresas de software.',
     lead:
       'DypOS, MOY IQ y Esmalia son productos en producción que puedes abrir hoy. Llevamos esa misma forma de trabajar a tu empresa: software con IA, entrada a EE. UU. y e-commerce.',

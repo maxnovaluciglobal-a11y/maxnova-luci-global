@@ -32,7 +32,7 @@ const isLive = (s: string) => s !== 'building';
       <span class="brand__name">Maxnova &amp; Luci Global</span>
     </a>
     <nav class="nav__links" aria-label={t.nav.label}>
-      <a href="#portfolio">{t.nav.portfolio}</a>
+      <a href="#portfolio" class="nav__keep">{t.nav.portfolio}</a>
       <a href="#services">{t.nav.services}</a>
       <a href="#company" class="nav__keep">{t.nav.company}</a>
       <a href={t.altPath} hreflang={t.lang === 'en' ? 'es' : 'en'} lang={t.lang === 'en' ? 'es' : 'en'}>
@@ -46,10 +46,6 @@ const isLive = (s: string) => s !== 'building';
 <main id="main" tabindex="-1">
   <section class="hero">
     <div class="container hero__inner">
-      <a class="badge appear" href="#portfolio">
-        <span class="badge__muted">{t.cover.badge}</span>
-        <span class="badge__link">{t.cover.badgeLink}<Arrow /></span>
-      </a>
       <h1 class="hero__title appear">{t.cover.h1}</h1>
       <p class="hero__lead appear appear--1">{t.cover.lead}</p>
       <div class="hero__actions appear appear--2">
@@ -83,7 +79,7 @@ const isLive = (s: string) => s !== 'building';
         {holdings.map((h) => (
           <li>
             <a href={`#${h.id}`} class="logos__item">
-              {h.logo ? <img src={logos[h.logo].src} alt="" width="24" height="24" /> : <span class="logos__blank" aria-hidden="true"></span>}
+              {h.logo && <img src={logos[h.logo].src} alt="" width="24" height="24" />}
               <span class="logos__name">{h.name}</span>
               <span class={`pill ${isLive(h.status) ? 'pill--live' : ''}`}>{t.status[h.status]}</span>
             </a>
@@ -154,15 +150,14 @@ const isLive = (s: string) => s !== 'building';
         <h2 id="services-title">{t.services.h2}</h2>
         <p>{t.services.intro}</p>
       </div>
-      <div class="cards cards--2">
+      <dl class="services">
         {t.services.items.map((s) => (
-          <article class="card glass">
-            <h3>{s.title}</h3>
-            <p class="card__who">{s.who}</p>
-            <p>{s.what}</p>
-          </article>
+          <div class="service">
+            <dt>{s.title}</dt>
+            <dd><p class="service__who">{s.who}</p><p>{s.what}</p></dd>
+          </div>
         ))}
-      </div>
+      </dl>
 
       <h3 class="steps__title">{t.process.h2}</h3>
       <ol class="steps">
