@@ -65,7 +65,7 @@ const lit = (s: string) => s !== 'building';
         <tbody>
           {holdings.map((h, r) => (
             <tr class={lit(h.status) ? 'is-lit' : ''} style={`--r:${r}`}>
-              <th scope="row"><a href={`#${h.id}`}><span class="module module--name">{h.name}</span></a></th>
+              <th scope="row"><a href={`#${h.id}`}><span class="module module--name"><Flap text={h.name} start={36 + r * 4} class="flap--inline" /></span></a></th>
               <td class="col-sector"><span class="module">{h.sector[t.lang]}</span></td>
               <td class="col-market"><span class="module" title={h.market[t.lang]}>{h.code}</span></td>
               <td><span class="module module--status"><span class="lamp" aria-hidden="true"></span>{t.status[h.status]}</span></td>
@@ -81,7 +81,7 @@ const lit = (s: string) => s !== 'building';
   <section class="section" id="portfolio" aria-labelledby="portfolio-title">
     <div class="wrap">
       <div class="section__head">
-        <h2 id="portfolio-title">{t.portfolio.h2}</h2>
+        <h2 id="portfolio-title" class="h2-flap"><Flap text={t.portfolio.h2} /></h2>
         <p class="section__intro">{t.portfolio.intro}</p>
       </div>
 
@@ -90,10 +90,12 @@ const lit = (s: string) => s !== 'building';
           const n = holdings.filter((x) => x.shot).indexOf(h) + 1;
           return (
             <article class={`gate ${h.shot ? 'gate--shot' : 'gate--line'}`} id={h.id} aria-labelledby={`${h.id}-name`}>
-              <header class="gate__head">
-                {h.logo && <img class="gate__logo" src={logos[h.logo].src} alt="" width="36" height="36" loading="lazy" />}
-                <h3 id={`${h.id}-name`}>{h.name}</h3>
-                <p class={`gate__status ${lit(h.status) ? 'is-lit' : ''}`}><span class="lamp" aria-hidden="true"></span>{t.status[h.status]}</p>
+              <header class={`gate__head ${lit(h.status) ? 'is-lit' : ''}`}>
+                <h3 id={`${h.id}-name`} class="module module--name gate__name">
+                  {h.logo && <img class="gate__logo" src={logos[h.logo].src} alt="" width="32" height="32" loading="lazy" />}
+                  {h.name}
+                </h3>
+                <p class="module module--status gate__status"><span class="lamp" aria-hidden="true"></span>{t.status[h.status]}</p>
               </header>
               <div class="gate__body">
                 <div class="gate__text">
@@ -136,7 +138,7 @@ const lit = (s: string) => s !== 'building';
   <section class="section" id="services" aria-labelledby="services-title">
     <div class="wrap">
       <div class="section__head">
-        <h2 id="services-title">{t.services.h2}</h2>
+        <h2 id="services-title" class="h2-flap"><Flap text={t.services.h2} /></h2>
         <p class="section__intro">{t.services.intro}</p>
       </div>
       <dl class="routes">
@@ -174,7 +176,7 @@ const lit = (s: string) => s !== 'building';
 
   <section class="section" id="company" aria-labelledby="company-title">
     <div class="wrap split">
-      <h2 id="company-title">{t.company.h2}</h2>
+      <h2 id="company-title" class="h2-flap"><Flap text={t.company.h2} /></h2>
       <dl class="ledger">
         {t.company.rows.map((r) => (
           <div><dt>{r.k}</dt><dd>{r.href ? <a href={r.href}>{r.v}</a> : r.v}</dd></div>
@@ -185,7 +187,7 @@ const lit = (s: string) => s !== 'building';
 
   <section class="section" aria-labelledby="faq-title">
     <div class="wrap split">
-      <h2 id="faq-title">{t.faq.h2}</h2>
+      <h2 id="faq-title" class="h2-flap"><Flap text={t.faq.h2} /></h2>
       <div class="faq">
         {t.faq.items.map((f) => (
           <details>
@@ -200,7 +202,7 @@ const lit = (s: string) => s !== 'building';
   <section class="section desk" id="contact" aria-labelledby="contact-title">
     <div class="wrap split">
       <div class="desk__head">
-        <h2 id="contact-title">{t.contact.h2}</h2>
+        <h2 id="contact-title" class="h2-flap"><Flap text={t.contact.h2} /></h2>
         <p>{t.contact.intro}</p>
         <p><a class="desk__mail" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
       </div>

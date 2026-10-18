@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Arrow from '../components/Arrow.astro';
+import Flap from '../components/Flap.astro';
 import { copy } from '../i18n/content';
 const { en, es } = copy;
 ---
@@ -10,7 +11,7 @@ const { en, es } = copy;
       <a class="brand" href="/"><img src="/logo-mark.svg" alt="" width="30" height="26" class="brand__mark" /><span class="brand__name">Maxnova &amp; Luci Global</span></a>
     </div>
     <div class="wrap notfound__body">
-      <p class="notfound__code" aria-hidden="true">404</p>
+      <p class="notfound__code"><Flap text="404 · Cancelled" /></p>
       <div class="notfound__cols">
         <section>
           <h1>{en.notFound.title}</h1>
@@ -29,7 +30,7 @@ const { en, es } = copy;
 <style>
   .notfound { min-height: 100svh; }
   .notfound__body { padding-block: var(--space-l) var(--space-xl); align-self: center; }
-  .notfound__code { font-size: clamp(6rem, 20vw, 16rem); font-family: var(--font-board); font-weight: 600; line-height: 0.85; letter-spacing: -0.04em; color: var(--module-hi); -webkit-text-stroke: 1px var(--rule); }
+  .notfound__code { font: 600 clamp(2.2rem, 1rem + 5vw, 5rem) / 1 var(--font-board); color: var(--glyph); }
   .notfound__cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-l); margin-top: var(--space-l); }
   .notfound__cols section { display: grid; gap: 1rem; justify-items: start; max-width: 40ch; }
   .notfound__cols h1, .notfound__cols h2 { font-size: var(--step-2); }
