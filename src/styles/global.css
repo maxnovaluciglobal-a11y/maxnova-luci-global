@@ -131,7 +131,8 @@ a { color: inherit; text-underline-offset: 0.2em; }
 
 /* Launch UI glow: two radial ellipses in the brand colours */
 .glow { position: absolute; inset: 0 0 auto; z-index: 1; height: 0; pointer-events: none; }
-.glow::before, .glow::after { content: ''; position: absolute; left: 50%; border-radius: 50%; transform: translateX(-50%); }
+/* `translate` (not `transform`) so the offset is applied before `scale` and the glow stays centred */
+.glow::before, .glow::after { content: ''; position: absolute; left: 50%; border-radius: 50%; translate: -50% 0; }
 .glow::before { top: -60px; width: 60%; height: 512px; scale: 2.5 2.5; background: radial-gradient(closest-side, rgb(251 146 60 / 0.5) 10%, rgb(251 146 60 / 0) 60%); opacity: 0.35; }
 .glow::after { top: 0; width: 40%; height: 256px; scale: 2; background: radial-gradient(closest-side, rgb(253 186 114 / 0.3) 10%, rgb(251 146 60 / 0) 60%); opacity: 0.6; }
 .hero__mockup .glow { top: 2rem; }
