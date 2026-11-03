@@ -49,6 +49,7 @@ const year = new Date().getFullYear();
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={BRAND_NAME} />
     <meta property="og:locale" content={t.locale} />
+    <meta property="og:locale:alternate" content={t.lang === 'en' ? 'es_419' : 'en_US'} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />

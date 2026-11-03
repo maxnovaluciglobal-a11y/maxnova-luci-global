@@ -2,12 +2,13 @@
 // Env vars (set in the Vercel dashboard, never in the repo):
 //   RESEND_API_KEY       required
 //   CONTACT_TO_EMAIL     optional, defaults to the company Gmail
-//   CONTACT_FROM_EMAIL   optional; the default needs maxnovaluci.com verified in Resend.
+//   CONTACT_FROM_EMAIL   optional; set it to web@maxnovaluci.com once the domain is verified in Resend.
+//                        The onboarding@resend.dev default only delivers to the Resend account owner.
 // JS clients post JSON and get JSON back. Without JS the browser posts a regular form and
 // is redirected to /sent/ (or /es/sent/) on success, or back to the form on failure.
 
 const TO_EMAIL = process.env.CONTACT_TO_EMAIL || 'maxnovaluciglobal@gmail.com';
-const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL || 'Maxnova & Luci Global <web@maxnovaluci.com>';
+const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL || 'Maxnova & Luci Global <onboarding@resend.dev>';
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const ALLOWED_ORIGINS = new Set(['https://maxnovaluci.com']);
 const LIMIT = 5; // messages per IP per window, per function instance. The Vercel Firewall rule is the real limit.

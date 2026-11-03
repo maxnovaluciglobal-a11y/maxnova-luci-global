@@ -10,6 +10,7 @@ export const LEGAL_NAME = 'MAXNOVA & LUCI GLOBAL LLC';
 export const BRAND_NAME = 'Maxnova & Luci Global';
 export const DOC_NUMBER = 'L26000222229';
 export const FILED_ISO = '2026-04-20';
+export const EFFECTIVE_ISO = '2026-04-21';
 export const FOUNDER = 'Walter La Madriz';
 export const SUNBIZ_URL =
   'https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquiryType=DocumentNumber&aggregateId=flal-l26000222229-008c3fa8-b3e4-4293-ab13-3261c8b1f5b3&directionType=Initial&searchNameOrder=MAXNOVALUCIGLOBAL%20L260002222290&searchTerm=L26000222229';
@@ -52,6 +53,8 @@ export interface Product {
   category: string;
   /** Lowest public monthly price in USD, as a schema.org value. */
   lowPrice: string;
+  highPrice: string;
+  offersUrl: string;
 }
 
 export const products: Product[] = [
@@ -77,13 +80,15 @@ export const products: Product[] = [
     },
     category: 'BusinessApplication',
     lowPrice: '49',
+    highPrice: '89',
+    offersUrl: 'https://www.dypos.app/#precios',
   },
   {
     id: 'moyiq',
     name: 'MOY IQ',
     url: 'https://moyiq.app',
     urlLabel: 'moyiq.app',
-    demo: 'https://moyiq.app',
+    demo: 'https://demo.moyiq.app/app/?demo=true',
     sector: { en: 'Personal finance', es: 'Finanzas personales' },
     market: { en: '11 countries in the Americas and Europe', es: '11 países de América y Europa' },
     price: {
@@ -100,6 +105,8 @@ export const products: Product[] = [
     },
     category: 'FinanceApplication',
     lowPrice: '0',
+    highPrice: '39.99',
+    offersUrl: 'https://moyiq.app/',
   },
   {
     id: 'esmalia',
@@ -123,6 +130,8 @@ export const products: Product[] = [
     },
     category: 'BusinessApplication',
     lowPrice: '19.99',
+    highPrice: '49.99',
+    offersUrl: 'https://esmalia.com/precios',
   },
 ];
 
@@ -243,20 +252,20 @@ const en = {
   dateFmt: 'en-US',
   meta: {
     home: {
-      title: 'Maxnova & Luci Global | Software company in Florida',
-      description: 'Florida company that owns and runs DypOS, MOY IQ and Esmalia. We also build AI software and help Latin American companies enter the US.',
+      title: 'Maxnova & Luci Global | Florida software company',
+      description: 'Florida LLC that builds and runs its own software: DypOS, MOY IQ and Esmalia. We also build AI software and support Latin American firms entering the US.',
     },
     products: {
-      title: 'Products: DypOS, MOY IQ and Esmalia | Maxnova & Luci',
-      description: 'Three software products in production, for restaurants, personal finance and dental clinics. Open each demo, see the price and what is still missing.',
+      title: 'DypOS, MOY IQ and Esmalia | Maxnova & Luci Global',
+      description: 'Three software products in production from one Florida LLC: restaurants, personal finance and dental clinics. Prices, demos and current limits.',
     },
     services: {
-      title: 'AI software and US market entry | Maxnova & Luci',
-      description: 'We build AI software for companies and help Latin American businesses set up in the US, with the process behind our own products.',
+      title: 'AI Software and US Market Entry | Maxnova & Luci Global',
+      description: 'AI software and SaaS built with the process behind our own products, plus US market entry support for Latin American companies. Quoted per project.',
     },
     company: {
-      title: 'About the company | MAXNOVA & LUCI GLOBAL LLC',
-      description: 'Legal details, Florida registration L26000222229, founder and how to verify MAXNOVA & LUCI GLOBAL LLC in the official registry.',
+      title: 'About MAXNOVA & LUCI GLOBAL LLC | Company facts',
+      description: 'Legal name, Florida document number, filing date, founder and products of MAXNOVA & LUCI GLOBAL LLC, with a link to verify the record on Sunbiz.',
     },
     log: {
       title: 'Shipping log | Maxnova & Luci Global',
@@ -356,15 +365,16 @@ const en = {
         title: 'US market entry',
         who: 'For Latin American companies that want to sell to, or operate from, the United States.',
         does: [
-          'Plan the setup: Florida LLC, business banking, Stripe and platform accounts',
-          'Walk the steps with you, in order',
-          'Coordinate with your lawyer and accountant',
+          'Share how we set up and run our own US company',
+          'Map the operational steps: banking, payments and platform accounts',
+          'Work alongside the licensed attorneys and accountants you engage',
         ],
-        proof: 'We did this for our own company in 2026.',
+        proof: 'We set up and run our own Florida company, filed in 2026.',
         limitsTitle: 'What we do not do',
-        limits: ['Give legal or tax advice: that belongs to licensed professionals', 'Guarantee approval by a bank or platform'],
+        limits: ['Prepare company formation documents or give legal or tax advice', 'Guarantee approval by a bank or platform'],
       },
     ],
+    disclaimer: 'We share operating experience, not legal or tax advice. Maxnova & Luci Global is not a law firm or an accounting firm. Company formation documents, legal opinions and tax filings belong with licensed professionals.',
     doesTitle: 'What we do',
     proofTitle: 'Where it comes from',
     processH2: 'How an engagement works',
@@ -379,20 +389,22 @@ const en = {
       { q: 'How is the work priced?', a: 'Each engagement is quoted per project after a diagnostic call. There are no fixed public prices.' },
       { q: 'Do you work with companies outside Latin America?', a: 'Software, yes. US market entry is meant for Latin American companies.' },
       { q: 'Who does the work?', a: 'Walter La Madriz leads every engagement directly.' },
-      { q: 'Do you give legal or tax advice?', a: 'No. We share what we learned setting up our own company and coordinate with your lawyer and accountant.' },
+      { q: 'Do you give legal or tax advice?', a: 'No. We share what we learned setting up our own company and work alongside your licensed attorney and accountant.' },
     ],
     cta: 'Request a diagnostic call',
   },
   companyPage: {
     h1: 'The company',
-    lead: `${LEGAL_NAME} is a Florida limited liability company, filed on April 20, 2026, that builds and operates software products and offers software and US market entry services.`,
+    lead: `${LEGAL_NAME} (Maxnova & Luci Global) is a Florida limited liability company, formed in April 2026, that builds and operates its own software products, DypOS, MOY IQ and Esmalia, and offers AI software development and US market entry support to Latin American companies.`,
     factsH2: 'Company details',
     facts: [
       { k: 'Legal name', v: LEGAL_NAME },
       { k: 'Entity type', v: 'Florida limited liability company' },
       { k: 'Document number', v: DOC_NUMBER, mono: true },
       { k: 'Filed', v: 'April 20, 2026' },
-      { k: 'Status', v: 'Active' },
+      { k: 'Effective', v: 'April 21, 2026' },
+      { k: 'Status', v: 'Active (Sunbiz, checked November 2, 2026)' },
+      { k: 'Founder', v: FOUNDER },
       { k: 'Presence', v: 'United States · Chile' },
       { k: 'Email', v: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
     ],
@@ -410,6 +422,8 @@ const en = {
     faqH2: 'Questions',
     faq: [
       { q: 'What is Maxnova & Luci Global?', a: `${LEGAL_NAME} is a Florida limited liability company that builds and operates software products: DypOS for restaurants, MOY IQ for personal finance and Esmalia for dental clinics.` },
+      { q: 'How can I verify the company?', a: `Search document number ${DOC_NUMBER} on Sunbiz, the Florida Division of Corporations registry. The company was filed on April 20, 2026.` },
+      { q: 'Does it give legal or tax advice?', a: 'No. We are not a law firm or an accounting firm. Legal and tax matters belong with licensed professionals.' },
       { q: 'Are you a holding company?', a: 'The products belong to a single LLC. They are not separate subsidiaries.' },
       { q: 'Where is the company based?', a: 'It is registered in Florida, United States, and also operates from Chile.' },
       { q: 'How many customers do you have?', a: 'We are early and do not publish customer numbers yet. Every product can be tried today.' },
@@ -508,19 +522,19 @@ const es: Copy = {
   meta: {
     home: {
       title: 'Maxnova & Luci Global | Empresa de software en Florida',
-      description: 'Empresa de Florida dueña de DypOS, MOY IQ y Esmalia. También construimos software con IA y ayudamos a empresas de Latinoamérica a entrar a EE. UU.',
+      description: 'LLC de Florida que construye y opera su propio software: DypOS, MOY IQ y Esmalia. También hacemos software con IA y apoyamos la entrada a EE. UU.',
     },
     products: {
-      title: 'Productos: DypOS, MOY IQ y Esmalia | Maxnova & Luci',
-      description: 'Tres productos de software en producción para restaurantes, finanzas personales y clínicas dentales. Abre cada demo y mira el precio y lo que falta.',
+      title: 'DypOS, MOY IQ y Esmalia | Maxnova & Luci Global',
+      description: 'Tres productos de software en producción de una LLC de Florida: restaurantes, finanzas personales y clínicas dentales. Precios, demos y límites.',
     },
     services: {
       title: 'Software con IA y entrada a EE. UU. | Maxnova & Luci',
-      description: 'Construimos software con IA para empresas y ayudamos a negocios de Latinoamérica a instalarse en EE. UU., con el proceso de nuestros propios productos.',
+      description: 'Software con IA y SaaS, con el proceso de nuestros productos, y apoyo para empresas latinoamericanas que entran a EE. UU. Cotización por proyecto.',
     },
     company: {
-      title: 'La empresa | MAXNOVA & LUCI GLOBAL LLC',
-      description: 'Datos legales, registro en Florida L26000222229, fundador y cómo verificar a MAXNOVA & LUCI GLOBAL LLC en el registro oficial.',
+      title: 'Sobre MAXNOVA & LUCI GLOBAL LLC | Datos de la empresa',
+      description: 'Nombre legal, número de documento en Florida, fecha de registro, fundador y productos de MAXNOVA & LUCI GLOBAL LLC, verificables en Sunbiz.',
     },
     log: {
       title: 'Registro de entregas | Maxnova & Luci Global',
@@ -620,15 +634,16 @@ const es: Copy = {
         title: 'Entrada a EE. UU.',
         who: 'Para empresas de Latinoamérica que quieren venderle a Estados Unidos u operar desde allá.',
         does: [
-          'Planificar la instalación: LLC en Florida, banca de empresa, Stripe y cuentas de plataforma',
-          'Recorrer los pasos contigo, en orden',
-          'Coordinar con tu abogado y tu contador',
+          'Compartir cómo montamos y operamos nuestra propia empresa en EE. UU.',
+          'Ordenar los pasos operativos: banca, cobros y cuentas de plataforma',
+          'Trabajar junto a los abogados y contadores con licencia que contrates',
         ],
-        proof: 'Lo hicimos para nuestra propia empresa en 2026.',
+        proof: 'Montamos y operamos nuestra propia empresa en Florida, registrada en 2026.',
         limitsTitle: 'Lo que no hacemos',
-        limits: ['Dar asesoría legal o tributaria: eso corresponde a profesionales habilitados', 'Garantizar la aprobación de un banco o una plataforma'],
+        limits: ['Preparar documentos de constitución ni dar asesoría legal o tributaria', 'Garantizar la aprobación de un banco o una plataforma'],
       },
     ],
+    disclaimer: 'Compartimos experiencia operativa, no asesoría legal ni tributaria. Maxnova & Luci Global no es un estudio de abogados ni una firma contable. Los documentos de constitución, las opiniones legales y las declaraciones de impuestos corresponden a profesionales con licencia.',
     doesTitle: 'Qué hacemos',
     proofTitle: 'De dónde sale',
     processH2: 'Cómo es trabajar con nosotros',
@@ -643,20 +658,22 @@ const es: Copy = {
       { q: '¿Cómo se cobra el trabajo?', a: 'Cada trabajo se cotiza por proyecto después de una llamada de diagnóstico. No hay precios públicos fijos.' },
       { q: '¿Trabajan con empresas fuera de Latinoamérica?', a: 'En software, sí. La entrada a EE. UU. está pensada para empresas de Latinoamérica.' },
       { q: '¿Quién hace el trabajo?', a: 'Walter La Madriz lidera cada trabajo directamente.' },
-      { q: '¿Dan asesoría legal o tributaria?', a: 'No. Compartimos lo que aprendimos al instalar nuestra propia empresa y coordinamos con tu abogado y tu contador.' },
+      { q: '¿Dan asesoría legal o tributaria?', a: 'No. Compartimos lo que aprendimos al instalar nuestra propia empresa y trabajamos junto a tu abogado y tu contador con licencia.' },
     ],
     cta: 'Pedir una llamada de diagnóstico',
   },
   companyPage: {
     h1: 'La empresa',
-    lead: `${LEGAL_NAME} es una sociedad de responsabilidad limitada de Florida, registrada el 20 de abril de 2026, que construye y opera productos de software y ofrece servicios de software y de entrada a EE. UU.`,
+    lead: `${LEGAL_NAME} (Maxnova & Luci Global) es una sociedad de responsabilidad limitada de Florida, constituida en abril de 2026, que construye y opera sus propios productos de software, DypOS, MOY IQ y Esmalia, y ofrece desarrollo de software con IA y apoyo para entrar a Estados Unidos a empresas latinoamericanas.`,
     factsH2: 'Datos de la empresa',
     facts: [
       { k: 'Razón social', v: LEGAL_NAME },
       { k: 'Tipo de entidad', v: 'Sociedad de responsabilidad limitada (LLC) de Florida' },
       { k: 'Número de documento', v: DOC_NUMBER, mono: true },
       { k: 'Registrada', v: '20 de abril de 2026' },
-      { k: 'Estado', v: 'Activa' },
+      { k: 'Vigente desde', v: '21 de abril de 2026' },
+      { k: 'Estado', v: 'Activa (Sunbiz, revisado el 2 de noviembre de 2026)' },
+      { k: 'Fundador', v: FOUNDER },
       { k: 'Presencia', v: 'Estados Unidos · Chile' },
       { k: 'Email', v: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
     ],
@@ -674,6 +691,8 @@ const es: Copy = {
     faqH2: 'Preguntas',
     faq: [
       { q: '¿Qué es Maxnova & Luci Global?', a: `${LEGAL_NAME} es una sociedad de responsabilidad limitada de Florida que construye y opera productos de software: DypOS para restaurantes, MOY IQ para finanzas personales y Esmalia para clínicas dentales.` },
+      { q: '¿Cómo verifico la empresa?', a: `Busca el número de documento ${DOC_NUMBER} en Sunbiz, el registro de la División de Corporaciones de Florida. La empresa se registró el 20 de abril de 2026.` },
+      { q: '¿Da asesoría legal o tributaria?', a: 'No. No somos un estudio de abogados ni una firma contable. Los temas legales y tributarios corresponden a profesionales con licencia.' },
       { q: '¿Son un holding?', a: 'Los productos pertenecen a una sola LLC. No son filiales separadas.' },
       { q: '¿Dónde está la empresa?', a: 'Está registrada en Florida, Estados Unidos, y también opera desde Chile.' },
       { q: '¿Cuántos clientes tienen?', a: 'Estamos al comienzo y todavía no publicamos cifras de clientes. Cada producto se puede probar hoy.' },
