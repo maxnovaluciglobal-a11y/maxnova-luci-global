@@ -5,7 +5,8 @@ export type Lang = 'en' | 'es';
 export type PageKey = 'home' | 'products' | 'services' | 'company' | 'log' | 'privacy' | 'terms';
 
 export const SITE_URL = 'https://maxnovaluci.com';
-export const CONTACT_EMAIL = 'hola@maxnovaluci.com';
+// Switch to 'hola@maxnovaluci.com' (also in public/llms.txt) once Cloudflare Email Routing forwards it.
+export const CONTACT_EMAIL = 'maxnovaluciglobal@gmail.com';
 export const LEGAL_NAME = 'MAXNOVA & LUCI GLOBAL LLC';
 export const BRAND_NAME = 'Maxnova & Luci Global';
 export const DOC_NUMBER = 'L26000222229';
