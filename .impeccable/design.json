@@ -9,7 +9,7 @@
     "supersedes": [
       "departures-board world (seed a5e59273)",
       "cobalt/Archivo world",
-      "docs/prompt-maestro.md §4 (Dirección de arte) and §5 (3D y movimiento)"
+      "docs/prompt-maestro.md \u00a74 (Direcci\u00f3n de arte) and \u00a75 (3D y movimiento)"
     ],
     "tokenSource": "src/styles/global.css :root"
   },
@@ -516,5 +516,17 @@
       "**Don't** add drop shadows to cards or glass containers, or hard offset shadows anywhere.",
       "**Don't** scatter glows; at most one per view region, behind the main object (on the home: hero mockup and contact block)."
     ]
+  },
+  "world": "Red en operaci\u00f3n",
+  "updated": "2026-11-03",
+  "colors": {
+    "ground": "#e6e8e4",
+    "ink": "#101416",
+    "gold": "#d9a441",
+    "live": "#1fa35b"
+  },
+  "fonts": {
+    "sans": "Schibsted Grotesk",
+    "mono": "Martian Mono"
   }
 }

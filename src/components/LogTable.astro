@@ -1,0 +1,17 @@
+---
+import { formatDate, type Copy, type LogEntry } from '../i18n/content';
+interface Props { t: Copy; entries: LogEntry[]; }
+const { t, entries } = Astro.props;
+---
+<table class="log">
+  <thead class="sr"><tr><th scope="col">{t.logPage.date}</th><th scope="col">{t.logPage.scope}</th><th scope="col">{t.logPage.what}</th></tr></thead>
+  <tbody>
+    {entries.map((e) => (
+      <tr>
+        <td class="log__date"><time datetime={e.date}>{formatDate(e.date, t.lang, t.dateFmt)}</time></td>
+        <td class="log__scope">{e.scope}</td>
+        <td>{e.text[t.lang]}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>

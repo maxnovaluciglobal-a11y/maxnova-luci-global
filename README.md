@@ -1,6 +1,6 @@
 # maxnova-luci-global
 
-Corporate site of MAXNOVA & LUCI GLOBAL LLC. Astro (static) + one Vercel serverless function for the contact form. English at `/`, Spanish at `/es/`.
+Corporate site of MAXNOVA & LUCI GLOBAL LLC on https://maxnovaluci.com. Astro (static) + two Vercel functions: `api/contact.js` (form → Resend) and `api/status.js` (live product checks for the network map). English at `/`, Spanish under `/es/` with translated slugs.
 
 The brief this site was built from: [`docs/prompt-maestro.md`](docs/prompt-maestro.md). Product truth: [`PRODUCT.md`](PRODUCT.md). Test report: [`docs/QA.md`](docs/QA.md).
 
@@ -18,14 +18,17 @@ npm run preview   # serve dist/ locally (the /api function does not run locally)
 | What | Where |
 |---|---|
 | All text, both languages (cover, portfolio, services, FAQ, form labels) | `src/i18n/content.ts` |
-| Portfolio entries (name, sector, market, status, link) | `holdings` in `src/i18n/content.ts` |
-| Product screenshots | `src/assets/shots/` (1440×720 PNG; Astro converts to AVIF/WebP) |
+| Products, prices, demos, what is still missing | `products` in `src/i18n/content.ts` |
+| Shipping log (dated, public-safe facts only) | `log` in `src/i18n/content.ts` |
+| Routes and sitemap dates | `routes` and `lastmod` in `src/i18n/content.ts` (the sitemap is generated) |
+| Live network map | `src/components/Network.astro` + `api/status.js` |
+| Product screens | `src/assets/screens/` (1440×900 at 2x; Astro converts to AVIF/WebP) |
 | Product logos | `src/assets/logos/` |
-| Layout and sections | `src/components/Home.astro` |
+| Page layouts | `src/views/*.astro`; shell (nav, footer, head) in `src/layouts/Base.astro` |
 | Colours, type, spacing | `src/styles/global.css` (tokens at the top) |
 | `<head>`, SEO, hreflang, Open Graph | `src/layouts/Base.astro` |
 | JSON-LD | `src/components/schema.ts` (keep it equal to what the page shows) |
-| robots, sitemap, llms.txt, icons, OG images | `public/` |
+| robots, llms.txt, icons, OG images | `public/` |
 | Security headers | `vercel.json` |
 
 ## Contact form
@@ -34,7 +37,9 @@ npm run preview   # serve dist/ locally (the /api function does not run locally)
 
 - `RESEND_API_KEY` (required; without it the form answers 500 and the page shows the email as fallback)
 - `CONTACT_TO_EMAIL` (optional, default `maxnovaluciglobal@gmail.com`)
-- `CONTACT_FROM_EMAIL` (optional; until a domain is verified in Resend, the default `onboarding@resend.dev` only delivers to the Resend account owner's email)
+- `CONTACT_FROM_EMAIL` (optional; set `Maxnova & Luci Global <web@maxnovaluci.com>` once maxnovaluci.com is verified in Resend. The `onboarding@resend.dev` default only delivers to the Resend account owner's email)
+
+Abuse protection: the handler rejects foreign `Origin` headers and has a honeypot; the real limit is the Vercel Firewall rule "Contact form rate limit" (5 POSTs per IP per 10 minutes on `/api/contact`).
 
 ## Deploy
 

@@ -2,14 +2,32 @@
 // Env vars (set in the Vercel dashboard, never in the repo):
 //   RESEND_API_KEY       required
 //   CONTACT_TO_EMAIL     optional, defaults to the company Gmail
-//   CONTACT_FROM_EMAIL   optional; until a domain is verified in Resend, onboarding@resend.dev
-//                        only delivers to the email that owns the Resend account.
+//   CONTACT_FROM_EMAIL   optional; set it to web@maxnovaluci.com once the domain is verified in Resend.
+//                        The onboarding@resend.dev default only delivers to the Resend account owner.
 // JS clients post JSON and get JSON back. Without JS the browser posts a regular form and
 // is redirected to /sent/ (or /es/sent/) on success, or back to the form on failure.
 
 const TO_EMAIL = process.env.CONTACT_TO_EMAIL || 'maxnovaluciglobal@gmail.com';
 const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL || 'Maxnova & Luci Global <onboarding@resend.dev>';
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const ALLOWED_ORIGINS = new Set(['https://maxnovaluci.com']);
+const LIMIT = 5; // messages per IP per window, per function instance. The Vercel Firewall rule is the real limit.
+const WINDOW_MS = 10 * 60 * 1000;
+const hits = new Map();
+
+function overLimit(ip) {
+  const now = Date.now();
+  const recent = (hits.get(ip) || []).filter((t) => now - t < WINDOW_MS);
+  recent.push(now);
+  hits.set(ip, recent);
+  return recent.length > LIMIT;
+}
+
+function allowedOrigin(origin) {
+  if (!origin) return true; // no-JS form posts from some browsers omit it; the honeypot and limits still apply
+  if (ALLOWED_ORIGINS.has(origin)) return true;
+  return /^https:\/\/maxnova-luci-global-[a-z0-9-]+\.vercel\.app$/.test(origin); // preview deployments
+}
 
 function escapeHtml(str) {
   return String(str)
@@ -30,16 +48,26 @@ export default async function handler(req, res) {
   }
 
   const wantsJson = (req.headers['content-type'] || '').includes('application/json');
-  const body = req.body || {};
+  if (!allowedOrigin(req.headers.origin)) return res.status(403).json({ error: 'Forbidden' });
+
+  let body = {};
+  try {
+    body = req.body || {};
+  } catch {
+    return res.status(400).json({ error: 'Invalid body.' });
+  }
   const lang = field(body, 'lang', 2) === 'es' ? 'es' : 'en';
   const reply = (ok, status, error) => {
     if (wantsJson) return res.status(status).json(ok ? { ok: true } : { error });
     const base = lang === 'es' ? '/es/' : '/';
-    res.setHeader('Location', ok ? `${base}sent/` : `${base}#contact`);
+    res.setHeader('Location', ok ? `${base}sent/` : `${base}?error=1#contact`);
     return res.status(303).end();
   };
 
   if (field(body, '_gotcha', 200)) return reply(true, 200); // honeypot filled: pretend success
+
+  const ip = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim();
+  if (ip && overLimit(ip)) return reply(false, 429, 'Too many messages.');
 
   const name = field(body, 'name', 120);
   const company = field(body, 'company', 160);
@@ -47,7 +75,7 @@ export default async function handler(req, res) {
   const service = field(body, 'service', 120);
   const message = field(body, 'message', 5000);
 
-  if (!name || !EMAIL_RE.test(email) || !message) return reply(false, 400, 'Missing required fields.');
+  if (!name || !EMAIL_RE.test(email) || !service || !message) return reply(false, 400, 'Missing required fields.');
 
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
@@ -72,7 +100,7 @@ export default async function handler(req, res) {
         from: FROM_EMAIL,
         to: [TO_EMAIL],
         reply_to: email,
-        subject: `New inquiry — Maxnova & Luci Global (${name})`,
+        subject: `New inquiry — Maxnova & Luci Global (${name.replace(/[\r\n]+/g, ' ')})`,
         html,
       }),
     });

@@ -1,38 +1,25 @@
 ---
 import Base from '../layouts/Base.astro';
 import Arrow from '../components/Arrow.astro';
-import { copy } from '../i18n/content';
+import { copy, routes } from '../i18n/content';
 const { en, es } = copy;
 ---
 <Base t={en} title={`${en.notFound.title} · Maxnova & Luci Global`} noindex>
-  <main class="hero notfound" id="main">
-    <div class="container nav__inner">
-      <a class="brand" href="/"><img src="/logo-mark.svg" alt="" width="30" height="26" class="brand__mark" /><span class="brand__name">Maxnova &amp; Luci Global</span></a>
-    </div>
-    <div class="container notfound__body">
-      <p class="notfound__code">404</p>
-      <div class="notfound__cols">
-        <section>
+  <header class="page-head">
+    <div class="container">
+      <p class="mono notfound__code">404</p>
+      <div class="split">
+        <section class="notfound">
           <h1>{en.notFound.title}</h1>
           <p>{en.notFound.text}</p>
-          <a class="btn btn--primary btn--lg" href="/">{en.notFound.back}<Arrow /></a>
+          <a class="btn btn--ink" href={routes.home.en}>{en.notFound.back}<Arrow /></a>
         </section>
-        <section lang="es">
+        <section class="notfound" lang="es">
           <h2>{es.notFound.title}</h2>
           <p>{es.notFound.text}</p>
-          <a class="btn btn--primary btn--lg" href="/es/">{es.notFound.back}<Arrow /></a>
+          <a class="btn btn--ink" href={routes.home.es}>{es.notFound.back}<Arrow /></a>
         </section>
       </div>
     </div>
-  </main>
+  </header>
 </Base>
-<style>
-  .notfound { min-height: 100svh; }
-  .notfound__body { padding-block: 2.5rem var(--section); align-self: center; }
-  .notfound__code { font-size: clamp(5rem, 3rem + 10vw, 11rem); font-weight: 600; letter-spacing: -0.05em; line-height: 1; color: var(--muted); }
-  .notfound__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 2.5rem; }
-  .notfound__cols section { display: grid; gap: 1rem; justify-items: start; max-width: 40ch; }
-  .notfound__cols h1, .notfound__cols h2 { font-size: 1.5rem; }
-  .notfound__cols p { color: var(--muted-foreground); }
-  @media (max-width: 720px) { .notfound__cols { grid-template-columns: 1fr; } }
-</style>

@@ -1,0 +1,51 @@
+---
+import Arrow from '../components/Arrow.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Faq from '../components/Faq.astro';
+import { SUNBIZ_URL, type Copy } from '../i18n/content';
+
+interface Props { t: Copy }
+const { t } = Astro.props;
+const c = t.companyPage;
+---
+<header class="page-head">
+  <div class="container">
+    <h1>{c.h1}</h1>
+    <p>{c.lead}</p>
+  </div>
+</header>
+
+<section class="section section--tight" aria-labelledby="facts-title">
+  <div class="container split">
+    <div>
+      <h2 id="facts-title">{c.factsH2}</h2>
+      <h3 class="verify__title">{c.verifyH2}</h3>
+      <p class="verify">{c.verify}</p>
+      <a class="link" href={SUNBIZ_URL} rel="noopener" target="_blank">{c.verifyLink}<Arrow out /></a>
+    </div>
+    <dl class="ledger">
+      {c.facts.map((r) => (
+        <div><dt>{r.k}</dt><dd class={r.mono ? 'mono' : undefined}>{r.href ? <a href={r.href}>{r.v}</a> : r.v}</dd></div>
+      ))}
+    </dl>
+  </div>
+</section>
+
+<section class="section section--ink" id="founder" aria-labelledby="founder-title">
+  <div class="container split">
+    <h2 id="founder-title">{c.founderH2}</h2>
+    <article class="note note--ink">
+      {c.founder.map((p) => <p>{p}</p>)}
+      <p class="note__sign"><strong>{c.founderName}</strong><span>{c.founderRole}</span></p>
+    </article>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="faq-title">
+  <div class="container split">
+    <h2 id="faq-title">{c.faqH2}</h2>
+    <Faq items={c.faq} />
+  </div>
+</section>
+
+<ContactForm t={t} />

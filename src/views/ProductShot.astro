@@ -1,0 +1,19 @@
+---
+import { Picture } from 'astro:assets';
+import type { Copy, Product } from '../i18n/content';
+import dypos from '../assets/screens/dypos-1.png';
+import moyiqEn from '../assets/screens/moyiq-en.png';
+import moyiqEs from '../assets/screens/moyiq-es.png';
+import esmalia from '../assets/screens/esmalia.png';
+
+interface Props { t: Copy; product: Product; sizes: string; eager?: boolean; }
+const { t, product, sizes, eager = false } = Astro.props;
+const src = { dypos, moyiq: t.lang === 'es' ? moyiqEs : moyiqEn, esmalia }[product.id];
+const what = {
+  dypos: { en: 'live kitchen screen', es: 'pantalla de cocina en vivo' },
+  moyiq: { en: 'public home page', es: 'página pública de inicio' },
+  esmalia: { en: 'public home page', es: 'página pública de inicio' },
+}[product.id][t.lang];
+---
+<Picture class="shot" src={src} formats={['avif', 'webp']} fallbackFormat="jpg" widths={[640, 960, 1440, 2000]} sizes={sizes}
+  alt={t.productsPage.screenAlt(product.name, what)} loading={eager ? 'eager' : 'lazy'} decoding="async" />

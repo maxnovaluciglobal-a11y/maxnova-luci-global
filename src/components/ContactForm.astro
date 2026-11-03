@@ -1,0 +1,89 @@
+---
+import Arrow from './Arrow.astro';
+import { CONTACT_EMAIL, routes, type Copy } from '../i18n/content';
+interface Props { t: Copy }
+const { t } = Astro.props;
+---
+<section class="contact" id="contact" aria-labelledby="contact-title">
+  <div class="container contact__grid">
+    <div class="contact__text">
+      <h2 id="contact-title">{t.contact.h2}</h2>
+      <p>{t.contact.intro}</p>
+      <p><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
+    </div>
+    <form class="form" method="post" action="/api/contact" data-contact
+      data-sending={t.contact.sending} data-sent={t.contact.sent} data-invalid={t.contact.invalid}
+      data-error={`${t.contact.error} ${CONTACT_EMAIL}.`}>
+      <input type="hidden" name="lang" value={t.lang} />
+      <div class="form__trap" aria-hidden="true">
+        <label>Leave empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label>
+      </div>
+      <div class="form__row">
+        <label class="field"><span>{t.contact.fields.name}</span>
+          <input type="text" name="name" required autocomplete="name" maxlength="120" /></label>
+        <label class="field"><span>{t.contact.fields.email}</span>
+          <input type="email" name="email" required autocomplete="email" maxlength="200" /></label>
+      </div>
+      <div class="form__row">
+        <label class="field"><span>{t.contact.fields.company} <i>({t.contact.fields.optional})</i></span>
+          <input type="text" name="company" autocomplete="organization" maxlength="160" /></label>
+        <label class="field"><span>{t.contact.fields.topic}</span>
+          <select name="service" required>
+            <option value="" selected disabled>{t.contact.fields.choose}</option>
+            {t.contact.topics.map((o) => <option>{o}</option>)}
+          </select></label>
+      </div>
+      <label class="field"><span>{t.contact.fields.message}</span>
+        <textarea name="message" required rows="5" maxlength="5000"></textarea></label>
+      <div class="form__foot">
+        <button class="btn btn--signal" type="submit">{t.contact.submit}<Arrow /></button>
+        <p class="form__status" role="status" aria-live="polite"></p>
+      </div>
+      <p class="form__note">{t.contact.privacyNote} <a href={routes.privacy[t.lang]}>{t.contact.privacyLink}</a></p>
+    </form>
+  </div>
+</section>
+
+<script>
+  // Contact form: send as JSON, show success only after the API answers 200.
+  const form = document.querySelector<HTMLFormElement>('[data-contact]');
+  if (form) {
+    const status = form.querySelector<HTMLElement>('.form__status')!;
+    const button = form.querySelector<HTMLButtonElement>('button[type=submit]')!;
+    const label = button.innerHTML;
+    if (new URLSearchParams(location.search).has('error')) {
+      status.textContent = form.dataset.error!;
+      status.dataset.state = 'error';
+    }
+    form.addEventListener('submit', async (ev) => {
+      ev.preventDefault();
+      if (!form.checkValidity()) {
+        status.textContent = form.dataset.invalid!;
+        status.dataset.state = 'error';
+        form.reportValidity();
+        return;
+      }
+      button.disabled = true;
+      button.textContent = form.dataset.sending!;
+      status.textContent = '';
+      delete status.dataset.state;
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(Object.fromEntries(new FormData(form))),
+        });
+        if (!res.ok) throw new Error(String(res.status));
+        form.reset();
+        status.textContent = form.dataset.sent!;
+        status.dataset.state = 'ok';
+      } catch {
+        status.textContent = form.dataset.error!;
+        status.dataset.state = 'error';
+      } finally {
+        button.disabled = false;
+        button.innerHTML = label;
+      }
+    });
+  }
+</script>

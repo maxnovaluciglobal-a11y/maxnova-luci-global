@@ -1,24 +1,12 @@
----
-version: 1
-slug: "src-pages-index-astro"
-primary_target: "src/pages/index.astro"
-related_targets: ["src/pages/es/index.astro"]
----
+# Surface: corporate site (all pages)
 
-## Scope
-Home page, `/` (EN) and `/es/` (ES), plus 404 and /sent/. Visitor mode: **Persuade**. Build path: code-led (no image generation).
-
-## Audience, action, proof
-B2B clients and investors first; banks second (Company block); talent in the footer. Action: send the contact form. Proof: live products, linked, with real screenshots. No testimonials, no invented figures, no invented dates.
+Mode: Persuade. Audience: B2B clients in Latin America, banks and platforms verifying the entity, partners.
 
 ## Direction contract
-THESIS: A tech-premium product page in the Launch UI language (Stripe/Linear register Walter asked for), where the "product" is the holding itself: the hero mockup is a mosaic of the three live companies' real screens. Refuses a generic SaaS page with invented dashboards and fake metrics.
-OWN-WORLD: Zinc-950 ground (#09090b), Inter, white primary buttons, glass surfaces (border-top brighter than bottom, 5% white gradient), product mockups inside soft 8px frames with deep shadow, one warm brand glow (orange #fb923c / #fdba72) behind the hero mockup and the contact block, green status dots for live companies. Radius 10px family.
-STORY: Visitor understands in one viewport that this company runs three live products, clicks one, reads services and how we work, meets the founder, checks the company data, writes in the glass form.
-FIRST VIEWPORT: Sticky blurred navbar (monogram + name, links, ES, white "Talk to us"). Centered H1 "We build and run software companies." up to 5.5rem, muted lead, white primary + glow secondary buttons, then the framed mosaic (DypOS large left, MOY IQ and Esmalia stacked right) rising into the warm glow, faded at the bottom.
-FORM: Launch UI open-source edition (MIT, github.com/launch-ui/launch-ui @ b0d4d5b), chosen by Walter on 2026-10-18 after reviewing 21st.dev templates with the constraint "must be free". Ported to Astro + plain CSS; notice in THIRD_PARTY_NOTICES.md. Supersedes the departures-board world (seed a5e59273) and the cobalt world.
-SIGNATURE: Launch UI "appear" on load (translate + small blur, staggered), mosaic tiles with live status pills linking to each company, scroll-rise of feature screens; static under reduced motion and without JS.
-FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
-
-## Unresolved
-Postal address, phone, usage figures, LinkedIn URLs, founder photo, own domain.
+- THESIS: an operator you can verify, not a startup pitch. Every claim is clickable or measured.
+- OWN-WORLD: "Red en operación", chosen by Walter on 2026-11-03 from three directions in the design audit (A memoria operativa, B red en operación, C carta del operador). It did not come from the concept-seed roll 93f33197; that roll ran afterwards and was overridden by the user's explicit choice.
+- STORY: a telecom engineer runs his products like a network: a core, links, live checks, a dated log.
+- FIRST VIEWPORT: H1 "Three live software products. One Florida company." beside the live network map (core = LLC + document number; gold traces to DypOS, MOY IQ, Esmalia with measured status and latency; dashed traces to the Amazon account and the medical product).
+- FORM: grey technical plan, ink rack panels, gold from the logo, Schibsted Grotesk, Martian Mono only for measurements. Code-led build, no comp.
+- SIGNATURE: pulse per trace when a check returns, travel time from measured latency; reduced motion disables it.
+- CONSTRAINTS: no invented traction; no founder portrait yet; MOY IQ and Esmalia demos need personal data, so their screens are public home pages, captioned as such.

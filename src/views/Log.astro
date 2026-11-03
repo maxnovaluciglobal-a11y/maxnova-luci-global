@@ -1,0 +1,15 @@
+---
+import LogTable from '../components/LogTable.astro';
+import { log, type Copy } from '../i18n/content';
+interface Props { t: Copy }
+const { t } = Astro.props;
+---
+<header class="page-head">
+  <div class="container">
+    <h1>{t.logPage.h1}</h1>
+    <p>{t.logPage.lead}</p>
+  </div>
+</header>
+<section class="section section--tight">
+  <div class="container"><LogTable t={t} entries={log} /></div>
+</section>

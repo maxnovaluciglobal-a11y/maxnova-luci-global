@@ -1,10 +1,7 @@
 ---
-// One authored arrow for the whole site. `out` points up-right for links that leave the site.
-interface Props { out?: boolean; down?: boolean }
-const { out = false, down = false } = Astro.props;
-const rotate = out ? -45 : down ? 90 : 0;
+interface Props { out?: boolean }
+const { out = false } = Astro.props;
 ---
-<svg class="arrow" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"
-  style={rotate ? `transform: rotate(${rotate}deg)` : undefined}>
-  <path d="M2 8h11M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" />
+<svg class="arrow" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+  {out ? <path d="M5 11 11 5M6 5h5v5" /> : <path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" />}
 </svg>
