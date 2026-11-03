@@ -19,4 +19,4 @@ User-agent: PerplexityBot
 Allow: /
 Disallow: /api/
 
-Sitemap: https://maxnova-luci-global.vercel.app/sitemap.xml
+Sitemap: https://maxnovaluci.com/sitemap.xml

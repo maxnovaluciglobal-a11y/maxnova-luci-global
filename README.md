@@ -38,9 +38,9 @@ npm run preview   # serve dist/ locally (the /api function does not run locally)
 
 ## Deploy
 
-Vercel project `maxnova-luci-global` (team `maxnovaluci-global`, Hobby). Push to a branch → preview; merge to `main` → production.
+Vercel project `maxnova-luci-global` (team `maxnovaluci-global`, Pro). Push to a branch → preview; merge to `main` → production.
 Commits must be authored by `maxnovaluciglobal@gmail.com` (set in this repo's local git config), or Vercel blocks the deploy.
 
-## When the domain is bought
+## Domain
 
-Replace `https://maxnova-luci-global.vercel.app` in `astro.config.mjs`, `src/i18n/content.ts` (`SITE_URL`), `public/robots.txt`, `public/sitemap.xml` and `public/llms.txt`; add the domain in Vercel with a 301 from the `.vercel.app` URL; verify it in Search Console.
+Canonical: `https://maxnovaluci.com` (set in `astro.config.mjs`, `src/i18n/content.ts`, `public/robots.txt`, `public/sitemap.xml`, `public/llms.txt`). DNS lives in Cloudflare with DNS-only A records to Vercel (`76.76.21.21`); keep the proxy off. `www` and `maxnova-luci-global.vercel.app` 301 to the apex through `redirects` in `vercel.json`.

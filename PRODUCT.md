@@ -27,10 +27,10 @@ An operator, not an agency: its claims are its own products, live and clickable 
 - Languages: English (default) and Spanish.
 
 ## Capabilities and Constraints
-- Contact form → Resend → company Gmail. Domain: none yet; canonical stays on `maxnova-luci-global.vercel.app` until Walter buys one.
-- Vercel team is on Hobby: commits must be authored by `maxnovaluciglobal@gmail.com` or deploys are blocked.
+- Contact form → Resend → company Gmail. Domain: `maxnovaluci.com` (Cloudflare registrar and DNS, DNS-only records to Vercel; connected 2026-11-02). `www` and the `.vercel.app` URL 301 to the apex.
+- Vercel team is on Pro; commits must still be authored by `maxnovaluciglobal@gmail.com` or deploys are blocked.
 - Public repo: anything committed is published. Never commit account numbers, EIN or tax data.
-- Undecided / pending from Walter: postal address, public phone, usage figures per product, LinkedIn URLs, MOY IQ logo file, own domain.
+- Undecided / pending from Walter: postal address, public phone, usage figures per product, LinkedIn URLs, MOY IQ logo file.
 
 ## Brand Commitments
 - Legal name exactly "MAXNOVA & LUCI GLOBAL LLC" (Sunbiz capitalisation); brand name "Maxnova & Luci Global".

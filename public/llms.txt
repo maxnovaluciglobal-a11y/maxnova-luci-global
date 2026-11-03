@@ -18,5 +18,5 @@ Quoted per project after a diagnostic call; no public prices.
 
 ## Contact
 - Email: maxnovaluciglobal@gmail.com
-- Contact form: https://maxnova-luci-global.vercel.app/#contact
-- Spanish version: https://maxnova-luci-global.vercel.app/es/
+- Contact form: https://maxnovaluci.com/#contact
+- Spanish version: https://maxnovaluci.com/es/

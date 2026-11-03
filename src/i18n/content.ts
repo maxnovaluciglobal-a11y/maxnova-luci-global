@@ -3,7 +3,7 @@
 
 export type Lang = 'en' | 'es';
 
-export const SITE_URL = 'https://maxnova-luci-global.vercel.app';
+export const SITE_URL = 'https://maxnovaluci.com';
 export const CONTACT_EMAIL = 'maxnovaluciglobal@gmail.com';
 export const LEGAL_NAME = 'MAXNOVA & LUCI GLOBAL LLC';
 export const BRAND_NAME = 'Maxnova & Luci Global';
