@@ -2,6 +2,8 @@
 import Arrow from '../components/Arrow.astro';
 import ContactForm from '../components/ContactForm.astro';
 import Faq from '../components/Faq.astro';
+import { Image } from 'astro:assets';
+import founderPhoto from '../assets/founder.png';
 import { SUNBIZ_URL, type Copy } from '../i18n/content';
 
 interface Props { t: Copy }
@@ -33,7 +35,10 @@ const c = t.companyPage;
 
 <section class="section section--ink" id="founder" aria-labelledby="founder-title">
   <div class="container split">
-    <h2 id="founder-title">{c.founderH2}</h2>
+    <div class="founder">
+      <h2 id="founder-title">{c.founderH2}</h2>
+      <Image class="founder__photo" src={founderPhoto} alt={c.founderAlt} widths={[200, 400]} sizes="200px" loading="lazy" />
+    </div>
     <article class="note note--ink">
       {c.founder.map((p) => <p>{p}</p>)}
       <p class="note__sign"><strong>{c.founderName}</strong><span>{c.founderRole}</span></p>

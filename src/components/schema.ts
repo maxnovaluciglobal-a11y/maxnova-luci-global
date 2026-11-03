@@ -35,6 +35,7 @@ const founder = (t: Copy) => ({
   jobTitle: t.companyPage.founderRole,
   worksFor: { '@id': ORG_ID },
   url: `${SITE_URL}/company/#founder`,
+  image: `${SITE_URL}/walter-la-madriz.jpg`,
   description: t.companyPage.founder[0],
 });
 

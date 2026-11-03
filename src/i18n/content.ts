@@ -423,6 +423,7 @@ const en = {
     founderH2: 'Founder',
     founderName: FOUNDER,
     founderRole: 'Founder',
+    founderAlt: 'Walter La Madriz, founder of Maxnova & Luci Global',
     founder: [
       'I am a telecommunications engineer. I spent fifteen years in carrier telecom in Venezuela and Chile, across network engineering, product and B2B sales.',
       'I run these products the way a network is run: everything is monitored, every change is dated, and if something is not working we say so.',
@@ -693,6 +694,7 @@ const es: Copy = {
     founderH2: 'Fundador',
     founderName: FOUNDER,
     founderRole: 'Fundador',
+    founderAlt: 'Walter La Madriz, fundador de Maxnova & Luci Global',
     founder: [
       'Soy ingeniero en telecomunicaciones. Pasé quince años en telecomunicaciones para operadores en Venezuela y Chile, entre ingeniería de redes, producto y ventas B2B.',
       'Opero estos productos como se opera una red: todo se monitorea, cada cambio queda fechado y, si algo no funciona, lo decimos.',

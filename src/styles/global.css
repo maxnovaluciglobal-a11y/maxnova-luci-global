@@ -205,6 +205,11 @@ a { color: inherit; text-underline-offset: 0.2em; text-decoration-thickness: 1px
 .note h2 { margin-bottom: 0.5rem; }
 .note p { color: var(--text-soft); }
 .note__sign { display: grid; margin-top: 0.5rem; }
+.note__by { display: flex; align-items: center; gap: 1rem; margin-top: 0.5rem; }
+.note__by .note__sign { margin-top: 0; }
+.note__photo { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line-strong); }
+.founder { display: grid; align-content: start; justify-items: start; gap: 1.5rem; }
+.founder__photo { width: min(200px, 50vw); height: auto; aspect-ratio: 1; border-radius: 3px; object-fit: cover; border: 1px solid var(--line-ink); }
 .note__sign strong { color: var(--text); }
 .note__sign span { font-size: 0.875rem; }
 .note--ink p { color: var(--on-ink); }

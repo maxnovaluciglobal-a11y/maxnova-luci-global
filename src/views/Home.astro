@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import founderPhoto from '../assets/founder.png';
 import Arrow from '../components/Arrow.astro';
 import Network from '../components/Network.astro';
 import ContactForm from '../components/ContactForm.astro';
@@ -79,7 +81,10 @@ const company = t.companyPage;
     <article class="note">
       <h2 id="note-title">{company.founderH2}</h2>
       {company.founder.map((p) => <p>{p}</p>)}
-      <p class="note__sign"><strong>{company.founderName}</strong><span>{company.founderRole}, {LEGAL_NAME}</span></p>
+      <div class="note__by">
+        <Image class="note__photo" src={founderPhoto} alt={company.founderAlt} widths={[72, 144]} sizes="72px" loading="lazy" />
+        <p class="note__sign"><strong>{company.founderName}</strong><span>{company.founderRole}, {LEGAL_NAME}</span></p>
+      </div>
     </article>
     <div>
       <h2>{t.home.logH2}</h2>
