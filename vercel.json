@@ -1,20 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "astro",
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.maxnovaluci.com" }],
-      "destination": "https://maxnovaluci.com/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "maxnova-luci-global.vercel.app" }],
-      "destination": "https://maxnovaluci.com/:path*",
-      "permanent": true
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",

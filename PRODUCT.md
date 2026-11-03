@@ -27,7 +27,7 @@ An operator, not an agency: its claims are its own products, live and clickable 
 - Languages: English (default) and Spanish.
 
 ## Capabilities and Constraints
-- Contact form → Resend → company Gmail. Domain: `maxnovaluci.com` (Cloudflare registrar and DNS, DNS-only records to Vercel; connected 2026-11-02). `www` and the `.vercel.app` URL 301 to the apex.
+- Contact form → Resend → company Gmail. Domain: `maxnovaluci.com` (Cloudflare registrar and DNS, DNS-only records to Vercel; connected 2026-11-02). `www` and the `.vercel.app` URL 308 to the apex (Vercel domain settings).
 - Vercel team is on Pro; commits must still be authored by `maxnovaluciglobal@gmail.com` or deploys are blocked.
 - Public repo: anything committed is published. Never commit account numbers, EIN or tax data.
 - Undecided / pending from Walter: postal address, public phone, usage figures per product, LinkedIn URLs, MOY IQ logo file.

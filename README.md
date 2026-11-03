@@ -43,4 +43,4 @@ Commits must be authored by `maxnovaluciglobal@gmail.com` (set in this repo's lo
 
 ## Domain
 
-Canonical: `https://maxnovaluci.com` (set in `astro.config.mjs`, `src/i18n/content.ts`, `public/robots.txt`, `public/sitemap.xml`, `public/llms.txt`). DNS lives in Cloudflare with DNS-only A records to Vercel (`76.76.21.21`); keep the proxy off. `www` and `maxnova-luci-global.vercel.app` 301 to the apex through `redirects` in `vercel.json`.
+Canonical: `https://maxnovaluci.com` (set in `astro.config.mjs`, `src/i18n/content.ts`, `public/robots.txt`, `public/sitemap.xml`, `public/llms.txt`). DNS lives in Cloudflare with DNS-only A records to Vercel (`76.76.21.21`); keep the proxy off. `www` and `maxnova-luci-global.vercel.app` 301 to the apex through domain-level 308 redirects in Vercel (Project → Settings → Domains). Host rules in `vercel.json` did not fire here; don't move them back.
