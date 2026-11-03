@@ -2,16 +2,11 @@
 import Arrow from '../components/Arrow.astro';
 import ContactForm from '../components/ContactForm.astro';
 import ProductShot from './ProductShot.astro';
-import { products, type Copy } from '../i18n/content';
+import { products, screenCaptions, type Copy } from '../i18n/content';
 
 interface Props { t: Copy }
 const { t } = Astro.props;
 const c = t.productsPage;
-const captions = {
-  dypos: { en: 'Real screen from the public demo, with sample data. Captured November 2, 2026.', es: 'Pantalla real de la demo pública, con datos de ejemplo. Capturada el 2 de noviembre de 2026.' },
-  moyiq: { en: 'Public home page, captured November 3, 2026.', es: 'Página pública de inicio, capturada el 3 de noviembre de 2026.' },
-  esmalia: { en: 'Public home page, captured November 3, 2026.', es: 'Página pública de inicio, capturada el 3 de noviembre de 2026.' },
-};
 ---
 <header class="page-head">
   <div class="container">
@@ -20,13 +15,15 @@ const captions = {
   </div>
 </header>
 
-<div class="container products">
+<div class="container products" data-status data-checking={t.network.checking} data-online={t.network.online} data-offline={t.network.offline}
+  data-nodata={t.network.noData} data-unavailable={t.network.unavailable} data-checked={t.network.checkedAt('{t}')}>
   {products.map((p, i) => (
     <article class="product" id={p.id} aria-labelledby={`${p.id}-name`}>
       <div class="product__text">
         <h2 id={`${p.id}-name`}>{p.name}</h2>
         <p class="product__summary">{p.summary[t.lang]}</p>
         <dl class="facts">
+          <div class="facts__live" data-node={p.id} data-state="unknown"><dt>{c.status}</dt><dd><span class="node__dot" aria-hidden="true"></span><span data-node-label>{t.network.noData}</span> <span class="mono" data-node-ms></span></dd></div>
           <div><dt>{c.sector}</dt><dd>{p.sector[t.lang]}</dd></div>
           <div><dt>{c.market}</dt><dd>{p.market[t.lang]}</dd></div>
           <div><dt>{c.price}</dt><dd>{p.price[t.lang]}</dd></div>
@@ -39,7 +36,7 @@ const captions = {
       </div>
       <figure class="product__media">
         <ProductShot t={t} product={p} sizes="(min-width: 1000px) 760px, 92vw" eager={i === 0} />
-        <figcaption>{captions[p.id][t.lang]}</figcaption>
+        <figcaption>{screenCaptions[p.id][t.lang]}</figcaption>
       </figure>
     </article>
   ))}
@@ -58,3 +55,8 @@ const captions = {
 </div>
 
 <ContactForm t={t} />
+
+<script>
+  import { startStatus } from '../scripts/status';
+  startStatus();
+</script>

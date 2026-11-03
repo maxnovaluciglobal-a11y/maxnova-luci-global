@@ -22,15 +22,16 @@ Corporate site of MAXNOVA & LUCI GLOBAL LLC, a Florida LLC that builds and opera
 An operator, not an agency: its claims are its own products, live and clickable (DypOS, MOY IQ, Esmalia), plus an active Amazon FBA operation. A consultancy without products cannot copy that.
 
 ## Operating Context
-- Portfolio (verified live 2026-10-18): DypOS (restaurant SaaS, https://www.dypos.app, real customers), MOY IQ (personal finance, https://moyiq.app), Esmalia (dental-clinic SaaS for LatAm, https://esmalia.com, live billing), Amazon FBA (Seller Central Professional, active in the US), a healthcare SaaS in development (provisional name: never shown, no logo).
-- Consulting services: AI software and SaaS building; US market entry (LLC, banking, Stripe, platform accounts); Amazon FBA / e-commerce; telecom and sourcing from China. Priced per project after a diagnostic call; no public prices.
+- Products (in production, checked 2026-11-03): DypOS (restaurants, https://www.dypos.app, public demo without login), MOY IQ (personal finance, https://moyiq.app, demo asks for name and email), Esmalia (dental clinics, https://esmalia.com, demo asks for name and email). DypOS and Esmalia have no paying customers yet: never claim traction. Also in the company: an Amazon Seller Central account (open, no sales yet) and a medical-practice product in development (provisional name: never shown, no logo).
+- Services (decided by Walter 2026-11-03): AI software and SaaS; US market entry support. Telecom, China sourcing and Amazon are no longer offered. US market entry is operating experience only: never prepare formation documents or give legal or tax advice (Florida unauthorized-practice risk; a Florida attorney should review that page). Priced per project after a diagnostic call.
 - Languages: English (default) and Spanish.
 
 ## Capabilities and Constraints
 - Contact form → Resend → company Gmail. Domain: `maxnovaluci.com` (Cloudflare registrar and DNS, DNS-only records to Vercel; connected 2026-11-02). `www` and the `.vercel.app` URL 308 to the apex (Vercel domain settings).
 - Vercel team is on Pro; commits must still be authored by `maxnovaluciglobal@gmail.com` or deploys are blocked.
 - Public repo: anything committed is published. Never commit account numbers, EIN or tax data.
-- Undecided / pending from Walter: postal address, public phone, usage figures per product, LinkedIn URLs, MOY IQ logo file.
+- Public registry: Florida document number L26000222229, filed 2026-04-20, effective 2026-04-21 (Sunbiz). Sunbiz lists two managers: never write 'sole owner' or 'sole founder'.
+- Undecided / pending from Walter: publishing the Doral address, public phone, usage figures, a founder portrait, LinkedIn (his profile reveals his employer: never link it or use it in sameAs).
 
 ## Brand Commitments
 - Legal name exactly "MAXNOVA & LUCI GLOBAL LLC" (Sunbiz capitalisation); brand name "Maxnova & Luci Global".
@@ -40,7 +41,7 @@ An operator, not an agency: its claims are its own products, live and clickable 
 ## Evidence on Hand
 - Live product sites (screenshots of their public landing pages may be used).
 - Logos: DypOS `01 - DypOS/04 - Marca y Diseno/logo/`, Esmalia `04 - Esmalia/04 - Marca y Diseno/guia-logo-2026-10-09/`.
-- Founder: Walter La Madriz, telecommunications engineer, 15 years in telecom (engineering, product, B2B carrier sales) in Venezuela and Chile. Photo `02 - Marca Personal/04 - Imagen/2026-06-28-foto-perfil.png`. His current employer is **not** named on this site (personal brand and company are kept separate).
+- Founder: Walter La Madriz, telecommunications engineer, 15 years in telecom (engineering, product, B2B carrier sales) in Venezuela and Chile. No usable portrait yet: `2026-06-28-foto-perfil.png` is the gold logo, and the event photos could reveal the employer. His current employer is **not** named on this site (personal brand and company are kept separate).
 - **Absent, never fabricate:** client testimonials, case-study figures, customer counts, revenue, press.
 
 ## Product Principles

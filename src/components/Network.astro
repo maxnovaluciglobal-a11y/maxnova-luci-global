@@ -26,7 +26,7 @@ const trace = (i: number) => {
   return `M0 ${mid}H${x - r}Q${x} ${mid} ${x} ${mid + dir * r}V${y - dir * r}Q${x} ${y} ${x + r} ${y}H120`;
 };
 ---
-<section class="net" aria-labelledby="net-title" data-network
+<section class="net" aria-labelledby="net-title" data-status
   data-checking={n.checking} data-online={n.online} data-offline={n.offline} data-nodata={n.noData}
   data-unavailable={n.unavailable} data-checked={n.checkedAt('{t}')}>
   <header class="net__head">
@@ -37,7 +37,7 @@ const trace = (i: number) => {
     <div class="net__core">
       <img src="/logo-mark.svg" alt="" width="44" height="38" class="net__mark" />
       <p class="net__legal">{LEGAL_NAME}</p>
-      <p class="net__doc">{n.core}<br />{DOC_NUMBER}</p>
+      <p class="net__doc"><span>{n.core}</span><br /><span class="mono">{DOC_NUMBER}</span></p>
     </div>
     <svg class="net__traces" viewBox={`0 0 120 ${H}`} preserveAspectRatio="none" aria-hidden="true">
       {products.map((p, i) => (
@@ -51,6 +51,7 @@ const trace = (i: number) => {
     <ul class="net__nodes">
       {products.map((p) => (
         <li class="node" data-node={p.id} data-state="unknown">
+          <span class="node__pulse" aria-hidden="true"></span>
           <a href={`${routes.products[t.lang]}#${p.id}`}>
             <img src={logos[p.id].src} alt="" width="28" height="28" class="node__logo" />
             <span class="node__name">{p.name}<span class="node__sector">{p.sector[t.lang]}</span></span>
@@ -61,6 +62,7 @@ const trace = (i: number) => {
       ))}
       {n.others.map((o) => (
         <li class="node node--idle">
+          <span class="node__stub" aria-hidden="true"></span>
           <div>
             <span class="node__logo node__logo--idle" aria-hidden="true"></span>
             <span class="node__name">{o.name}<span class="node__sector">{o.state}</span></span>
@@ -75,59 +77,6 @@ const trace = (i: number) => {
 </section>
 
 <script>
-  // Polls the status endpoint while the map is visible. Pulse travel time follows the measured latency.
-  const root = document.querySelector<HTMLElement>('[data-network]');
-  if (root) {
-    const time = root.querySelector<HTMLElement>('[data-net-time]')!;
-    const d = root.dataset;
-    const POLL = 60_000;
-    let timer: number | undefined;
-
-    const render = (data: { checkedAt: string; nodes: { id: string; ok: boolean; ms: number | null }[] }) => {
-      const hhmm = new Date(data.checkedAt).toISOString().slice(11, 19);
-      time.textContent = d.checked!.replace('{t}', hhmm);
-      for (const node of data.nodes) {
-        const el = root.querySelector<HTMLElement>(`[data-node="${node.id}"]`);
-        if (!el) continue;
-        el.dataset.state = node.ok ? 'online' : 'offline';
-        el.querySelector('[data-node-label]')!.textContent = node.ok ? d.online! : d.offline!;
-        el.querySelector('[data-node-ms]')!.textContent = node.ok && node.ms != null ? `${node.ms} ms` : '';
-        const pulse = root.querySelector<SVGPathElement>(`[data-trace="${node.id}"] .trace--pulse`);
-        if (pulse && node.ok && node.ms != null) {
-          pulse.style.setProperty('--travel', `${Math.min(2400, 500 + node.ms)}ms`);
-          pulse.classList.remove('is-running');
-          void pulse.getBoundingClientRect();
-          pulse.classList.add('is-running');
-        }
-      }
-    };
-
-    const check = async () => {
-      try {
-        const res = await fetch('/api/status', { headers: { Accept: 'application/json' } });
-        if (!res.ok) throw new Error(String(res.status));
-        render(await res.json());
-      } catch {
-        time.textContent = d.unavailable!;
-        root.querySelectorAll<HTMLElement>('[data-node]').forEach((el) => {
-          el.dataset.state = 'unknown';
-          el.querySelector('[data-node-label]')!.textContent = d.nodata!;
-          el.querySelector('[data-node-ms]')!.textContent = '';
-        });
-      }
-    };
-
-    const schedule = () => {
-      clearInterval(timer);
-      if (!document.hidden) timer = window.setInterval(check, POLL);
-    };
-
-    time.textContent = d.checking!;
-    check();
-    schedule();
-    document.addEventListener('visibilitychange', () => {
-      if (!document.hidden) check();
-      schedule();
-    });
-  }
+  import { startStatus } from '../scripts/status';
+  startStatus();
 </script>

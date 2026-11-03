@@ -4,7 +4,7 @@ import Network from '../components/Network.astro';
 import ContactForm from '../components/ContactForm.astro';
 import LogTable from '../components/LogTable.astro';
 import ProductShot from './ProductShot.astro';
-import { products, log, routes, LEGAL_NAME, DOC_NUMBER, SUNBIZ_URL, formatDate, FILED_ISO, type Copy } from '../i18n/content';
+import { products, log, routes, screenCaptions, LEGAL_NAME, DOC_NUMBER, SUNBIZ_URL, formatDate, FILED_ISO, type Copy } from '../i18n/content';
 
 interface Props { t: Copy }
 const { t } = Astro.props;
@@ -44,7 +44,10 @@ const company = t.companyPage;
     <div class="rack">
       {products.map((p, i) => (
         <article class={`rack__unit rack__unit--${i}`} aria-labelledby={`unit-${p.id}`}>
-          <a class="rack__shot" href={`${routes.products[t.lang]}#${p.id}`} tabindex="-1" aria-hidden="true"><ProductShot t={t} product={p} sizes={i === 0 ? '(min-width: 900px) 1280px, 92vw' : '(min-width: 900px) 640px, 92vw'} /></a>
+          <figure class="rack__fig">
+            <a class="rack__shot" href={`${routes.products[t.lang]}#${p.id}`} tabindex="-1" aria-hidden="true"><ProductShot t={t} product={p} sizes={i === 0 ? '(min-width: 900px) 860px, 92vw' : '(min-width: 900px) 640px, 92vw'} /></a>
+            <figcaption>{screenCaptions[p.id][t.lang]}</figcaption>
+          </figure>
           <div class="rack__meta">
             <h3 id={`unit-${p.id}`}>{p.name}</h3>
             <p>{p.summary[t.lang]}</p>

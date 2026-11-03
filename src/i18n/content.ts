@@ -135,6 +135,13 @@ export const products: Product[] = [
   },
 ];
 
+/** Honest caption for each product screen: what it is and when it was captured. */
+export const screenCaptions: Record<ProductId, Record<Lang, string>> = {
+  dypos: { en: 'Real screen from the public demo, with sample data. Captured November 2, 2026.', es: 'Pantalla real de la demo pública, con datos de ejemplo. Capturada el 2 de noviembre de 2026.' },
+  moyiq: { en: 'Public home page, captured November 3, 2026. The demo asks for a name and email.', es: 'Página pública de inicio, capturada el 3 de noviembre de 2026. La demo pide nombre y email.' },
+  esmalia: { en: 'Public home page, captured November 3, 2026. The demo asks for a name and email.', es: 'Página pública de inicio, capturada el 3 de noviembre de 2026. La demo pide nombre y email.' },
+};
+
 export interface LogEntry {
   date: string;
   scope: 'DypOS' | 'MOY IQ' | 'Esmalia' | 'Company';
@@ -326,6 +333,7 @@ const en = {
   productsPage: {
     h1: 'Products',
     lead: 'Each product belongs to the same Florida LLC. Each one is in production, with public prices and a demo.',
+    status: 'Status now',
     sector: 'Sector',
     market: 'Market',
     price: 'Price',
@@ -595,6 +603,7 @@ const es: Copy = {
   productsPage: {
     h1: 'Productos',
     lead: 'Cada producto pertenece a la misma LLC de Florida. Todos están en producción, con precios públicos y una demo.',
+    status: 'Estado ahora',
     sector: 'Sector',
     market: 'Mercado',
     price: 'Precio',
