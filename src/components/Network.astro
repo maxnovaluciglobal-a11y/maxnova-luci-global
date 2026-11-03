@@ -1,0 +1,133 @@
+---
+// The live network map: the company at the core, one trace per product.
+// A node turns green only after /api/status measured an answer. Without JS it stays neutral.
+import { products, routes, DOC_NUMBER, LEGAL_NAME, type Copy } from '../i18n/content';
+import Arrow from './Arrow.astro';
+import dyposLogo from '../assets/logos/dypos.svg';
+import moyiqLogo from '../assets/logos/moyiq.svg';
+import esmaliaLogo from '../assets/logos/esmalia.svg';
+
+interface Props { t: Copy }
+const { t } = Astro.props;
+const logos = { dypos: dyposLogo, moyiq: moyiqLogo, esmalia: esmaliaLogo };
+const n = t.network;
+
+// One orthogonal trace per row, from the core at mid-height to the row's centre.
+const rows = products.length + n.others.length;
+const H = 500;
+const rowY = (i: number) => (H / rows) * (i + 0.5);
+const trace = (i: number) => {
+  const y = rowY(i);
+  const mid = H / 2;
+  const x = 36 + (Math.abs(y - mid) / H) * 14;
+  if (Math.abs(y - mid) < 1) return `M0 ${mid}H120`;
+  const r = 10;
+  const dir = y > mid ? 1 : -1;
+  return `M0 ${mid}H${x - r}Q${x} ${mid} ${x} ${mid + dir * r}V${y - dir * r}Q${x} ${y} ${x + r} ${y}H120`;
+};
+---
+<section class="net" aria-labelledby="net-title" data-network
+  data-checking={n.checking} data-online={n.online} data-offline={n.offline} data-nodata={n.noData}
+  data-unavailable={n.unavailable} data-checked={n.checkedAt('{t}')}>
+  <header class="net__head">
+    <h2 id="net-title" class="net__title">{n.title}</h2>
+    <p class="net__time" data-net-time>{n.noScript}</p>
+  </header>
+  <div class="net__body">
+    <div class="net__core">
+      <img src="/logo-mark.svg" alt="" width="44" height="38" class="net__mark" />
+      <p class="net__legal">{LEGAL_NAME}</p>
+      <p class="net__doc">{n.core}<br />{DOC_NUMBER}</p>
+    </div>
+    <svg class="net__traces" viewBox={`0 0 120 ${H}`} preserveAspectRatio="none" aria-hidden="true">
+      {products.map((p, i) => (
+        <g data-trace={p.id}>
+          <path class="trace" d={trace(i)} pathLength="100" />
+          <path class="trace trace--pulse" d={trace(i)} pathLength="100" />
+        </g>
+      ))}
+      {n.others.map((_, i) => <path class="trace trace--idle" d={trace(products.length + i)} />)}
+    </svg>
+    <ul class="net__nodes">
+      {products.map((p) => (
+        <li class="node" data-node={p.id} data-state="unknown">
+          <a href={`${routes.products[t.lang]}#${p.id}`}>
+            <img src={logos[p.id].src} alt="" width="28" height="28" class="node__logo" />
+            <span class="node__name">{p.name}<span class="node__sector">{p.sector[t.lang]}</span></span>
+            <span class="node__state"><span class="node__dot" aria-hidden="true"></span><span data-node-label>{n.noData}</span></span>
+            <span class="node__ms" data-node-ms></span>
+          </a>
+        </li>
+      ))}
+      {n.others.map((o) => (
+        <li class="node node--idle">
+          <div>
+            <span class="node__logo node__logo--idle" aria-hidden="true"></span>
+            <span class="node__name">{o.name}<span class="node__sector">{o.state}</span></span>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+  <footer class="net__foot">
+    <p>{n.method}</p>
+  </footer>
+</section>
+
+<script>
+  // Polls the status endpoint while the map is visible. Pulse travel time follows the measured latency.
+  const root = document.querySelector<HTMLElement>('[data-network]');
+  if (root) {
+    const time = root.querySelector<HTMLElement>('[data-net-time]')!;
+    const d = root.dataset;
+    const POLL = 60_000;
+    let timer: number | undefined;
+
+    const render = (data: { checkedAt: string; nodes: { id: string; ok: boolean; ms: number | null }[] }) => {
+      const hhmm = new Date(data.checkedAt).toISOString().slice(11, 19);
+      time.textContent = d.checked!.replace('{t}', hhmm);
+      for (const node of data.nodes) {
+        const el = root.querySelector<HTMLElement>(`[data-node="${node.id}"]`);
+        if (!el) continue;
+        el.dataset.state = node.ok ? 'online' : 'offline';
+        el.querySelector('[data-node-label]')!.textContent = node.ok ? d.online! : d.offline!;
+        el.querySelector('[data-node-ms]')!.textContent = node.ok && node.ms != null ? `${node.ms} ms` : '';
+        const pulse = root.querySelector<SVGPathElement>(`[data-trace="${node.id}"] .trace--pulse`);
+        if (pulse && node.ok && node.ms != null) {
+          pulse.style.setProperty('--travel', `${Math.min(2400, 500 + node.ms)}ms`);
+          pulse.classList.remove('is-running');
+          void pulse.getBoundingClientRect();
+          pulse.classList.add('is-running');
+        }
+      }
+    };
+
+    const check = async () => {
+      try {
+        const res = await fetch('/api/status', { headers: { Accept: 'application/json' } });
+        if (!res.ok) throw new Error(String(res.status));
+        render(await res.json());
+      } catch {
+        time.textContent = d.unavailable!;
+        root.querySelectorAll<HTMLElement>('[data-node]').forEach((el) => {
+          el.dataset.state = 'unknown';
+          el.querySelector('[data-node-label]')!.textContent = d.nodata!;
+          el.querySelector('[data-node-ms]')!.textContent = '';
+        });
+      }
+    };
+
+    const schedule = () => {
+      clearInterval(timer);
+      if (!document.hidden) timer = window.setInterval(check, POLL);
+    };
+
+    time.textContent = d.checking!;
+    check();
+    schedule();
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) check();
+      schedule();
+    });
+  }
+</script>

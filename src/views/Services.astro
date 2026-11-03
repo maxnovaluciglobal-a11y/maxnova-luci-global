@@ -1,0 +1,56 @@
+---
+import Arrow from '../components/Arrow.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Faq from '../components/Faq.astro';
+import type { Copy } from '../i18n/content';
+
+interface Props { t: Copy }
+const { t } = Astro.props;
+const c = t.servicesPage;
+---
+<header class="page-head">
+  <div class="container">
+    <h1>{c.h1}</h1>
+    <p>{c.lead}</p>
+    <a class="btn btn--ink" href="#contact">{c.cta}<Arrow /></a>
+  </div>
+</header>
+
+<div class="container services">
+  {c.items.map((s) => (
+    <article class="service" id={s.id} aria-labelledby={`${s.id}-title`}>
+      <div class="service__head">
+        <h2 id={`${s.id}-title`}>{s.title}</h2>
+        <p>{s.who}</p>
+      </div>
+      <div class="service__col">
+        <h3>{c.doesTitle}</h3>
+        <ul>{s.does.map((d) => <li>{d}</li>)}</ul>
+      </div>
+      <div class="service__col">
+        <h3>{c.proofTitle}</h3>
+        <p>{s.proof}</p>
+        <h3>{s.limitsTitle}</h3>
+        <ul>{s.limits.map((d) => <li>{d}</li>)}</ul>
+      </div>
+    </article>
+  ))}
+</div>
+
+<section class="section section--ink" aria-labelledby="process-title">
+  <div class="container">
+    <h2 id="process-title">{c.processH2}</h2>
+    <ol class="steps">
+      {c.steps.map((s) => <li><strong>{s.title}</strong><p>{s.text}</p></li>)}
+    </ol>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="faq-title">
+  <div class="container split">
+    <h2 id="faq-title">{c.faqH2}</h2>
+    <Faq items={c.faq} />
+  </div>
+</section>
+
+<ContactForm t={t} />

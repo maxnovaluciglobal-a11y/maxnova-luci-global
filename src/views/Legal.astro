@@ -1,0 +1,20 @@
+---
+import { formatDate, lastmod, type Copy } from '../i18n/content';
+interface Props { t: Copy; doc: 'privacy' | 'terms' }
+const { t, doc } = Astro.props;
+const c = t.legal[doc];
+---
+<header class="page-head">
+  <div class="container">
+    <h1>{c.h1}</h1>
+    <p>{t.legal.updated}: <time datetime={lastmod[doc]}>{formatDate(lastmod[doc], t.lang, t.dateFmt)}</time></p>
+  </div>
+</header>
+<div class="container prose">
+  {c.sections.map((s) => (
+    <section>
+      <h2>{s.h}</h2>
+      {s.p.map((p) => <p>{p}</p>)}
+    </section>
+  ))}
+</div>

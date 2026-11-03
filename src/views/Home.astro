@@ -1,0 +1,89 @@
+---
+import Arrow from '../components/Arrow.astro';
+import Network from '../components/Network.astro';
+import ContactForm from '../components/ContactForm.astro';
+import LogTable from '../components/LogTable.astro';
+import ProductShot from './ProductShot.astro';
+import { products, log, routes, LEGAL_NAME, DOC_NUMBER, SUNBIZ_URL, formatDate, FILED_ISO, type Copy } from '../i18n/content';
+
+interface Props { t: Copy }
+const { t } = Astro.props;
+const company = t.companyPage;
+---
+<section class="hero">
+  <div class="container hero__grid">
+    <div class="hero__text">
+      <h1>{t.home.h1}</h1>
+      <p class="hero__lead">{t.home.lead}</p>
+      <div class="hero__actions">
+        <a class="btn btn--ink" href={routes.products[t.lang]}>{t.home.primary}<Arrow /></a>
+        <a class="btn btn--line" href={routes.services[t.lang]}>{t.home.secondary}</a>
+      </div>
+    </div>
+    <Network t={t} />
+  </div>
+</section>
+
+<section class="registry" aria-label={t.home.registryTitle}>
+  <div class="container">
+    <dl class="registry__row">
+      <div><dt>{company.facts[0].k}</dt><dd>{LEGAL_NAME}</dd></div>
+      <div><dt>{company.facts[2].k}</dt><dd class="mono">{DOC_NUMBER}</dd></div>
+      <div><dt>{company.facts[3].k}</dt><dd>{formatDate(FILED_ISO, t.lang, t.dateFmt)}</dd></div>
+      <div><dt>{t.home.registryTitle}</dt><dd><a href={SUNBIZ_URL} rel="noopener" target="_blank">Florida Sunbiz<Arrow out /></a></dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="products-title">
+  <div class="container">
+    <div class="head">
+      <h2 id="products-title">{t.home.productsH2}</h2>
+      <p>{t.home.productsIntro}</p>
+    </div>
+    <div class="rack">
+      {products.map((p, i) => (
+        <article class={`rack__unit rack__unit--${i}`} aria-labelledby={`unit-${p.id}`}>
+          <a class="rack__shot" href={`${routes.products[t.lang]}#${p.id}`} tabindex="-1" aria-hidden="true"><ProductShot t={t} product={p} sizes={i === 0 ? '(min-width: 900px) 1280px, 92vw' : '(min-width: 900px) 640px, 92vw'} /></a>
+          <div class="rack__meta">
+            <h3 id={`unit-${p.id}`}>{p.name}</h3>
+            <p>{p.summary[t.lang]}</p>
+            <a class="link" href={p.demo} rel="noopener" target="_blank">{t.productsPage.openDemo}<Arrow out /></a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section section--ink" aria-labelledby="doors-title">
+  <div class="container">
+    <h2 id="doors-title">{t.home.doorsH2}</h2>
+    <div class="doors">
+      {t.home.doors.map((d) => (
+        <a class="door" href={routes[d.page][t.lang]}>
+          <h3>{d.title}</h3>
+          <p>{d.text}</p>
+          <span class="door__link">{d.link}<Arrow /></span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="note-title">
+  <div class="container split">
+    <article class="note">
+      <h2 id="note-title">{company.founderH2}</h2>
+      {company.founder.map((p) => <p>{p}</p>)}
+      <p class="note__sign"><strong>{company.founderName}</strong><span>{company.founderRole}, {LEGAL_NAME}</span></p>
+    </article>
+    <div>
+      <h2>{t.home.logH2}</h2>
+      <LogTable t={t} entries={log.slice(0, 4)} />
+      <a class="link" href={routes.log[t.lang]}>{t.home.logLink}<Arrow /></a>
+    </div>
+  </div>
+</section>
+
+<ContactForm t={t} />

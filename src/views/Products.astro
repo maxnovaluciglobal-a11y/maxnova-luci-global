@@ -1,0 +1,60 @@
+---
+import Arrow from '../components/Arrow.astro';
+import ContactForm from '../components/ContactForm.astro';
+import ProductShot from './ProductShot.astro';
+import { products, type Copy } from '../i18n/content';
+
+interface Props { t: Copy }
+const { t } = Astro.props;
+const c = t.productsPage;
+const captions = {
+  dypos: { en: 'Real screen from the public demo, with sample data. Captured November 2, 2026.', es: 'Pantalla real de la demo pública, con datos de ejemplo. Capturada el 2 de noviembre de 2026.' },
+  moyiq: { en: 'Public home page, captured November 3, 2026.', es: 'Página pública de inicio, capturada el 3 de noviembre de 2026.' },
+  esmalia: { en: 'Public home page, captured November 3, 2026.', es: 'Página pública de inicio, capturada el 3 de noviembre de 2026.' },
+};
+---
+<header class="page-head">
+  <div class="container">
+    <h1>{c.h1}</h1>
+    <p>{c.lead}</p>
+  </div>
+</header>
+
+<div class="container products">
+  {products.map((p, i) => (
+    <article class="product" id={p.id} aria-labelledby={`${p.id}-name`}>
+      <div class="product__text">
+        <h2 id={`${p.id}-name`}>{p.name}</h2>
+        <p class="product__summary">{p.summary[t.lang]}</p>
+        <dl class="facts">
+          <div><dt>{c.sector}</dt><dd>{p.sector[t.lang]}</dd></div>
+          <div><dt>{c.market}</dt><dd>{p.market[t.lang]}</dd></div>
+          <div><dt>{c.price}</dt><dd>{p.price[t.lang]}</dd></div>
+          <div><dt>{c.notYet}</dt><dd>{p.notYet[t.lang]}</dd></div>
+        </dl>
+        <div class="product__actions">
+          <a class="btn btn--ink" href={p.demo} rel="noopener" target="_blank">{c.openDemo}<Arrow out /></a>
+          <a class="link" href={p.url} rel="noopener" target="_blank">{c.openSite} {p.urlLabel}<Arrow out /></a>
+        </div>
+      </div>
+      <figure class="product__media">
+        <ProductShot t={t} product={p} sizes="(min-width: 1000px) 760px, 92vw" eager={i === 0} />
+        <figcaption>{captions[p.id][t.lang]}</figcaption>
+      </figure>
+    </article>
+  ))}
+
+  <section class="other" aria-labelledby="other-title">
+    <h2 id="other-title">{c.otherH2}</h2>
+    <dl>
+      {c.other.map((o) => <div><dt>{o.title}</dt><dd>{o.text}</dd></div>)}
+    </dl>
+  </section>
+
+  <section class="early" aria-labelledby="early-title">
+    <h2 id="early-title">{c.earlyH2}</h2>
+    <p>{c.early}</p>
+  </section>
+</div>
+
+<ContactForm t={t} />

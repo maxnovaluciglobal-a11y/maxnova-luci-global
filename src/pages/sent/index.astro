@@ -1,22 +1,14 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Arrow from '../../components/Arrow.astro';
-import { copy } from '../../i18n/content';
+import { copy, routes } from '../../i18n/content';
 const t = copy.en;
 ---
 <Base t={t} title={`${t.contact.h2} · Maxnova & Luci Global`} noindex>
-  <main class="hero sent" id="main">
-    <div class="container nav__inner">
-      <a class="brand" href={t.path}><img src="/logo-mark.svg" alt="" width="30" height="26" class="brand__mark" /><span class="brand__name">Maxnova &amp; Luci Global</span></a>
-    </div>
-    <div class="container sent__body">
+  <header class="page-head">
+    <div class="container">
       <h1>{t.contact.sent}</h1>
-      <a class="btn btn--primary btn--lg" href={t.path}>{t.notFound.back}<Arrow /></a>
+      <a class="btn btn--ink" href={routes.home[t.lang]}>{t.notFound.back}<Arrow /></a>
     </div>
-  </main>
+  </header>
 </Base>
-<style>
-  .sent { min-height: 100svh; }
-  .sent__body { align-self: center; display: grid; gap: 2.5rem; justify-items: start; padding-block: var(--section); }
-  .sent h1 { font-size: clamp(2rem, 1.3rem + 2.6vw, 3.25rem); max-width: 22ch; }
-</style>
