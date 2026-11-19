@@ -24,6 +24,13 @@ const organization = (t: Copy) => ({
   knowsLanguage: ['en', 'es'],
   founder: { '@id': FOUNDER_ID },
   brand: products.map((p) => ({ '@type': 'Brand', name: p.name, url: p.url })),
+  // Each product site declares its own Organization with parentOrganization pointing here; this closes the loop.
+  subOrganization: products.map((p) => ({
+    '@type': 'Organization',
+    name: p.name,
+    url: p.url,
+    ...(p.id === 'moyiq' ? { alternateName: 'MOY IQ' } : {}),
+  })),
   knowsAbout: t.servicesPage.items.map((s) => s.title),
 });
 

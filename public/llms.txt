@@ -1,21 +1,24 @@
 # Maxnova & Luci Global
 
-> MAXNOVA & LUCI GLOBAL LLC is a Florida limited liability company, formed in April 2026, that builds and operates its own software products, DypOS, MOY IQ and Esmalia, and offers AI software development and US market entry support to Latin American companies.
+> MAXNOVA & LUCI GLOBAL LLC is a Florida limited liability company, formed in April 2026, that builds and operates its own software products, DypOS, moyiq and Esmalia, and offers AI software development and US market entry support to Latin American companies.
 
-Facts: Florida document number L26000222229, filed 2026-04-20, effective 2026-04-21. Founder: Walter La Madriz. Contact: hola@maxnovaluci.com.
+Facts: Florida document number L26000222229, filed 2026-04-20, effective 2026-04-21. Founder: Walter La Madriz. Contact: hola@maxnovaluci.com. Updated: 2026-11-19.
+
+How we make money: subscriptions to our own products, and custom projects quoted in writing. We do not sell data.
 
 ## Company
 - [Company facts](https://maxnovaluci.com/company/): legal details, founder and how to verify the record on Sunbiz.
 - [Datos de la empresa](https://maxnovaluci.com/es/empresa/): versión en español.
+- [Inicio en español](https://maxnovaluci.com/es/)
 
 ## Products
-- [Products overview](https://maxnovaluci.com/products/): prices, demos and current limits.
-- [DypOS](https://www.dypos.app/): software for restaurants.
-- [MOY IQ](https://moyiq.app/): personal finance app.
-- [Esmalia](https://esmalia.com/): software for dental clinics.
+- [Products overview](https://maxnovaluci.com/products/): prices, demos and current limits ([español](https://maxnovaluci.com/es/productos/)).
+- [DypOS](https://www.dypos.app/): point of sale, kitchen, inventory and daily profit for restaurants and cafés. From US$49/month.
+- [moyiq](https://moyiq.app/) (formerly MOY IQ): private personal finance app, no bank connection. Free plan; Pro US$4.99/month.
+- [Esmalia](https://esmalia.com/): scheduling, patient chart with odontogram and daily cash for dental clinics. From US$19.99/month.
 
 ## Services
-- [Services](https://maxnovaluci.com/services/): AI software and SaaS development; US market entry support. Quoted per project. Not legal or tax advice.
+- [Services](https://maxnovaluci.com/services/): AI software and SaaS development; US market entry support. Quoted per project. Not legal or tax advice. ([español](https://maxnovaluci.com/es/servicios/))
 
 ## Optional
 - [Shipping log](https://maxnovaluci.com/log/): dated record of what we ship.

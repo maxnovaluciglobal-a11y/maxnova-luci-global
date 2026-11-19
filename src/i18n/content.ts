@@ -28,11 +28,11 @@ export const routes: Record<PageKey, Record<Lang, string>> = {
 
 /** Date of the last real content change per page. Used by the sitemap: update it when the page changes. */
 export const lastmod: Record<PageKey, string> = {
-  home: '2026-11-03',
-  products: '2026-11-03',
+  home: '2026-11-19',
+  products: '2026-11-19',
   services: '2026-11-03',
   company: '2026-11-03',
-  log: '2026-11-03',
+  log: '2026-11-19',
   privacy: '2026-11-03',
   terms: '2026-11-03',
 };
@@ -86,7 +86,7 @@ export const products: Product[] = [
   },
   {
     id: 'moyiq',
-    name: 'MOY IQ',
+    name: 'moyiq',
     url: 'https://moyiq.app',
     urlLabel: 'moyiq.app',
     demo: 'https://demo.moyiq.app/app/?demo=true',
@@ -138,19 +138,59 @@ export const products: Product[] = [
 
 /** Honest caption for each product screen: what it is and when it was captured. */
 export const screenCaptions: Record<ProductId, Record<Lang, string>> = {
-  dypos: { en: 'Real screen from the public demo, with sample data. Captured November 2, 2026.', es: 'Pantalla real de la demo pública, con datos de ejemplo. Capturada el 2 de noviembre de 2026.' },
-  moyiq: { en: 'Public home page, captured November 3, 2026. The demo asks for a name and email.', es: 'Página pública de inicio, capturada el 3 de noviembre de 2026. La demo pide nombre y email.' },
-  esmalia: { en: 'Public home page, captured November 3, 2026. The demo asks for a name and email.', es: 'Página pública de inicio, capturada el 3 de noviembre de 2026. La demo pide nombre y email.' },
+  dypos: { en: 'Public home page, captured November 19, 2026. The demo asks for a name, WhatsApp and email.', es: 'Página pública de inicio, capturada el 19 de noviembre de 2026. La demo pide nombre, WhatsApp y email.' },
+  moyiq: { en: 'Public home page, captured November 19, 2026. The demo opens with sample data.', es: 'Página pública de inicio, capturada el 19 de noviembre de 2026. La demo abre con datos de ejemplo.' },
+  esmalia: { en: 'Public home page, captured November 19, 2026. The demo asks for a name and email.', es: 'Página pública de inicio, capturada el 19 de noviembre de 2026. La demo pide nombre y email.' },
 };
 
 export interface LogEntry {
   date: string;
-  scope: 'DypOS' | 'MOY IQ' | 'Esmalia' | 'Company';
+  scope: 'DypOS' | 'moyiq' | 'Esmalia' | 'Company';
   text: Record<Lang, string>;
 }
 
 // Dated, public-safe facts only. Newest first. Never add customer names, security details or revenue.
 export const log: LogEntry[] = [
+  {
+    date: '2026-11-19',
+    scope: 'DypOS',
+    text: {
+      en: 'Book a 15-minute demo with the team, or explore the demo alone after confirming your email.',
+      es: 'Agenda una demo de 15 minutos con el equipo, o recorre la demo por tu cuenta tras confirmar tu correo.',
+    },
+  },
+  {
+    date: '2026-11-19',
+    scope: 'Esmalia',
+    text: {
+      en: 'Public changelog page, read from the same list the app shows.',
+      es: 'Página pública de novedades, leída de la misma lista que muestra la app.',
+    },
+  },
+  {
+    date: '2026-11-18',
+    scope: 'moyiq',
+    text: {
+      en: 'MOY IQ becomes moyiq: new identity across the site, emails and the app.',
+      es: 'MOY IQ pasa a llamarse moyiq: identidad nueva en la web, los correos y la app.',
+    },
+  },
+  {
+    date: '2026-11-16',
+    scope: 'DypOS',
+    text: {
+      en: 'New brand in production: one vivid orange, new logo and typography in the app and the site.',
+      es: 'Marca nueva en producción: un solo naranja vivo, logo y tipografía nuevos en la app y la web.',
+    },
+  },
+  {
+    date: '2026-11-16',
+    scope: 'Esmalia',
+    text: {
+      en: 'New logo: the m drawn as a molar, on the existing lettering.',
+      es: 'Logo nuevo: la m dibujada como una muela, sobre la letra de siempre.',
+    },
+  },
   {
     date: '2026-11-03',
     scope: 'DypOS',
@@ -177,7 +217,7 @@ export const log: LogEntry[] = [
   },
   {
     date: '2026-10-31',
-    scope: 'MOY IQ',
+    scope: 'moyiq',
     text: {
       en: 'One-task expense entry with recent categories, tested on a real iPhone.',
       es: 'Registro de gastos en una sola tarea, con categorías recientes, probado en un iPhone real.',
@@ -185,7 +225,7 @@ export const log: LogEntry[] = [
   },
   {
     date: '2026-10-30',
-    scope: 'MOY IQ',
+    scope: 'moyiq',
     text: {
       en: 'Calendar of movements and due dates, a budget assistant and tracking of money people owe you.',
       es: 'Calendario de movimientos y vencimientos, asistente de presupuesto y seguimiento de lo que te deben.',
@@ -225,7 +265,7 @@ export const log: LogEntry[] = [
   },
   {
     date: '2026-10-08',
-    scope: 'MOY IQ',
+    scope: 'moyiq',
     text: {
       en: 'App available in English, Portuguese and German, with recurring movements.',
       es: 'App disponible en inglés, portugués y alemán, con movimientos fijos.',
@@ -261,10 +301,10 @@ const en = {
   meta: {
     home: {
       title: 'Maxnova & Luci Global | Florida software company',
-      description: 'Florida LLC that builds and runs its own software: DypOS, MOY IQ and Esmalia. We also build AI software and support Latin American firms entering the US.',
+      description: 'Florida LLC that builds and runs its own software: DypOS, moyiq and Esmalia. We also build AI software and support Latin American firms entering the US.',
     },
     products: {
-      title: 'DypOS, MOY IQ and Esmalia | Maxnova & Luci Global',
+      title: 'DypOS, moyiq and Esmalia | Maxnova & Luci Global',
       description: 'Three software products in production from one Florida LLC: restaurants, personal finance and dental clinics. Prices, demos and current limits.',
     },
     services: {
@@ -277,7 +317,7 @@ const en = {
     },
     log: {
       title: 'Shipping log | Maxnova & Luci Global',
-      description: 'A dated record of what we ship across DypOS, MOY IQ, Esmalia and the company.',
+      description: 'A dated record of what we ship across DypOS, moyiq, Esmalia and the company.',
     },
     privacy: {
       title: 'Privacy policy | Maxnova & Luci Global',
@@ -285,7 +325,7 @@ const en = {
     },
     terms: {
       title: 'Terms of use | Maxnova & Luci Global',
-      description: 'Terms for using the website of MAXNOVA & LUCI GLOBAL LLC.',
+      description: 'Terms for using maxnovaluci.com, the website of MAXNOVA & LUCI GLOBAL LLC, a Florida company.',
     },
   },
   home: {
@@ -365,7 +405,7 @@ const en = {
           'Add AI where it does a real job, not as decoration',
           'Hand over the code, the documentation and the accounts',
         ],
-        proof: 'DypOS, MOY IQ and Esmalia run on this process.',
+        proof: 'DypOS, moyiq and Esmalia run on this process.',
         limitsTitle: 'What we do not do',
         limits: ['Work without a written scope and price', 'Promise results we cannot measure'],
       },
@@ -404,7 +444,7 @@ const en = {
   },
   companyPage: {
     h1: 'The company',
-    lead: `${LEGAL_NAME} (Maxnova & Luci Global) is a Florida limited liability company, formed in April 2026, that builds and operates its own software products, DypOS, MOY IQ and Esmalia, and offers AI software development and US market entry support to Latin American companies.`,
+    lead: `${LEGAL_NAME} (Maxnova & Luci Global) is a Florida limited liability company, formed in April 2026, that builds and operates its own software products, DypOS, moyiq and Esmalia, and offers AI software development and US market entry support to Latin American companies.`,
     factsH2: 'Company details',
     facts: [
       { k: 'Legal name', v: LEGAL_NAME },
@@ -431,7 +471,7 @@ const en = {
     ],
     faqH2: 'Questions',
     faq: [
-      { q: 'What is Maxnova & Luci Global?', a: `${LEGAL_NAME} is a Florida limited liability company that builds and operates software products: DypOS for restaurants, MOY IQ for personal finance and Esmalia for dental clinics.` },
+      { q: 'What is Maxnova & Luci Global?', a: `${LEGAL_NAME} is a Florida limited liability company that builds and operates software products: DypOS for restaurants, moyiq for personal finance and Esmalia for dental clinics.` },
       { q: 'How can I verify the company?', a: `Search document number ${DOC_NUMBER} on Sunbiz, the Florida Division of Corporations registry. The company was filed on April 20, 2026.` },
       { q: 'Does it give legal or tax advice?', a: 'No. We are not a law firm or an accounting firm. Legal and tax matters belong with licensed professionals.' },
       { q: 'Are you a holding company?', a: 'The products belong to a single LLC. They are not separate subsidiaries.' },
@@ -492,7 +532,7 @@ const en = {
         { h: 'Who processes it', p: ['Vercel hosts this site and Resend delivers form messages to our inbox. Both may process data in the United States. If you become a client, other providers may apply, and we will tell you which.'] },
         { h: 'How long we keep it', p: ['We keep form messages while the conversation is useful, and no more than 24 months, unless a legal duty requires longer.'] },
         { h: 'Your rights', p: [`You can ask us to access, correct or delete your data, or to stop using it, by writing to ${CONTACT_EMAIL}. We reply within 30 days. You may also complain to the data protection authority of your country.`] },
-        { h: 'Our products', p: ['DypOS, MOY IQ and Esmalia each have their own privacy policy, published on their own sites. This page only covers maxnovaluci.com.'] },
+        { h: 'Our products', p: ['DypOS, moyiq and Esmalia each have their own privacy policy, published on their own sites. This page only covers maxnovaluci.com.'] },
       ],
     },
     terms: {
@@ -501,7 +541,7 @@ const en = {
         { h: 'About this site', p: [`This site belongs to ${LEGAL_NAME}. By using it you accept these terms.`] },
         { h: 'Information only', p: ['What we publish is general information about the company and its products. It is not legal, tax or financial advice, and it is not an offer. Any service is governed by a written agreement.'] },
         { h: 'Live checks', p: ['The status shown on this site is an automatic measurement from our server. It may differ from what you experience and it is not a service level commitment.'] },
-        { h: 'Products', p: ['DypOS, MOY IQ and Esmalia have their own terms, published on their own sites.'] },
+        { h: 'Products', p: ['DypOS, moyiq and Esmalia have their own terms, published on their own sites.'] },
         { h: 'Intellectual property', p: ['Names, logos, text and screens on this site belong to the company or to their owners. Do not reuse them without permission.'] },
         { h: 'Liability', p: ['The site is provided as is. To the extent the law allows, we are not liable for damages arising from its use.'] },
         { h: 'Governing law', p: ['These terms are governed by the laws of the State of Florida, United States.'] },
@@ -532,10 +572,10 @@ const es: Copy = {
   meta: {
     home: {
       title: 'Maxnova & Luci Global | Empresa de software en Florida',
-      description: 'LLC de Florida que construye y opera su propio software: DypOS, MOY IQ y Esmalia. También hacemos software con IA y apoyamos la entrada a EE. UU.',
+      description: 'LLC de Florida que construye y opera su propio software: DypOS, moyiq y Esmalia. También hacemos software con IA y apoyamos la entrada a EE. UU.',
     },
     products: {
-      title: 'DypOS, MOY IQ y Esmalia | Maxnova & Luci Global',
+      title: 'DypOS, moyiq y Esmalia | Maxnova & Luci Global',
       description: 'Tres productos de software en producción de una LLC de Florida: restaurantes, finanzas personales y clínicas dentales. Precios, demos y límites.',
     },
     services: {
@@ -548,7 +588,7 @@ const es: Copy = {
     },
     log: {
       title: 'Registro de entregas | Maxnova & Luci Global',
-      description: 'Lo que entregamos en DypOS, MOY IQ, Esmalia y la empresa, con su fecha.',
+      description: 'Lo que entregamos en DypOS, moyiq, Esmalia y la empresa, con su fecha.',
     },
     privacy: {
       title: 'Política de privacidad | Maxnova & Luci Global',
@@ -556,7 +596,7 @@ const es: Copy = {
     },
     terms: {
       title: 'Términos de uso | Maxnova & Luci Global',
-      description: 'Términos para usar el sitio de MAXNOVA & LUCI GLOBAL LLC.',
+      description: 'Términos para usar maxnovaluci.com, el sitio de MAXNOVA & LUCI GLOBAL LLC, empresa de Florida.',
     },
   },
   home: {
@@ -636,7 +676,7 @@ const es: Copy = {
           'Sumar IA donde hace un trabajo real, no como adorno',
           'Entregar el código, la documentación y las cuentas',
         ],
-        proof: 'DypOS, MOY IQ y Esmalia funcionan con este proceso.',
+        proof: 'DypOS, moyiq y Esmalia funcionan con este proceso.',
         limitsTitle: 'Lo que no hacemos',
         limits: ['Trabajar sin alcance y precio por escrito', 'Prometer resultados que no se pueden medir'],
       },
@@ -675,7 +715,7 @@ const es: Copy = {
   },
   companyPage: {
     h1: 'La empresa',
-    lead: `${LEGAL_NAME} (Maxnova & Luci Global) es una sociedad de responsabilidad limitada de Florida, constituida en abril de 2026, que construye y opera sus propios productos de software, DypOS, MOY IQ y Esmalia, y ofrece desarrollo de software con IA y apoyo para entrar a Estados Unidos a empresas latinoamericanas.`,
+    lead: `${LEGAL_NAME} (Maxnova & Luci Global) es una sociedad de responsabilidad limitada de Florida, constituida en abril de 2026, que construye y opera sus propios productos de software, DypOS, moyiq y Esmalia, y ofrece desarrollo de software con IA y apoyo para entrar a Estados Unidos a empresas latinoamericanas.`,
     factsH2: 'Datos de la empresa',
     facts: [
       { k: 'Razón social', v: LEGAL_NAME },
@@ -702,7 +742,7 @@ const es: Copy = {
     ],
     faqH2: 'Preguntas',
     faq: [
-      { q: '¿Qué es Maxnova & Luci Global?', a: `${LEGAL_NAME} es una sociedad de responsabilidad limitada de Florida que construye y opera productos de software: DypOS para restaurantes, MOY IQ para finanzas personales y Esmalia para clínicas dentales.` },
+      { q: '¿Qué es Maxnova & Luci Global?', a: `${LEGAL_NAME} es una sociedad de responsabilidad limitada de Florida que construye y opera productos de software: DypOS para restaurantes, moyiq para finanzas personales y Esmalia para clínicas dentales.` },
       { q: '¿Cómo verifico la empresa?', a: `Busca el número de documento ${DOC_NUMBER} en Sunbiz, el registro de la División de Corporaciones de Florida. La empresa se registró el 20 de abril de 2026.` },
       { q: '¿Da asesoría legal o tributaria?', a: 'No. No somos un estudio de abogados ni una firma contable. Los temas legales y tributarios corresponden a profesionales con licencia.' },
       { q: '¿Son un holding?', a: 'Los productos pertenecen a una sola LLC. No son filiales separadas.' },
@@ -763,7 +803,7 @@ const es: Copy = {
         { h: 'Quién los procesa', p: ['Vercel aloja este sitio y Resend entrega los mensajes del formulario a nuestra casilla. Ambos pueden procesar datos en Estados Unidos. Si te vuelves cliente pueden aplicar otros proveedores, y te diremos cuáles.'] },
         { h: 'Cuánto tiempo los guardamos', p: ['Guardamos los mensajes mientras la conversación sea útil, y no más de 24 meses, salvo que una obligación legal exija más.'] },
         { h: 'Tus derechos', p: [`Puedes pedirnos acceder a tus datos, corregirlos, borrarlos o dejar de usarlos, escribiendo a ${CONTACT_EMAIL}. Respondemos en un máximo de 30 días. También puedes reclamar ante la autoridad de protección de datos de tu país.`] },
-        { h: 'Nuestros productos', p: ['DypOS, MOY IQ y Esmalia tienen cada uno su propia política de privacidad, publicada en su sitio. Esta página cubre solo maxnovaluci.com.'] },
+        { h: 'Nuestros productos', p: ['DypOS, moyiq y Esmalia tienen cada uno su propia política de privacidad, publicada en su sitio. Esta página cubre solo maxnovaluci.com.'] },
       ],
     },
     terms: {
@@ -772,7 +812,7 @@ const es: Copy = {
         { h: 'Sobre este sitio', p: [`Este sitio pertenece a ${LEGAL_NAME}. Al usarlo aceptas estos términos.`] },
         { h: 'Solo información', p: ['Lo que publicamos es información general sobre la empresa y sus productos. No es asesoría legal, tributaria ni financiera, ni una oferta. Todo servicio se rige por un acuerdo escrito.'] },
         { h: 'Chequeos en vivo', p: ['El estado que muestra este sitio es una medición automática desde nuestro servidor. Puede diferir de lo que tú experimentes y no es un compromiso de nivel de servicio.'] },
-        { h: 'Productos', p: ['DypOS, MOY IQ y Esmalia tienen sus propios términos, publicados en sus sitios.'] },
+        { h: 'Productos', p: ['DypOS, moyiq y Esmalia tienen sus propios términos, publicados en sus sitios.'] },
         { h: 'Propiedad intelectual', p: ['Los nombres, logos, textos y pantallas de este sitio pertenecen a la empresa o a sus dueños. No los reutilices sin permiso.'] },
         { h: 'Responsabilidad', p: ['El sitio se ofrece tal como está. En la medida que la ley lo permita, no respondemos por daños derivados de su uso.'] },
         { h: 'Ley aplicable', p: ['Estos términos se rigen por las leyes del Estado de Florida, Estados Unidos.'] },

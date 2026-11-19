@@ -115,7 +115,7 @@ a { color: inherit; text-underline-offset: 0.2em; text-decoration-thickness: 1px
 .net__head { border-bottom: 1px solid var(--line-ink); }
 .net__foot { border-top: 1px solid var(--line-ink); color: var(--on-ink-soft); font-size: 0.8125rem; }
 .net__title { font-size: 1rem; letter-spacing: -0.01em; }
-.net__time { font-size: 0.8125rem; color: var(--on-ink-soft); }
+.net__time { min-height: 1.3em; font-size: 0.8125rem; color: var(--on-ink-soft); }
 .net__time.is-measured { font-family: var(--mono); font-size: 0.6875rem; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
 .net__body { display: grid; grid-template-columns: 8.5rem 4.5rem minmax(0, 1fr); align-items: stretch; padding-inline: 1.25rem 0.5rem; }
 .net__core { align-self: center; display: grid; gap: 0.5rem; padding-block: 1rem; }
@@ -394,3 +394,6 @@ a { color: inherit; text-underline-offset: 0.2em; text-decoration-thickness: 1px
   .nav__inner { gap: 0.5rem; }
   .nav__cta { display: none; }
 }
+
+/* Reserve the wrapped two-line header on narrow screens so the live check does not shift layout (CLS). */
+@media (max-width: 760px) { .net__head { min-height: 4.6rem; align-content: center; } }
