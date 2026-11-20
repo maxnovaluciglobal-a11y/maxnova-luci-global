@@ -115,6 +115,8 @@ const year = new Date().getFullYear();
           </div>
           <nav aria-label={t.footer.sections}>
             {links.map((l) => <a href={routes[l.key][t.lang]}>{l.label}</a>)}
+            <a href={routes.studio[t.lang]}>{t.lang === 'es' ? 'El estudio' : 'The studio'}</a>
+            <a href={routes.founder[t.lang]}>{t.companyPage.founderH2}</a>
           </nav>
           <nav aria-label={t.footer.legal}>
             <a href={routes.privacy[t.lang]}>{t.footer.privacy}</a>

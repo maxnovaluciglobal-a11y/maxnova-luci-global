@@ -1,0 +1,44 @@
+---
+import Arrow from '../components/Arrow.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { products, routes, lastmod, formatDate, type Copy } from '../i18n/content';
+interface Props { t: Copy }
+const { t } = Astro.props;
+const c = t.studioPage;
+const [first, ...rest] = c.sections;
+---
+<header class="page-head">
+  <div class="container">
+    <p class="article__date">{t.legal.updated}: <time datetime={lastmod.studio}>{formatDate(lastmod.studio, t.lang, t.dateFmt)}</time></p>
+    <h1>{c.h1}</h1>
+    <p class="page-head__lead">{c.lead}</p>
+  </div>
+</header>
+
+<div class="container">
+  <article class="article">
+    <section><h2>{first.h}</h2>{first.p.map((p) => <p>{p}</p>)}</section>
+    <section>
+      <h2>{c.productsH2}</h2>
+      <table class="article__table">
+        <thead><tr>{c.productsCols.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+        <tbody>
+          {products.map((p) => (
+            <tr><th scope="row"><a href={p.url} rel="noopener" target="_blank">{p.name}</a></th><td>{p.sector[t.lang]}</td><td>{p.price[t.lang]}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
+    {rest.map((s) => <section><h2>{s.h}</h2>{s.p.map((p) => <p>{p}</p>)}</section>)}
+    <nav class="article__more" aria-label={c.more}>
+      <a class="link" href={routes.products[t.lang]}>{t.nav.products}<Arrow /></a>
+      <a class="link" href={routes.services[t.lang]}>{t.nav.services}<Arrow /></a>
+      <a class="link" href={routes.founder[t.lang]}>{t.companyPage.founderH2}<Arrow /></a>
+      <a class="link" href={routes.company[t.lang]}>{t.nav.company}<Arrow /></a>
+    </nav>
+  </article>
+</div>
+
+<section class="section contact-wrap">
+  <div class="container"><ContactForm t={t} /></div>
+</section>

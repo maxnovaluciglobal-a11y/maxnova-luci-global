@@ -2,7 +2,7 @@
 // Only publish facts that can be verified (see PRODUCT.md → Evidence on Hand).
 
 export type Lang = 'en' | 'es';
-export type PageKey = 'home' | 'products' | 'services' | 'company' | 'log' | 'privacy' | 'terms';
+export type PageKey = 'home' | 'products' | 'services' | 'company' | 'log' | 'studio' | 'founder' | 'privacy' | 'terms';
 
 export const SITE_URL = 'https://maxnovaluci.com';
 // Forwarded to the company Gmail by Cloudflare Email Routing (since 2026-11-03).
@@ -22,6 +22,8 @@ export const routes: Record<PageKey, Record<Lang, string>> = {
   services: { en: '/services/', es: '/es/servicios/' },
   company: { en: '/company/', es: '/es/empresa/' },
   log: { en: '/log/', es: '/es/registro/' },
+  studio: { en: '/software-studio/', es: '/es/estudio-de-software/' },
+  founder: { en: '/founder/', es: '/es/fundador/' },
   privacy: { en: '/privacy/', es: '/es/privacidad/' },
   terms: { en: '/terms/', es: '/es/terminos/' },
 };
@@ -33,6 +35,8 @@ export const lastmod: Record<PageKey, string> = {
   services: '2026-11-20',
   company: '2026-11-20',
   log: '2026-11-20',
+  studio: '2026-11-20',
+  founder: '2026-11-20',
   privacy: '2026-11-03',
   terms: '2026-11-03',
 };
@@ -151,6 +155,14 @@ export interface LogEntry {
 
 // Dated, public-safe facts only. Newest first. Never add customer names, security details or revenue.
 export const log: LogEntry[] = [
+  {
+    date: '2026-11-20',
+    scope: 'Company',
+    text: {
+      en: 'Redesigned corporate site: the three products can be tried on the home page, with live status and a dated log.',
+      es: 'Web corporativa rediseñada: los tres productos se prueban en la portada, con estado en vivo y registro fechado.',
+    },
+  },
   {
     date: '2026-11-19',
     scope: 'DypOS',
@@ -318,6 +330,14 @@ const en = {
     log: {
       title: 'Shipping log | Maxnova & Luci Global',
       description: 'A dated record of what we ship across DypOS, moyiq, Esmalia and the company.',
+    },
+    studio: {
+      title: 'Florida software studio running its own SaaS for Latin America',
+      description: 'MAXNOVA & LUCI GLOBAL LLC, a Florida company, builds and runs DypOS, moyiq and Esmalia for Latin America, and builds AI software for other companies.',
+    },
+    founder: {
+      title: 'Walter La Madriz, telecom engineer and software founder',
+      description: 'Walter La Madriz, telecommunications engineer with 15 years in telecom, founded MAXNOVA & LUCI GLOBAL LLC in Florida to build SaaS for Latin America.',
     },
     privacy: {
       title: 'Privacy policy | Maxnova & Luci Global',
@@ -608,6 +628,37 @@ const en = {
       { q: 'How do I get in touch?', a: `Use the contact form or write to ${CONTACT_EMAIL}.` },
     ],
   },
+  studioPage: {
+    h1: 'A Florida software studio that runs its own SaaS for Latin America',
+    lead: `${LEGAL_NAME} is a software company registered in Florida. Before selling software work to anyone, it built three SaaS products of its own for Latin America, DypOS, moyiq and Esmalia, and it runs them today.`,
+    productsH2: 'Which products does it run?',
+    productsCols: ['Product', 'For', 'Public price'],
+    sections: [
+      { h: 'What kind of company is it?', p: ['A product studio inside one legal entity. DypOS, moyiq and Esmalia belong to the same Florida LLC; they are not separate subsidiaries. The company designs, builds, sells and supports each product, and uses that experience to build AI software for other companies.'] },
+      { h: 'Why build its own products first?', p: ['Running software in production teaches what a pitch cannot: billing in dollars from Latin America, support in Spanish, uptime, privacy and shipping every week. Each product is live, priced and open to try, so a client can judge the work before writing.'] },
+      { h: 'Who does it build software for?', p: ['Companies across Latin America that need an internal system, a SaaS product, or AI added to the software they already use. It also shares its operating experience with Latin American companies that want to sell to the United States; that is not legal or tax advice.', 'Every project is quoted in writing after a diagnostic call.'] },
+      { h: 'How is it different from an agency or a nearshore firm?', p: ['It is small and it operates its own products. The founder, Walter La Madriz, leads every engagement directly, with no sales layer between the client and the people who build. It is not the right fit for large staff augmentation.'] },
+      { h: 'How can I verify it?', p: [`Search document number ${DOC_NUMBER} on Sunbiz, the Florida Division of Corporations registry: the company was filed on April 20, 2026. This site also checks every minute whether each product answers, and keeps a dated log of what ships.`] },
+    ],
+    more: 'Keep reading',
+  },
+  founderPage: {
+    h1: 'Walter La Madriz: from telecom engineer to software founder in Florida',
+    lead: `Walter La Madriz is a telecommunications engineer and the founder of ${LEGAL_NAME}, a Florida software company that builds and runs DypOS, moyiq and Esmalia for Latin America.`,
+    sections: [
+      { h: 'Fifteen years in telecom', p: ['He spent fifteen years in carrier telecom in Venezuela and Chile, across network engineering, product and B2B sales to operators.'] },
+      { h: 'Why software for Latin America', p: ['In April 2026 he registered the company in Florida to build software products for Latin America and bill them in dollars. Today the company runs a point of sale for restaurants, a personal finance app and a system for dental clinics.'] },
+      { h: 'How he runs the products', p: ['The way a network is run: every product is monitored, every change is dated in a public log, and when something does not work it is said plainly. Client projects are held to the same standard.'] },
+      { h: 'How to reach him', p: [`Write to ${CONTACT_EMAIL} or use the contact form. He leads every client engagement directly.`] },
+    ],
+    timelineH2: 'Timeline',
+    timeline: [
+      { d: '2026-04-20', t: `${LEGAL_NAME} filed in Florida (document ${DOC_NUMBER}).` },
+      { d: '2026-11-03', t: 'Corporate site with live checks of each product.' },
+      { d: '2026-11-18', t: 'moyiq, formerly MOY IQ, launches its new identity.' },
+      { d: '2026-11-20', t: 'Three products in production: DypOS, moyiq and Esmalia.' },
+    ],
+  },
   logPage: {
     h1: 'Shipping log',
     lead: 'What we shipped, with its date. A company that operates leaves a record.',
@@ -726,6 +777,14 @@ const es: Copy = {
     log: {
       title: 'Registro de entregas | Maxnova & Luci Global',
       description: 'Lo que entregamos en DypOS, moyiq, Esmalia y la empresa, con su fecha.',
+    },
+    studio: {
+      title: 'Estudio de software en Florida con SaaS propios para Latinoamérica',
+      description: 'MAXNOVA & LUCI GLOBAL LLC, empresa de Florida, construye y opera DypOS, moyiq y Esmalia para Latinoamérica, y hace software con IA para otras empresas.',
+    },
+    founder: {
+      title: 'Walter La Madriz, ingeniero de telecom y fundador de software',
+      description: 'Walter La Madriz, ingeniero de telecomunicaciones con 15 años en telecom, fundó MAXNOVA & LUCI GLOBAL LLC en Florida para construir SaaS para Latinoamérica.',
     },
     privacy: {
       title: 'Política de privacidad | Maxnova & Luci Global',
@@ -1014,6 +1073,37 @@ const es: Copy = {
       { q: '¿Dónde está la empresa?', a: 'Está registrada en Florida, Estados Unidos, y construye para empresas y personas de toda Latinoamérica. La dirección principal figura en la ficha de Sunbiz.' },
       { q: '¿Cuántos clientes tienen?', a: 'Estamos al comienzo y todavía no publicamos cifras de clientes. Cada producto se puede probar hoy.' },
       { q: '¿Cómo los contacto?', a: `Con el formulario de contacto o escribiendo a ${CONTACT_EMAIL}.` },
+    ],
+  },
+  studioPage: {
+    h1: 'Un estudio de software en Florida que opera sus propios SaaS para Latinoamérica',
+    lead: `${LEGAL_NAME} es una empresa de software registrada en Florida. Antes de venderle software a nadie, construyó tres productos SaaS propios para Latinoamérica, DypOS, moyiq y Esmalia, y hoy los opera.`,
+    productsH2: '¿Qué productos opera?',
+    productsCols: ['Producto', 'Para', 'Precio público'],
+    sections: [
+      { h: '¿Qué tipo de empresa es?', p: ['Un estudio de productos dentro de una sola entidad legal. DypOS, moyiq y Esmalia pertenecen a la misma LLC de Florida; no son filiales separadas. La empresa diseña, construye, vende y da soporte a cada producto, y usa esa experiencia para construir software con IA para otras empresas.'] },
+      { h: '¿Por qué construir primero sus propios productos?', p: ['Operar software en producción enseña lo que una presentación no: cobrar en dólares desde Latinoamérica, dar soporte en español, mantener el servicio arriba, cuidar la privacidad y entregar cada semana. Cada producto está en línea, con precio y abierto para probar, así que un cliente puede juzgar el trabajo antes de escribir.'] },
+      { h: '¿Para quién construye software?', p: ['Para empresas de toda Latinoamérica que necesitan un sistema interno, un producto SaaS o sumar IA al software que ya usan. También comparte su experiencia operativa con empresas latinoamericanas que quieren venderle a Estados Unidos; eso no es asesoría legal ni tributaria.', 'Cada proyecto se cotiza por escrito después de una llamada de diagnóstico.'] },
+      { h: '¿En qué se diferencia de una agencia o de una firma nearshore?', p: ['Es chica y opera sus propios productos. El fundador, Walter La Madriz, lidera cada trabajo directamente, sin una capa comercial entre el cliente y quienes construyen. No es la opción correcta para aumentar equipos a gran escala.'] },
+      { h: '¿Cómo lo verifico?', p: [`Busca el número de documento ${DOC_NUMBER} en Sunbiz, el registro de la División de Corporaciones de Florida: la empresa se registró el 20 de abril de 2026. Este sitio además mide cada minuto si cada producto responde y lleva un registro fechado de lo que se entrega.`] },
+    ],
+    more: 'Sigue leyendo',
+  },
+  founderPage: {
+    h1: 'Walter La Madriz: de ingeniero de telecomunicaciones a fundador de software en Florida',
+    lead: `Walter La Madriz es ingeniero de telecomunicaciones y fundador de ${LEGAL_NAME}, una empresa de software de Florida que construye y opera DypOS, moyiq y Esmalia para Latinoamérica.`,
+    sections: [
+      { h: 'Quince años en telecomunicaciones', p: ['Pasó quince años en telecomunicaciones para operadores en Venezuela y Chile, entre ingeniería de redes, producto y ventas B2B a operadores.'] },
+      { h: 'Por qué software para Latinoamérica', p: ['En abril de 2026 registró la empresa en Florida para construir productos de software para Latinoamérica y cobrarlos en dólares. Hoy la empresa opera un punto de venta para restaurantes, una app de finanzas personales y un sistema para clínicas dentales.'] },
+      { h: 'Cómo opera los productos', p: ['Como se opera una red: cada producto se monitorea, cada cambio queda fechado en un registro público y, cuando algo no funciona, se dice claramente. Los proyectos para clientes se hacen con la misma exigencia.'] },
+      { h: 'Cómo contactarlo', p: [`Escribe a ${CONTACT_EMAIL} o usa el formulario de contacto. Él lidera directamente cada trabajo con clientes.`] },
+    ],
+    timelineH2: 'Línea de tiempo',
+    timeline: [
+      { d: '2026-04-20', t: `${LEGAL_NAME} se registra en Florida (documento ${DOC_NUMBER}).` },
+      { d: '2026-11-03', t: 'Web corporativa con chequeos en vivo de cada producto.' },
+      { d: '2026-11-18', t: 'moyiq, antes MOY IQ, estrena su identidad nueva.' },
+      { d: '2026-11-20', t: 'Tres productos en producción: DypOS, moyiq y Esmalia.' },
     ],
   },
   logPage: {

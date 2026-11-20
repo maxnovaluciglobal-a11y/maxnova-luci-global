@@ -4,7 +4,7 @@ import ContactForm from '../components/ContactForm.astro';
 import Faq from '../components/Faq.astro';
 import { Image } from 'astro:assets';
 import founderPhoto from '../assets/founder.png';
-import { SUNBIZ_URL, DOC_NUMBER, type Copy } from '../i18n/content';
+import { SUNBIZ_URL, DOC_NUMBER, routes, type Copy } from '../i18n/content';
 
 interface Props { t: Copy }
 const { t } = Astro.props;
@@ -43,6 +43,7 @@ const c = t.companyPage;
       <h2 id="founder-title" class="h2">{c.founderH2}</h2>
       {c.founder.map((p) => <p>{p}</p>)}
       <p class="co-founder__sign"><strong>{c.founderName}</strong><span>{c.founderRole}</span></p>
+      <a class="link" href={routes.founder[t.lang]}>{t.founderPage.h1.split(':')[0]}<Arrow /></a>
     </article>
   </div>
 </section>

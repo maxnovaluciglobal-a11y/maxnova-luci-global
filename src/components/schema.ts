@@ -3,7 +3,7 @@ import { products, routes, SITE_URL, CONTACT_EMAIL, LEGAL_NAME, BRAND_NAME, DOC_
 // JSON-LD mirrors only what the page shows. Add address, phone and sameAs when Walter confirms them.
 const ORG_ID = `${SITE_URL}/#organization`;
 const SITE_ID = `${SITE_URL}/#website`;
-const FOUNDER_ID = `${SITE_URL}/company/#founder`;
+const FOUNDER_ID = `${SITE_URL}/founder/#person`;
 const url = (key: PageKey, t: Copy) => new URL(routes[key][t.lang], SITE_URL).href;
 
 const organization = (t: Copy) => ({
@@ -40,8 +40,9 @@ const founder = (t: Copy) => ({
   '@id': FOUNDER_ID,
   name: FOUNDER,
   jobTitle: t.companyPage.founderRole,
+  hasOccupation: { '@type': 'Occupation', name: t.lang === 'es' ? 'Ingeniero de telecomunicaciones' : 'Telecommunications engineer' },
   worksFor: { '@id': ORG_ID },
-  url: `${SITE_URL}/company/#founder`,
+  url: `${SITE_URL}/founder/`,
   image: `${SITE_URL}/walter-la-madriz.jpg`,
   description: t.companyPage.founder[0],
 });
@@ -108,6 +109,17 @@ export function schema(t: Copy, key: PageKey): object[] {
       return [...services(t), faq(t.servicesPage.faq, t), breadcrumbs(t, key)];
     case 'company':
       return [founder(t), { '@context': 'https://schema.org', '@type': 'AboutPage', url: url('company', t), inLanguage: t.lang, mainEntity: { '@id': ORG_ID }, dateModified: lastmod.company }, faq(t.companyPage.faq, t), breadcrumbs(t, key)];
+    case 'studio':
+      return [
+        { '@context': 'https://schema.org', '@type': 'Article', headline: t.studioPage.h1, inLanguage: t.lang, url: url('studio', t), datePublished: lastmod.studio, dateModified: lastmod.studio, author: { '@id': FOUNDER_ID }, publisher: { '@id': ORG_ID }, about: { '@id': ORG_ID }, mentions: products.map((p) => ({ '@type': 'SoftwareApplication', name: p.name, url: p.url })) },
+        faq(t.studioPage.sections.map((s) => ({ q: s.h, a: s.p.join(' ') })), t),
+        breadcrumbs(t, key),
+      ];
+    case 'founder':
+      return [
+        { '@context': 'https://schema.org', '@type': 'ProfilePage', url: url('founder', t), inLanguage: t.lang, dateModified: lastmod.founder, mainEntity: { ...founder(t), '@context': undefined, description: t.founderPage.lead, url: url('founder', t) } },
+        breadcrumbs(t, key),
+      ];
     default:
       return [breadcrumbs(t, key)];
   }
