@@ -7,17 +7,17 @@ const { en, es } = copy;
 <Base t={en} title={`${en.notFound.title} · Maxnova & Luci Global`} noindex>
   <header class="page-head">
     <div class="container">
-      <p class="mono notfound__code">404</p>
-      <div class="split">
-        <section class="notfound">
+      <p class="notfound__code" aria-hidden="true">404</p>
+      <div class="notfound">
+        <section>
           <h1>{en.notFound.title}</h1>
           <p>{en.notFound.text}</p>
-          <a class="btn btn--ink" href={routes.home.en}>{en.notFound.back}<Arrow /></a>
+          <a class="btn btn--primary" href={routes.home.en}>{en.notFound.back}<Arrow /></a>
         </section>
-        <section class="notfound" lang="es">
+        <section lang="es">
           <h2>{es.notFound.title}</h2>
           <p>{es.notFound.text}</p>
-          <a class="btn btn--ink" href={routes.home.es}>{es.notFound.back}<Arrow /></a>
+          <a class="btn btn--primary" href={routes.home.es}>{es.notFound.back}<Arrow /></a>
         </section>
       </div>
     </div>

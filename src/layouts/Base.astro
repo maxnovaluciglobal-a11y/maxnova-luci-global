@@ -1,9 +1,12 @@
 ---
+import '@fontsource-variable/bricolage-grotesque/opsz.css';
 import '@fontsource-variable/schibsted-grotesk/wght.css';
-import '@fontsource-variable/martian-mono/wght.css';
 import '../styles/global.css';
+import displayFont from '@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-opsz-normal.woff2?url';
+import textFont from '@fontsource-variable/schibsted-grotesk/files/schibsted-grotesk-latin-wght-normal.woff2?url';
 import Arrow from '../components/Arrow.astro';
-import { SITE_URL, BRAND_NAME, LEGAL_NAME, DOC_NUMBER, SUNBIZ_URL, routes, type Copy, type PageKey } from '../i18n/content';
+import Mark from '../components/Mark.astro';
+import { SITE_URL, BRAND_NAME, LEGAL_NAME, DOC_NUMBER, SUNBIZ_URL, CONTACT_EMAIL, routes, type Copy, type PageKey } from '../i18n/content';
 
 interface Props {
   t: Copy;
@@ -27,6 +30,9 @@ const links: { key: PageKey; label: string }[] = [
   { key: 'company', label: t.nav.company },
   { key: 'log', label: t.nav.log },
 ];
+// Pages that end in the contact form link to it in place; the rest send the visitor to the home form.
+const withForm: PageKey[] = ['home', 'products', 'services', 'company'];
+const ctaHref = page && withForm.includes(page) ? '#contact' : `${routes.home[t.lang]}#contact`;
 const year = new Date().getFullYear();
 ---
 
@@ -36,12 +42,14 @@ const year = new Date().getFullYear();
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
+    <link rel="preload" href={displayFont} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={textFont} as="font" type="font/woff2" crossorigin />
     <meta name="description" content={description} />
     {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
     {!noindex && <link rel="alternate" hreflang="en" href={enUrl} />}
     {!noindex && <link rel="alternate" hreflang="es" href={esUrl} />}
     {!noindex && <link rel="alternate" hreflang="x-default" href={enUrl} />}
-    <meta name="theme-color" content="#e6e8e4" />
+    <meta name="theme-color" content="#f6f7f9" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -67,25 +75,26 @@ const year = new Date().getFullYear();
     <header class="nav">
       <div class="container nav__inner">
         <a class="brand" href={routes.home[t.lang]}>
-          <img src="/logo-mark.svg" alt="" width="28" height="24" />
+          <Mark class="brand__mark" />
           <span>{BRAND_NAME}</span>
         </a>
+        <nav class="nav__links" aria-label={t.nav.label}>
+          {links.map((l) => (
+            <a href={routes[l.key][t.lang]} aria-current={l.key === page ? 'page' : undefined}>{l.label}</a>
+          ))}
+          <a class="nav__lang" href={altHref} hreflang={t.altLang} lang={t.altLang}><span aria-hidden="true">{t.altShort}</span><span class="sr">{t.altLabel}</span></a>
+        </nav>
         <details class="nav__menu">
           <summary>{t.nav.menu}</summary>
           <nav aria-label={t.nav.label}>
             {links.map((l) => (
               <a href={routes[l.key][t.lang]} aria-current={l.key === page ? 'page' : undefined}>{l.label}</a>
             ))}
+            <a href={ctaHref}>{t.nav.cta}</a>
             <a href={altHref} hreflang={t.altLang} lang={t.altLang}>{t.altLabel}</a>
           </nav>
         </details>
-        <nav class="nav__links" aria-label={t.nav.label}>
-          {links.map((l) => (
-            <a href={routes[l.key][t.lang]} aria-current={l.key === page ? 'page' : undefined}>{l.label}</a>
-          ))}
-          <a href={altHref} hreflang={t.altLang} lang={t.altLang}><span aria-hidden="true">{t.altShort}</span><span class="sr">{t.altLabel}</span></a>
-        </nav>
-        <a class="btn btn--ink btn--sm nav__cta" href="#contact">{t.nav.cta}</a>
+        <a class="btn btn--primary btn--sm nav__cta" href={ctaHref}>{t.nav.cta}</a>
       </div>
     </header>
 
@@ -94,20 +103,30 @@ const year = new Date().getFullYear();
     </main>
 
     <footer class="footer">
-      <div class="container footer__grid">
-        <div>
-          <p class="footer__brand"><img src="/logo-mark.svg" alt="" width="24" height="21" /> {LEGAL_NAME}</p>
-          <p>{t.footer.registered} · <a href={SUNBIZ_URL} rel="noopener" target="_blank"><span class="mono">{DOC_NUMBER}</span><Arrow out /></a></p>
+      <div class="container">
+        <p class="footer__claim">{t.home.closing}</p>
+        <div class="footer__bars" aria-hidden="true">
+          <i style="width:72px;background:#ff7a00"></i><i style="width:48px;background:#d4f25a"></i><i style="width:32px;background:#ff6b7f"></i><i style="width:20px;background:#fff"></i>
         </div>
-        <nav aria-label={t.footer.sections}>
-          {links.map((l) => <a href={routes[l.key][t.lang]}>{l.label}</a>)}
-        </nav>
-        <nav aria-label={t.footer.legal}>
-          <a href={routes.privacy[t.lang]}>{t.footer.privacy}</a>
-          <a href={routes.terms[t.lang]}>{t.footer.terms}</a>
-          <a href={altHref} hreflang={t.altLang} lang={t.altLang}>{t.altLabel}</a>
-        </nav>
-        <p class="footer__copy">© {year} {LEGAL_NAME}. {t.footer.rights}</p>
+        <div class="footer__grid">
+          <div>
+            <p class="footer__brand"><Mark /> {LEGAL_NAME}</p>
+            <p>{t.footer.registered} · <a href={SUNBIZ_URL} rel="noopener" target="_blank">{DOC_NUMBER}</a></p>
+          </div>
+          <nav aria-label={t.footer.sections}>
+            {links.map((l) => <a href={routes[l.key][t.lang]}>{l.label}</a>)}
+          </nav>
+          <nav aria-label={t.footer.legal}>
+            <a href={routes.privacy[t.lang]}>{t.footer.privacy}</a>
+            <a href={routes.terms[t.lang]}>{t.footer.terms}</a>
+            <a href={altHref} hreflang={t.altLang} lang={t.altLang}>{t.altLabel}</a>
+          </nav>
+          <div>
+            <p><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
+            <p><a href={ctaHref}>{t.nav.cta}<Arrow /></a></p>
+          </div>
+          <p class="footer__copy">© {year} {LEGAL_NAME}. {t.footer.rights}</p>
+        </div>
       </div>
     </footer>
   </body>

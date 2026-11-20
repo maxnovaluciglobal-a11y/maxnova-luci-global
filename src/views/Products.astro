@@ -1,60 +1,80 @@
 ---
 import Arrow from '../components/Arrow.astro';
 import ContactForm from '../components/ContactForm.astro';
+import StatusPill from '../components/StatusPill.astro';
 import ProductShot from './ProductShot.astro';
-import { products, screenCaptions, type Copy } from '../i18n/content';
+import dyposIcon from '../assets/logos/dypos.svg';
+import moyiqIcon from '../assets/logos/moyiq.png';
+import esmaliaIcon from '../assets/logos/esmalia.png';
+import { products, screenCaptions, statusData, type Copy } from '../i18n/content';
 
 interface Props { t: Copy }
 const { t } = Astro.props;
 const c = t.productsPage;
+const icons = { dypos: dyposIcon, moyiq: moyiqIcon, esmalia: esmaliaIcon };
 ---
-<header class="page-head">
-  <div class="container">
-    <h1>{c.h1}</h1>
-    <p>{c.lead}</p>
-  </div>
-</header>
-
-<div class="container products" data-status data-checking={t.network.checking} data-online={t.network.online} data-offline={t.network.offline}
-  data-nodata={t.network.noData} data-unavailable={t.network.unavailable} data-checked={t.network.checkedAt('{t}')}>
-  {products.map((p, i) => (
-    <article class="product" id={p.id} aria-labelledby={`${p.id}-name`}>
-      <div class="product__text">
-        <h2 id={`${p.id}-name`}>{p.name}</h2>
-        <p class="product__summary">{p.summary[t.lang]}</p>
-        <dl class="facts">
-          <div class="facts__live" data-node={p.id} data-state="unknown"><dt>{c.status}</dt><dd><span class="node__dot" aria-hidden="true"></span><span data-node-label>{t.network.noData}</span> <span class="mono" data-node-ms></span></dd></div>
-          <div><dt>{c.sector}</dt><dd>{p.sector[t.lang]}</dd></div>
-          <div><dt>{c.market}</dt><dd>{p.market[t.lang]}</dd></div>
-          <div><dt>{c.price}</dt><dd>{p.price[t.lang]}</dd></div>
-          <div><dt>{c.notYet}</dt><dd>{p.notYet[t.lang]}</dd></div>
-        </dl>
-        <div class="product__actions">
-          <a class="btn btn--ink" href={p.demo} rel="noopener" target="_blank">{c.openDemo}<Arrow out /></a>
-          <a class="link" href={p.url} rel="noopener" target="_blank">{c.openSite} {p.urlLabel}<Arrow out /></a>
-        </div>
+<div {...statusData(t)}>
+  <header class="page-head">
+    <div class="container">
+      <h1>{c.h1}</h1>
+      <p class="page-head__lead">{c.lead}</p>
+      <div class="pp__status">
+        <span class="live__dots" aria-hidden="true">{products.map((p) => <i data-dot={p.id}></i>)}</span>
+        <span data-status-sum aria-live="polite">{t.network.noScript}</span>
+        <button class="live__again" type="button" data-recheck hidden>
+          <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M13.5 8a5.5 5.5 0 1 1-1.6-3.9M13.5 2.5v3h-3" /></svg>{t.network.recheck}
+        </button>
       </div>
-      <figure class="product__media">
-        <ProductShot t={t} product={p} sizes="(min-width: 1000px) 760px, 92vw" eager={i === 0} />
-        <figcaption>{screenCaptions[p.id][t.lang]}</figcaption>
-      </figure>
-    </article>
-  ))}
+    </div>
+  </header>
 
-  <section class="other" aria-labelledby="other-title">
-    <h2 id="other-title">{c.otherH2}</h2>
-    <dl>
-      {c.other.map((o) => <div><dt>{o.title}</dt><dd>{o.text}</dd></div>)}
-    </dl>
-  </section>
+  <div class="container">
+    <div class="pp">
+      {products.map((p, i) => (
+        <article class={`pp__item pp__item--${p.id}`} id={p.id} aria-labelledby={`${p.id}-name`}>
+          <div class="pp__text">
+            <span class="pp__swatch" aria-hidden="true"></span>
+            <div class="pp__id">
+              <img class="logo-sq" src={icons[p.id].src} alt="" width="40" height="40" />
+              <h2 id={`${p.id}-name`}>{p.name}</h2>
+            </div>
+            <p class="pp__summary">{p.summary[t.lang]}</p>
+            <dl class="facts">
+              <div><dt>{c.status}</dt><dd><StatusPill t={t} id={p.id} /></dd></div>
+              <div><dt>{c.sector}</dt><dd>{p.sector[t.lang]}</dd></div>
+              <div><dt>{c.market}</dt><dd>{p.market[t.lang]}</dd></div>
+              <div><dt>{c.price}</dt><dd>{p.price[t.lang]}</dd></div>
+              <div><dt>{c.notYet}</dt><dd>{p.notYet[t.lang]}</dd></div>
+            </dl>
+            <div class="actions">
+              <a class="btn btn--primary" href={p.demo} rel="noopener" target="_blank">{c.openDemo}<Arrow out /></a>
+              <a class="link" href={p.url} rel="noopener" target="_blank">{c.openSite} {p.urlLabel}<Arrow out /></a>
+            </div>
+          </div>
+          <figure class="pp__media">
+            <ProductShot t={t} product={p} sizes="(min-width: 1120px) 720px, 92vw" eager={i === 0} />
+            <figcaption>{screenCaptions[p.id][t.lang]}</figcaption>
+          </figure>
+        </article>
+      ))}
+    </div>
 
-  <section class="early" aria-labelledby="early-title">
-    <h2 id="early-title">{c.earlyH2}</h2>
-    <p>{c.early}</p>
-  </section>
+    <div class="pp__extra">
+      <section class="pp__other" aria-labelledby="other-title">
+        <h2 id="other-title">{c.otherH2}</h2>
+        <dl>{c.other.map((o) => <div><dt>{o.title}</dt><dd>{o.text}</dd></div>)}</dl>
+      </section>
+      <section class="pp__early" aria-labelledby="early-title">
+        <h2 id="early-title">{c.earlyH2}</h2>
+        <p>{c.early}</p>
+      </section>
+    </div>
+  </div>
 </div>
 
-<ContactForm t={t} />
+<section class="section contact-wrap">
+  <div class="container"><ContactForm t={t} /></div>
+</section>
 
 <script>
   import { startStatus } from '../scripts/status';

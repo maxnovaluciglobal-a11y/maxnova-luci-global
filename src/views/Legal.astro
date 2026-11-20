@@ -7,14 +7,16 @@ const c = t.legal[doc];
 <header class="page-head">
   <div class="container">
     <h1>{c.h1}</h1>
-    <p>{t.legal.updated}: <time datetime={lastmod[doc]}>{formatDate(lastmod[doc], t.lang, t.dateFmt)}</time></p>
+    <p class="page-head__lead">{t.legal.updated}: <time datetime={lastmod[doc]}>{formatDate(lastmod[doc], t.lang, t.dateFmt)}</time></p>
   </div>
 </header>
-<div class="container prose">
-  {c.sections.map((s) => (
-    <section>
-      <h2>{s.h}</h2>
-      {s.p.map((p) => <p>{p}</p>)}
-    </section>
-  ))}
+<div class="container">
+  <div class="prose">
+    {c.sections.map((s) => (
+      <section>
+        <h2>{s.h}</h2>
+        {s.p.map((p) => <p>{p}</p>)}
+      </section>
+    ))}
+  </div>
 </div>

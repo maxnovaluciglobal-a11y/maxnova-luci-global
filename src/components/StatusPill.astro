@@ -1,0 +1,9 @@
+---
+// A product's measured status. Neutral until /api/status answers (see src/scripts/status.ts).
+import type { Copy, ProductId } from '../i18n/content';
+interface Props { t: Copy; id: ProductId }
+const { t, id } = Astro.props;
+---
+<span class="pill" data-node={id} data-state="unknown">
+  <span class="pill__dot" aria-hidden="true"></span><span data-node-label>{t.network.noData}</span><span class="pill__ms" data-node-ms></span>
+</span>

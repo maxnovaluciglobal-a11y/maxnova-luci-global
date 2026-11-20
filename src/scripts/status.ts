@@ -1,19 +1,28 @@
-// Live product checks, shared by the network map and the products page.
-// Every [data-status] block carries its own labels; every [data-node] inside it is updated.
+// Live product checks, shared by the home page and the products page.
+// Every [data-status] block carries its own labels; every [data-node] and [data-dot] inside it is updated.
 // A node turns green only after /api/status measured an answer; anything else reads as "no data" or "not responding".
 
 type Node = { id: string; ok: boolean; ms: number | null };
 type Result = { checkedAt: string; nodes: Node[] };
 
 const POLL = 60_000;
+const reduce = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 function apply(block: HTMLElement, data: Result | null) {
   const d = block.dataset;
-  const time = block.querySelector<HTMLElement>('[data-net-time]');
-  if (time) {
-    time.classList.toggle('is-measured', !!data);
-    time.textContent = data ? d.checked!.replace('{t}', new Date(data.checkedAt).toISOString().slice(11, 19)) : d.unavailable!;
+  const sum = block.querySelector<HTMLElement>('[data-status-sum]');
+  if (sum) {
+    if (!data) sum.textContent = d.unavailable!;
+    else {
+      const up = data.nodes.filter((n) => n.ok).length;
+      const time = new Date(data.checkedAt).toISOString().slice(11, 16);
+      sum.textContent = d.sum!.replace('{up}', String(up)).replace('{total}', String(data.nodes.length)).replace('{t}', time);
+    }
   }
+  block.querySelectorAll<HTMLElement>('[data-dot]').forEach((el) => {
+    const node = data?.nodes.find((n) => n.id === el.dataset.dot);
+    el.dataset.state = !node ? 'unknown' : node.ok ? 'online' : 'offline';
+  });
   block.querySelectorAll<HTMLElement>('[data-node]').forEach((el) => {
     const node = data?.nodes.find((n) => n.id === el.dataset.node);
     const label = el.querySelector('[data-node-label]');
@@ -26,15 +35,11 @@ function apply(block: HTMLElement, data: Result | null) {
     }
     el.dataset.state = node.ok ? 'online' : 'offline';
     if (label) label.textContent = node.ok ? d.online! : d.offline!;
-    if (ms) ms.textContent = node.ok && node.ms != null ? `${node.ms} ms` : '';
-    if (node.ok && node.ms != null) {
-      const travel = `${Math.min(2400, 500 + node.ms)}ms`;
-      block.querySelectorAll<SVGPathElement | HTMLElement>(`[data-trace="${node.id}"] .trace--pulse, [data-node="${node.id}"] .node__pulse`).forEach((p) => {
-        p.style.setProperty('--travel', travel);
-        p.classList.remove('is-running');
-        void p.getBoundingClientRect();
-        p.classList.add('is-running');
-      });
+    if (ms) ms.textContent = node.ok && node.ms != null ? `· ${node.ms} ms` : '';
+    if (!reduce()) {
+      el.classList.remove('is-ping');
+      void el.offsetWidth;
+      el.classList.add('is-ping');
     }
   });
 }
@@ -44,10 +49,10 @@ export function startStatus() {
   if (!blocks.length) return;
   let timer: number | undefined;
 
-  const check = async () => {
+  const check = async (fresh = false) => {
     let data: Result | null = null;
     try {
-      const res = await fetch('/api/status', { headers: { Accept: 'application/json' } });
+      const res = await fetch(fresh ? `/api/status?t=${Math.floor(Date.now() / 10_000)}` : '/api/status', { headers: { Accept: 'application/json' } });
       if (res.ok) data = await res.json();
     } catch {
       data = null;
@@ -61,8 +66,21 @@ export function startStatus() {
   };
 
   blocks.forEach((b) => {
-    const time = b.querySelector<HTMLElement>('[data-net-time]');
-    if (time) time.textContent = b.dataset.checking!;
+    const sum = b.querySelector<HTMLElement>('[data-status-sum]');
+    if (sum) sum.textContent = b.dataset.checking!;
+    b.querySelectorAll<HTMLButtonElement>('[data-recheck]').forEach((btn) => {
+      btn.hidden = false;
+      btn.addEventListener('click', async () => {
+        btn.classList.add('is-busy');
+        btn.disabled = true;
+        const sum2 = b.querySelector<HTMLElement>('[data-status-sum]');
+        if (sum2) sum2.textContent = b.dataset.checking!;
+        await check(true);
+        btn.disabled = false;
+        setTimeout(() => btn.classList.remove('is-busy'), 600);
+        schedule();
+      });
+    });
   });
   check();
   schedule();

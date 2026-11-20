@@ -1,15 +1,81 @@
 ---
-import LogTable from '../components/LogTable.astro';
-import { log, type Copy } from '../i18n/content';
+import LogList from '../components/LogList.astro';
+import { log, products, FILED_ISO, formatDate, type Copy, type LogEntry } from '../i18n/content';
 interface Props { t: Copy }
 const { t } = Astro.props;
+const c = t.logPage;
+// Counted at build time from the dated log; the "as of" line says when.
+const today = new Date().toISOString().slice(0, 10);
+const day = (iso: string) => Date.parse(`${iso}T00:00:00Z`);
+const span = day(today) - day(FILED_ISO);
+const days = Math.round(span / 86_400_000);
+const pos = (iso: string) => `${Math.min(100, Math.max(0, ((day(iso) - day(FILED_ISO)) / span) * 100)).toFixed(2)}%`;
+// Entries in the same week stack vertically so no dot hides another.
+const weekCount = new Map<number, number>();
+const dots = log.filter((e) => e.date !== FILED_ISO).map((e) => {
+  const w = Math.floor((day(e.date) - day(FILED_ISO)) / (7 * 86_400_000));
+  const n = weekCount.get(w) ?? 0;
+  weekCount.set(w, n + 1);
+  return { ...e, left: pos(e.date), stack: n };
+});
+const stackMax = Math.max(...weekCount.values());
+// Month ticks from the filing month to today.
+const months: { iso: string; left: string }[] = [];
+for (let d = new Date(`${FILED_ISO.slice(0, 7)}-01T00:00:00Z`); d.toISOString().slice(0, 10) <= today; d.setUTCMonth(d.getUTCMonth() + 1)) {
+  const iso = d.toISOString().slice(0, 10);
+  if (iso >= FILED_ISO) months.push({ iso, left: pos(iso) });
+}
+const monthLabel = (iso: string) => new Intl.DateTimeFormat(t.dateFmt, { month: 'short', timeZone: 'UTC' }).format(new Date(`${iso}T00:00:00Z`)).replace('.', '');
+const scopes: LogEntry['scope'][] = ['DypOS', 'moyiq', 'Esmalia', 'Company'];
+const label = (s: LogEntry['scope']) => (s === 'Company' ? c.company : s);
 ---
 <header class="page-head">
   <div class="container">
-    <h1>{t.logPage.h1}</h1>
-    <p>{t.logPage.lead}</p>
+    <h1>{c.h1}</h1>
+    <p class="page-head__lead">{c.lead}</p>
   </div>
 </header>
-<section class="section section--tight">
-  <div class="container"><LogTable t={t} entries={log} /></div>
-</section>
+
+<div class="container">
+  <div class="timeline">
+    <div class="timeline__track" aria-hidden="true" style={`--stack:${stackMax}`}>
+      {months.map((m) => <span class="timeline__tick" style={`left:${m.left}`}>{monthLabel(m.iso)}</span>)}
+      <span class="timeline__dot timeline__dot--start" style="left:0%"></span>
+      {dots.map((d) => <span class={`timeline__dot dot--${d.scope}`} style={`left:${d.left};--i:${d.stack}`}></span>)}
+      <span class="timeline__dot timeline__dot--today" style="left:100%"></span>
+    </div>
+    <p class="timeline__sum"><b>{days}</b> {c.days} · <b>{log.length}</b> {c.entries} · <b>{products.length}</b> {c.productsLive}. {c.asOf(formatDate(today, t.lang, t.dateFmt))}</p>
+  </div>
+
+  <div class="filters" data-filters hidden>
+    <span class="filters__label">{c.filterLabel}</span>
+    <button class="chip" type="button" data-filter="all" aria-pressed="true">{c.all}</button>
+    {scopes.map((s) => <button class="chip" type="button" data-filter={s} aria-pressed="false"><i class={`dot--${s}`}></i>{label(s)}</button>)}
+  </div>
+
+  <div class="lg-months">
+    <div class="news"><LogList t={t} entries={log} filterable /></div>
+  </div>
+</div>
+
+<script>
+  // Filter the log by product. Without JS every entry stays visible and the chips stay hidden.
+  const bar = document.querySelector<HTMLElement>('[data-filters]');
+  if (bar) {
+    bar.hidden = false;
+    const chips = [...bar.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+    chips.forEach((chip) => chip.addEventListener('click', () => {
+      const f = chip.dataset.filter!;
+      chips.forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
+      document.querySelectorAll<HTMLElement>('.lg-month').forEach((m) => {
+        let any = false;
+        m.querySelectorAll<HTMLElement>('li[data-scope]').forEach((li) => {
+          const show = f === 'all' || li.dataset.scope === f;
+          li.hidden = !show;
+          any ||= show;
+        });
+        m.hidden = !any;
+      });
+    }));
+  }
+</script>

@@ -1,48 +1,39 @@
 ---
 import Arrow from './Arrow.astro';
 import { CONTACT_EMAIL, routes, type Copy } from '../i18n/content';
-interface Props { t: Copy }
+interface Props { t: Copy; heading?: 'h2' | 'h3' }
 const { t } = Astro.props;
 ---
-<section class="contact" id="contact" aria-labelledby="contact-title">
-  <div class="container contact__grid">
-    <div class="contact__text">
-      <h2 id="contact-title">{t.contact.h2}</h2>
-      <p>{t.contact.intro}</p>
-      <p><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
+<div class="contact" id="contact">
+  <h2 id="contact-title">{t.contact.h2}</h2>
+  <p class="contact__intro">{t.contact.intro} <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
+  <form class="form" method="post" action="/api/contact" data-contact aria-labelledby="contact-title"
+    data-sending={t.contact.sending} data-sent={t.contact.sent} data-invalid={t.contact.invalid}
+    data-error={`${t.contact.error} ${CONTACT_EMAIL}.`}>
+    <input type="hidden" name="lang" value={t.lang} />
+    <div class="form__trap" aria-hidden="true">
+      <label>Leave empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label>
     </div>
-    <form class="form" method="post" action="/api/contact" data-contact
-      data-sending={t.contact.sending} data-sent={t.contact.sent} data-invalid={t.contact.invalid}
-      data-error={`${t.contact.error} ${CONTACT_EMAIL}.`}>
-      <input type="hidden" name="lang" value={t.lang} />
-      <div class="form__trap" aria-hidden="true">
-        <label>Leave empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label>
-      </div>
-      <div class="form__row">
-        <label class="field"><span>{t.contact.fields.name}</span>
-          <input type="text" name="name" required autocomplete="name" maxlength="120" /></label>
-        <label class="field"><span>{t.contact.fields.email}</span>
-          <input type="email" name="email" required autocomplete="email" maxlength="200" /></label>
-      </div>
-      <div class="form__row">
-        <label class="field"><span>{t.contact.fields.company} <i>({t.contact.fields.optional})</i></span>
-          <input type="text" name="company" autocomplete="organization" maxlength="160" /></label>
-        <label class="field"><span>{t.contact.fields.topic}</span>
-          <select name="service" required>
-            <option value="" selected disabled>{t.contact.fields.choose}</option>
-            {t.contact.topics.map((o) => <option>{o}</option>)}
-          </select></label>
-      </div>
-      <label class="field"><span>{t.contact.fields.message}</span>
-        <textarea name="message" required rows="5" maxlength="5000"></textarea></label>
-      <div class="form__foot">
-        <button class="btn btn--signal" type="submit">{t.contact.submit}<Arrow /></button>
-        <p class="form__status" role="status" aria-live="polite"></p>
-      </div>
-      <p class="form__note">{t.contact.privacyNote} <a href={routes.privacy[t.lang]}>{t.contact.privacyLink}</a></p>
-    </form>
-  </div>
-</section>
+    <label class="field"><span>{t.contact.fields.name}</span>
+      <input type="text" name="name" required autocomplete="name" maxlength="120" /></label>
+    <label class="field"><span>{t.contact.fields.email}</span>
+      <input type="email" name="email" required autocomplete="email" maxlength="200" /></label>
+    <label class="field"><span>{t.contact.fields.company} <i>({t.contact.fields.optional})</i></span>
+      <input type="text" name="company" autocomplete="organization" maxlength="160" /></label>
+    <label class="field"><span>{t.contact.fields.topic}</span>
+      <select name="service" required>
+        <option value="" selected disabled>{t.contact.fields.choose}</option>
+        {t.contact.topics.map((o) => <option>{o}</option>)}
+      </select></label>
+    <label class="field field--full"><span>{t.contact.fields.message}</span>
+      <textarea name="message" required rows="5" maxlength="5000"></textarea></label>
+    <div class="form__foot">
+      <button class="btn btn--primary" type="submit">{t.contact.submit}<Arrow /></button>
+      <p class="form__status" role="status" aria-live="polite"></p>
+    </div>
+    <p class="form__note">{t.contact.privacyNote} <a href={routes.privacy[t.lang]}>{t.contact.privacyLink}</a></p>
+  </form>
+</div>
 
 <script>
   // Contact form: send as JSON, show success only after the API answers 200.
@@ -84,6 +75,26 @@ const { t } = Astro.props;
         button.disabled = false;
         button.innerHTML = label;
       }
+    });
+
+    // Case buttons ("A manual process eats hours…") start the message for the visitor.
+    // Without JS they are plain links to #contact.
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const message = form.querySelector<HTMLTextAreaElement>('textarea[name=message]')!;
+    const topic = form.querySelector<HTMLSelectElement>('select[name=service]')!;
+    const name = form.querySelector<HTMLInputElement>('input[name=name]')!;
+    document.querySelectorAll<HTMLAnchorElement>('[data-case]').forEach((a) => {
+      a.addEventListener('click', (ev) => {
+        ev.preventDefault();
+        message.value = a.dataset.case!;
+        const i = Number(a.dataset.topic);
+        if (!Number.isNaN(i)) topic.selectedIndex = i + 1;
+        document.getElementById('contact')!.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+        message.classList.remove('is-filled');
+        void message.offsetWidth;
+        message.classList.add('is-filled');
+        setTimeout(() => name.focus({ preventScroll: true }), reduce ? 0 : 500);
+      });
     });
   }
 </script>

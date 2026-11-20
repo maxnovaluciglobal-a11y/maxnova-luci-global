@@ -7,52 +7,63 @@ import type { Copy } from '../i18n/content';
 interface Props { t: Copy }
 const { t } = Astro.props;
 const c = t.servicesPage;
+const h = t.home;
+const cases = [h.ai.cases, [h.usa.case]];
 ---
 <header class="page-head">
   <div class="container">
     <h1>{c.h1}</h1>
-    <p>{c.lead}</p>
-    <a class="btn btn--ink" href="#contact">{c.cta}<Arrow /></a>
+    <p class="page-head__lead">{c.lead}</p>
+    <div class="actions"><a class="btn btn--primary" href="#contact">{c.cta}<Arrow /></a></div>
   </div>
 </header>
 
-<div class="container services">
-  {c.items.map((s) => (
-    <article class="service" id={s.id} aria-labelledby={`${s.id}-title`}>
-      <div class="service__head">
+<div class="container">
+  <div class="sv">
+    {c.items.map((s, i) => (
+      <article class={`sv__item ${i === 0 ? 'sv__item--ai' : 'sv__item--usa'}`} id={s.id} aria-labelledby={`${s.id}-title`}>
         <h2 id={`${s.id}-title`}>{s.title}</h2>
-        <p>{s.who}</p>
-      </div>
-      <div class="service__col">
-        <h3>{c.doesTitle}</h3>
-        <ul>{s.does.map((d) => <li>{d}</li>)}</ul>
-      </div>
-      <div class="service__col">
-        <h3>{c.proofTitle}</h3>
-        <p>{s.proof}</p>
-        <h3>{s.limitsTitle}</h3>
-        <ul>{s.limits.map((d) => <li>{d}</li>)}</ul>
-      </div>
-    </article>
-  ))}
+        <p class="sv__who">{s.who}</p>
+        <div>
+          <h3 class="sv__sub">{c.doesTitle}</h3>
+          <ul class="sv__list">{s.does.map((d) => <li>{d}</li>)}</ul>
+        </div>
+        <div>
+          <h3 class="sv__sub">{c.proofTitle}</h3>
+          <p style="margin:0">{s.proof}</p>
+        </div>
+        <div>
+          <h3 class="sv__sub">{s.limitsTitle}</h3>
+          <ul class="sv__list sv__list--no">{s.limits.map((d) => <li>{d}</li>)}</ul>
+        </div>
+        <ul class={`cases${i === 1 ? ' cases--line' : ''}`}>
+          {cases[i].map((k) => <li><a class="case" href="#contact" data-case={k.msg} data-topic={String(i)}>{k.label} <span class="case__go">{h.ai.write}<Arrow /></span></a></li>)}
+        </ul>
+      </article>
+    ))}
+  </div>
+  <p class="disclaimer">{c.disclaimer}</p>
 </div>
 
-<div class="container"><p class="disclaimer">{c.disclaimer}</p></div>
-
-<section class="section section--ink" aria-labelledby="process-title">
+<section class="section" aria-labelledby="process-title">
   <div class="container">
-    <h2 id="process-title">{c.processH2}</h2>
+    <div class="sec-head">
+      <h2 id="process-title">{c.processH2}</h2>
+      <p>{h.processIntro}</p>
+    </div>
     <ol class="steps">
-      {c.steps.map((s) => <li><strong>{s.title}</strong><p>{s.text}</p></li>)}
+      {c.steps.map((s, i) => <li class="step"><span class="step__n">{String(i + 1).padStart(2, '0')}</span><h3>{s.title}</h3><p>{s.text}</p></li>)}
     </ol>
   </div>
 </section>
 
 <section class="section" aria-labelledby="faq-title">
-  <div class="container split">
-    <h2 id="faq-title">{c.faqH2}</h2>
+  <div class="container faq-grid">
+    <h2 id="faq-title" class="h2">{c.faqH2}</h2>
     <Faq items={c.faq} />
   </div>
 </section>
 
-<ContactForm t={t} />
+<section class="section contact-wrap">
+  <div class="container"><ContactForm t={t} /></div>
+</section>

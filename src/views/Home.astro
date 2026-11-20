@@ -1,97 +1,280 @@
 ---
 import { Image } from 'astro:assets';
 import founderPhoto from '../assets/founder.png';
+import dyposIcon from '../assets/logos/dypos.svg';
+import moyiqWord from '../assets/logos/moyiq-logotipo.svg';
+import esmaliaWord from '../assets/logos/esmalia-wordmark.svg';
 import Arrow from '../components/Arrow.astro';
-import Network from '../components/Network.astro';
 import ContactForm from '../components/ContactForm.astro';
-import LogTable from '../components/LogTable.astro';
-import ProductShot from './ProductShot.astro';
-import { products, log, routes, screenCaptions, LEGAL_NAME, DOC_NUMBER, SUNBIZ_URL, formatDate, FILED_ISO, type Copy } from '../i18n/content';
+import LogList from '../components/LogList.astro';
+import StatusPill from '../components/StatusPill.astro';
+import { products, log, routes, statusData, LEGAL_NAME, DOC_NUMBER, SUNBIZ_URL, formatDate, FILED_ISO, type Copy } from '../i18n/content';
 
 interface Props { t: Copy }
 const { t } = Astro.props;
-const company = t.companyPage;
+const h = t.home;
+const [dy, mq, es] = [h.dypos, h.moyiq, h.esmalia];
+const url = Object.fromEntries(products.map((p) => [p.id, p.url]));
+const [before, after] = h.h1.split(h.h1Accent);
+const filed = formatDate(FILED_ISO, t.lang, t.dateFmt);
+// Strings the demo script needs, in this page's language.
+const demoCopy = {
+  dy: { buttons: dy.buttons, states: ['', dy.inKitchen, dy.ready], table: dy.table, footLabel: dy.footLabel, closed: [dy.closed(7), dy.closed(3), dy.closed(9), dy.closed(4)], closedLine: dy.closedLine, profit: dy.profit },
+  mq: { empty: mq.empty, other: mq.other, noAmount: mq.noAmount, now: mq.now, samples: mq.samples, lang: t.lang },
+  es: { ok: es.ok, pending: es.pending, simulate: es.simulate, reset: es.reset, of: es.of },
+};
+const check = '<svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="currentColor"/><path d="M5.8 10.3l2.7 2.6 5.7-5.8" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 ---
-<section class="hero">
-  <div class="container hero__grid">
-    <div class="hero__text">
-      <h1>{t.home.h1}</h1>
-      <p class="hero__lead">{t.home.lead}</p>
-      <div class="hero__actions">
-        <a class="btn btn--ink" href={routes.products[t.lang]}>{t.home.primary}<Arrow /></a>
-        <a class="btn btn--line" href={routes.services[t.lang]}>{t.home.secondary}</a>
+<div {...statusData(t)}>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container">
+    <div class="hero__grid">
+      <h1 id="hero-title">{before}<em>{h.h1Accent}</em>{after}</h1>
+      <div>
+        <p class="hero__lead">{h.lead}</p>
+        <div class="actions">
+          <a class="btn btn--primary" href="#products">{h.primary}<Arrow /></a>
+          <a class="btn btn--line" href="#contact">{h.secondary}</a>
+        </div>
+        <div class="live">
+          <span class="live__dots" aria-hidden="true">{products.map((p) => <i data-dot={p.id}></i>)}</span>
+          <span data-status-sum aria-live="polite">{t.network.noScript}</span>
+          <button class="live__again" type="button" data-recheck hidden>
+            <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M13.5 8a5.5 5.5 0 1 1-1.6-3.9M13.5 2.5v3h-3" /></svg>{t.network.recheck}
+          </button>
+        </div>
       </div>
     </div>
-    <Network t={t} />
-  </div>
-</section>
 
-<section class="registry" aria-label={t.home.registryTitle}>
-  <div class="container">
-    <dl class="registry__row">
-      <div><dt>{company.facts[0].k}</dt><dd>{LEGAL_NAME}</dd></div>
-      <div><dt>{company.facts[2].k}</dt><dd class="mono">{DOC_NUMBER}</dd></div>
-      <div><dt>{company.facts[3].k}</dt><dd>{formatDate(FILED_ISO, t.lang, t.dateFmt)}</dd></div>
-      <div><dt>{t.home.registryTitle}</dt><dd><a href={SUNBIZ_URL} rel="noopener" target="_blank">Florida Sunbiz<Arrow out /></a></dd></div>
-    </dl>
-  </div>
-</section>
-
-<section class="section" aria-labelledby="products-title">
-  <div class="container">
-    <div class="head">
-      <h2 id="products-title">{t.home.productsH2}</h2>
-      <p>{t.home.productsIntro}</p>
+    <div class="bento-head" id="products">
+      <h2>{h.bentoH2}</h2>
+      <p>{h.bentoIntro} {h.prep.foot}</p>
     </div>
-    <div class="rack">
-      {products.map((p, i) => (
-        <article class={`rack__unit rack__unit--${i}`} aria-labelledby={`unit-${p.id}`}>
-          <figure class="rack__fig">
-            <a class="rack__shot" href={`${routes.products[t.lang]}#${p.id}`} tabindex="-1" aria-hidden="true"><ProductShot t={t} product={p} sizes={i === 0 ? '(min-width: 900px) 860px, 92vw' : '(min-width: 900px) 640px, 92vw'} /></a>
-            <figcaption>{screenCaptions[p.id][t.lang]}</figcaption>
-          </figure>
-          <div class="rack__meta">
-            <h3 id={`unit-${p.id}`}>{p.name}</h3>
-            <p>{p.summary[t.lang]}</p>
-            <a class="link" href={p.demo} rel="noopener" target="_blank">{t.productsPage.openDemo}<Arrow out /></a>
+
+    <div class="bento">
+      <article class="cell prod c-dypos" aria-labelledby="h-dypos">
+        <header class="cell__head">
+          <div class="cell__id">
+            <img class="logo-sq" src={dyposIcon.src} alt="" width="40" height="40" />
+            <div><h3 id="h-dypos">DypOS</h3><p class="cell__for muted">{products[0].sector[t.lang]}</p></div>
           </div>
-        </article>
-      ))}
+          <StatusPill t={t} id="dypos" />
+        </header>
+        <div class="demo dy" role="group" aria-label={dy.label}>
+          <div class="dy__top">
+            <span class="dy__title">{dy.title} <b>{dy.titleAccent}</b></span>
+            <span class="tag">{h.sample}</span>
+            <span class="dy__clock" data-dy-clock>13:42</span>
+          </div>
+          <div class="dy__cols">
+            {dy.cols.map((c, i) => (
+              <section class="dy__col" data-stage={i} aria-label={c}>
+                <h4>{c} <span class="dy__n" data-count>{[2, 1, 0][i]}</span></h4>
+                <div class="dy__drop" data-empty={dy.noTickets}>
+                  {i === 0 && (
+                    <div class="tk tk--main" data-dy-ticket data-stage="0">
+                      <div class="tk__h"><b data-dy-num>#61870</b><span class="tk__table" data-dy-table>{dy.table} 4</span><span class="tk__time" data-dy-time>0:42</span></div>
+                      <ul>{dy.items.map(([q, n, note]) => <li><span class="tk__q">{q}</span><span>{n}{note && <span class="tk__note">{note}</span>}</span></li>)}</ul>
+                      <div class="tk__state" data-dy-state>{dy.inKitchen}</div>
+                      <button class="tk__btn" type="button" data-dy-btn>{dy.buttons[0]}</button>
+                    </div>
+                  )}
+                  {i === 0 && (
+                    <div class="tk tk--ghost">
+                      <div class="tk__h"><b>#61869</b><span class="tk__table">{dy.table} 2</span><span class="tk__time">1:10</span></div>
+                      <ul><li><span class="tk__q">{dy.ghost1[0]}</span><span>{dy.ghost1[1]}</span></li></ul>
+                    </div>
+                  )}
+                  {i === 1 && (
+                    <div class="tk tk--ghost">
+                      <div class="tk__h"><b>#61866</b><span class="tk__table">{dy.table} 1</span><span class="tk__time">9 min</span></div>
+                      <ul>{dy.ghost2.map(([q, n]) => <li><span class="tk__q">{q}</span><span>{n}</span></li>)}</ul>
+                    </div>
+                  )}
+                </div>
+              </section>
+            ))}
+          </div>
+          <p class="dy__foot" data-dy-foot aria-live="polite"><span class="dy__lbl">{dy.footLabel}</span> {dy.footIdle}</p>
+        </div>
+        <footer class="cell__foot">
+          <div>
+            <p class="cell__what">{dy.what}</p>
+            <span class="price">{h.from} <b>{dy.price}</b>{h.perMonth} · {h.freeTrial}</span>
+          </div>
+          <a class="open" href={url.dypos} target="_blank" rel="noopener">{h.open('DypOS')}<Arrow out /></a>
+        </footer>
+      </article>
+
+      <article class="cell prod inv c-moyiq" aria-labelledby="h-moyiq">
+        <header class="cell__head">
+          <div class="cell__id">
+            <img class="logo-wide" src={moyiqWord.src} alt="" width="81" height="28" style="height:28px" />
+            <div><h3 id="h-moyiq" class="sr">moyiq</h3><p class="cell__for muted">{products[1].sector[t.lang]}</p></div>
+          </div>
+          <StatusPill t={t} id="moyiq" />
+        </header>
+        <div class="demo mq" role="group" aria-label={mq.label}>
+          <div class="mq__head">
+            <div class="mq__row"><span class="mq__date">{mq.date}</span><span class="tag">{h.sample}</span></div>
+            <p class="mq__lbl">{mq.left}</p>
+            <p class="mq__big" data-mq-big><sup>$</sup><span data-mq-int>1,668</span><small data-mq-dec>.25</small></p>
+            <div class="mq__bar"><i data-mq-bar></i></div>
+          </div>
+          <div class="mq__body">
+            <form data-mq-form autocomplete="off">
+              <label class="mq__in-l" for="mq-in">{mq.inputLabel}</label>
+              <div class="mq__in">
+                <input id="mq-in" name="expense" value={mq.inputValue} aria-describedby="mq-guess" />
+                <button class="mq__add" type="submit">{mq.add}</button>
+              </div>
+            </form>
+            <p class="mq__guess" id="mq-guess" aria-live="polite"><span class="mq__cat" data-mq-cat><i style="background:#7C4DFF">T</i><span>{t.lang === 'es' ? 'Transporte · Taxi por app' : 'Transport · Ride app'}</span></span><span class="mq__amt" data-mq-amt>−$12.00</span></p>
+            <ul class="mq__list" data-mq-list>
+              {mq.list.map(([l, c, n, s, a]) => <li><span class="mq__ic" style={`background:${c}`}>{l}</span><span class="mq__t">{n}<small>{s}</small></span><span class="mq__a">{a}</span></li>)}
+            </ul>
+          </div>
+        </div>
+        <footer class="cell__foot">
+          <div>
+            <p class="cell__what">{mq.what}</p>
+            <span class="price"><b>{mq.free}</b> · {mq.pro} <b>{mq.proPrice}</b>{h.perMonth} {mq.or} <b>{mq.proYear}</b>{mq.perYear}</span>
+          </div>
+          <a class="open" href={url.moyiq} target="_blank" rel="noopener">{h.open('moyiq')}<Arrow out /></a>
+        </footer>
+      </article>
+
+      <article class="cell prod inv c-esmalia" aria-labelledby="h-esmalia">
+        <header class="cell__head">
+          <div class="cell__id">
+            <img class="logo-wide" src={esmaliaWord.src} alt="" width="105" height="32" style="height:32px" />
+            <div><h3 id="h-esmalia" class="sr">Esmalia</h3><p class="cell__for muted">{products[2].sector[t.lang]}</p></div>
+          </div>
+          <StatusPill t={t} id="esmalia" />
+        </header>
+        <div class="demo es" role="group" aria-label={es.label}>
+          <div class="es__top"><span class="es__when"><b>{es.day}</b> · {es.date}</span><span class="tag">{h.sample}</span></div>
+          <div class="es__big"><b>{es.count}</b><em>{es.chairs}</em><span class="es__conf">{es.confirmed}<strong data-es-conf>7 {es.of} 9</strong></span></div>
+          <ol class="es__ag">
+            {es.rows.map(([time, who, what], i) => (
+              <li class={i === 1 ? 'is-target' : undefined} data-es-row={i === 1 ? '' : undefined}>
+                <time>{time}</time><span class="es__who">{who}<small>{what}</small></span>
+                <span class={`st ${i === 1 ? 'st--pend' : 'st--ok'}`} data-es-st={i === 1 ? '' : undefined}>{i === 1 ? es.pending : es.ok}</span>
+              </li>
+            ))}
+          </ol>
+          <div class="es__wa" aria-live="polite">
+            <span class="es__wa-h"><i aria-hidden="true"></i>{es.wa}</span>
+            <p class="bub bub--out">{es.msgOut}</p>
+            <p class="bub bub--in" data-es-in hidden>{es.msgIn}</p>
+            <button class="es__btn" type="button" data-es-btn>{es.simulate}</button>
+          </div>
+        </div>
+        <footer class="cell__foot">
+          <div>
+            <p class="cell__what">{es.what}</p>
+            <span class="price">{h.from} <b>{es.price}</b>{h.perMonth} · {h.freeTrial}</span>
+          </div>
+          <a class="open" href={url.esmalia} target="_blank" rel="noopener">{h.open('Esmalia')}<Arrow out /></a>
+        </footer>
+      </article>
+
+      <article class="cell svc c-ai" aria-labelledby="h-ai">
+        <h3 id="h-ai">{h.ai.title}</h3>
+        <p>{h.ai.text}</p>
+        <ul class="cases" aria-label={h.ai.casesLabel}>
+          {h.ai.cases.map((c) => <li><a class="case" href="#contact" data-case={c.msg} data-topic="0">{c.label} <span class="case__go">{h.ai.write}<Arrow /></span></a></li>)}
+        </ul>
+        <div class="built">
+          <h4>{h.ai.builtTitle}</h4>
+          <ul>{h.ai.built.map((b) => <li><i style={`background:${b.color}`}></i>{b.text}<span>{b.who}</span></li>)}</ul>
+        </div>
+        <div class="svc__end">
+          <p class="svc__note">{h.ai.note}</p>
+          <span class="svc__quote">{h.ai.kicker}</span>
+        </div>
+      </article>
+
+      <article class="cell svc c-usa" aria-labelledby="h-usa">
+        <h3 id="h-usa">{h.usa.title}</h3>
+        <p style="font-size:0.9375rem">{h.usa.intro}</p>
+        <ul class="checks">
+          {h.usa.done.map((d) => <li><Fragment set:html={check} /><span>{d.t}<small>{d.s}</small></span></li>)}
+        </ul>
+        <div>
+          <h4 class="svc__sub">{t.servicesPage.doesTitle}</h4>
+          <ul class="sv__list">{t.servicesPage.items[1].does.map((d) => <li>{d}</li>)}</ul>
+        </div>
+        <div class="svc__end">
+          <ul class="cases"><li><a class="case" href="#contact" data-case={h.usa.case.msg} data-topic="1">{h.usa.case.label} <span class="case__go">{h.ai.write}<Arrow /></span></a></li></ul>
+          <p class="svc__disclaim">{h.usa.disclaimer}</p>
+          <span class="svc__quote">{h.usa.kicker}</span>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="registry" aria-label={h.registryTitle}>
+      <span class="registry__seal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 3.5v6c0 4.6-3.3 8.8-8 10.5-4.7-1.7-8-5.9-8-10.5v-6L12 2z" fill="currentColor"/><path d="M8 12.2l2.7 2.6L16 9.5" fill="none" stroke="#0D1117" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>{LEGAL_NAME}</span>
+      <span class="registry__d"><span>{h.registry.kind}</span></span>
+      <span class="registry__d"><span>{h.registry.doc}</span><b>{DOC_NUMBER}</b></span>
+      <span class="registry__d"><span>{h.registry.filed}</span>{filed}</span>
+      <a href={SUNBIZ_URL} target="_blank" rel="noopener">{h.registry.verify}<Arrow out /></a>
     </div>
   </div>
 </section>
+</div>
 
-<section class="section section--ink" aria-labelledby="doors-title">
+<section class="section" aria-labelledby="process-title">
   <div class="container">
-    <h2 id="doors-title">{t.home.doorsH2}</h2>
-    <div class="doors">
-      {t.home.doors.map((d) => (
-        <a class="door" href={routes[d.page][t.lang]}>
-          <h3>{d.title}</h3>
-          <p>{d.text}</p>
-          <span class="door__link">{d.link}<Arrow /></span>
-        </a>
-      ))}
+    <div class="sec-head">
+      <h2 id="process-title">{h.processH2}</h2>
+      <p>{h.processIntro}</p>
+    </div>
+    <ol class="steps">
+      {t.servicesPage.steps.map((s, i) => <li class="step"><span class="step__n">{String(i + 1).padStart(2, '0')}</span><h3>{s.title}</h3><p>{s.text}</p></li>)}
+    </ol>
+  </div>
+</section>
+
+<section class="section" aria-label={`${h.moneyTitle} · ${h.logH2}`}>
+  <div class="container duo">
+    <div class="money">
+      <h2>{h.moneyTitle}</h2>
+      <blockquote>{h.money}</blockquote>
+      <ul class="prices" aria-label={h.pricesLabel}>
+        <li><span class="prices__p"><i style="background:#ff7a00"></i>DypOS</span><span class="prices__v">{h.from.toLowerCase()} <b>{dy.price}</b>{h.perMonth}</span></li>
+        <li><span class="prices__p"><i style="background:#5b21d6"></i>moyiq</span><span class="prices__v">{mq.free.toLowerCase()} · {mq.pro} <b>{mq.proPrice}</b>{h.perMonth}</span></li>
+        <li><span class="prices__p"><i style="background:#c8102e"></i>Esmalia</span><span class="prices__v">{h.from.toLowerCase()} <b>{es.price}</b>{h.perMonth}</span></li>
+        <li><span class="prices__p"><i style="background:var(--cobalt)"></i>{h.customRow}</span><span class="prices__v">{h.customValue}</span></li>
+      </ul>
+    </div>
+    <div class="news">
+      <div class="news__h"><h2>{h.logH2}</h2><a class="link" href={routes.log[t.lang]}>{h.logLink}<Arrow /></a></div>
+      <LogList t={t} entries={log.slice(0, 5)} />
     </div>
   </div>
 </section>
 
-<section class="section" aria-labelledby="note-title">
-  <div class="container split">
-    <article class="note">
-      <h2 id="note-title">{company.founderH2}</h2>
-      {company.founder.map((p) => <p>{p}</p>)}
-      <div class="note__by">
-        <Image class="note__photo" src={founderPhoto} alt={company.founderAlt} widths={[72, 144]} sizes="72px" loading="lazy" />
-        <p class="note__sign"><strong>{company.founderName}</strong><span>{company.founderRole}, {LEGAL_NAME}</span></p>
+<section class="section contact-wrap" aria-labelledby="contact-title">
+  <div class="container duo">
+    <div class="founder-card">
+      <h2>{t.companyPage.founderH2}</h2>
+      <div class="founder-card__ph">
+        <Image class="founder-card__photo" src={founderPhoto} alt={t.companyPage.founderAlt} widths={[144, 288]} sizes="144px" loading="lazy" />
+        <div><h3>{t.companyPage.founderName}</h3><p class="founder-card__role">{t.companyPage.founderRole}</p></div>
       </div>
-    </article>
-    <div>
-      <h2>{t.home.logH2}</h2>
-      <LogTable t={t} entries={log.slice(0, 4)} />
-      <a class="link" href={routes.log[t.lang]}>{t.home.logLink}<Arrow /></a>
+      <p class="founder-card__bio">{h.founderBio}</p>
+      <p class="founder-card__reg">{LEGAL_NAME} · {h.registry.kind} · {h.registry.doc} {DOC_NUMBER}<br /><a class="link" href={routes.company[t.lang]}>{t.home.doors[1].link}<Arrow /></a></p>
     </div>
+    <ContactForm t={t} />
   </div>
 </section>
 
-<ContactForm t={t} />
+<script type="application/json" id="demo-copy" set:html={JSON.stringify(demoCopy)} />
+<script>
+  import { startStatus } from '../scripts/status';
+  import { startDemos } from '../scripts/demos';
+  startStatus();
+  startDemos();
+</script>

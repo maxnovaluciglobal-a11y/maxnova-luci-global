@@ -1,12 +1,18 @@
+---
+version: 1
+slug: "src-pages-index-astro"
+primary_target: "src/pages/index.astro"
+related_targets: ["src/pages/es/index.astro"]
+---
+
 # Surface: corporate site (all pages)
 
-Mode: Persuade. Audience: B2B clients in Latin America, banks and platforms verifying the entity, partners.
+Mode: Persuade. Audience: B2B clients in Latin America, investors and partners checking the company is real, banks and platforms verifying the entity.
 
 ## Direction contract
-- THESIS: an operator you can verify, not a startup pitch. Every claim is clickable or measured.
-- OWN-WORLD: "Red en operación", chosen by Walter on 2026-11-03 from three directions in the design audit (A memoria operativa, B red en operación, C carta del operador). It did not come from the concept-seed roll 93f33197; that roll ran afterwards and was overridden by the user's explicit choice.
-- STORY: a telecom engineer runs his products like a network: a core, links, live checks, a dated log.
-- FIRST VIEWPORT: H1 "Three live software products. One Florida company." beside the live network map (core = LLC + document number; gold traces to DypOS, MOY IQ, Esmalia with measured status and latency; dashed traces to the Amazon account and the medical product).
-- FORM: grey technical plan, ink rack panels, gold from the logo, Schibsted Grotesk, Martian Mono only for measurements. Code-led build, no comp.
-- SIGNATURE: pulse per trace when a check returns, travel time from measured latency; reduced motion disables it.
-- CONSTRAINTS: no invented traction; no founder portrait yet; MOY IQ and Esmalia demos need personal data, so their screens are public home pages, captioned as such.
+- THESIS: the products are the pitch. The home lets a visitor use a slice of each product before reading a claim; it refuses the agency hero over a row of service cards and the dark SaaS template.
+- OWN-WORLD: cool grey ground #F6F7F9, white cells, ink #0D1117, one electric cobalt #1F4BFF that owns whole fields (AI service cell, closing footer band). Each product cell turns into its own brand colour on hover. Two faces: Bricolage Grotesque display, Schibsted Grotesk text with tabular numerals. One 16px radius, pills for controls.
+- STORY: the visitor sees three products working, believes the company operates them (measured status, dated log, Florida registry), and writes through the form or opens a product.
+- FIRST VIEWPORT: H1 "We build our own before we build yours." at ~92px left over 7/12, lead + two CTAs + live status summary with "Check again" right; the top of the bento (DypOS kitchen demo and moyiq expense demo) starts inside the fold.
+- FORM: Bento vivo, prototype 02 chosen by Walter on 2026-11-20 from four prototypes, with raises: live check and re-measure from 01 Sala de control; poster-scale closing band from 03 Afiche eléctrico; log grouped by month with a timeline since filing from 04 Bitácora abierta. User-pinned direction, no concept-seed roll.
+- FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance

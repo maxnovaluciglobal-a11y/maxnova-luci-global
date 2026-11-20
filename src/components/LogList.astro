@@ -1,0 +1,28 @@
+---
+// Dated entries grouped by month (newest first). Used by the home "news" card and the log page.
+import { formatMonth, formatDay, type Copy, type LogEntry } from '../i18n/content';
+interface Props { t: Copy; entries: LogEntry[]; filterable?: boolean }
+const { t, entries, filterable = false } = Astro.props;
+const groups: { key: string; items: LogEntry[] }[] = [];
+for (const e of entries) {
+  const key = e.date.slice(0, 7);
+  const g = groups.at(-1);
+  if (g && g.key === key) g.items.push(e);
+  else groups.push({ key, items: [e] });
+}
+const scopeLabel = (s: LogEntry['scope']) => (s === 'Company' ? t.logPage.company : s);
+---
+{groups.map((g) => (
+  <section class="lg-month" data-month={g.key} aria-label={formatMonth(g.key, t.lang)}>
+    <h3 class="month">{formatMonth(g.key, t.lang)}</h3>
+    <ol class="entries">
+      {g.items.map((e) => (
+        <li data-scope={filterable ? e.scope : undefined}>
+          <time datetime={e.date}>{formatDay(e.date, t.lang)}</time>
+          <span class={`ptag ptag--${e.scope}`}>{scopeLabel(e.scope)}</span>
+          <span class="entries__txt">{e.text[t.lang]}</span>
+        </li>
+      ))}
+    </ol>
+  </section>
+))}

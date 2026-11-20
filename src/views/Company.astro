@@ -4,7 +4,7 @@ import ContactForm from '../components/ContactForm.astro';
 import Faq from '../components/Faq.astro';
 import { Image } from 'astro:assets';
 import founderPhoto from '../assets/founder.png';
-import { SUNBIZ_URL, type Copy } from '../i18n/content';
+import { SUNBIZ_URL, DOC_NUMBER, type Copy } from '../i18n/content';
 
 interface Props { t: Copy }
 const { t } = Astro.props;
@@ -13,44 +13,47 @@ const c = t.companyPage;
 <header class="page-head">
   <div class="container">
     <h1>{c.h1}</h1>
-    <p>{c.lead}</p>
+    <p class="page-head__lead">{c.lead}</p>
   </div>
 </header>
 
-<section class="section section--tight" aria-labelledby="facts-title">
-  <div class="container split">
-    <div>
+<div class="container">
+  <div class="co">
+    <section class="ledger-card" aria-labelledby="facts-title">
       <h2 id="facts-title">{c.factsH2}</h2>
-      <h3 class="verify__title">{c.verifyH2}</h3>
-      <p class="verify">{c.verify}</p>
-      <a class="link" href={SUNBIZ_URL} rel="noopener" target="_blank">{c.verifyLink}<Arrow out /></a>
-    </div>
-    <dl class="ledger">
-      {c.facts.map((r) => (
-        <div><dt>{r.k}</dt><dd class={r.mono ? 'mono' : undefined}>{r.href ? <a href={r.href}>{r.v}</a> : r.v}</dd></div>
-      ))}
-    </dl>
+      <dl class="ledger">
+        {c.facts.map((r) => (
+          <div><dt>{r.k}</dt><dd class={r.mono ? 'is-code' : undefined}>{r.href ? <a href={r.href}>{r.v}</a> : r.v}</dd></div>
+        ))}
+      </dl>
+    </section>
+    <section class="verify-card" aria-labelledby="verify-title">
+      <h2 id="verify-title">{c.verifyH2}</h2>
+      <p class="verify-card__doc">{DOC_NUMBER}</p>
+      <p>{c.verify}</p>
+      <a class="btn btn--light" href={SUNBIZ_URL} rel="noopener" target="_blank">{c.verifyLink}<Arrow out /></a>
+    </section>
   </div>
-</section>
+</div>
 
-<section class="section section--ink" id="founder" aria-labelledby="founder-title">
-  <div class="container split">
-    <div class="founder">
-      <h2 id="founder-title">{c.founderH2}</h2>
-      <Image class="founder__photo" src={founderPhoto} alt={c.founderAlt} widths={[200, 400]} sizes="200px" loading="lazy" />
-    </div>
-    <article class="note note--ink">
+<section class="section" id="founder" aria-labelledby="founder-title">
+  <div class="container co-founder">
+    <Image class="co-founder__photo" src={founderPhoto} alt={c.founderAlt} widths={[320, 640]} sizes="(min-width: 1120px) 420px, 320px" loading="lazy" />
+    <article class="co-founder__text">
+      <h2 id="founder-title" class="h2">{c.founderH2}</h2>
       {c.founder.map((p) => <p>{p}</p>)}
-      <p class="note__sign"><strong>{c.founderName}</strong><span>{c.founderRole}</span></p>
+      <p class="co-founder__sign"><strong>{c.founderName}</strong><span>{c.founderRole}</span></p>
     </article>
   </div>
 </section>
 
 <section class="section" aria-labelledby="faq-title">
-  <div class="container split">
-    <h2 id="faq-title">{c.faqH2}</h2>
+  <div class="container faq-grid">
+    <h2 id="faq-title" class="h2">{c.faqH2}</h2>
     <Faq items={c.faq} />
   </div>
 </section>
 
-<ContactForm t={t} />
+<section class="section contact-wrap">
+  <div class="container"><ContactForm t={t} /></div>
+</section>

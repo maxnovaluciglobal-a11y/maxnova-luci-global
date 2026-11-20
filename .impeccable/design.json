@@ -1,532 +1,661 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-18T21:22:44Z",
+  "generatedAt": "2026-11-20T03:43:20Z",
   "title": "Design System: Maxnova & Luci Global",
   "provenance": {
-    "source": "Launch UI open-source edition, MIT, (c) 2024 Mikolaj Dobrucki, github.com/launch-ui/launch-ui @ b0d4d5b",
-    "adaptation": "Ported to Astro + plain CSS; colour tokens, glass surfaces, mockup frames, glow, button and badge styles, appear animation. License in THIRD_PARTY_NOTICES.md.",
-    "chosen": "Walter, 2026-10-18, from 21st.dev with the constraint 'must be free'",
+    "world": "Bento vivo, prototype 02 chosen by Walter on 2026-11-20, with raises from prototypes 01, 03 and 04",
     "supersedes": [
-      "departures-board world (seed a5e59273)",
-      "cobalt/Archivo world",
-      "docs/prompt-maestro.md \u00a74 (Direcci\u00f3n de arte) and \u00a75 (3D y movimiento)"
+      "Red en operación (grey plan, ink rack panels, gold, Martian Mono, network map)",
+      "Launch UI dark adaptation"
     ],
-    "tokenSource": "src/styles/global.css :root"
+    "tokenSource": "src/styles/global.css :root",
+    "fonts": "@fontsource-variable/bricolage-grotesque (opsz), @fontsource-variable/schibsted-grotesk (wght)"
   },
   "extensions": {
     "colorMeta": {
-      "background": {
+      "ground": {
         "role": "neutral",
-        "displayName": "Zinc Night",
-        "canonical": "#09090b",
+        "displayName": "Cool Mist",
+        "canonical": "#f6f7f9",
+        "oklch": "oklch(97.6% 0.003 264.5)",
         "tonalRamp": [
-          "#09090b",
-          "#18181b",
-          "#27272a",
-          "#3f3f46",
-          "#52525b",
-          "#71717a",
-          "#a1a1aa",
-          "#d4d4d8"
+          "#0b0b0c",
+          "#242526",
+          "#414243",
+          "#606163",
+          "#818284",
+          "#a4a5a7",
+          "#c8c9cb",
+          "#edeef0"
         ]
       },
-      "foreground": {
-        "role": "primary",
-        "displayName": "Paper White",
-        "canonical": "#fafafa",
+      "surface": {
+        "role": "neutral",
+        "displayName": "Cell White",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 89.9)",
         "tonalRamp": [
-          "#27272a",
-          "#3f3f46",
-          "#52525b",
-          "#71717a",
-          "#a1a1aa",
-          "#d4d4d8",
-          "#e4e4e7",
-          "#fafafa"
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Graphite Ink",
+        "canonical": "#0d1117",
+        "oklch": "oklch(17.6% 0.014 258.4)",
+        "tonalRamp": [
+          "#080b11",
+          "#21252c",
+          "#3d424a",
+          "#5c6269",
+          "#7d838b",
+          "#a0a5ae",
+          "#c4cad2",
+          "#e9eff8"
+        ]
+      },
+      "ink-raised": {
+        "role": "neutral",
+        "displayName": "Raised Graphite",
+        "canonical": "#161c25",
+        "oklch": "oklch(22.5% 0.020 258.3)",
+        "tonalRamp": [
+          "#060b13",
+          "#1f252f",
+          "#3c424d",
+          "#5a626d",
+          "#7b838e",
+          "#9ea6b2",
+          "#c1cad6",
+          "#e7effc"
+        ]
+      },
+      "text-soft": {
+        "role": "neutral",
+        "displayName": "Slate Text",
+        "canonical": "#2b323c",
+        "oklch": "oklch(31.5% 0.020 257.3)",
+        "tonalRamp": [
+          "#060b14",
+          "#1f262f",
+          "#3b434d",
+          "#5a626d",
+          "#7b838f",
+          "#9da6b2",
+          "#c1cad7",
+          "#e6effd"
         ]
       },
       "muted": {
         "role": "neutral",
-        "displayName": "Zinc Muted",
-        "canonical": "#27272a",
+        "displayName": "Steel",
+        "canonical": "#5b6472",
+        "oklch": "oklch(50.1% 0.025 259.2)",
         "tonalRamp": [
-          "#09090b",
-          "#18181b",
-          "#27272a",
-          "#3f3f46",
-          "#52525b",
-          "#71717a",
-          "#a1a1aa",
-          "#d4d4d8"
+          "#050b16",
+          "#1e2531",
+          "#3a4250",
+          "#596270",
+          "#7a8392",
+          "#9ca6b5",
+          "#c0cada",
+          "#e5efff"
         ]
       },
-      "muted-foreground": {
-        "role": "neutral",
-        "displayName": "Zinc Mist",
-        "canonical": "#a1a1aa",
-        "tonalRamp": [
-          "#27272a",
-          "#3f3f46",
-          "#52525b",
-          "#71717a",
-          "#a1a1aa",
-          "#d4d4d8",
-          "#e4e4e7",
-          "#fafafa"
-        ]
-      },
-      "prose-ink": {
-        "role": "neutral",
-        "displayName": "Prose Ink",
-        "canonical": "#d4d4d8",
-        "tonalRamp": [
-          "#27272a",
-          "#3f3f46",
-          "#52525b",
-          "#71717a",
-          "#a1a1aa",
-          "#d4d4d8",
-          "#e4e4e7",
-          "#fafafa"
-        ]
-      },
-      "input": {
-        "role": "neutral",
-        "displayName": "Field Edge",
-        "canonical": "#27272a",
-        "tonalRamp": [
-          "#09090b",
-          "#18181b",
-          "#27272a",
-          "#3f3f46",
-          "#52525b",
-          "#71717a",
-          "#a1a1aa",
-          "#d4d4d8"
-        ]
-      },
-      "ring": {
-        "role": "neutral",
-        "displayName": "Focus Ring",
-        "canonical": "#a1a1aa",
-        "tonalRamp": [
-          "#27272a",
-          "#3f3f46",
-          "#52525b",
-          "#71717a",
-          "#a1a1aa",
-          "#d4d4d8",
-          "#e4e4e7",
-          "#fafafa"
-        ]
-      },
-      "border": {
+      "line": {
         "role": "neutral",
         "displayName": "Hairline",
-        "canonical": "rgb(216 216 221 / 0.1)",
+        "canonical": "#e2e5ea",
+        "oklch": "oklch(92.1% 0.008 260.7)",
         "tonalRamp": [
-          "rgb(216 216 221 / 0.05)",
-          "rgb(216 216 221 / 0.1)",
-          "rgb(216 216 221 / 0.15)",
-          "rgb(216 216 221 / 0.2)",
-          "rgb(216 216 221 / 0.3)",
-          "rgb(216 216 221 / 0.35)",
-          "rgb(216 216 221 / 0.5)",
-          "rgb(216 216 221 / 0.7)"
+          "#090b0e",
+          "#232529",
+          "#404246",
+          "#5f6166",
+          "#808287",
+          "#a2a5aa",
+          "#c6c9ce",
+          "#eceff4"
         ]
       },
-      "border-top": {
+      "line-strong": {
         "role": "neutral",
-        "displayName": "Lit Edge",
-        "canonical": "rgb(216 216 221 / 0.2)",
+        "displayName": "Hairline Strong",
+        "canonical": "#cdd2d9",
+        "oklch": "oklch(86.2% 0.011 256.7)",
         "tonalRamp": [
-          "rgb(216 216 221 / 0.05)",
-          "rgb(216 216 221 / 0.1)",
-          "rgb(216 216 221 / 0.15)",
-          "rgb(216 216 221 / 0.2)",
-          "rgb(216 216 221 / 0.3)",
-          "rgb(216 216 221 / 0.35)",
-          "rgb(216 216 221 / 0.5)",
-          "rgb(216 216 221 / 0.7)"
+          "#080b10",
+          "#22252b",
+          "#3e4248",
+          "#5d6268",
+          "#7e8389",
+          "#a1a5ac",
+          "#c5cad0",
+          "#eaeff6"
         ]
       },
-      "border-bottom": {
-        "role": "neutral",
-        "displayName": "Shade Edge",
-        "canonical": "rgb(216 216 221 / 0.05)",
-        "tonalRamp": [
-          "rgb(216 216 221 / 0.05)",
-          "rgb(216 216 221 / 0.1)",
-          "rgb(216 216 221 / 0.15)",
-          "rgb(216 216 221 / 0.2)",
-          "rgb(216 216 221 / 0.3)",
-          "rgb(216 216 221 / 0.35)",
-          "rgb(216 216 221 / 0.5)",
-          "rgb(216 216 221 / 0.7)"
-        ]
-      },
-      "brand": {
-        "role": "secondary",
-        "displayName": "Apricot Light",
-        "canonical": "#fdba72",
-        "tonalRamp": [
-          "#431407",
-          "#7c2d12",
-          "#9a3412",
-          "#c2410c",
-          "#ea580c",
-          "#fb923c",
-          "#fdba74",
-          "#fed7aa"
-        ]
-      },
-      "brand-foreground": {
-        "role": "secondary",
-        "displayName": "Ember Glow",
-        "canonical": "#fb923c",
-        "tonalRamp": [
-          "#431407",
-          "#7c2d12",
-          "#9a3412",
-          "#c2410c",
-          "#ea580c",
-          "#fb923c",
-          "#fdba74",
-          "#fed7aa"
-        ]
-      },
-      "primary-ink": {
+      "cobalt": {
         "role": "primary",
-        "displayName": "Ink on White",
-        "canonical": "#18181b",
+        "displayName": "Electric Cobalt",
+        "canonical": "#1f4bff",
+        "oklch": "oklch(52.2% 0.267 265.5)",
         "tonalRamp": [
-          "#09090b",
-          "#18181b",
-          "#27272a",
-          "#3f3f46",
-          "#52525b",
-          "#71717a",
-          "#a1a1aa",
-          "#d4d4d8"
+          "#0e005a",
+          "#0b008d",
+          "#0c0cc4",
+          "#1940f5",
+          "#346aff",
+          "#5895ff",
+          "#83c0ff",
+          "#b1e9ff"
         ]
       },
-      "primary-hover": {
+      "cobalt-deep": {
         "role": "primary",
-        "displayName": "White Pressed",
-        "canonical": "#e4e4e7",
+        "displayName": "Deep Cobalt",
+        "canonical": "#1236d1",
+        "oklch": "oklch(43.9% 0.236 265.2)",
         "tonalRamp": [
-          "#27272a",
-          "#3f3f46",
-          "#52525b",
-          "#71717a",
-          "#a1a1aa",
-          "#d4d4d8",
-          "#e4e4e7",
-          "#fafafa"
+          "#090052",
+          "#060083",
+          "#0921b7",
+          "#1e4ae4",
+          "#3b71ff",
+          "#5f99ff",
+          "#8ac2ff",
+          "#b6ebff"
         ]
       },
-      "status-idle": {
-        "role": "neutral",
-        "displayName": "Idle Dot",
-        "canonical": "#52525b",
+      "cobalt-tint": {
+        "role": "primary",
+        "displayName": "Cobalt Mist",
+        "canonical": "#e8edff",
+        "oklch": "oklch(94.8% 0.025 273.5)",
         "tonalRamp": [
-          "#09090b",
-          "#18181b",
-          "#27272a",
-          "#3f3f46",
-          "#52525b",
-          "#71717a",
-          "#a1a1aa",
-          "#d4d4d8"
+          "#080a16",
+          "#212431",
+          "#3e4150",
+          "#5c6170",
+          "#7d8292",
+          "#a0a4b5",
+          "#c4c8da",
+          "#e9eeff"
         ]
       },
-      "status-live": {
-        "role": "tertiary",
-        "displayName": "Live Green",
-        "canonical": "#4ade80",
+      "cobalt-ink": {
+        "role": "primary",
+        "displayName": "Cobalt Ink",
+        "canonical": "#0a1a66",
+        "oklch": "oklch(27.1% 0.133 266.6)",
         "tonalRamp": [
-          "#14532d",
-          "#166534",
-          "#15803d",
-          "#16a34a",
-          "#22c55e",
-          "#4ade80",
-          "#86efac",
-          "#bbf7d0"
+          "#020038",
+          "#0a1a60",
+          "#213a87",
+          "#3e5bac",
+          "#5e7ed2",
+          "#7fa1f8",
+          "#a4c7ff",
+          "#cdedff"
         ]
       },
-      "status-error": {
-        "role": "tertiary",
-        "displayName": "Error Coral",
-        "canonical": "#f87171",
+      "on-cobalt-soft": {
+        "role": "primary",
+        "displayName": "Soft On-Cobalt",
+        "canonical": "#dfe5ff",
+        "oklch": "oklch(92.5% 0.036 275.4)",
         "tonalRamp": [
-          "#7f1d1d",
-          "#991b1b",
-          "#b91c1c",
-          "#dc2626",
-          "#ef4444",
-          "#f87171",
-          "#fca5a5",
-          "#fecaca"
+          "#07091a",
+          "#202437",
+          "#3c4155",
+          "#5b6076",
+          "#7c8198",
+          "#9ea4bc",
+          "#c2c8e1",
+          "#e7edff"
+        ]
+      },
+      "on-ink-link": {
+        "role": "primary",
+        "displayName": "Periwinkle On-Ink",
+        "canonical": "#7d9bff",
+        "oklch": "oklch(71.1% 0.150 269.7)",
+        "tonalRamp": [
+          "#04003c",
+          "#101566",
+          "#253590",
+          "#4158b5",
+          "#5f7bdb",
+          "#809eff",
+          "#a6c4ff",
+          "#ceebff"
+        ]
+      },
+      "ok": {
+        "role": "status",
+        "displayName": "Measured Green",
+        "canonical": "#12a150",
+        "oklch": "oklch(62.2% 0.163 151.0)",
+        "tonalRamp": [
+          "#001600",
+          "#003500",
+          "#005700",
+          "#007929",
+          "#029c4c",
+          "#44c16e",
+          "#7ae497",
+          "#adffc3"
+        ]
+      },
+      "ok-text": {
+        "role": "status",
+        "displayName": "Measured Green Text",
+        "canonical": "#0b7a3b",
+        "oklch": "oklch(50.8% 0.133 151.0)",
+        "tonalRamp": [
+          "#001500",
+          "#003300",
+          "#005416",
+          "#007537",
+          "#389857",
+          "#5ebc79",
+          "#89e09f",
+          "#b7ffc9"
+        ]
+      },
+      "fault": {
+        "role": "status",
+        "displayName": "Fault Red",
+        "canonical": "#d4483b",
+        "oklch": "oklch(59.5% 0.178 28.8)",
+        "tonalRamp": [
+          "#310000",
+          "#5c0000",
+          "#880000",
+          "#b0231b",
+          "#d84c3f",
+          "#ff7261",
+          "#ff9e8d",
+          "#ffcab9"
+        ]
+      },
+      "dypos": {
+        "role": "guest",
+        "displayName": "DypOS Orange",
+        "canonical": "#ff7a00",
+        "oklch": "oklch(72.3% 0.190 50.5)",
+        "tonalRamp": [
+          "#300000",
+          "#5a0000",
+          "#860000",
+          "#ae2d00",
+          "#d65400",
+          "#fd7a09",
+          "#ffa65c",
+          "#ffd193"
+        ]
+      },
+      "dypos-night": {
+        "role": "guest",
+        "displayName": "DypOS Night",
+        "canonical": "#0f161d",
+        "oklch": "oklch(19.7% 0.018 248.7)",
+        "tonalRamp": [
+          "#060c12",
+          "#1e262d",
+          "#3b434b",
+          "#5a626b",
+          "#7a838d",
+          "#9da6b0",
+          "#c1cad4",
+          "#e6f0fa"
+        ]
+      },
+      "moyiq": {
+        "role": "guest",
+        "displayName": "moyiq Violet",
+        "canonical": "#5b21d6",
+        "oklch": "oklch(46.4% 0.244 286.7)",
+        "tonalRamp": [
+          "#170050",
+          "#2c0080",
+          "#4600b3",
+          "#622fe0",
+          "#805aff",
+          "#a084ff",
+          "#c2b0ff",
+          "#e7dbff"
+        ]
+      },
+      "moyiq-night": {
+        "role": "guest",
+        "displayName": "moyiq Night",
+        "canonical": "#1e1044",
+        "oklch": "oklch(23.0% 0.092 289.5)",
+        "tonalRamp": [
+          "#0d002b",
+          "#26194e",
+          "#42386f",
+          "#605792",
+          "#8179b6",
+          "#a39cdb",
+          "#c7c0ff",
+          "#ece6ff"
+        ]
+      },
+      "moyiq-lime": {
+        "role": "guest",
+        "displayName": "moyiq Lime",
+        "canonical": "#d4f25a",
+        "oklch": "oklch(91.1% 0.177 119.6)",
+        "tonalRamp": [
+          "#080e00",
+          "#1f2b00",
+          "#3a4b00",
+          "#576c00",
+          "#778f00",
+          "#99b300",
+          "#bdd756",
+          "#e3fc90"
+        ]
+      },
+      "esmalia": {
+        "role": "guest",
+        "displayName": "Esmalia Red",
+        "canonical": "#c8102e",
+        "oklch": "oklch(53.0% 0.207 22.3)",
+        "tonalRamp": [
+          "#350000",
+          "#610000",
+          "#900000",
+          "#ba0023",
+          "#e43845",
+          "#ff6468",
+          "#ff9593",
+          "#ffc3bf"
+        ]
+      },
+      "esmalia-porcelain": {
+        "role": "guest",
+        "displayName": "Esmalia Porcelain",
+        "canonical": "#eef1f2",
+        "oklch": "oklch(95.6% 0.003 219.5)",
+        "tonalRamp": [
+          "#0a0b0c",
+          "#232526",
+          "#404243",
+          "#5f6262",
+          "#808384",
+          "#a3a5a6",
+          "#c7cacb",
+          "#eceff0"
         ]
       }
     },
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Hero H1 only, max 15ch, centered."
+        "purpose": "Home hero H1 only."
+      },
+      "poster": {
+        "displayName": "Poster",
+        "purpose": "Closing claim on the cobalt footer band."
+      },
+      "page-title": {
+        "displayName": "Page Title",
+        "purpose": "Inner page H1s."
       },
       "headline": {
         "displayName": "Headline",
         "purpose": "Section H2s."
       },
-      "title-lg": {
-        "displayName": "Title Large",
-        "purpose": "Product names in feature rows."
-      },
       "title": {
         "displayName": "Title",
-        "purpose": "Card titles and service names."
+        "purpose": "Card H2s and service cell titles."
+      },
+      "cell-title": {
+        "displayName": "Cell Title",
+        "purpose": "Product names in bento cells."
       },
       "lead": {
         "displayName": "Lead",
-        "purpose": "Hero lead and section intros, always muted."
+        "purpose": "Paragraph under an H1."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Paragraphs, 42-62ch."
+        "purpose": "All running text."
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Buttons, nav links, field labels."
+        "purpose": "Pills, tags, captions, nav."
       },
-      "caption": {
-        "displayName": "Caption",
-        "purpose": "Pills, figure captions, fact labels."
+      "figure": {
+        "displayName": "Figure",
+        "purpose": "Clocks, latency, demo counters and log stats; tabular figures only here."
       }
     },
     "shadows": [
       {
-        "name": "screen",
-        "value": "-12px 16px 48px rgb(0 0 0 / 0.53)",
-        "purpose": "Product screenshots inside frames and mosaic tiles."
+        "name": "menu-float",
+        "value": "0 18px 40px -12px rgb(13 17 23 / 0.25)",
+        "purpose": "Mobile nav disclosure panel."
       },
       {
-        "name": "primary-lift",
-        "value": "0 1px 2px rgb(0 0 0 / 0.3)",
-        "purpose": "White primary button."
+        "name": "screenshot-lift",
+        "value": "0 22px 50px -24px rgb(0 0 0 / 0.55)",
+        "purpose": "Product screenshots on their brand-night panel."
       },
       {
-        "name": "glow-button",
-        "value": "0 4px 6px -1px rgb(0 0 0 / 0.13), 0 2px 4px -2px rgb(0 0 0 / 0.13)",
-        "purpose": "Secondary glass button."
+        "name": "active-ticket",
+        "value": "0 6px 18px rgb(0 0 0 / 0.35)",
+        "purpose": "Active ticket inside the DypOS demo."
       },
       {
-        "name": "live-halo",
-        "value": "0 0 8px rgb(74 222 128 / 0.6)",
-        "purpose": "Live status dots only."
+        "name": "live-ring",
+        "value": "0 0 0 3px rgb(18 161 80 / 0.16)",
+        "purpose": "Ring around a measured-online dot."
       },
       {
-        "name": "field-focus",
-        "value": "0 0 0 3px rgb(161 161 170 / 0.25)",
-        "purpose": "Inputs on focus."
-      },
-      {
-        "name": "display-lift",
-        "value": "drop-shadow(0 25px 25px rgb(0 0 0 / 0.15))",
-        "purpose": "Filter on the hero H1 over the glow."
+        "name": "focus-ring",
+        "value": "outline: 3px solid var(--cobalt); outline-offset: 2px",
+        "purpose": "Global focus-visible; white on cobalt fields, #7d9bff on ink."
       }
     ],
     "motion": [
       {
         "name": "ease",
-        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "The single curve for every transition and animation."
+        "value": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+        "purpose": "Arrow nudge, FAQ mark, demo slide-ins, progress bar, re-check spin."
       },
       {
-        "name": "state-fast",
-        "value": "160-180ms",
-        "purpose": "Color, border, background, press transitions."
+        "name": "cell-flood",
+        "value": "background-color 0.28s ease, color 0.28s ease, border-color 0.28s ease",
+        "purpose": "Product cell taking its brand colour on hover/focus."
       },
       {
-        "name": "arrow-nudge",
-        "value": "220ms, translateX(2px)",
-        "purpose": "Button arrow on hover; FAQ chevron rotation."
+        "name": "ping",
+        "value": "0.6s ease, scale 1.6 at 50%",
+        "purpose": "Status dot when a new measurement lands."
       },
       {
-        "name": "appear",
-        "value": "700ms, from translateY(1rem) blur(6px); delays 100/220/420ms",
-        "purpose": "Hero entrance on load; html.js and no-preference only; never from opacity 0."
+        "name": "slidein",
+        "value": "0.4-0.45s var(--ease), from opacity 0 translateY(-8px)",
+        "purpose": "New list row or chat bubble in a demo."
       },
       {
-        "name": "rise",
-        "value": "from translateY(2rem), animation-timeline view(), entry 0%-60%",
-        "purpose": "Feature screens and cards entering viewport where supported."
+        "name": "reduced-motion",
+        "value": "all animations and transitions off",
+        "purpose": "prefers-reduced-motion: reduce."
       }
     ],
     "breakpoints": [
       {
-        "name": "lg",
-        "value": "1000px"
+        "name": "wide",
+        "value": "1120px"
       },
       {
-        "name": "md",
-        "value": "720px"
+        "name": "nav-fold",
+        "value": "900px"
       },
       {
-        "name": "sm",
-        "value": "480px"
+        "name": "mobile",
+        "value": "760px"
       }
-    ],
-    "layout": {
-      "container": "1280px",
-      "heroMask": "linear-gradient(to top, transparent 0%, black 18%)",
-      "glass": "border var(--border), top var(--border-top), bottom var(--border-bottom); background linear-gradient(to bottom, rgb(255 255 255 / 0.05), rgb(255 255 255 / 0))",
-      "backdrop": "blur(12px) over rgb(9 9 11 / 0.6-0.7)"
-    }
+    ]
   },
   "components": [
     {
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "White action button with authored arrow; one per view region.",
-      "html": "<a class=\"ds-btn ds-btn-primary\" href=\"#\">Talk to us<svg class=\"ds-arrow\" viewBox=\"0 0 16 16\" width=\"14\" height=\"14\" aria-hidden=\"true\"><path d=\"M2 8h11M9 3.5 13.5 8 9 12.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"square\"/></svg></a>",
-      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;height:2.75rem;padding:0 1.4rem;border-radius:calc(var(--radius) - 2px);font:500 .9375rem/1 var(--font);text-decoration:none;white-space:nowrap;cursor:pointer;border:1px solid transparent;transition:background-color 180ms var(--ease),transform 180ms var(--ease)}.ds-btn .ds-arrow{transition:transform 220ms var(--ease)}.ds-btn:hover .ds-arrow{transform:translateX(2px)}.ds-btn:active{transform:translateY(1px)}.ds-btn:focus-visible{outline:2px solid var(--ring);outline-offset:2px}.ds-btn-primary{background:var(--foreground);color:#18181b;box-shadow:0 1px 2px rgb(0 0 0 / .3)}.ds-btn-primary:hover{background:#e4e4e7}"
+      "description": "The single primary action: cobalt pill with a nudging arrow.",
+      "html": "<a class=\"ds-btn ds-btn--primary\" href=\"#\">See the products <svg class=\"ds-arrow\" viewBox=\"0 0 16 16\" width=\"14\" height=\"14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><path d=\"M3 8h9M8.5 4.5 12 8l-3.5 3.5\"/></svg></a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 22px;border-radius:999px;font:600 1rem/1 var(--sans);text-decoration:none;white-space:nowrap;cursor:pointer;border:1.5px solid transparent;transition:background-color .2s,color .2s,border-color .2s}.ds-btn .ds-arrow{transition:transform .25s cubic-bezier(.2,.8,.2,1)}.ds-btn:hover .ds-arrow{transform:translateX(2px)}.ds-btn--primary{background:var(--cobalt);color:#fff}.ds-btn--primary:hover{background:var(--cobalt-deep)}.ds-btn:focus-visible{outline:3px solid var(--cobalt);outline-offset:2px}"
     },
     {
-      "name": "Glow Button",
+      "name": "Line Button",
       "kind": "button",
-      "refersTo": "button-glow",
-      "description": "Secondary glass button with lit top edge.",
-      "html": "<a class=\"ds-btn-glow\" href=\"#\">See the portfolio</a>",
-      "css": ".ds-btn-glow{display:inline-flex;align-items:center;height:2.75rem;padding:0 1.4rem;border-radius:calc(var(--radius) - 2px);font:500 .9375rem/1 var(--font);color:var(--foreground);text-decoration:none;border:1px solid var(--border);border-top-color:rgb(216 216 221 / .3);border-bottom-width:0;background:linear-gradient(to bottom,rgb(255 255 255 / .1),rgb(255 255 255 / .05));box-shadow:0 4px 6px -1px rgb(0 0 0 / .13),0 2px 4px -2px rgb(0 0 0 / .13);transition:background 180ms var(--ease),transform 180ms var(--ease)}.ds-btn-glow:hover{background:linear-gradient(to bottom,rgb(255 255 255 / .15),rgb(255 255 255 / .05))}.ds-btn-glow:active{transform:translateY(1px)}.ds-btn-glow:focus-visible{outline:2px solid var(--ring);outline-offset:2px}"
+      "refersTo": "button-line",
+      "description": "Secondary action on light ground; fills ink on hover.",
+      "html": "<a class=\"ds-btn-line\" href=\"#\">Talk about your project</a>",
+      "css": ".ds-btn-line{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:999px;border:1.5px solid var(--ink);color:var(--ink);background:transparent;font:600 1rem/1 var(--sans);text-decoration:none;transition:background-color .2s,color .2s}.ds-btn-line:hover{background:var(--ink);color:#fff}.ds-btn-line:focus-visible{outline:3px solid var(--cobalt);outline-offset:2px}"
+    },
+    {
+      "name": "Light Button",
+      "kind": "button",
+      "refersTo": "button-light",
+      "description": "Primary action on cobalt or ink fields.",
+      "html": "<div class=\"ds-on-cobalt\"><a class=\"ds-btn-light\" href=\"#\">Write to us</a></div>",
+      "css": ".ds-on-cobalt{background:var(--cobalt);padding:20px;border-radius:16px}.ds-btn-light{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:999px;background:#fff;color:var(--cobalt-ink);font:600 1rem/1 var(--sans);text-decoration:none;transition:background-color .2s}.ds-btn-light:hover{background:var(--cobalt-tint)}.ds-btn-light:focus-visible{outline:3px solid #fff;outline-offset:2px}"
     },
     {
       "name": "Status Pill",
       "kind": "chip",
-      "refersTo": "pill-live",
-      "description": "Round status pill; green dot only when verifiably live.",
-      "html": "<span class=\"ds-pill ds-pill-live\">Live</span> <span class=\"ds-pill\">In development</span>",
-      "css": ".ds-pill{display:inline-flex;align-items:center;gap:.4rem;padding:.2rem .6rem;border-radius:999px;border:1px solid var(--border);font:500 .75rem/1.4 var(--font);color:var(--muted-foreground);white-space:nowrap}.ds-pill::before{content:'';width:6px;height:6px;border-radius:50%;background:#52525b}.ds-pill-live{color:var(--foreground)}.ds-pill-live::before{background:#4ade80;box-shadow:0 0 8px rgb(74 222 128 / .6)}"
+      "refersTo": "status-pill",
+      "description": "Measured product status: grey until /api/status answers, green with latency when online.",
+      "html": "<span class=\"ds-pill\"><span class=\"ds-pill__dot\"></span>No data</span> <span class=\"ds-pill is-on\"><span class=\"ds-pill__dot\"></span>Online <b>· 342 ms</b></span>",
+      "css": ".ds-pill{display:inline-flex;align-items:center;gap:7px;height:30px;padding:0 12px;border-radius:999px;background:#f1f3f5;color:var(--ink);font:500 .8125rem/1 var(--sans);white-space:nowrap}.ds-pill b{font-weight:700;font-variant-numeric:tabular-nums}.ds-pill__dot{width:8px;height:8px;border-radius:50%;background:#a3aab5}.ds-pill.is-on .ds-pill__dot{background:var(--ok);box-shadow:0 0 0 3px rgb(18 161 80 / .16)}"
     },
     {
-      "name": "Glass Card",
+      "name": "Product Cell",
       "kind": "card",
-      "refersTo": "card-glass",
-      "description": "Flat glass container with lit top edge; no drop shadow.",
-      "html": "<article class=\"ds-card\"><div class=\"ds-card-top\"><h3>Amazon FBA</h3><span class=\"ds-pill ds-pill-live\">Active</span></div><p>A Seller Central Professional account held by the company, active in the United States.</p></article>",
-      "css": ".ds-card{display:grid;gap:.75rem;padding:clamp(1.4rem,1rem + 1.5vw,2rem);border:1px solid var(--border);border-top-color:var(--border-top);border-bottom-color:var(--border-bottom);background:linear-gradient(to bottom,rgb(255 255 255 / .05),rgb(255 255 255 / 0));border-radius:calc(var(--radius) + 4px);color:var(--foreground);font-family:var(--font)}.ds-card-top{display:flex;justify-content:space-between;align-items:center;gap:1rem}.ds-card h3{margin:0;font-size:1.25rem;font-weight:600;letter-spacing:-.025em}.ds-card p{margin:0;color:var(--muted-foreground)}.ds-pill{display:inline-flex;align-items:center;gap:.4rem;padding:.2rem .6rem;border-radius:999px;border:1px solid var(--border);font:500 .75rem/1.4 var(--font);color:var(--foreground)}.ds-pill::before{content:'';width:6px;height:6px;border-radius:50%;background:#4ade80;box-shadow:0 0 8px rgb(74 222 128 / .6)}"
+      "refersTo": "cell",
+      "description": "White bento cell that floods with the product's own colour on hover or focus.",
+      "html": "<article class=\"ds-cell\" tabindex=\"0\"><h3>Esmalia</h3><p class=\"ds-muted\">Dental clinics</p><a class=\"ds-open\" href=\"#\">Open</a></article>",
+      "css": ".ds-cell{--hb:var(--esmalia);display:flex;flex-direction:column;gap:14px;max-width:320px;padding:22px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:16px;transition:background-color .28s,color .28s,border-color .28s}.ds-cell h3{margin:0;font:700 1.3125rem/1.1 var(--display);letter-spacing:-.01em}.ds-cell p{margin:0}.ds-muted{color:var(--muted)}.ds-cell:hover,.ds-cell:focus-within{background:var(--hb);border-color:var(--hb);color:#fff}.ds-cell:hover .ds-muted,.ds-cell:focus-within .ds-muted{color:#ffe3e7}.ds-open{align-self:flex-start;display:inline-flex;align-items:center;min-height:42px;padding:0 18px;border-radius:999px;border:1.5px solid currentColor;color:inherit;font:600 .9375rem/1 var(--sans);text-decoration:none}.ds-open:hover{background:#fff;color:var(--esmalia);border-color:#fff}"
     },
     {
-      "name": "Text Field",
+      "name": "Cobalt Field Cell",
+      "kind": "card",
+      "refersTo": "cell-cobalt",
+      "description": "Cobalt owning a whole cell: the AI service.",
+      "html": "<article class=\"ds-cobalt\"><h3>AI software for your company</h3><a class=\"ds-case\" href=\"#\">Answer customers on WhatsApp <span>See</span></a></article>",
+      "css": ".ds-cobalt{display:flex;flex-direction:column;gap:16px;max-width:340px;padding:22px;background:var(--cobalt);color:#fff;border-radius:16px}.ds-cobalt h3{margin:0;font:700 1.625rem/1.08 var(--display);letter-spacing:-.02em}.ds-case{display:flex;justify-content:space-between;gap:10px;align-items:center;min-height:44px;padding:10px 14px;border-radius:12px;border:1.5px solid rgb(255 255 255 / .45);background:rgb(255 255 255 / .08);color:#fff;font:500 .9375rem/1.3 var(--sans);text-decoration:none;transition:background-color .2s,color .2s}.ds-case span{font-size:.8125rem;font-weight:600}.ds-case:hover{background:#fff;color:var(--cobalt)}.ds-case:focus-visible{outline:3px solid #fff;outline-offset:2px}"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Log filter; pressed state fills ink.",
+      "html": "<button class=\"ds-chip\" aria-pressed=\"true\">All</button> <button class=\"ds-chip\" aria-pressed=\"false\"><i style=\"background:var(--dypos)\"></i>DypOS</button>",
+      "css": ".ds-chip{min-height:38px;padding:0 16px;border-radius:999px;border:1.5px solid var(--line-2);background:var(--surface);color:var(--ink);font:600 .875rem/1 var(--sans);cursor:pointer;display:inline-flex;align-items:center;gap:8px}.ds-chip i{width:9px;height:9px;border-radius:50%}.ds-chip:hover{border-color:var(--ink)}.ds-chip[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}.ds-chip:focus-visible{outline:3px solid var(--cobalt);outline-offset:2px}"
+    },
+    {
+      "name": "Field on Ink",
       "kind": "input",
-      "refersTo": "input",
-      "description": "Translucent zinc field with soft zinc focus halo.",
-      "html": "<label class=\"ds-field\"><span>Email</span><input type=\"email\" placeholder=\"you@company.com\"></label>",
-      "css": ".ds-field{display:grid;gap:.45rem;font:500 .875rem/1.4 var(--font);color:var(--foreground)}.ds-field input{font:400 .9375rem/1.4 var(--font);color:var(--foreground);background:rgb(39 39 42 / .5);border:1px solid var(--input);border-radius:calc(var(--radius) - 2px);padding:.6rem .75rem;transition:border-color 160ms var(--ease),box-shadow 160ms var(--ease)}.ds-field input:focus{outline:none;border-color:var(--ring);box-shadow:0 0 0 3px rgb(161 161 170 / .25)}"
+      "refersTo": "input-on-ink",
+      "description": "Contact form field on the ink card.",
+      "html": "<div class=\"ds-ink\"><label class=\"ds-field\"><span>Email</span><input type=\"email\" placeholder=\"you@company.com\"></label></div>",
+      "css": ".ds-ink{background:var(--ink);padding:24px;border-radius:16px;max-width:360px}.ds-field{display:flex;flex-direction:column;gap:6px}.ds-field span{font:600 .875rem/1.2 var(--sans);color:#e6eaf0}.ds-field input{min-height:46px;border-radius:12px;border:1.5px solid #3a4350;background:var(--ink-2);color:#fff;padding:0 14px;font:400 1rem var(--sans)}.ds-field input:focus{outline:none;border-color:#7d9bff;box-shadow:0 0 0 3px rgb(125 155 255 / .3)}"
     },
     {
-      "name": "Navbar",
+      "name": "Navigation",
       "kind": "nav",
-      "refersTo": "nav",
-      "description": "Sticky blurred bar: monogram + name, muted links, small white CTA.",
-      "html": "<header class=\"ds-nav\"><a class=\"ds-brand\" href=\"#\">Maxnova &amp; Luci Global</a><nav class=\"ds-links\"><a href=\"#\">Portfolio</a><a href=\"#\">Services</a><a href=\"#\">Company</a><a href=\"#\">ES</a><a class=\"ds-cta\" href=\"#\">Talk to us</a></nav></header>",
-      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:4rem;padding:0 1.5rem;background:rgb(9 9 11 / .7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);font-family:var(--font)}.ds-brand{color:var(--foreground);font-weight:600;font-size:.9375rem;letter-spacing:-.01em;text-decoration:none}.ds-links{display:flex;align-items:center;gap:1.75rem;font-size:.875rem}.ds-links a{color:var(--muted-foreground);text-decoration:none;transition:color 160ms}.ds-links a:hover{color:var(--foreground)}.ds-links a:focus-visible{outline:2px solid var(--ring);outline-offset:2px;border-radius:4px}.ds-links .ds-cta{display:inline-flex;align-items:center;height:2rem;padding:0 .85rem;border-radius:calc(var(--radius) - 2px);background:var(--foreground);color:#18181b;font-weight:500;font-size:.8125rem}.ds-links .ds-cta:hover{background:#e4e4e7;color:#18181b}"
+      "refersTo": "",
+      "description": "Sticky translucent bar: cobalt monogram, text links, language pill, primary CTA.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-brand\"><svg viewBox=\"0 0 100 85.53\" width=\"26\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" fill=\"currentColor\" d=\"M0,5.04 L12.5,17.54 L13.38,17.98 L13.38,18.42 L33.33,38.16 L33.33,38.6 L45.39,50.88 L45.39,37.06 L53.73,45.18 L53.73,59.65 L67.11,73.25 L67.11,85.53 L53.07,71.27 L53.07,70.83 L44.3,62.06 L44.3,61.62 L38.16,55.7 L38.16,55.26 L32.02,49.34 L32.02,48.9 L7.68,24.34 L7.68,76.1 L20.18,76.1 L20.18,49.56 L20.18,49.56 L28.07,57.46 L28.07,83.99 L0,83.99 L0,5.04ZM13.38,0 L23.25,0 L50.66,28.07 L77.63,1.75 L79.61,0.44 L79.61,76.32 L99.78,76.32 L99.78,83.99 L72.15,83.99 L72.15,18.64 L56.14,33.77 L56.14,34.21 L60.09,38.16 L60.09,48.25 L59.65,48.25 L59.65,47.81 L56.36,44.74 L56.36,44.08 L55.04,43.42 L55.04,42.98 L51.32,39.47 L51.32,39.04 L48.03,35.96 L48.03,35.53 L13.38,0Z\"/></svg>Maxnova &amp; Luci Global</span><a href=\"#\" aria-current=\"page\">Products</a><a href=\"#\">Log</a><a class=\"ds-lang\" href=\"#\">ES</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:22px;height:68px;padding:0 20px;background:rgb(246 247 249 / .92);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line);font:500 .9375rem var(--sans)}.ds-brand{display:inline-flex;align-items:center;gap:10px;margin-right:auto;font:700 1.0625rem/1 var(--display);color:var(--ink)}.ds-brand svg{color:var(--cobalt)}.ds-nav a{color:var(--text-2);text-decoration:none;padding:10px 0}.ds-nav a:hover,.ds-nav a[aria-current=page]{color:var(--cobalt)}.ds-nav a[aria-current=page]{text-decoration:underline;text-underline-offset:8px;text-decoration-thickness:2px}.ds-nav .ds-lang{font-weight:600;font-size:.8125rem;border:1.5px solid var(--line-2);border-radius:999px;padding:6px 12px}"
     },
     {
-      "name": "Mockup Frame",
+      "name": "Footer Band",
       "kind": "custom",
-      "refersTo": "mockup-frame",
-      "description": "Real product screen in a soft nested frame with screen shadow and live label.",
-      "html": "<div class=\"ds-frame\"><div class=\"ds-screen\"><span class=\"ds-label\"><i></i>DypOS</span></div></div>",
-      "css": ".ds-frame{padding:.5rem;border-radius:1rem;background:rgb(216 216 221 / .1);max-width:480px}.ds-screen{position:relative;aspect-ratio:2/1;overflow:hidden;border-radius:.5rem;border:1px solid rgb(216 216 221 / .05);border-top-color:rgb(216 216 221 / .15);background:linear-gradient(135deg,#27272a,#09090b);box-shadow:-12px 16px 48px var(--shadow-strong)}.ds-label{position:absolute;left:.75rem;top:.75rem;display:inline-flex;align-items:center;gap:.45rem;padding:.3rem .7rem;border-radius:999px;font:600 .75rem/1 var(--font);color:var(--foreground);background:rgb(9 9 11 / .75);border:1px solid var(--border);backdrop-filter:blur(8px)}.ds-label i{width:6px;height:6px;border-radius:50%;background:#4ade80;box-shadow:0 0 8px rgb(74 222 128 / .6)}.ds-frame:hover .ds-label{border-color:rgb(216 216 221 / .35)}"
-    },
-    {
-      "name": "Warm Glow",
-      "kind": "custom",
-      "description": "Two radial ellipses of brand light behind the main object of a region.",
-      "html": "<div class=\"ds-glow-stage\"><div class=\"ds-glow\"></div><p>Product rises into the glow</p></div>",
-      "css": ".ds-glow-stage{position:relative;overflow:hidden;height:320px;background:var(--background);display:grid;place-items:center;color:var(--foreground);font-family:var(--font)}.ds-glow-stage p{position:relative;z-index:2}.ds-glow{position:absolute;inset:50% 0 auto;height:0;pointer-events:none}.ds-glow::before,.ds-glow::after{content:'';position:absolute;left:50%;border-radius:50%;translate:-50% 0}.ds-glow::before{top:-256px;width:60%;height:512px;scale:2.5 2.5;background:radial-gradient(closest-side,rgb(251 146 60 / .5) 10%,rgb(251 146 60 / 0) 60%);opacity:.35}.ds-glow::after{top:-128px;width:40%;height:256px;scale:2;background:radial-gradient(closest-side,rgb(253 186 114 / .3) 10%,rgb(251 146 60 / 0) 60%);opacity:.6}"
+      "refersTo": "footer-band",
+      "description": "Full-bleed cobalt band with the poster-scale closing claim.",
+      "html": "<footer class=\"ds-band\"><p>We build our own before we build yours.</p></footer>",
+      "css": ".ds-band{background:var(--cobalt);color:#fff;padding:48px 28px;border-radius:16px}.ds-band p{margin:0;font:800 clamp(2.5rem,6vw,5rem)/.9 var(--display);font-variation-settings:'opsz' 96;letter-spacing:-.035em;max-width:13ch}"
     }
   ],
   "narrative": {
-    "northStar": "The Holding as a Product Launch",
-    "overview": "The site presents the company the way a well-funded product presents itself: a dark zinc stage, one clear sentence in large Inter, a white call to action, and the product itself rising out of a warm glow. The twist is that the product is the holding. The hero mockup is a mosaic of the three live companies' real screens, each tile labelled with a live status dot and linking to its entry. Everything after the hero is calm and evidential: alternating feature rows with framed screenshots, divided rows for services, a glass letter from the founder, a glass table of company data, an accordion of questions, and a glass contact form sitting in the second glow.\n\nDensity is generous and quiet. Hierarchy comes from size, weight and tracking in a single family, and from a two-step neutral system (foreground white for what matters, muted zinc for everything that supports it). Depth comes from light, not from shadow: glass surfaces have a brighter top edge than bottom, and the only heavy shadow sits under product screens. Color is almost absent; the warm orange exists as light, and green exists only as a truthful status signal.\n\nThe language is Launch UI's, adapted. It is a register (Stripe/Linear-class product page), not a template to fill with invented dashboards: every screen shown is a real capture of a live product.",
+    "northStar": "Bento vivo",
+    "overview": "The corporate site is a board of working cells, not an agency landing page. A visitor uses a slice of each product before reading a claim: a DypOS kitchen ticket moves across columns, a moyiq expense typed in plain words is categorised and subtracted, an Esmalia appointment gets confirmed over WhatsApp. All three run on sample data and say so. Around them, the company proves it operates: status pills measured by `/api/status`, a dated log, the Florida registry strip.\n\nThe ground is a cool, quiet grey with white cells; the whole board is light and calm so the products can be loud. Maxnova itself speaks in one colour, an electric cobalt that never decorates: it takes over entire fields (the AI service cell, the first log stat, the closing footer band with its poster-scale claim) or marks the one primary action. Product colours are guests: each one appears only inside its own product's cell, demo, tag or page section, and a product cell floods with its brand colour on hover or focus.\n\nDepth is flat. Cells are separated by a 16px gap and a hairline, not by shadows. The only motion is functional: the demos animate the step a user just took, status dots pulse when a measurement lands, the \"Check again\" icon spins while re-measuring. `prefers-reduced-motion` turns all of it off.",
     "keyCharacteristics": [
-      "Dark zinc ground (`background`), white primary actions, muted zinc supporting copy.",
-      "Inter only, 600 for headings with negative tracking, 500 for leads and labels.",
-      "Glass surfaces with a lit top edge and a 5% white top-down gradient.",
-      "Real product screenshots in soft, nested frames with a deep ambient shadow.",
-      "One warm radial glow, behind the hero mockup and the contact block only.",
-      "Green status dots for live companies; muted dots for anything not live.",
-      "\"Appear\" entrance on load (short rise plus small blur) and scroll-rise on screens; static without JS and under reduced motion."
+      "12-column bento of white 16px-radius cells on a cool grey ground.",
+      "One electric cobalt that owns whole fields, never sprinkled.",
+      "Product cells take their own brand colour on hover; guest colours stay inside their product.",
+      "Live, honest signals: grey until measured, green only after a real answer.",
+      "Bricolage Grotesque display at optical size 96, Schibsted Grotesk for everything readable.",
+      "Light theme only."
     ],
     "rules": [
       {
-        "name": "The Warm Light Rule",
-        "body": "Orange exists as light: the two-ellipse radial glow behind the hero mockup and the contact block, plus tiny marks (step numerals, selection, caret). It is never a button fill, a text block, a border, or a background panel.",
+        "name": "The Whole Field Rule",
+        "body": "Cobalt either owns an entire surface (a cell, a stat, the footer band) or marks a single action or link. It is never a thin decorative accent, gradient or glow.",
         "section": "colors"
       },
       {
-        "name": "The White Action Rule",
-        "body": "The primary action is a white button with near-black text. There is exactly one primary per view region; the secondary is the glow button.",
+        "name": "The Guest Colour Rule",
+        "body": "A product colour may appear only where that product is the subject. Outside its own cell or section, a product is named in ink or represented by its own logo.",
         "section": "colors"
       },
       {
-        "name": "The Truthful Green Rule",
-        "body": "Green appears only when something is verifiably live or a form has actually been accepted by the server. It is never decorative.",
+        "name": "The Measured Green Rule",
+        "body": "Green is a fact, not a colour choice. Nothing turns green until a real measurement says so.",
         "section": "colors"
       },
       {
-        "name": "The One Family Rule",
-        "body": "Inter is the only typeface. Hierarchy is made with size, weight (400/500/600) and tracking, never with a second family, italics as display, or uppercase tracking.",
+        "name": "The No Ochre Rule",
+        "body": "Maxnova's colours are vivid and high-impact. It never uses ochre, bronze or dull gold. When a vivid colour cannot carry white text at contrast, the text goes in ink on the full colour (DypOS orange takes dark text), the colour is never dulled.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tabular Only Where Numbers Line Up Rule",
+        "body": "Tabular figures are switched on only for clocks, latency, demo counters and log stats. Schibsted's tabular set widens punctuation, so prose and prices keep proportional figures.",
         "section": "typography"
       },
       {
-        "name": "The Muted Support Rule",
-        "body": "Anything that explains a heading (lead, intro, description, caption) is set in muted-foreground; only headings, names, values and actions are full white.",
+        "name": "The No Eyebrow Rule",
+        "body": "No small label, kicker or eyebrow sits above a heading. A heading opens its block.",
         "section": "typography"
       },
       {
-        "name": "The Lit Edge Rule",
-        "body": "A raised surface shows its depth through a brighter top border than bottom border, never through a drop shadow. Heavy shadow is reserved for product screens.",
+        "name": "The Flat Board Rule",
+        "body": "Cells never carry a resting shadow. If a cell needs emphasis, it changes field (white to cobalt, ink or tint), not elevation.",
         "section": "elevation"
-      },
-      {
-        "name": "The Nested Radius Rule",
-        "body": "A frame's radius equals its inner screen's radius plus its padding (16px frame, 8px padding, 8px screen). Never put a sharper corner outside a softer one.",
-        "section": "shapes"
       }
     ],
     "dos": [
-      "**Do** use the white primary button for the one main action in a region, and the glow button for the secondary.",
-      "**Do** show only real screenshots of live products inside mockup frames, with the Screen shadow and nested radii (16px frame, 8px padding, 8px screen).",
-      "**Do** keep supporting copy in `muted-foreground` and reserve full white for headings, names, values and actions.",
-      "**Do** build raised surfaces as glass: hairline border, brighter top edge, 5% white top-down gradient.",
-      "**Do** keep every animation on the single ease curve, gated behind `html.js` and reduced-motion, starting from transform or blur rather than invisibility.",
-      "**Do** credit Launch UI (MIT) in THIRD_PARTY_NOTICES.md whenever more of its patterns are ported."
+      "**Do** keep cells white on the `ground`, 16px radius, 16px gap, hairline border, no resting shadow.",
+      "**Do** let cobalt own a whole field or a single action; use `cobalt-tint` with `cobalt-ink` for the quiet variant.",
+      "**Do** keep product colours, logos and demos inside their own product cell or section.",
+      "**Do** show a status as grey \"No data\" until a real measurement returns, then green or red.",
+      "**Do** label every demo and screenshot honestly (sample data, real demo screen or public page, capture date).",
+      "**Do** use pills for every control and tabular figures only for clocks, latency and counters.",
+      "**Do** keep vivid colours vivid: put ink text on a colour that cannot carry white."
     ],
     "donts": [
-      "**Don't** fill buttons, panels or text blocks with orange; the brand hues exist as glow light and tiny marks only.",
-      "**Don't** show a green status dot for anything not verifiably live.",
-      "**Don't** add invented dashboards, fake metrics, testimonials or customer counts to mockups or cards.",
-      "**Don't** introduce a second typeface or uppercase letter-spaced labels; Inter at 400/500/600 carries the whole hierarchy.",
-      "**Don't** place kicker or eyebrow labels above headings.",
-      "**Don't** add drop shadows to cards or glass containers, or hard offset shadows anywhere.",
-      "**Don't** scatter glows; at most one per view region, behind the main object (on the home: hero mockup and contact block)."
+      "**Don't** invent customers, numbers or testimonials; the site says plainly that the company is early.",
+      "**Don't** put a kicker or eyebrow above a heading.",
+      "**Don't** recolour a product or borrow a product's colour for Maxnova surfaces.",
+      "**Don't** use ochre, bronze or dull gold anywhere.",
+      "**Don't** add a dark theme; the site is light only.",
+      "**Don't** use gradient text, glass cards or glow; the sticky nav's blur is the only translucency.",
+      "**Don't** introduce a third typeface or a mono face."
     ]
-  },
-  "world": "Red en operaci\u00f3n",
-  "updated": "2026-11-03",
-  "colors": {
-    "ground": "#e6e8e4",
-    "ink": "#101416",
-    "gold": "#d9a441",
-    "live": "#1fa35b"
-  },
-  "fonts": {
-    "sans": "Schibsted Grotesk",
-    "mono": "Martian Mono"
   }
 }
